@@ -109,13 +109,16 @@
   <!-- ==================== TOP CONSULTANT CONTACT BAR ==================== -->
   <div class="bg-royal-950 text-sand-100 text-xs py-2 px-4 border-b border-gold-900/40">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-      <div class="flex items-center gap-4">
+      <div class="flex items-center gap-3 sm:gap-4">
         <span class="flex items-center gap-1.5 text-gold-400">
           <i data-lucide="map-pin" class="w-3.5 h-3.5 text-gold-500"></i>
           <span>Primary Focus: <strong>Jaipur, Rajasthan</strong> | Statewide Opportunities</span>
         </span>
         <span class="hidden md:inline text-slate-600">•</span>
-        <span class="hidden md:inline text-slate-300">RERA Verified Property Advisory Desk</span>
+        <span class="hidden sm:inline-flex items-center gap-1.5 text-gold-300 font-mono text-[11px] bg-royal-900/90 px-2.5 py-0.5 rounded-full border border-gold-500/30">
+          <i data-lucide="clock" class="w-3 h-3 text-gold-400"></i>
+          <span id="topBarClock">--:--:-- IST</span>
+        </span>
       </div>
       <div class="flex items-center gap-5 text-[11px] sm:text-xs">
         <a href="https://wa.me/919461812342?text=Hello%20Royal%20Rajasthan%20Properties,%20I%20would%20like%20to%20inquire%20about%20properties%20in%20Jaipur." target="_blank" rel="noopener" class="text-emerald-400 hover:text-emerald-300 font-medium flex items-center gap-1.5 transition-colors">
@@ -155,9 +158,12 @@
         </div>
       </a>
 
-      <!-- Desktop Navigation (Exact order: Home, Projects, About, Why Us, Locations, Contact) -->
-      <nav class="hidden lg:flex items-center gap-8 text-xs font-medium uppercase tracking-wider text-sand-200">
+      <!-- Desktop Navigation (Exact order: Home, Schedule Visit, Projects, About, Why Us, Locations, Contact) -->
+      <nav class="hidden lg:flex items-center gap-7 text-xs font-medium uppercase tracking-wider text-sand-200">
         <a href="#hero" class="hover:text-gold-400 transition-colors">Home</a>
+        <a href="#schedule-visit" class="text-gold-300 hover:text-gold-200 transition-colors flex items-center gap-1.5 font-semibold">
+          <i data-lucide="calendar" class="w-3.5 h-3.5 text-gold-400"></i> Visit & Clock
+        </a>
         <a href="#projects" class="hover:text-gold-400 transition-colors">Projects</a>
         <a href="#about" class="hover:text-gold-400 transition-colors">About</a>
         <a href="#why-us" class="hover:text-gold-400 transition-colors">Why Us</a>
@@ -194,6 +200,9 @@
         </div>
       </div>
       <a href="#hero" class="block text-sm font-medium text-sand-200 hover:text-gold-400">Home</a>
+      <a href="#schedule-visit" class="block text-sm font-medium text-gold-300 hover:text-gold-200 flex items-center gap-2">
+        <i data-lucide="calendar" class="w-4 h-4 text-gold-400"></i> Live Clock & Visit Calendar
+      </a>
       <a href="#projects" class="block text-sm font-medium text-sand-200 hover:text-gold-400">Projects</a>
       <a href="#about" class="block text-sm font-medium text-sand-200 hover:text-gold-400">About</a>
       <a href="#why-us" class="block text-sm font-medium text-sand-200 hover:text-gold-400">Why Us</a>
@@ -352,6 +361,286 @@
             <p class="text-[11px] text-slate-400">NRI & institutional guidance</p>
           </div>
         </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 3. LIVE CLOCK & SITE VISIT / CONSULTATION CALENDAR ==================== -->
+  <section id="schedule-visit" class="py-16 md:py-24 bg-gradient-to-b from-royal-950 via-royal-900 to-royal-950 text-white relative overflow-hidden border-t border-b border-gold-subtle">
+    <!-- Subtle architectural background accents -->
+    <div class="absolute inset-0 bg-jali-pattern opacity-10 pointer-events-none"></div>
+    <div class="absolute -top-32 -left-32 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-gold-400/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Tag & Heading -->
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-royal-800/90 border border-gold-500/40 text-gold-300 text-xs font-semibold uppercase tracking-widest mb-3 font-display shadow-sm">
+          <i data-lucide="calendar-clock" class="w-4 h-4 text-gold-400"></i>
+          <span>Live Rajasthan Advisory & Interactive Scheduler</span>
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-white tracking-tight">
+          Plan Your <span class="text-gold-gradient font-display font-bold">Royal Property Walkthrough</span>
+        </h2>
+        <p class="mt-3 text-sand-200 text-sm sm:text-base font-light">
+          Real-time Jaipur advisory desk timekeeper and interactive site visit scheduler. Select your preferred date, luxury time slot, and property for an exclusive VIP walkthrough.
+        </p>
+      </div>
+
+      <!-- Main Dual Grid Layout (Clock Card on Left, Interactive Calendar on Right) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- ================= LEFT COLUMN: LIVE CLOCK & ADVISORY DESK (5 cols) ================= -->
+        <div class="lg:col-span-5 space-y-6">
+          
+          <!-- Grand Digital Clock Card -->
+          <div class="p-6 sm:p-8 rounded-3xl bg-royal-950/90 border border-gold-500/40 shadow-gold-glow backdrop-blur-md relative overflow-hidden">
+            <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-6">
+              <div class="flex items-center gap-2.5">
+                <span class="p-2 rounded-xl bg-gold-500/15 border border-gold-500/30 text-gold-400">
+                  <i data-lucide="clock" class="w-5 h-5"></i>
+                </span>
+                <div>
+                  <h3 class="text-xs uppercase tracking-widest font-bold text-gold-300 font-display">Live Rajasthan Time</h3>
+                  <p class="text-[11px] text-slate-400 font-mono">Jaipur, India (IST • UTC+05:30)</p>
+                </div>
+              </div>
+              <span class="px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/40 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                LIVE
+              </span>
+            </div>
+
+            <!-- Big Digital Clock Display -->
+            <div class="text-center py-5 px-4 bg-royal-900/80 rounded-2xl border border-gold-500/20 shadow-inner mb-6">
+              <div class="flex items-baseline justify-center gap-1.5 sm:gap-2 font-mono font-bold text-4xl sm:text-5xl text-white tracking-wider">
+                <span id="liveClockHours" class="text-gold-300">--</span>
+                <span class="text-gold-500 animate-pulse">:</span>
+                <span id="liveClockMinutes" class="text-white">--</span>
+                <span class="text-gold-500 animate-pulse">:</span>
+                <span id="liveClockSeconds" class="text-gold-400 text-3xl sm:text-4xl">--</span>
+                <span id="liveClockAmPm" class="text-xs sm:text-sm font-sans font-bold text-gold-400 ml-1.5 uppercase px-2 py-0.5 rounded bg-gold-500/20 border border-gold-500/40">IST</span>
+              </div>
+              
+              <!-- Date Text Display -->
+              <div id="liveClockDate" class="mt-3 text-sand-200 text-sm sm:text-base font-serif font-medium tracking-wide">
+                Loading live date...
+              </div>
+            </div>
+
+            <!-- Desk Status Indicator -->
+            <div id="deskStatusBox" class="p-4 rounded-xl bg-royal-900/80 border border-white/10 mb-6">
+              <div class="flex items-center gap-3">
+                <div id="deskStatusDot" class="w-3 h-3 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399] shrink-0 animate-pulse"></div>
+                <div>
+                  <div id="deskStatusTitle" class="text-xs font-bold uppercase tracking-wider text-emerald-300">
+                    Advisory Desk Is Active
+                  </div>
+                  <div id="deskStatusSubtitle" class="text-[11px] text-slate-300 mt-0.5">
+                    Official Hours: 09:00 AM – 08:00 PM IST • Instant Response
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Instant Contact Badges -->
+            <div class="grid grid-cols-2 gap-3 pt-1">
+              <a href="https://wa.me/919461812342?text=Hello%20Royal%20Rajasthan%20Properties,%20I%20am%20checking%20available%20properties%20in%20Jaipur." target="_blank" class="p-3 rounded-xl bg-emerald-950/60 hover:bg-emerald-900/70 border border-emerald-500/40 text-left transition-all group">
+                <div class="flex items-center gap-2 text-emerald-400 text-xs font-bold mb-1">
+                  <i data-lucide="message-circle" class="w-4 h-4"></i>
+                  <span>WhatsApp Desk</span>
+                </div>
+                <div class="text-[11px] text-slate-300 group-hover:text-white font-mono">+91 94618 12342</div>
+              </a>
+
+              <a href="tel:+919461812342" class="p-3 rounded-xl bg-royal-900/60 hover:bg-royal-800/80 border border-gold-500/30 text-left transition-all group">
+                <div class="flex items-center gap-2 text-gold-400 text-xs font-bold mb-1">
+                  <i data-lucide="phone-call" class="w-4 h-4"></i>
+                  <span>Phone Hotline</span>
+                </div>
+                <div class="text-[11px] text-slate-300 group-hover:text-white font-mono">+91 94618 12342</div>
+              </a>
+            </div>
+
+            <div class="mt-4 pt-4 border-t border-white/10 text-center">
+              <a href="mailto:nav00900@gmail.com" class="text-xs text-sand-300 hover:text-gold-300 flex items-center justify-center gap-1.5 transition-colors">
+                <i data-lucide="mail" class="w-3.5 h-3.5 text-gold-400"></i>
+                <span>Direct Advisory Email: <strong>nav00900@gmail.com</strong></span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Why Schedule in Advance Info Card -->
+          <div class="p-5 rounded-2xl bg-royal-950/60 border border-white/10 text-xs text-slate-300 space-y-2.5">
+            <div class="flex items-center gap-2 text-gold-400 font-bold uppercase tracking-wider font-display text-[11px]">
+              <i data-lucide="shield-check" class="w-4 h-4"></i>
+              <span>Complimentary VIP Walkthrough Privileges</span>
+            </div>
+            <ul class="space-y-1.5 pl-1">
+              <li class="flex items-start gap-2">
+                <span class="text-gold-400">✦</span>
+                <span>Chauffeur-assisted luxury vehicle pickup available across Jaipur.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-gold-400">✦</span>
+                <span>Complete legal due diligence dossier & floor plans provided upon arrival.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-gold-400">✦</span>
+                <span>Direct consultation with senior development & architecture leads.</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- ================= RIGHT COLUMN: INTERACTIVE CALENDAR & BOOKING (7 cols) ================= -->
+        <div class="lg:col-span-7">
+          <div class="p-6 sm:p-8 rounded-3xl bg-royal-950/90 border border-gold-500/40 shadow-2xl backdrop-blur-md">
+            
+            <!-- Calendar Navigation Header -->
+            <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-5">
+              <div>
+                <span class="text-[10px] sm:text-[11px] font-bold text-gold-400 uppercase tracking-widest block font-display">Interactive Booking Calendar</span>
+                <h3 id="calMonthYearTitle" class="text-xl sm:text-2xl font-serif text-white font-normal mt-0.5">
+                  September 2026
+                </h3>
+              </div>
+              
+              <!-- Month Switcher Buttons -->
+              <div class="flex items-center gap-1.5 sm:gap-2">
+                <button type="button" id="calPrevBtn" onclick="changeMonth(-1)" class="p-2 rounded-xl bg-royal-800 hover:bg-royal-700 text-gold-300 border border-gold-500/30 transition-all hover:scale-105 active:scale-95" title="Previous Month" aria-label="Previous Month">
+                  <i data-lucide="chevron-left" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+                </button>
+                <button type="button" onclick="goToToday()" class="px-2.5 sm:px-3 py-1.5 rounded-xl bg-royal-800 hover:bg-gold-500/20 text-gold-300 text-[11px] sm:text-xs font-semibold uppercase tracking-wider border border-gold-500/30 transition-all">
+                  Today
+                </button>
+                <button type="button" id="calNextBtn" onclick="changeMonth(1)" class="p-2 rounded-xl bg-royal-800 hover:bg-royal-700 text-gold-300 border border-gold-500/30 transition-all hover:scale-105 active:scale-95" title="Next Month" aria-label="Next Month">
+                  <i data-lucide="chevron-right" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Calendar Days of Week Header -->
+            <div class="grid grid-cols-7 gap-1 sm:gap-2 text-center text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-gold-400/80 mb-2">
+              <div class="py-1">Sun</div>
+              <div class="py-1">Mon</div>
+              <div class="py-1">Tue</div>
+              <div class="py-1">Wed</div>
+              <div class="py-1">Thu</div>
+              <div class="py-1">Fri</div>
+              <div class="py-1">Sat</div>
+            </div>
+
+            <!-- Calendar Dynamic Days Grid Container -->
+            <div id="calDaysGrid" class="grid grid-cols-7 gap-1 sm:gap-2 text-center mb-6">
+              <!-- Dynamically populated by renderCalendar() -->
+            </div>
+
+            <!-- Appointment Configurator (Time Slot & Property) -->
+            <div class="space-y-4 pt-4 border-t border-white/10">
+              
+              <!-- Selected Date Display Badge -->
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-3.5 rounded-xl bg-royal-900/80 border border-gold-500/30">
+                <div class="flex items-center gap-2.5">
+                  <div class="p-1.5 rounded-lg bg-gold-500/20 text-gold-400">
+                    <i data-lucide="calendar-check" class="w-4 h-4"></i>
+                  </div>
+                  <div>
+                    <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400 block">Selected Appointment Date</span>
+                    <span id="calSelectedDateDisplay" class="text-sm font-semibold text-gold-300 font-serif">Select a date</span>
+                  </div>
+                </div>
+                <span class="text-[11px] text-emerald-400 bg-emerald-950/80 border border-emerald-500/30 px-2.5 py-1 rounded-full font-medium w-fit">
+                  ✓ Priority Slot Guaranteed
+                </span>
+              </div>
+
+              <!-- Time Slot Selection Chips -->
+              <div>
+                <label class="block text-xs uppercase tracking-wider font-semibold text-gold-300 mb-2 font-display">
+                  Select Walkthrough / Consultation Time Slot:
+                </label>
+                <div id="timeSlotContainer" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  <button type="button" onclick="selectTimeSlot('10:00 AM – 12:00 PM (Morning Site Visit)', this)" class="time-slot-btn active p-3 rounded-xl text-left text-xs border transition-all flex items-center justify-between bg-gold-400 text-royal-950 border-gold-300 font-semibold shadow-gold-sm">
+                    <div class="flex items-center gap-2">
+                      <i data-lucide="sun" class="w-4 h-4"></i>
+                      <span>10:00 AM – 12:00 PM</span>
+                    </div>
+                    <span class="text-[10px] uppercase px-1.5 py-0.5 rounded bg-royal-950/20 font-bold">Morning</span>
+                  </button>
+
+                  <button type="button" onclick="selectTimeSlot('02:00 PM – 04:00 PM (Afternoon Walkthrough)', this)" class="time-slot-btn p-3 rounded-xl text-left text-xs border border-white/10 hover:border-gold-500/50 bg-royal-900/60 hover:bg-royal-800/80 text-sand-100 transition-all flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                      <i data-lucide="sun-medium" class="w-4 h-4 text-gold-400"></i>
+                      <span>02:00 PM – 04:00 PM</span>
+                    </div>
+                    <span class="text-[10px] uppercase px-1.5 py-0.5 rounded bg-white/10 font-medium text-slate-300">Afternoon</span>
+                  </button>
+
+                  <button type="button" onclick="selectTimeSlot('05:00 PM – 06:30 PM (Sunset Inspection)', this)" class="time-slot-btn p-3 rounded-xl text-left text-xs border border-white/10 hover:border-gold-500/50 bg-royal-900/60 hover:bg-royal-800/80 text-sand-100 transition-all flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                      <i data-lucide="sunset" class="w-4 h-4 text-gold-400"></i>
+                      <span>05:00 PM – 06:30 PM</span>
+                    </div>
+                    <span class="text-[10px] uppercase px-1.5 py-0.5 rounded bg-white/10 font-medium text-slate-300">Sunset</span>
+                  </button>
+
+                  <button type="button" onclick="selectTimeSlot('07:30 PM – 08:30 PM (NRI / Video Consultation)', this)" class="time-slot-btn p-3 rounded-xl text-left text-xs border border-white/10 hover:border-gold-500/50 bg-royal-900/60 hover:bg-royal-800/80 text-sand-100 transition-all flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                      <i data-lucide="video" class="w-4 h-4 text-gold-400"></i>
+                      <span>07:30 PM – 08:30 PM</span>
+                    </div>
+                    <span class="text-[10px] uppercase px-1.5 py-0.5 rounded bg-white/10 font-medium text-slate-300">Video / NRI</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Property Selection Dropdown -->
+              <div>
+                <label class="block text-xs uppercase tracking-wider font-semibold text-gold-300 mb-2 font-display">
+                  Select Property of Interest:
+                </label>
+                <div class="relative">
+                  <select id="calPropertySelect" onchange="updateBookingLinks()" class="w-full p-3 rounded-xl bg-royal-900 text-sand-100 border border-white/15 focus:border-gold-400 focus:outline-none text-xs sm:text-sm cursor-pointer appearance-none pr-10">
+                    <option value="General Property Consultation across Rajasthan">General Rajasthan Advisory & Portfolio Consultation</option>
+                    <option value="The Royal Palms (Luxury Villas, Jagatpura, Jaipur)">The Royal Palms — Luxury Villas, Jagatpura, Jaipur</option>
+                    <option value="Heritage Palace Mansions (Mansarovar, Jaipur)">Heritage Palace Mansions — Mansarovar, Jaipur</option>
+                    <option value="Oasis Greens Township Plots (Ajmer Road, Jaipur)">Oasis Greens Township Plots — Ajmer Road, Jaipur</option>
+                    <option value="Regal Business Park (Commercial, C-Scheme, Jaipur)">Regal Business Park — Commercial Hub, C-Scheme, Jaipur</option>
+                    <option value="Udaipur Lakeside Enclave (Lake Pichola Corridor)">Udaipur Lakeside Enclave — Lake Pichola Corridor</option>
+                    <option value="Jodhpur Sun City Enclave (Pal Road)">Jodhpur Sun City Enclave — Pal Road, Jodhpur</option>
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gold-400">
+                    <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                  </div>
+                </div>
+              </div>
+
+              <!-- One-Click Booking Action Buttons -->
+              <div class="pt-2 flex flex-col sm:flex-row items-center gap-3">
+                <a id="calWhatsAppBtn" href="https://wa.me/919461812342" target="_blank" class="w-full sm:flex-1 py-4 px-5 rounded-xl bg-gradient-to-r from-emerald-500 via-emerald-600 to-emerald-700 hover:from-emerald-400 hover:to-emerald-600 text-white font-bold text-xs sm:text-sm uppercase tracking-wider shadow-lg hover:shadow-emerald-500/25 transition-all flex items-center justify-center gap-2">
+                  <i data-lucide="message-circle" class="w-5 h-5"></i>
+                  <span id="calWhatsAppBtnText">Confirm Site Visit on WhatsApp</span>
+                </a>
+
+                <button type="button" onclick="openCallbackWithSchedule()" class="w-full sm:w-auto py-4 px-5 rounded-xl bg-royal-800/90 hover:bg-gold-500/10 border border-gold-500/50 text-gold-300 hover:text-gold-200 font-semibold text-xs sm:text-sm uppercase tracking-wider transition-all flex items-center justify-center gap-2">
+                  <i data-lucide="calendar" class="w-4 h-4"></i>
+                  <span>Register via Form</span>
+                </button>
+              </div>
+
+              <p class="text-[11px] text-slate-400 text-center">
+                🔒 Free cancellation & rescheduling anytime. Direct confirmation from our Jaipur corporate desk (+91 94618 12342).
+              </p>
+
+            </div>
+
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -2806,8 +3095,233 @@
       }
     });
 
+    // ==========================================
+    // 10. LIVE DIGITAL CLOCK & ADVISORY DESK
+    // ==========================================
+    function updateLiveClock() {
+      const now = new Date();
+      let hours = now.getHours();
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+      const displayHours = String(hours % 12 || 12).padStart(2, '0');
+
+      const elHours = document.getElementById('liveClockHours');
+      const elMinutes = document.getElementById('liveClockMinutes');
+      const elSeconds = document.getElementById('liveClockSeconds');
+      const elAmPm = document.getElementById('liveClockAmPm');
+      const elTopClock = document.getElementById('topBarClock');
+      const elDate = document.getElementById('liveClockDate');
+
+      if (elHours) elHours.textContent = displayHours;
+      if (elMinutes) elMinutes.textContent = minutes;
+      if (elSeconds) elSeconds.textContent = seconds;
+      if (elAmPm) elAmPm.textContent = ampm;
+      if (elTopClock) elTopClock.textContent = `${displayHours}:${minutes}:${seconds} ${ampm} IST`;
+
+      if (elDate) {
+        const dateOpts = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        elDate.textContent = now.toLocaleDateString('en-IN', dateOpts);
+      }
+
+      // Live Advisory Desk Status check (09:00 AM to 08:00 PM IST)
+      const deskDot = document.getElementById('deskStatusDot');
+      const deskTitle = document.getElementById('deskStatusTitle');
+      const deskSub = document.getElementById('deskStatusSubtitle');
+      if (deskDot && deskTitle && deskSub) {
+        const isDeskActive = hours >= 9 && hours < 20;
+        if (isDeskActive) {
+          deskDot.className = 'w-3 h-3 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399] shrink-0 animate-pulse';
+          deskTitle.className = 'text-xs font-bold uppercase tracking-wider text-emerald-300';
+          deskTitle.textContent = 'Advisory Desk Is Currently Active (Online)';
+          deskSub.textContent = 'Official Hours: 09:00 AM – 08:00 PM IST • Direct Assistance';
+        } else {
+          deskDot.className = 'w-3 h-3 rounded-full bg-amber-400 shadow-[0_0_8px_#fbbf24] shrink-0';
+          deskTitle.className = 'text-xs font-bold uppercase tracking-wider text-amber-300';
+          deskTitle.textContent = 'Advisory Desk Reopens at 09:00 AM IST';
+          deskSub.textContent = 'WhatsApp Inquiries Open 24/7 • Priority Morning Review';
+        }
+      }
+    }
+
+    // ==========================================
+    // 11. INTERACTIVE SITE VISIT CALENDAR ENGINE
+    // ==========================================
+    const calMonthNames = [
+      'January', 'February', 'March', 'April', 'May', 'June',
+      'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+
+    const todayDateObj = new Date();
+    const bookingCalendar = {
+      viewYear: todayDateObj.getFullYear(),
+      viewMonth: todayDateObj.getMonth(),
+      selectedYear: todayDateObj.getFullYear(),
+      selectedMonth: todayDateObj.getMonth(),
+      selectedDay: todayDateObj.getDate(),
+      selectedSlot: '10:00 AM – 12:00 PM (Morning Site Visit)'
+    };
+
+    function renderCalendar() {
+      const grid = document.getElementById('calDaysGrid');
+      const title = document.getElementById('calMonthYearTitle');
+      if (!grid || !title) return;
+
+      title.textContent = `${calMonthNames[bookingCalendar.viewMonth]} ${bookingCalendar.viewYear}`;
+      grid.innerHTML = '';
+
+      const firstDayIndex = new Date(bookingCalendar.viewYear, bookingCalendar.viewMonth, 1).getDay();
+      const totalDays = new Date(bookingCalendar.viewYear, bookingCalendar.viewMonth + 1, 0).getDate();
+      const daysInPrevMonth = new Date(bookingCalendar.viewYear, bookingCalendar.viewMonth, 0).getDate();
+
+      const todayMidnight = new Date();
+      todayMidnight.setHours(0, 0, 0, 0);
+
+      // Previous month trailing days
+      for (let i = firstDayIndex - 1; i >= 0; i--) {
+        const cell = document.createElement('div');
+        cell.className = 'py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm text-slate-600/40 bg-royal-950/20 border border-transparent select-none';
+        cell.textContent = daysInPrevMonth - i;
+        grid.appendChild(cell);
+      }
+
+      // Current month active days
+      for (let day = 1; day <= totalDays; day++) {
+        const cellDate = new Date(bookingCalendar.viewYear, bookingCalendar.viewMonth, day);
+        cellDate.setHours(0, 0, 0, 0);
+
+        const isPast = cellDate.getTime() < todayMidnight.getTime();
+        const isToday = cellDate.getTime() === todayMidnight.getTime();
+        const isSelected = (
+          bookingCalendar.selectedYear === bookingCalendar.viewYear &&
+          bookingCalendar.selectedMonth === bookingCalendar.viewMonth &&
+          bookingCalendar.selectedDay === day
+        );
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.textContent = day;
+
+        if (isPast) {
+          btn.className = 'py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm text-slate-600 bg-royal-950/40 border border-white/5 cursor-not-allowed opacity-30 select-none';
+          btn.disabled = true;
+          btn.title = 'Past date';
+        } else if (isSelected) {
+          btn.className = 'py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 text-royal-950 font-bold shadow-gold-sm scale-105 border border-gold-300 transition-all cursor-pointer';
+        } else if (isToday) {
+          btn.className = 'py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm text-gold-300 bg-royal-900/90 border-2 border-gold-400 font-bold hover:bg-gold-500/20 transition-all cursor-pointer';
+        } else {
+          btn.className = 'py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm text-sand-100 bg-royal-900/60 hover:bg-royal-800 border border-white/10 hover:border-gold-500/50 font-medium hover:scale-105 transition-all cursor-pointer';
+        }
+
+        if (!isPast) {
+          btn.onclick = () => {
+            bookingCalendar.selectedYear = bookingCalendar.viewYear;
+            bookingCalendar.selectedMonth = bookingCalendar.viewMonth;
+            bookingCalendar.selectedDay = day;
+            renderCalendar();
+            updateBookingLinks();
+          };
+        }
+
+        grid.appendChild(btn);
+      }
+
+      // Next month leading padding cells
+      const totalRendered = firstDayIndex + totalDays;
+      const remainingSlots = (7 - (totalRendered % 7)) % 7;
+      for (let i = 1; i <= remainingSlots; i++) {
+        const cell = document.createElement('div');
+        cell.className = 'py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm text-slate-600/40 bg-royal-950/20 border border-transparent select-none';
+        cell.textContent = i;
+        grid.appendChild(cell);
+      }
+    }
+
+    function changeMonth(direction) {
+      bookingCalendar.viewMonth += direction;
+      if (bookingCalendar.viewMonth > 11) {
+        bookingCalendar.viewMonth = 0;
+        bookingCalendar.viewYear++;
+      } else if (bookingCalendar.viewMonth < 0) {
+        bookingCalendar.viewMonth = 11;
+        bookingCalendar.viewYear--;
+      }
+      renderCalendar();
+    }
+
+    function goToToday() {
+      const nowD = new Date();
+      bookingCalendar.viewYear = nowD.getFullYear();
+      bookingCalendar.viewMonth = nowD.getMonth();
+      bookingCalendar.selectedYear = nowD.getFullYear();
+      bookingCalendar.selectedMonth = nowD.getMonth();
+      bookingCalendar.selectedDay = nowD.getDate();
+      renderCalendar();
+      updateBookingLinks();
+    }
+
+    function selectTimeSlot(slotName, btnElement) {
+      bookingCalendar.selectedSlot = slotName;
+      document.querySelectorAll('#timeSlotContainer .time-slot-btn').forEach(btn => {
+        btn.className = 'time-slot-btn p-3 rounded-xl text-left text-xs border border-white/10 hover:border-gold-500/50 bg-royal-900/60 hover:bg-royal-800/80 text-sand-100 transition-all flex items-center justify-between';
+      });
+      if (btnElement) {
+        btnElement.className = 'time-slot-btn active p-3 rounded-xl text-left text-xs border transition-all flex items-center justify-between bg-gold-400 text-royal-950 border-gold-300 font-semibold shadow-gold-sm';
+      }
+      updateBookingLinks();
+    }
+
+    function updateBookingLinks() {
+      const selDate = new Date(bookingCalendar.selectedYear, bookingCalendar.selectedMonth, bookingCalendar.selectedDay);
+      const dateFull = selDate.toLocaleDateString('en-IN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      const dateShort = selDate.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' });
+
+      const selDisplay = document.getElementById('calSelectedDateDisplay');
+      if (selDisplay) selDisplay.textContent = dateFull;
+
+      const propSelect = document.getElementById('calPropertySelect');
+      const chosenProp = propSelect ? propSelect.value : 'Rajasthan Properties';
+
+      const waText = `Hello Royal Rajasthan Properties, I would like to schedule an exclusive VIP site visit on ${dateFull} during slot [${bookingCalendar.selectedSlot}] for: "${chosenProp}". Please confirm booking availability with your Jaipur advisory team.`;
+      
+      const waBtn = document.getElementById('calWhatsAppBtn');
+      const waBtnText = document.getElementById('calWhatsAppBtnText');
+      if (waBtn) {
+        waBtn.href = `https://wa.me/919461812342?text=${encodeURIComponent(waText)}`;
+      }
+      if (waBtnText) {
+        waBtnText.textContent = `Confirm Site Visit on WhatsApp (${dateShort})`;
+      }
+    }
+
+    function openCallbackWithSchedule() {
+      const selDate = new Date(bookingCalendar.selectedYear, bookingCalendar.selectedMonth, bookingCalendar.selectedDay);
+      const dateFull = selDate.toLocaleDateString('en-IN', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      const chosenProp = document.getElementById('calPropertySelect')?.value || 'Rajasthan Properties';
+      const scheduleInfo = `Site Visit Appointment: ${dateFull} | Slot: ${bookingCalendar.selectedSlot} | Property: ${chosenProp}`;
+
+      const inquiryInput = document.getElementById('contactRequirements') || document.querySelector('#contact textarea');
+      if (inquiryInput) {
+        inquiryInput.value = scheduleInfo;
+      }
+      const contactSec = document.getElementById('contact');
+      if (contactSec) {
+        contactSec.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // Initialize Clock & Calendar
+    updateLiveClock();
+    setInterval(updateLiveClock, 1000);
+    renderCalendar();
+    updateBookingLinks();
+
     // Render Initial Project Catalog
     renderProjects('all');
+    if (window.lucide) {
+      lucide.createIcons();
+    }
   </script>
 </body>
 </html>
