@@ -134,20 +134,23 @@
   </div>
 
   <!-- ==================== 1. STICKY HEADER ==================== -->
-  <header class="sticky top-0 z-40 backdrop-blur-md bg-royal-900/90 border-b border-gold-subtle shadow-md">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+  <header class="sticky top-0 z-40 backdrop-blur-md bg-royal-900/95 border-b border-gold-subtle shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
       
-      <!-- Brand Logo (Supplied logo resource: https://chatgpt.com/s/m_6aa56e1177b481918749a61861edca9e) -->
-      <a href="#hero" class="flex items-center gap-3 group" title="Royal Rajasthan Properties">
-        <div class="h-12 w-12 rounded-xl bg-white p-1 border border-gold-400/60 shadow-gold-sm flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden shrink-0">
+      <!-- Brand Logo (Large & Clear) -->
+      <a href="#hero" class="flex items-center gap-3.5 group py-1" title="Royal Rajasthan Properties">
+        <div class="h-16 w-16 sm:h-20 sm:w-20 rounded-2xl bg-white p-1.5 border-2 border-gold-400/80 shadow-gold-md flex items-center justify-center group-hover:scale-105 transition-all duration-300 overflow-hidden shrink-0">
           <img src="logo.png" alt="Royal Rajasthan Properties Logo" class="h-full w-full object-contain">
         </div>
         <div class="flex flex-col">
-          <span class="font-display font-bold text-base sm:text-lg tracking-wider text-white group-hover:text-gold-300 transition-colors leading-tight">
+          <span class="font-display font-bold text-lg sm:text-2xl tracking-wider text-white group-hover:text-gold-300 transition-colors leading-tight">
             ROYAL RAJASTHAN
           </span>
-          <span class="text-[10px] tracking-[0.25em] text-gold-400 uppercase font-medium">
+          <span class="text-xs sm:text-sm tracking-[0.28em] text-gold-400 uppercase font-semibold">
             PROPERTIES
+          </span>
+          <span class="hidden sm:inline text-[10px] tracking-wider text-sand-300 font-serif italic opacity-90 mt-0.5">
+            Your Dream • Our Priority
           </span>
         </div>
       </a>
@@ -180,6 +183,16 @@
 
     <!-- Mobile Slide-out Menu -->
     <div id="mobileMenu" class="hidden lg:hidden bg-royal-950 border-b border-gold-subtle px-6 py-5 space-y-3">
+      <div class="flex items-center gap-3.5 pb-4 mb-2 border-b border-white/10">
+        <div class="h-14 w-14 rounded-2xl bg-white p-1 border-2 border-gold-400/80 shadow-gold-sm flex items-center justify-center overflow-hidden shrink-0">
+          <img src="logo.png" alt="Royal Rajasthan Properties Logo" class="h-full w-full object-contain">
+        </div>
+        <div>
+          <span class="font-display font-bold text-base tracking-wider text-white block">ROYAL RAJASTHAN</span>
+          <span class="text-[10px] tracking-[0.25em] text-gold-400 uppercase font-semibold block">PROPERTIES</span>
+          <span class="text-[9px] text-sand-300 italic block">Your Dream • Our Priority</span>
+        </div>
+      </div>
       <a href="#hero" class="block text-sm font-medium text-sand-200 hover:text-gold-400">Home</a>
       <a href="#projects" class="block text-sm font-medium text-sand-200 hover:text-gold-400">Projects</a>
       <a href="#about" class="block text-sm font-medium text-sand-200 hover:text-gold-400">About</a>
@@ -209,6 +222,18 @@
 
     <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
       
+      <!-- Official Grand Brand Logo Showcase in Hero -->
+      <div class="mb-6 flex justify-center">
+        <div class="inline-flex flex-col sm:flex-row items-center gap-4 bg-white/95 backdrop-blur-md px-6 py-3.5 rounded-3xl border-2 border-gold-400 shadow-gold-glow hover:scale-105 transition-transform duration-300">
+          <img src="logo.png" alt="Royal Rajasthan Properties Official Logo" class="h-20 sm:h-24 w-auto object-contain">
+          <div class="text-left hidden sm:block border-l border-gold-400/40 pl-4">
+            <span class="font-display font-bold text-lg text-royal-950 block tracking-wider leading-tight">ROYAL RAJASTHAN</span>
+            <span class="text-xs font-bold text-gold-700 uppercase tracking-[0.25em] block">PROPERTIES</span>
+            <span class="text-[10px] text-slate-600 font-serif italic block mt-0.5">Your Dream • Our Priority</span>
+          </div>
+        </div>
+      </div>
+
       <!-- Regal Emblem Badge -->
       <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-royal-800/85 border border-gold-500/40 shadow-gold-sm text-xs font-medium text-gold-300 mb-8 backdrop-blur-sm">
         <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
@@ -1038,13 +1063,14 @@
         
         <!-- Col 1: Brand Info -->
         <div class="md:col-span-1 space-y-4">
-          <div class="flex items-center gap-3">
-            <div class="h-12 w-12 rounded-xl bg-white p-1 border border-gold-400/60 shadow-gold-sm flex items-center justify-center overflow-hidden shrink-0">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div class="h-24 w-24 sm:h-28 sm:w-28 rounded-2xl bg-white p-2 border-2 border-gold-400/80 shadow-gold-md flex items-center justify-center overflow-hidden shrink-0">
               <img src="logo.png" alt="Royal Rajasthan Properties Logo" class="h-full w-full object-contain">
             </div>
             <div>
-              <h3 class="font-display font-bold text-sm tracking-wider text-white">ROYAL RAJASTHAN</h3>
-              <p class="text-[9px] tracking-[0.2em] text-gold-400 uppercase font-medium">PROPERTIES</p>
+              <h3 class="font-display font-bold text-base sm:text-lg tracking-wider text-white">ROYAL RAJASTHAN</h3>
+              <p class="text-[10px] tracking-[0.25em] text-gold-400 uppercase font-semibold">PROPERTIES</p>
+              <p class="text-[10px] text-slate-400 font-serif italic mt-0.5">Your Dream • Our Priority</p>
             </div>
           </div>
           <p class="text-xs text-slate-400 leading-relaxed">
