@@ -1862,7 +1862,7 @@
         Create / Change Admin Password
       </h3>
       <p class="text-xs text-sand-300 mt-1 mb-5">
-        Apna naya secret password set karein taaki sirf aap hi leads dekh sakein.
+        Apna naya secret password set karein. Suraksha hetu aapke registered mobile (+91 94618 12342) par OTP verify kiya jayega.
       </p>
 
       <form id="adminChangePassForm" onsubmit="handleAdminChangePassword(event)" class="space-y-3.5 text-left">
@@ -1890,8 +1890,9 @@
         <div id="changePassError" class="hidden text-xs text-red-400 font-medium"></div>
         <div id="changePassSuccess" class="hidden text-xs text-emerald-400 font-medium"></div>
 
-        <button type="submit" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white font-bold text-xs uppercase tracking-wider shadow transition-all">
-          Save New Password
+        <button type="submit" class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white font-bold text-xs uppercase tracking-wider shadow transition-all flex items-center justify-center gap-2">
+          <i data-lucide="shield-check" class="w-4 h-4"></i>
+          <span>Send OTP to +91 94618 12342 & Proceed</span>
         </button>
       </form>
 
@@ -2112,14 +2113,111 @@
 
         <div class="flex items-center gap-3 pt-2">
           <button type="submit" class="flex-1 py-3.5 px-4 rounded-xl bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:from-gold-200 hover:to-gold-400 text-royal-950 font-bold text-xs uppercase tracking-wider shadow-gold-sm transition-all flex items-center justify-center gap-2">
-            <i data-lucide="check-circle" class="w-4 h-4"></i>
-            <span>Publish Project to Website</span>
+            <i data-lucide="shield-check" class="w-4 h-4"></i>
+            <span>Send OTP & Publish Project</span>
           </button>
           <button type="button" onclick="closeAddProjectModal()" class="py-3.5 px-4 rounded-xl bg-royal-800 hover:bg-royal-700 text-slate-300 hover:text-white text-xs transition-all">
             Cancel
           </button>
         </div>
 
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ==================== FLOATING ON-SCREEN SMS / WHATSAPP DISPATCH TOAST ==================== -->
+  <div id="onScreenSmsAlert" class="fixed top-5 right-5 z-[80] hidden max-w-sm w-full bg-royal-950 border-2 border-gold-400 rounded-2xl shadow-[0_10px_30px_rgba(212,175,55,0.4)] p-4 text-white transition-all">
+    <div class="flex items-start justify-between gap-3">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center shrink-0">
+          <i data-lucide="smartphone" class="w-4 h-4"></i>
+        </div>
+        <div>
+          <span class="text-[10px] uppercase tracking-wider font-bold text-gold-400 font-display block">📲 Mobile OTP Dispatched</span>
+          <span class="text-xs text-slate-300 font-medium">To: <strong>+91 94618 12342</strong></span>
+        </div>
+      </div>
+      <button onclick="hideOnScreenSmsNotification()" class="p-1 text-slate-400 hover:text-white rounded-lg">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+    </div>
+    <div class="mt-3 p-2.5 rounded-xl bg-royal-900 border border-gold-500/30 text-center">
+      <span class="text-[11px] text-slate-400 block">Your 6-Digit Security OTP:</span>
+      <strong id="onScreenOtpCodeDisplay" class="font-mono text-2xl font-bold tracking-[0.25em] text-gold-300 block my-0.5">849201</strong>
+      <span id="onScreenOtpActionText" class="text-[10px] text-emerald-400 font-semibold block">Valid for 5 mins • Admin Security</span>
+    </div>
+    <div class="mt-2.5 flex items-center justify-between text-[11px]">
+      <button onclick="copyOnScreenOtp()" class="text-gold-400 hover:text-gold-300 font-medium flex items-center gap-1">
+        <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+        <span id="copyOtpBtnText">Copy OTP</span>
+      </button>
+      <span class="text-slate-400 text-[10px]">Email backup: nav00900@gmail.com</span>
+    </div>
+  </div>
+
+  <!-- ==================== OWNER MOBILE OTP VERIFICATION MODAL ==================== -->
+  <div id="otpAuthModal" class="fixed inset-0 z-[70] hidden modal-backdrop flex items-center justify-center p-4 sm:p-6 overflow-y-auto" role="dialog" aria-modal="true">
+    <div class="fixed inset-0 bg-royal-950/90 backdrop-blur-md" onclick="closeOtpModal()"></div>
+
+    <div class="relative z-10 w-full max-w-md bg-royal-950 rounded-3xl border-2 border-gold-400 shadow-[0_0_50px_rgba(212,175,55,0.4)] p-6 sm:p-8 text-center text-white my-auto">
+      
+      <!-- Close Button -->
+      <button onclick="closeOtpModal()" class="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-slate-300 hover:text-white transition-all">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <!-- Shield / Mobile Icon -->
+      <div class="w-16 h-16 mx-auto mb-3.5 rounded-2xl bg-gradient-to-tr from-gold-500/20 to-gold-400/10 border-2 border-gold-400 flex items-center justify-center text-gold-400 shadow-gold-sm">
+        <i data-lucide="shield-check" class="w-8 h-8"></i>
+      </div>
+
+      <h3 class="font-display text-xl sm:text-2xl font-bold text-white tracking-wide">
+        Mobile OTP Verification
+      </h3>
+      <p class="text-xs text-sand-300 mt-1 mb-2">
+        Suraksha ke liye aapke registered mobile par 6-digit OTP bheja gaya hai:
+      </p>
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-royal-900 border border-gold-500/40 text-gold-300 text-xs font-mono font-bold mb-4">
+        <i data-lucide="phone" class="w-3.5 h-3.5 text-gold-400"></i>
+        <span>+91 94618 12342</span>
+      </div>
+
+      <!-- Action Required Banner -->
+      <div class="mb-4 p-2.5 rounded-xl bg-royal-900/90 border border-white/10 text-left flex items-center justify-between">
+        <span class="text-[11px] text-slate-400 font-medium">Authorization for:</span>
+        <span id="otpActionBadge" class="text-xs font-bold text-gold-400 font-display">Change Admin Password</span>
+      </div>
+
+      <!-- OTP Form -->
+      <form id="otpAuthForm" onsubmit="handleOtpVerification(event)" class="space-y-4 text-left">
+        <div>
+          <label class="block text-xs uppercase tracking-wider font-semibold text-gold-300 mb-2 text-center font-display">
+            Enter 6-Digit Verification PIN:
+          </label>
+          <div class="relative max-w-[280px] mx-auto">
+            <input type="text" id="otpInput" required maxlength="6" pattern="[0-9]{6}" inputmode="numeric" autocomplete="one-time-code" placeholder="------" class="w-full bg-royal-900 border-2 border-gold-400/70 focus:border-gold-300 rounded-2xl py-3 px-4 text-center font-mono text-2xl tracking-[0.4em] text-white font-bold placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-gold-400/30">
+          </div>
+          <div id="otpAuthError" class="hidden text-xs text-red-400 mt-2 text-center flex items-center justify-center gap-1.5 font-medium">
+            <i data-lucide="alert-circle" class="w-4 h-4 shrink-0"></i>
+            <span id="otpAuthErrorText">Galat OTP! Kripya sahi 6-digit OTP enter karein.</span>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:from-gold-200 hover:to-gold-400 text-royal-950 font-bold text-xs uppercase tracking-wider shadow-gold-sm transition-all flex items-center justify-center gap-2">
+          <i data-lucide="check-check" class="w-4 h-4"></i>
+          <span>Verify & Authorize</span>
+        </button>
+
+        <div class="pt-3 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-2.5 text-xs">
+          <a id="otpSendWhatsAppBtn" href="#" target="_blank" class="text-emerald-400 hover:text-emerald-300 flex items-center gap-1 font-medium" title="Send / View OTP on WhatsApp">
+            <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+            <span>WhatsApp par OTP dekhein</span>
+          </a>
+          <button type="button" id="otpResendBtn" onclick="resendCurrentOtp()" class="text-gold-400 hover:text-gold-300 font-medium disabled:opacity-50 disabled:cursor-not-allowed">
+            Resend OTP (30s)
+          </button>
+        </div>
       </form>
 
     </div>
@@ -2163,71 +2261,130 @@
         </div>
       </div>
 
-      <!-- Admin KPI Counters -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 p-5 bg-royal-900/60 border-b border-white/5 text-xs">
-        <div class="p-3 rounded-xl bg-royal-950 border border-white/10">
-          <span class="text-slate-400 block text-[10px] uppercase">Total Captured Leads</span>
-          <strong id="kpiTotalLeads" class="text-xl font-display text-white">0</strong>
-        </div>
-        <div class="p-3 rounded-xl bg-royal-950 border border-white/10">
-          <span class="text-slate-400 block text-[10px] uppercase">Callback Requests</span>
-          <strong id="kpiCallbacks" class="text-xl font-display text-amber-400">0</strong>
-        </div>
-        <div class="p-3 rounded-xl bg-royal-950 border border-white/10">
-          <span class="text-slate-400 block text-[10px] uppercase">WhatsApp Inquiries</span>
-          <strong id="kpiWhatsApp" class="text-xl font-display text-emerald-400">0</strong>
-        </div>
-        <div class="p-3 rounded-xl bg-royal-950 border border-white/10">
-          <span class="text-slate-400 block text-[10px] uppercase">High Net-Worth / 2Cr+</span>
-          <strong id="kpiHighBudget" class="text-xl font-display text-gold-400">0</strong>
-        </div>
+      <!-- Admin Tab Switcher -->
+      <div class="px-5 pt-3 bg-royal-950 border-b border-white/10 flex items-center gap-6 text-xs font-display">
+        <button id="tabBtnAdminLeads" onclick="switchAdminTab('leads')" class="pb-3 border-b-2 border-gold-400 text-gold-300 font-bold flex items-center gap-2 transition-all">
+          <i data-lucide="users" class="w-4 h-4"></i>
+          <span>Captured Leads & Telemetry</span>
+        </button>
+        <button id="tabBtnAdminProjects" onclick="switchAdminTab('projects')" class="pb-3 border-b-2 border-transparent text-slate-400 hover:text-white font-semibold flex items-center gap-2 transition-all">
+          <i data-lucide="building-2" class="w-4 h-4"></i>
+          <span>Manage Projects (प्रोजेक्ट हटाएं / जोड़ें)</span>
+          <span id="adminProjectsCountBadge" class="px-2 py-0.5 rounded-full bg-royal-800 text-[10px] text-gold-400">0</span>
+        </button>
       </div>
 
-      <!-- Filter / Search Row -->
-      <div class="p-4 bg-royal-950/80 border-b border-white/5 flex flex-wrap items-center justify-between gap-3 text-xs">
-        <div class="flex items-center gap-2 flex-1 max-w-sm">
-          <div class="relative w-full">
-            <i data-lucide="search" class="w-3.5 h-3.5 absolute left-3 top-2.5 text-slate-400"></i>
-            <input type="text" id="adminSearchInput" oninput="renderAdminLeads()" placeholder="Search by name, phone, or project..." class="w-full bg-royal-900 border border-white/15 rounded-lg pl-8 pr-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-gold-400">
+      <!-- TAB 1: LEADS CONTENT -->
+      <div id="adminLeadsTabContent" class="flex-1 flex flex-col overflow-hidden">
+        <!-- Admin KPI Counters -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 p-5 bg-royal-900/60 border-b border-white/5 text-xs">
+          <div class="p-3 rounded-xl bg-royal-950 border border-white/10">
+            <span class="text-slate-400 block text-[10px] uppercase">Total Captured Leads</span>
+            <strong id="kpiTotalLeads" class="text-xl font-display text-white">0</strong>
+          </div>
+          <div class="p-3 rounded-xl bg-royal-950 border border-white/10">
+            <span class="text-slate-400 block text-[10px] uppercase">Callback Requests</span>
+            <strong id="kpiCallbacks" class="text-xl font-display text-amber-400">0</strong>
+          </div>
+          <div class="p-3 rounded-xl bg-royal-950 border border-white/10">
+            <span class="text-slate-400 block text-[10px] uppercase">WhatsApp Inquiries</span>
+            <strong id="kpiWhatsApp" class="text-xl font-display text-emerald-400">0</strong>
+          </div>
+          <div class="p-3 rounded-xl bg-royal-950 border border-white/10">
+            <span class="text-slate-400 block text-[10px] uppercase">High Net-Worth / 2Cr+</span>
+            <strong id="kpiHighBudget" class="text-xl font-display text-gold-400">0</strong>
           </div>
         </div>
-        <div class="flex items-center gap-2">
-          <select id="adminStatusFilter" onchange="renderAdminLeads()" class="bg-royal-900 border border-white/15 rounded-lg px-3 py-2 text-xs text-white focus:outline-none">
-            <option value="all">All Statuses</option>
-            <option value="New">New</option>
-            <option value="Contacted">Contacted</option>
-            <option value="Qualified">Qualified</option>
-            <option value="Callback Requested">Callback Requested</option>
-            <option value="Site Visit">Site Visit Scheduled</option>
-            <option value="Converted">Converted</option>
-            <option value="Closed">Closed</option>
-          </select>
-          <button onclick="clearDemoLeads()" class="text-xs text-slate-400 hover:text-rose-400 underline px-2">
-            Reset Leads
-          </button>
+
+        <!-- Filter / Search Row -->
+        <div class="p-4 bg-royal-950/80 border-b border-white/5 flex flex-wrap items-center justify-between gap-3 text-xs">
+          <div class="flex items-center gap-2 flex-1 max-w-sm">
+            <div class="relative w-full">
+              <i data-lucide="search" class="w-3.5 h-3.5 absolute left-3 top-2.5 text-slate-400"></i>
+              <input type="text" id="adminSearchInput" oninput="renderAdminLeads()" placeholder="Search by name, phone, or project..." class="w-full bg-royal-900 border border-white/15 rounded-lg pl-8 pr-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-gold-400">
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <select id="adminStatusFilter" onchange="renderAdminLeads()" class="bg-royal-900 border border-white/15 rounded-lg px-3 py-2 text-xs text-white focus:outline-none">
+              <option value="all">All Statuses</option>
+              <option value="New">New</option>
+              <option value="Contacted">Contacted</option>
+              <option value="Qualified">Qualified</option>
+              <option value="Callback Requested">Callback Requested</option>
+              <option value="Site Visit">Site Visit Scheduled</option>
+              <option value="Converted">Converted</option>
+              <option value="Closed">Closed</option>
+            </select>
+            <button onclick="clearDemoLeads()" class="text-xs text-slate-400 hover:text-rose-400 underline px-2">
+              Reset Leads
+            </button>
+          </div>
+        </div>
+
+        <!-- Lead Table Container -->
+        <div class="flex-1 overflow-y-auto p-4">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs text-slate-300">
+              <thead class="bg-royal-950 uppercase text-[10px] tracking-wider text-slate-400 border-b border-white/10">
+                <tr>
+                  <th class="py-3 px-3">Date</th>
+                  <th class="py-3 px-3">Lead Name</th>
+                  <th class="py-3 px-3">Contact</th>
+                  <th class="py-3 px-3">Location & Type</th>
+                  <th class="py-3 px-3">Budget</th>
+                  <th class="py-3 px-3">Status</th>
+                  <th class="py-3 px-3">Source</th>
+                  <th class="py-3 px-3 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="adminLeadTableBody" class="divide-y divide-white/5">
+                <!-- Dynamically populated via JS -->
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
-      <!-- Lead Table Container -->
-      <div class="flex-1 overflow-y-auto p-4">
-        <div class="overflow-x-auto">
-          <table class="w-full text-left text-xs text-slate-300">
-            <thead class="bg-royal-950 uppercase text-[10px] tracking-wider text-slate-400 border-b border-white/10">
-              <tr>
-                <th class="py-3 px-3">Date</th>
-                <th class="py-3 px-3">Lead Name</th>
-                <th class="py-3 px-3">Contact</th>
-                <th class="py-3 px-3">Location & Type</th>
-                <th class="py-3 px-3">Budget</th>
-                <th class="py-3 px-3">Status</th>
-                <th class="py-3 px-3">Source</th>
-                <th class="py-3 px-3 text-right">Actions</th>
-              </tr>
-            </thead>
-            <tbody id="adminLeadTableBody" class="divide-y divide-white/5">
-              <!-- Dynamically populated via JS -->
-            </tbody>
-          </table>
+      <!-- TAB 2: PROJECTS MANAGEMENT CONTENT -->
+      <div id="adminProjectsTabContent" class="hidden flex-1 flex flex-col overflow-hidden">
+        <!-- Action Bar for Projects -->
+        <div class="p-4 bg-royal-950/80 border-b border-white/5 flex flex-wrap items-center justify-between gap-3 text-xs">
+          <div class="flex items-center gap-2 flex-1 max-w-sm">
+            <div class="relative w-full">
+              <i data-lucide="search" class="w-3.5 h-3.5 absolute left-3 top-2.5 text-slate-400"></i>
+              <input type="text" id="adminProjectSearchInput" oninput="renderAdminProjects()" placeholder="Search project by title, city, or category..." class="w-full bg-royal-900 border border-white/15 rounded-lg pl-8 pr-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-gold-400">
+            </div>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <button onclick="openAddProjectModal()" class="px-3.5 py-2 rounded-lg bg-gold-500 hover:bg-gold-400 text-xs font-bold text-royal-950 flex items-center gap-1.5 transition-colors">
+              <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i> Naya Project Jodein
+            </button>
+            <button onclick="restoreAllDeletedProjects()" class="text-xs text-slate-400 hover:text-gold-300 underline px-2" title="Restore any deleted default projects">
+              Restore Deleted Projects
+            </button>
+          </div>
+        </div>
+
+        <!-- Projects Table Container -->
+        <div class="flex-1 overflow-y-auto p-4">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs text-slate-300">
+              <thead class="bg-royal-950 uppercase text-[10px] tracking-wider text-slate-400 border-b border-white/10">
+                <tr>
+                  <th class="py-3 px-3">Project Title</th>
+                  <th class="py-3 px-3">Category</th>
+                  <th class="py-3 px-3">City & Locality</th>
+                  <th class="py-3 px-3">Configuration & Area</th>
+                  <th class="py-3 px-3">Price</th>
+                  <th class="py-3 px-3">Status</th>
+                  <th class="py-3 px-3 text-right">Actions (OTP Protected)</th>
+                </tr>
+              </thead>
+              <tbody id="adminProjectsTableBody" class="divide-y divide-white/5">
+                <!-- Dynamically populated via renderAdminProjects() -->
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
@@ -2528,8 +2685,10 @@
 
     function getCombinedProperties() {
       try {
+        const deletedIds = JSON.parse(localStorage.getItem('rrp_deleted_projects') || '[]');
         const customProjects = JSON.parse(localStorage.getItem('rrp_custom_projects') || '[]');
-        return [...customProjects, ...propertiesData];
+        const combined = [...customProjects, ...propertiesData];
+        return combined.filter(p => !deletedIds.includes(p.id));
       } catch (e) {
         return propertiesData;
       }
@@ -3138,8 +3297,10 @@
       if (modal) {
         modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
+        switchAdminTab('leads');
         updateAdminKPIs();
         renderAdminLeads();
+        renderAdminProjects();
       }
     }
 
@@ -3152,9 +3313,227 @@
     function adminLogout() {
       closeAdminModal();
       closeAdminLoginModal();
+      closeOtpModal();
+      hideOnScreenSmsNotification();
       alert('Aap Admin Portal se safalta-purvak logout ho gaye hain. Portal dobara lock ho chuka hai.');
     }
 
+    // ==========================================
+    // 6A. 2-FACTOR OTP ENGINE (OWNER MOBILE: +91 94618 12342)
+    // ==========================================
+    const OWNER_SECURITY_MOBILE = '+91 94618 12342';
+    const OWNER_SECURITY_EMAIL = 'nav00900@gmail.com';
+
+    let currentPendingOTP = null;
+    let currentPendingAction = null; // 'CHANGE_PASSWORD' | 'ADD_PROJECT' | 'DELETE_PROJECT'
+    let currentPendingPayload = null;
+    let otpExpiresAt = 0;
+    let otpResendInterval = null;
+    let otpCountdownSeconds = 30;
+
+    function generateSecureOTP() {
+      return Math.floor(100000 + Math.random() * 900000).toString();
+    }
+
+    function requestOtpForAction(actionType, payload, actionTitle) {
+      currentPendingOTP = generateSecureOTP();
+      currentPendingAction = actionType;
+      currentPendingPayload = payload;
+      otpExpiresAt = Date.now() + (5 * 60 * 1000); // 5 minutes validity
+
+      // Set Action text in modal
+      const badge = document.getElementById('otpActionBadge');
+      if (badge) badge.textContent = actionTitle;
+
+      const otpInp = document.getElementById('otpInput');
+      if (otpInp) {
+        otpInp.value = '';
+        otpInp.classList.remove('border-red-500');
+      }
+      document.getElementById('otpAuthError')?.classList.add('hidden');
+
+      // Setup WhatsApp verification direct link
+      const waText = `*Royal Rajasthan Properties - Security OTP*\nYour 6-digit verification code is: *${currentPendingOTP}*\nRequested for: ${actionTitle}\nValid for 5 minutes.\nDo not share this code with anyone.`;
+      const waBtn = document.getElementById('otpSendWhatsAppBtn');
+      if (waBtn) {
+        waBtn.href = `https://wa.me/919461812342?text=${encodeURIComponent(waText)}`;
+      }
+
+      // Background Email Dispatch to nav00900@gmail.com
+      try {
+        fetch('https://formsubmit.co/ajax/nav00900@gmail.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            _subject: `SECURITY OTP: ${currentPendingOTP} for ${actionTitle}`,
+            Security_OTP: currentPendingOTP,
+            Authorized_Action: actionTitle,
+            Mobile_Recipient: OWNER_SECURITY_MOBILE,
+            Time: new Date().toLocaleString('en-IN')
+          })
+        }).catch(() => {});
+      } catch (e) {}
+
+      // Show luxury on-screen SMS notification badge
+      showOnScreenSmsNotification(currentPendingOTP, actionTitle);
+
+      // Open OTP Modal
+      openOtpModal();
+      startOtpCountdown();
+    }
+
+    function showOnScreenSmsNotification(otp, actionTitle) {
+      const alertBox = document.getElementById('onScreenSmsAlert');
+      const codeDisplay = document.getElementById('onScreenOtpCodeDisplay');
+      const actionText = document.getElementById('onScreenOtpActionText');
+      if (alertBox && codeDisplay) {
+        codeDisplay.textContent = otp;
+        if (actionText) actionText.textContent = `Valid for 5 mins • ${actionTitle}`;
+        alertBox.classList.remove('hidden');
+      }
+    }
+
+    function hideOnScreenSmsNotification() {
+      document.getElementById('onScreenSmsAlert')?.classList.add('hidden');
+    }
+
+    function copyOnScreenOtp() {
+      if (currentPendingOTP) {
+        navigator.clipboard.writeText(currentPendingOTP).then(() => {
+          const btnText = document.getElementById('copyOtpBtnText');
+          if (btnText) {
+            btnText.textContent = 'Copied!';
+            setTimeout(() => { if (btnText) btnText.textContent = 'Copy OTP'; }, 2000);
+          }
+        }).catch(() => {});
+      }
+    }
+
+    function openOtpModal() {
+      const modal = document.getElementById('otpAuthModal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => document.getElementById('otpInput')?.focus(), 150);
+      }
+    }
+
+    function closeOtpModal() {
+      const modal = document.getElementById('otpAuthModal');
+      if (modal) modal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+      if (otpResendInterval) clearInterval(otpResendInterval);
+    }
+
+    function startOtpCountdown() {
+      if (otpResendInterval) clearInterval(otpResendInterval);
+      otpCountdownSeconds = 30;
+      const resendBtn = document.getElementById('otpResendBtn');
+      if (resendBtn) {
+        resendBtn.disabled = true;
+        resendBtn.textContent = `Resend OTP (${otpCountdownSeconds}s)`;
+      }
+
+      otpResendInterval = setInterval(() => {
+        otpCountdownSeconds--;
+        if (resendBtn) {
+          if (otpCountdownSeconds > 0) {
+            resendBtn.textContent = `Resend OTP (${otpCountdownSeconds}s)`;
+          } else {
+            clearInterval(otpResendInterval);
+            resendBtn.disabled = false;
+            resendBtn.textContent = 'Resend OTP';
+          }
+        }
+      }, 1000);
+    }
+
+    function resendCurrentOtp() {
+      if (currentPendingAction && currentPendingPayload) {
+        const actionTitle = document.getElementById('otpActionBadge')?.textContent || 'Authorization';
+        requestOtpForAction(currentPendingAction, currentPendingPayload, actionTitle);
+      }
+    }
+
+    function handleOtpVerification(event) {
+      if (event) event.preventDefault();
+      const enteredOtp = (document.getElementById('otpInput')?.value || '').trim();
+      const errDiv = document.getElementById('otpAuthError');
+      const errText = document.getElementById('otpAuthErrorText');
+
+      if (Date.now() > otpExpiresAt) {
+        if (errDiv && errText) {
+          errText.textContent = 'OTP expire ho chuka hai! Kripya "Resend OTP" par click karein.';
+          errDiv.classList.remove('hidden');
+        }
+        return;
+      }
+
+      if (enteredOtp !== currentPendingOTP) {
+        if (errDiv && errText) {
+          errText.textContent = 'Galat OTP! Kripya aapke mobile 9461812342 par aaya sahi 6-digit OTP dalein.';
+          errDiv.classList.remove('hidden');
+        }
+        document.getElementById('otpInput')?.focus();
+        return;
+      }
+
+      // OTP Verified Successfully! Execute the pending action
+      const action = currentPendingAction;
+      const payload = currentPendingPayload;
+      closeOtpModal();
+      hideOnScreenSmsNotification();
+
+      if (action === 'CHANGE_PASSWORD') {
+        localStorage.setItem(ADMIN_PASS_STORAGE_KEY, payload.newPassword);
+        alert('✓ OTP Verified! Badhai ho, Admin Password safalta-purvak badal diya gaya hai.');
+        closeChangePasswordModal();
+        openAdminModal();
+      } else if (action === 'ADD_PROJECT') {
+        try {
+          const existing = JSON.parse(localStorage.getItem('rrp_custom_projects') || '[]');
+          existing.unshift(payload.project);
+          localStorage.setItem('rrp_custom_projects', JSON.stringify(existing));
+        } catch (e) {
+          console.error(e);
+        }
+        alert(`✓ OTP Verified! Naya project "${payload.project.title}" safalta-purvak website par publish ho gaya hai.`);
+        closeAddProjectModal();
+        document.getElementById('addProjectForm')?.reset();
+        renderProjects('all');
+        renderAdminProjects();
+        window.location.hash = '#projects';
+      } else if (action === 'DELETE_PROJECT') {
+        // Remove from custom projects if present
+        try {
+          const custom = JSON.parse(localStorage.getItem('rrp_custom_projects') || '[]');
+          const filteredCustom = custom.filter(p => p.id !== payload.projectId);
+          localStorage.setItem('rrp_custom_projects', JSON.stringify(filteredCustom));
+        } catch (e) {}
+
+        // Add to deleted projects blacklist so default projects can also be hidden
+        try {
+          const deleted = JSON.parse(localStorage.getItem('rrp_deleted_projects') || '[]');
+          if (!deleted.includes(payload.projectId)) {
+            deleted.push(payload.projectId);
+            localStorage.setItem('rrp_deleted_projects', JSON.stringify(deleted));
+          }
+        } catch (e) {}
+
+        alert(`✓ OTP Verified! Project "${payload.projectTitle}" website se safalta-purvak hata/delete diya gaya hai.`);
+        renderProjects('all');
+        renderAdminProjects();
+      }
+
+      // Reset OTP states
+      currentPendingOTP = null;
+      currentPendingAction = null;
+      currentPendingPayload = null;
+    }
+
+    // ==========================================
+    // 6B. PASSWORD CHANGE WORKFLOW (OTP PROTECTED)
+    // ==========================================
     function openChangePasswordModal() {
       closeAdminLoginModal();
       const modal = document.getElementById('adminChangePassModal');
@@ -3209,21 +3588,13 @@
         return;
       }
 
-      // Save new secret password
-      localStorage.setItem(ADMIN_PASS_STORAGE_KEY, newPass);
-      if (successDiv) {
-        successDiv.textContent = '✓ Badhai ho! Naya admin password safalta-purvak save ho gaya hai.';
-        successDiv.classList.remove('hidden');
-      }
-
-      setTimeout(() => {
-        closeChangePasswordModal();
-        openAdminModal();
-      }, 1300);
+      // Trigger Mobile OTP verification on +91 94618 12342
+      closeChangePasswordModal();
+      requestOtpForAction('CHANGE_PASSWORD', { newPassword: newPass }, 'Change Admin Password');
     }
 
     // ==========================================
-    // 6B. ADD NEW PROJECT FUNCTIONALITY
+    // 6C. ADD & DELETE PROJECT FUNCTIONALITY (OTP PROTECTED)
     // ==========================================
     function openAddProjectModal() {
       const modal = document.getElementById('addProjectModal');
@@ -3286,23 +3657,108 @@
         pricingPlaceholder: 'https://wa.me/919461812342?text=' + encodeURIComponent(`Hello Royal Rajasthan Properties, please share price sheet for ${title}`)
       };
 
-      try {
-        const existing = JSON.parse(localStorage.getItem('rrp_custom_projects') || '[]');
-        existing.unshift(newProject);
-        localStorage.setItem('rrp_custom_projects', JSON.stringify(existing));
-      } catch (err) {
-        console.error('Error saving new project:', err);
+      // Trigger OTP verification on +91 94618 12342 before publishing
+      closeAddProjectModal();
+      requestOtpForAction('ADD_PROJECT', { project: newProject }, 'Add Project: ' + title);
+    }
+
+    function requestDeleteProject(projectId, projectTitle) {
+      if (confirm(`Kya aap sachme project "${projectTitle}" ko website se delete/hatana chahte hain?\n\nSuraksha hetu aapke mobile number +91 94618 12342 par OTP bheja jayega.`)) {
+        requestOtpForAction('DELETE_PROJECT', { projectId: projectId, projectTitle: projectTitle }, 'Delete Project: ' + projectTitle);
+      }
+    }
+
+    function switchAdminTab(tabName) {
+      const leadsTab = document.getElementById('adminLeadsTabContent');
+      const projectsTab = document.getElementById('adminProjectsTabContent');
+      const btnLeads = document.getElementById('tabBtnAdminLeads');
+      const btnProjects = document.getElementById('tabBtnAdminProjects');
+
+      if (tabName === 'leads') {
+        leadsTab?.classList.remove('hidden');
+        projectsTab?.classList.add('hidden');
+        if (btnLeads) btnLeads.className = 'pb-3 border-b-2 border-gold-400 text-gold-300 font-bold flex items-center gap-2 transition-all';
+        if (btnProjects) btnProjects.className = 'pb-3 border-b-2 border-transparent text-slate-400 hover:text-white font-semibold flex items-center gap-2 transition-all';
+        updateAdminKPIs();
+        renderAdminLeads();
+      } else {
+        leadsTab?.classList.add('hidden');
+        projectsTab?.classList.remove('hidden');
+        if (btnProjects) btnProjects.className = 'pb-3 border-b-2 border-gold-400 text-gold-300 font-bold flex items-center gap-2 transition-all';
+        if (btnLeads) btnLeads.className = 'pb-3 border-b-2 border-transparent text-slate-400 hover:text-white font-semibold flex items-center gap-2 transition-all';
+        renderAdminProjects();
+      }
+    }
+
+    function renderAdminProjects() {
+      const tbody = document.getElementById('adminProjectsTableBody');
+      if (!tbody) return;
+      const search = (document.getElementById('adminProjectSearchInput')?.value || '').toLowerCase();
+      const projects = getCombinedProperties().filter(p => {
+        return p.title.toLowerCase().includes(search) ||
+               p.city.toLowerCase().includes(search) ||
+               p.category.toLowerCase().includes(search) ||
+               p.locality.toLowerCase().includes(search);
+      });
+
+      const badge = document.getElementById('adminProjectsCountBadge');
+      if (badge) badge.textContent = projects.length;
+
+      tbody.innerHTML = '';
+      if (projects.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="7" class="text-center py-8 text-slate-500">No active projects found matching search.</td></tr>`;
+        return;
       }
 
-      const successMsg = document.getElementById('addProjectSuccessMsg');
-      if (successMsg) successMsg.classList.remove('hidden');
+      projects.forEach(p => {
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-white/5 transition-colors';
+        tr.innerHTML = `
+          <td class="py-3 px-3">
+            <div class="flex items-center gap-2.5">
+              <img src="${p.image}" class="w-10 h-10 rounded-lg object-cover border border-white/10 shrink-0">
+              <div>
+                <strong class="text-white block font-medium">${p.title}</strong>
+                <span class="text-[10px] text-gold-400">ID: ${p.id}</span>
+              </div>
+            </div>
+          </td>
+          <td class="py-3 px-3">
+            <span class="px-2 py-0.5 rounded bg-royal-950 border border-white/10 text-sand-200 text-[11px]">${p.category}</span>
+          </td>
+          <td class="py-3 px-3">
+            <span class="text-white block">${p.city}</span>
+            <span class="text-[10px] text-slate-400">${p.locality}</span>
+          </td>
+          <td class="py-3 px-3">
+            <span class="text-slate-300 block">${p.config}</span>
+            <span class="text-[10px] font-mono text-slate-500">${p.area}</span>
+          </td>
+          <td class="py-3 px-3 font-semibold text-gold-300">${p.priceLabel}</td>
+          <td class="py-3 px-3">
+            <span class="text-emerald-400 text-[11px]">${p.status}</span>
+          </td>
+          <td class="py-3 px-3 text-right whitespace-nowrap">
+            <button onclick="openPropertyModal('${p.id}')" class="px-2.5 py-1.5 rounded-lg bg-royal-800 hover:bg-royal-700 text-gold-300 text-[11px] font-medium mr-1.5 transition-colors" title="View Details">
+              View
+            </button>
+            <button onclick="requestDeleteProject('${p.id}', '${p.title.replace(/'/g, "\\'")}')" class="px-2.5 py-1.5 rounded-lg bg-red-950 hover:bg-red-900 border border-red-500/40 text-red-300 hover:text-white text-[11px] font-semibold transition-colors" title="Delete Project (OTP Required)">
+              <i data-lucide="trash-2" class="w-3.5 h-3.5 inline mr-0.5"></i> Delete
+            </button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+      if (window.lucide) lucide.createIcons();
+    }
 
-      renderProjects('all');
-      setTimeout(() => {
-        closeAddProjectModal();
-        document.getElementById('addProjectForm')?.reset();
-        window.location.hash = '#projects';
-      }, 1200);
+    function restoreAllDeletedProjects() {
+      if (confirm('Kya aap sabhi deleted projects ko wapas restore karna chahte hain?')) {
+        localStorage.removeItem('rrp_deleted_projects');
+        renderProjects('all');
+        renderAdminProjects();
+        alert('Sabhi projects safalta-purvak restore ho gaye hain.');
+      }
     }
 
     // ==========================================
@@ -4281,6 +4737,8 @@
     // Global Modal Escape Key Listener
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
+        closeOtpModal();
+        hideOnScreenSmsNotification();
         closeAdminLoginModal();
         closeChangePasswordModal();
         closeFeedbackModal();
