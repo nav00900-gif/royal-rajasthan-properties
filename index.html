@@ -2127,32 +2127,35 @@
   </div>
 
   <!-- ==================== FLOATING ON-SCREEN SMS / WHATSAPP DISPATCH TOAST ==================== -->
-  <div id="onScreenSmsAlert" class="fixed top-5 right-5 z-[80] hidden max-w-sm w-full bg-royal-950 border-2 border-gold-400 rounded-2xl shadow-[0_10px_30px_rgba(212,175,55,0.4)] p-4 text-white transition-all">
+  <div id="onScreenSmsAlert" class="fixed top-5 right-5 z-[80] hidden max-w-sm w-full bg-royal-950 border-2 border-emerald-500/80 rounded-2xl shadow-[0_10px_35px_rgba(16,185,129,0.35)] p-4 text-white transition-all">
     <div class="flex items-start justify-between gap-3">
       <div class="flex items-center gap-2.5">
         <div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center shrink-0">
-          <i data-lucide="smartphone" class="w-4 h-4"></i>
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
         </div>
         <div>
-          <span class="text-[10px] uppercase tracking-wider font-bold text-gold-400 font-display block">📲 Mobile OTP Dispatched</span>
-          <span class="text-xs text-slate-300 font-medium">To: <strong>+91 94618 12342</strong></span>
+          <span class="text-[10px] uppercase tracking-wider font-bold text-emerald-400 font-display block">📲 WhatsApp & SMS OTP</span>
+          <span class="text-xs text-slate-300 font-medium">Sent to: <strong>+91 94618 12342</strong></span>
         </div>
       </div>
       <button onclick="hideOnScreenSmsNotification()" class="p-1 text-slate-400 hover:text-white rounded-lg">
         <i data-lucide="x" class="w-4 h-4"></i>
       </button>
     </div>
-    <div class="mt-3 p-2.5 rounded-xl bg-royal-900 border border-gold-500/30 text-center">
+    <div class="mt-3 p-2.5 rounded-xl bg-royal-900 border border-emerald-500/30 text-center">
       <span class="text-[11px] text-slate-400 block">Your 6-Digit Security OTP:</span>
-      <strong id="onScreenOtpCodeDisplay" class="font-mono text-2xl font-bold tracking-[0.25em] text-gold-300 block my-0.5">849201</strong>
+      <strong id="onScreenOtpCodeDisplay" class="font-mono text-2xl font-bold tracking-[0.25em] text-emerald-300 block my-0.5">849201</strong>
       <span id="onScreenOtpActionText" class="text-[10px] text-emerald-400 font-semibold block">Valid for 5 mins • Admin Security</span>
     </div>
-    <div class="mt-2.5 flex items-center justify-between text-[11px]">
-      <button onclick="copyOnScreenOtp()" class="text-gold-400 hover:text-gold-300 font-medium flex items-center gap-1">
+    <div class="mt-3 flex items-center justify-between gap-2 text-xs">
+      <a id="onScreenWhatsAppLink" href="#" target="_blank" class="flex-1 py-1.5 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-center text-[11px] flex items-center justify-center gap-1 transition-all">
+        <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+        <span>Open WhatsApp</span>
+      </a>
+      <button onclick="copyAndAutoFillOtp()" class="py-1.5 px-3 rounded-lg bg-royal-800 hover:bg-royal-700 text-gold-300 font-semibold text-[11px] flex items-center justify-center gap-1 transition-all">
         <i data-lucide="copy" class="w-3.5 h-3.5"></i>
-        <span id="copyOtpBtnText">Copy OTP</span>
+        <span id="copyOtpBtnText">Auto-Fill OTP</span>
       </button>
-      <span class="text-slate-400 text-[10px]">Email backup: nav00900@gmail.com</span>
     </div>
   </div>
 
@@ -2173,21 +2176,27 @@
       </div>
 
       <h3 class="font-display text-xl sm:text-2xl font-bold text-white tracking-wide">
-        Mobile OTP Verification
+        WhatsApp & Mobile OTP
       </h3>
       <p class="text-xs text-sand-300 mt-1 mb-2">
-        Suraksha ke liye aapke registered mobile par 6-digit OTP bheja gaya hai:
+        Suraksha hetu aapke WhatsApp number par 6-digit OTP bheja gaya hai:
       </p>
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-royal-900 border border-gold-500/40 text-gold-300 text-xs font-mono font-bold mb-4">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-royal-900 border border-gold-500/40 text-gold-300 text-xs font-mono font-bold mb-3.5">
         <i data-lucide="phone" class="w-3.5 h-3.5 text-gold-400"></i>
-        <span>+91 94618 12342</span>
+        <span>WhatsApp: +91 94618 12342</span>
       </div>
 
       <!-- Action Required Banner -->
-      <div class="mb-4 p-2.5 rounded-xl bg-royal-900/90 border border-white/10 text-left flex items-center justify-between">
-        <span class="text-[11px] text-slate-400 font-medium">Authorization for:</span>
+      <div class="mb-3.5 p-2.5 rounded-xl bg-royal-900/90 border border-white/10 text-left flex items-center justify-between">
+        <span class="text-[11px] text-slate-400 font-medium">Action Authorized:</span>
         <span id="otpActionBadge" class="text-xs font-bold text-gold-400 font-display">Change Admin Password</span>
       </div>
+
+      <!-- Big WhatsApp Button -->
+      <a id="otpDirectWhatsAppBtn" href="#" target="_blank" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-600 via-emerald-500 to-green-500 hover:brightness-110 text-white font-bold text-xs uppercase tracking-wider shadow-lg flex items-center justify-center gap-2 mb-4 border border-emerald-300/40 transition-all hover:scale-[1.02]">
+        <i data-lucide="message-circle" class="w-4 h-4 fill-white text-emerald-600"></i>
+        <span>WhatsApp Par OTP Kholein (+91 94618 12342)</span>
+      </a>
 
       <!-- OTP Form -->
       <form id="otpAuthForm" onsubmit="handleOtpVerification(event)" class="space-y-4 text-left">
@@ -3352,11 +3361,22 @@
       }
       document.getElementById('otpAuthError')?.classList.add('hidden');
 
-      // Setup WhatsApp verification direct link
-      const waText = `*Royal Rajasthan Properties - Security OTP*\nYour 6-digit verification code is: *${currentPendingOTP}*\nRequested for: ${actionTitle}\nValid for 5 minutes.\nDo not share this code with anyone.`;
+      // Setup WhatsApp verification direct link with bold formatted OTP
+      const waText = `*ROYAL RAJASTHAN PROPERTIES - SECURITY OTP*\n\nYour 6-Digit Verification OTP is: *${currentPendingOTP}*\n\n📌 *Authorized Action:* ${actionTitle}\n⏰ *Valid For:* 5 Minutes\n🔒 *WhatsApp Authorized:* +91 94618 12342\n\n_Security Notice: Enter this OTP in the website verification prompt to authorize this change._`;
+      const waUrl = `https://wa.me/919461812342?text=${encodeURIComponent(waText)}`;
+
       const waBtn = document.getElementById('otpSendWhatsAppBtn');
-      if (waBtn) {
-        waBtn.href = `https://wa.me/919461812342?text=${encodeURIComponent(waText)}`;
+      if (waBtn) waBtn.href = waUrl;
+      const waDirectBtn = document.getElementById('otpDirectWhatsAppBtn');
+      if (waDirectBtn) waDirectBtn.href = waUrl;
+      const waToastLink = document.getElementById('onScreenWhatsAppLink');
+      if (waToastLink) waToastLink.href = waUrl;
+
+      // Automatically launch WhatsApp for +91 94618 12342
+      try {
+        window.open(waUrl, '_blank');
+      } catch (err) {
+        console.warn('Auto open WhatsApp info:', err);
       }
 
       // Background Email Dispatch to nav00900@gmail.com
@@ -3368,28 +3388,31 @@
             _subject: `SECURITY OTP: ${currentPendingOTP} for ${actionTitle}`,
             Security_OTP: currentPendingOTP,
             Authorized_Action: actionTitle,
-            Mobile_Recipient: OWNER_SECURITY_MOBILE,
+            WhatsApp_Mobile: OWNER_SECURITY_MOBILE,
             Time: new Date().toLocaleString('en-IN')
           })
         }).catch(() => {});
       } catch (e) {}
 
-      // Show luxury on-screen SMS notification badge
-      showOnScreenSmsNotification(currentPendingOTP, actionTitle);
+      // Show luxury on-screen SMS & WhatsApp notification badge
+      showOnScreenSmsNotification(currentPendingOTP, actionTitle, waUrl);
 
       // Open OTP Modal
       openOtpModal();
       startOtpCountdown();
     }
 
-    function showOnScreenSmsNotification(otp, actionTitle) {
+    function showOnScreenSmsNotification(otp, actionTitle, waUrl) {
       const alertBox = document.getElementById('onScreenSmsAlert');
       const codeDisplay = document.getElementById('onScreenOtpCodeDisplay');
       const actionText = document.getElementById('onScreenOtpActionText');
+      const toastWa = document.getElementById('onScreenWhatsAppLink');
       if (alertBox && codeDisplay) {
         codeDisplay.textContent = otp;
         if (actionText) actionText.textContent = `Valid for 5 mins • ${actionTitle}`;
+        if (toastWa && waUrl) toastWa.href = waUrl;
         alertBox.classList.remove('hidden');
+        if (window.lucide) lucide.createIcons();
       }
     }
 
@@ -3397,16 +3420,25 @@
       document.getElementById('onScreenSmsAlert')?.classList.add('hidden');
     }
 
-    function copyOnScreenOtp() {
+    function copyAndAutoFillOtp() {
       if (currentPendingOTP) {
+        const inp = document.getElementById('otpInput');
+        if (inp) {
+          inp.value = currentPendingOTP;
+          inp.focus();
+        }
         navigator.clipboard.writeText(currentPendingOTP).then(() => {
           const btnText = document.getElementById('copyOtpBtnText');
           if (btnText) {
-            btnText.textContent = 'Copied!';
-            setTimeout(() => { if (btnText) btnText.textContent = 'Copy OTP'; }, 2000);
+            btnText.textContent = 'Auto-Filled!';
+            setTimeout(() => { if (btnText) btnText.textContent = 'Auto-Fill OTP'; }, 2000);
           }
         }).catch(() => {});
       }
+    }
+
+    function copyOnScreenOtp() {
+      copyAndAutoFillOtp();
     }
 
     function openOtpModal() {
@@ -3414,6 +3446,7 @@
       if (modal) {
         modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
+        if (window.lucide) lucide.createIcons();
         setTimeout(() => document.getElementById('otpInput')?.focus(), 150);
       }
     }
