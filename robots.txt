@@ -1,0 +1,5 @@
+﻿User-agent: *
+Allow: /
+
+Sitemap: https://www.royalrajasthanproperties.com/sitemap.xml
+Sitemap: https://royalrajasthanproperties.com/sitemap.xml
