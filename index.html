@@ -1291,7 +1291,7 @@
             <i data-lucide="images" class="w-4 h-4"></i> Master Photo Gallery
           </button>
           <button onclick="switchMegaTab('amenities')" id="megaTabBtn-amenities" class="mega-tab-btn px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white font-semibold text-xs uppercase tracking-wider whitespace-nowrap transition-all flex items-center gap-1.5">
-            <i data-lucide="sparkles" class="w-4 h-4 text-gold-400"></i> Grand Amenities
+            <i data-lucide="sparkles" class="w-4 h-4 text-gold-400"></i> 20 Landmark Amenities (20 भव्य सुविधाएं)
           </button>
           <button onclick="switchMegaTab('whyinvest')" id="megaTabBtn-whyinvest" class="mega-tab-btn px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white font-semibold text-xs uppercase tracking-wider whitespace-nowrap transition-all flex items-center gap-1.5">
             <i data-lucide="trending-up" class="w-4 h-4 text-emerald-400"></i> Why Invest Here?
@@ -1357,59 +1357,481 @@
           </div>
         </div>
 
-        <!-- Tab 2: Grand Amenities -->
-        <div id="megaTabContent-amenities" class="mega-tab-content hidden">
-          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        <!-- Tab 2: 20 Landmark Amenities Master Showcase -->
+        <div id="megaTabContent-amenities" class="mega-tab-content hidden space-y-6">
+          
+          <!-- Category Filter Bar -->
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-white/10">
+            <div>
+              <h4 class="font-serif text-xl sm:text-2xl text-white font-medium flex items-center gap-2">
+                <i data-lucide="sparkles" class="w-5 h-5 text-gold-400"></i> 20 World-Class Township Landmark Amenities
+              </h4>
+              <p class="text-xs text-slate-300 mt-0.5">
+                300 Bigha Mega Township, Opposite Knowledge City, Diggi Road, Jaipur
+              </p>
+            </div>
+
+            <!-- Filter Pills -->
+            <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 text-xs">
+              <button onclick="filterMegaAmenities('all', this)" class="amenity-filter-btn active px-3 py-1.5 rounded-lg bg-gold-500 text-royal-950 font-bold whitespace-nowrap transition-all shadow-sm">
+                All 20 Features
+              </button>
+              <button onclick="filterMegaAmenities('nature', this)" class="amenity-filter-btn px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/15 text-slate-300 hover:text-white font-semibold whitespace-nowrap transition-all">
+                🌿 Nature & Zen
+              </button>
+              <button onclick="filterMegaAmenities('infra', this)" class="amenity-filter-btn px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/15 text-slate-300 hover:text-white font-semibold whitespace-nowrap transition-all">
+                🛣️ Infrastructure
+              </button>
+              <button onclick="filterMegaAmenities('sports', this)" class="amenity-filter-btn px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/15 text-slate-300 hover:text-white font-semibold whitespace-nowrap transition-all">
+                🏃 Sports & Fitness
+              </button>
+              <button onclick="filterMegaAmenities('retail', this)" class="amenity-filter-btn px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/15 text-slate-300 hover:text-white font-semibold whitespace-nowrap transition-all">
+                🏛️ Retail & Mandir
+              </button>
+            </div>
+          </div>
+
+          <!-- 20 Amenities Card Grid -->
+          <div id="megaAmenitiesGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
             
-            <div class="p-5 rounded-2xl bg-royal-950/80 border border-gold-500/20 text-center hover:border-gold-400 transition-all group">
-              <div class="w-12 h-12 rounded-2xl bg-blue-500/20 text-blue-400 border border-blue-500/30 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                <i data-lucide="waves" class="w-6 h-6"></i>
+            <!-- 1. Quiet Grove -->
+            <div class="amenity-card rounded-2xl bg-royal-950/90 border border-white/10 overflow-hidden hover:border-gold-400/60 transition-all group flex flex-col justify-between" data-category="nature">
+              <div>
+                <div class="relative h-44 overflow-hidden bg-royal-900">
+                  <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80" alt="Quiet Grove" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-md bg-royal-950/80 backdrop-blur-md text-[10px] font-mono text-gold-300 border border-gold-400/30 font-bold">#01</span>
+                  <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md bg-emerald-950/80 text-[10px] text-emerald-300 border border-emerald-500/30">🌿 Nature</span>
+                </div>
+                <div class="p-4 space-y-1.5">
+                  <h5 class="font-serif text-base text-white font-medium group-hover:text-gold-300 transition-colors">Quiet Grove</h5>
+                  <p class="text-[11px] text-gold-400 font-semibold">शांत उपवन</p>
+                  <p class="text-xs text-slate-300 leading-relaxed">Dense shaded grove with native trees and natural stone benches for silent relaxation and morning meditation.</p>
+                </div>
               </div>
-              <strong class="text-white block text-sm font-semibold">Swimming Pool</strong>
-              <span class="text-[11px] text-slate-400 block mt-1">Crystal clear pool with deck area</span>
+              <div class="p-4 pt-0">
+                <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20want%20details%20about%20Quiet%20Grove%20in%20300%20Bigha%20Township,%20Diggi%20Road,%20Jaipur." target="_blank" data-config="wa-link" class="w-full py-2 px-3 rounded-xl bg-white/5 hover:bg-gold-500 hover:text-royal-950 text-slate-200 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all">
+                  <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Inquire on WhatsApp
+                </a>
+              </div>
             </div>
 
-            <div class="p-5 rounded-2xl bg-royal-950/80 border border-gold-500/20 text-center hover:border-gold-400 transition-all group">
-              <div class="w-12 h-12 rounded-2xl bg-gold-500/20 text-gold-400 border border-gold-500/30 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                <i data-lucide="building" class="w-6 h-6"></i>
+            <!-- 2. The Grove -->
+            <div class="amenity-card rounded-2xl bg-royal-950/90 border border-white/10 overflow-hidden hover:border-gold-400/60 transition-all group flex flex-col justify-between" data-category="nature">
+              <div>
+                <div class="relative h-44 overflow-hidden bg-royal-900">
+                  <img src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=800&q=80" alt="The Grove" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-md bg-royal-950/80 backdrop-blur-md text-[10px] font-mono text-gold-300 border border-gold-400/30 font-bold">#02</span>
+                  <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md bg-emerald-950/80 text-[10px] text-emerald-300 border border-emerald-500/30">🌿 Nature</span>
+                </div>
+                <div class="p-4 space-y-1.5">
+                  <h5 class="font-serif text-base text-white font-medium group-hover:text-gold-300 transition-colors">The Grove</h5>
+                  <p class="text-[11px] text-gold-400 font-semibold">द ग्रोव - सघन हरित वाटिका</p>
+                  <p class="text-xs text-slate-300 leading-relaxed">Sprawling green retreat designed with mature tree clusters, lush lawns, and picturesque walking trails.</p>
+                </div>
               </div>
-              <strong class="text-white block text-sm font-semibold">Grand Club House</strong>
-              <span class="text-[11px] text-slate-400 block mt-1">Indoor games, lounge & fitness</span>
+              <div class="p-4 pt-0">
+                <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20want%20details%20about%20The%20Grove%20in%20300%20Bigha%20Township,%20Diggi%20Road,%20Jaipur." target="_blank" data-config="wa-link" class="w-full py-2 px-3 rounded-xl bg-white/5 hover:bg-gold-500 hover:text-royal-950 text-slate-200 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all">
+                  <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Inquire on WhatsApp
+                </a>
+              </div>
             </div>
 
-            <div class="p-5 rounded-2xl bg-royal-950/80 border border-gold-500/20 text-center hover:border-gold-400 transition-all group">
-              <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                <i data-lucide="users" class="w-6 h-6"></i>
+            <!-- 3. Peace Pavilion -->
+            <div class="amenity-card rounded-2xl bg-royal-950/90 border border-white/10 overflow-hidden hover:border-gold-400/60 transition-all group flex flex-col justify-between" data-category="nature">
+              <div>
+                <div class="relative h-44 overflow-hidden bg-royal-900">
+                  <img src="https://images.unsplash.com/photo-1541971875076-8f970d573be6?auto=format&fit=crop&w=800&q=80" alt="Peace Pavilion" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-md bg-royal-950/80 backdrop-blur-md text-[10px] font-mono text-gold-300 border border-gold-400/30 font-bold">#03</span>
+                  <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md bg-emerald-950/80 text-[10px] text-emerald-300 border border-emerald-500/30">🌿 Nature</span>
+                </div>
+                <div class="p-4 space-y-1.5">
+                  <h5 class="font-serif text-base text-white font-medium group-hover:text-gold-300 transition-colors">Peace Pavilion</h5>
+                  <p class="text-[11px] text-gold-400 font-semibold">शांति मंडप / पवेलियन</p>
+                  <p class="text-xs text-slate-300 leading-relaxed">Architectural sheltered gazebo pavilion overlooking flower beds, built for peaceful contemplation and senior citizen gatherings.</p>
+                </div>
               </div>
-              <strong class="text-white block text-sm font-semibold">Community Hall</strong>
-              <span class="text-[11px] text-slate-400 block mt-1">Spacious venue for celebrations</span>
+              <div class="p-4 pt-0">
+                <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20want%20details%20about%20Peace%20Pavilion%20in%20300%20Bigha%20Township,%20Diggi%20Road,%20Jaipur." target="_blank" data-config="wa-link" class="w-full py-2 px-3 rounded-xl bg-white/5 hover:bg-gold-500 hover:text-royal-950 text-slate-200 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all">
+                  <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Inquire on WhatsApp
+                </a>
+              </div>
             </div>
 
-            <div class="p-5 rounded-2xl bg-royal-950/80 border border-gold-500/20 text-center hover:border-gold-400 transition-all group">
-              <div class="w-12 h-12 rounded-2xl bg-green-500/20 text-green-400 border border-green-500/30 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                <i data-lucide="trees" class="w-6 h-6"></i>
+            <!-- 4. Wide Tiles Block Road -->
+            <div class="amenity-card rounded-2xl bg-royal-950/90 border border-white/10 overflow-hidden hover:border-gold-400/60 transition-all group flex flex-col justify-between" data-category="infra">
+              <div>
+                <div class="relative h-44 overflow-hidden bg-royal-900">
+                  <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" alt="Wide Tiles Block Road" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-md bg-royal-950/80 backdrop-blur-md text-[10px] font-mono text-gold-300 border border-gold-400/30 font-bold">#04</span>
+                  <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md bg-blue-950/80 text-[10px] text-blue-300 border border-blue-500/30">🛣️ Infra</span>
+                </div>
+                <div class="p-4 space-y-1.5">
+                  <h5 class="font-serif text-base text-white font-medium group-hover:text-gold-300 transition-colors">Wide Tiles Block Road</h5>
+                  <p class="text-[11px] text-gold-400 font-semibold">सुदृढ़ टाइल्स ब्लॉक सड़कें</p>
+                  <p class="text-xs text-slate-300 leading-relaxed">High-strength interlocking concrete paver roads (40 & 60 ft.) designed for heavy load durability and zero waterlogging.</p>
+                </div>
               </div>
-              <strong class="text-white block text-sm font-semibold">Landscaped Parks</strong>
-              <span class="text-[11px] text-slate-400 block mt-1">Lush green gardens & walkways</span>
+              <div class="p-4 pt-0">
+                <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20want%20details%20about%20Wide%20Tiles%20Block%20Roads%20in%20300%20Bigha%20Township,%20Diggi%20Road,%20Jaipur." target="_blank" data-config="wa-link" class="w-full py-2 px-3 rounded-xl bg-white/5 hover:bg-gold-500 hover:text-royal-950 text-slate-200 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all">
+                  <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Inquire on WhatsApp
+                </a>
+              </div>
             </div>
 
-            <div class="p-5 rounded-2xl bg-royal-950/80 border border-gold-500/20 text-center hover:border-gold-400 transition-all group">
-              <div class="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-400 border border-amber-500/30 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                <i data-lucide="sun" class="w-6 h-6"></i>
+            <!-- 5. Commercial Space -->
+            <div class="amenity-card rounded-2xl bg-royal-950/90 border border-white/10 overflow-hidden hover:border-gold-400/60 transition-all group flex flex-col justify-between" data-category="retail">
+              <div>
+                <div class="relative h-44 overflow-hidden bg-royal-900">
+                  <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Commercial Space" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-md bg-royal-950/80 backdrop-blur-md text-[10px] font-mono text-gold-300 border border-gold-400/30 font-bold">#05</span>
+                  <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md bg-amber-950/80 text-[10px] text-amber-300 border border-amber-500/30">🏛️ Retail</span>
+                </div>
+                <div class="p-4 space-y-1.5">
+                  <h5 class="font-serif text-base text-white font-medium group-hover:text-gold-300 transition-colors">Commercial Space</h5>
+                  <p class="text-[11px] text-gold-400 font-semibold">हाई-स्ट्रीट कमर्शियल स्पेस</p>
+                  <p class="text-xs text-slate-300 leading-relaxed">Frontage commercial plots directly facing the 200 Ft. Road, ideal for corporate offices, retail outlets, and clinics.</p>
+                </div>
               </div>
-              <strong class="text-white block text-sm font-semibold">Temple (Mandir)</strong>
-              <span class="text-[11px] text-slate-400 block mt-1">Divine temple inside township</span>
+              <div class="p-4 pt-0">
+                <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20want%20details%20about%20Commercial%20Space%20Plots%20in%20300%20Bigha%20Township,%20Diggi%20Road,%20Jaipur." target="_blank" data-config="wa-link" class="w-full py-2 px-3 rounded-xl bg-white/5 hover:bg-gold-500 hover:text-royal-950 text-slate-200 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all">
+                  <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Inquire on WhatsApp
+                </a>
+              </div>
             </div>
 
-            <div class="p-5 rounded-2xl bg-royal-950/80 border border-gold-500/20 text-center hover:border-gold-400 transition-all group">
-              <div class="w-12 h-12 rounded-2xl bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
-                <i data-lucide="footprints" class="w-6 h-6"></i>
+            <!-- 6. Wisdom Walk -->
+            <div class="amenity-card rounded-2xl bg-royal-950/90 border border-white/10 overflow-hidden hover:border-gold-400/60 transition-all group flex flex-col justify-between" data-category="sports">
+              <div>
+                <div class="relative h-44 overflow-hidden bg-royal-900">
+                  <img src="https://images.unsplash.com/photo-1476231682828-37e571bc172f?auto=format&fit=crop&w=800&q=80" alt="Wisdom Walk" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-md bg-royal-950/80 backdrop-blur-md text-[10px] font-mono text-gold-300 border border-gold-400/30 font-bold">#06</span>
+                  <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md bg-cyan-950/80 text-[10px] text-cyan-300 border border-cyan-500/30">🏃 Sports</span>
+                </div>
+                <div class="p-4 space-y-1.5">
+                  <h5 class="font-serif text-base text-white font-medium group-hover:text-gold-300 transition-colors">Wisdom Walk</h5>
+                  <p class="text-[11px] text-gold-400 font-semibold">विजडम वॉक / शांति पथ</p>
+                  <p class="text-xs text-slate-300 leading-relaxed">Tree-lined natural stone walkway engineered with herbal borders and reflexology pathway for wellness walks.</p>
+                </div>
               </div>
-              <strong class="text-white block text-sm font-semibold">Open Green Spaces</strong>
-              <span class="text-[11px] text-slate-400 block mt-1">Modern township master planning</span>
+              <div class="p-4 pt-0">
+                <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20want%20details%20about%20Wisdom%20Walk%20in%20300%20Bigha%20Township,%20Diggi%20Road,%20Jaipur." target="_blank" data-config="wa-link" class="w-full py-2 px-3 rounded-xl bg-white/5 hover:bg-gold-500 hover:text-royal-950 text-slate-200 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all">
+                  <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Inquire on WhatsApp
+                </a>
+              </div>
+            </div>
+
+            <!-- 7. Fitness Park -->
+            <div class="amenity-card rounded-2xl bg-royal-950/90 border border-white/10 overflow-hidden hover:border-gold-400/60 transition-all group flex flex-col justify-between" data-category="sports">
+              <div>
+                <div class="relative h-44 overflow-hidden bg-royal-900">
+                  <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80" alt="Fitness Park" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-md bg-royal-950/80 backdrop-blur-md text-[10px] font-mono text-gold-300 border border-gold-400/30 font-bold">#07</span>
+                  <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md bg-cyan-950/80 text-[10px] text-cyan-300 border border-cyan-500/30">🏃 Sports</span>
+                </div>
+                <div class="p-4 space-y-1.5">
+                  <h5 class="font-serif text-base text-white font-medium group-hover:text-gold-300 transition-colors">Fitness Park</h5>
+                  <p class="text-[11px] text-gold-400 font-semibold">फिटनेस पार्क</p>
+                  <p class="text-xs text-slate-300 leading-relaxed">Dedicated open-air fitness precinct with calisthenics rigs, stretching bars, and agility courses for health enthusiasts.</p>
+                </div>
+              </div>
+              <div class="p-4 pt-0">
+                <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20want%20details%20about%20Fitness%20Park%20in%20300%20Bigha%20Township,%20Diggi%20Road,%20Jaipur." target="_blank" data-config="wa-link" class="w-full py-2 px-3 rounded-xl bg-white/5 hover:bg-gold-500 hover:text-royal-950 text-slate-200 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all">
+                  <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Inquire on WhatsApp
+                </a>
+              </div>
+            </div>
+
+            <!-- 8. Sitting Area -->
+            <div class="amenity-card rounded-2xl bg-royal-950/90 border border-white/10 overflow-hidden hover:border-gold-400/60 transition-all group flex flex-col justify-between" data-category="nature">
+              <div>
+                <div class="relative h-44 overflow-hidden bg-royal-900">
+                  <img src="https://images.unsplash.com/photo-1519331379826-f10be5486c6f?auto=format&fit=crop&w=800&q=80" alt="Sitting Area" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-md bg-royal-950/80 backdrop-blur-md text-[10px] font-mono text-gold-300 border border-gold-400/30 font-bold">#08</span>
+                  <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md bg-emerald-950/80 text-[10px] text-emerald-300 border border-emerald-500/30">🌿 Nature</span>
+                </div>
+                <div class="p-4 space-y-1.5">
+                  <h5 class="font-serif text-base text-white font-medium group-hover:text-gold-300 transition-colors">Sitting Area</h5>
+                  <p class="text-[11px] text-gold-400 font-semibold">आरामदायक बैठक स्थल</p>
+                  <p class="text-xs text-slate-300 leading-relaxed">Ergonomic garden benches, pergolas, and shaded seating lounges perfect for family evening conversations.</p>
+                </div>
+              </div>
+              <div class="p-4 pt-0">
+                <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20want%20details%20about%20Sitting%20Areas%20in%20300%20Bigha%20Township,%20Diggi%20Road,%20Jaipur." target="_blank" data-config="wa-link" class="w-full py-2 px-3 rounded-xl bg-white/5 hover:bg-gold-500 hover:text-royal-950 text-slate-200 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all">
+                  <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Inquire on WhatsApp
+                </a>
+              </div>
+            </div>
+
+            <!-- 9. Kids Play Area -->
+            <div class="amenity-card rounded-2xl bg-royal-950/90 border border-white/10 overflow-hidden hover:border-gold-400/60 transition-all group flex flex-col justify-between" data-category="sports">
+              <div>
+                <div class="relative h-44 overflow-hidden bg-royal-900">
+                  <img src="https://images.unsplash.com/photo-1588075592446-265fd1e6e76f?auto=format&fit=crop&w=800&q=80" alt="Kids Play Area" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-md bg-royal-950/80 backdrop-blur-md text-[10px] font-mono text-gold-300 border border-gold-400/30 font-bold">#09</span>
+                  <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md bg-cyan-950/80 text-[10px] text-cyan-300 border border-cyan-500/30">🏃 Sports</span>
+                </div>
+                <div class="p-4 space-y-1.5">
+                  <h5 class="font-serif text-base text-white font-medium group-hover:text-gold-300 transition-colors">Kids Play Area</h5>
+                  <p class="text-[11px] text-gold-400 font-semibold">चिल्ड्रन प्ले एरिया</p>
+                  <p class="text-xs text-slate-300 leading-relaxed">Safe rubber-cushioned play park equipped with modern swings, slides, climbers, and child-safe perimeter fencing.</p>
+                </div>
+              </div>
+              <div class="p-4 pt-0">
+                <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20want%20details%20about%20Kids%20Play%20Area%20in%20300%20Bigha%20Township,%20Diggi%20Road,%20Jaipur." target="_blank" data-config="wa-link" class="w-full py-2 px-3 rounded-xl bg-white/5 hover:bg-gold-500 hover:text-royal-950 text-slate-200 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all">
+                  <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Inquire on WhatsApp
+                </a>
+              </div>
+            </div>
+
+            <!-- 10. Luxury Entry Gate -->
+            <div class="amenity-card rounded-2xl bg-royal-950/90 border border-white/10 overflow-hidden hover:border-gold-400/60 transition-all group flex flex-col justify-between" data-category="infra">
+              <div>
+                <div class="relative h-44 overflow-hidden bg-royal-900">
+                  <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Luxury Entry Gate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-md bg-royal-950/80 backdrop-blur-md text-[10px] font-mono text-gold-300 border border-gold-400/30 font-bold">#10</span>
+                  <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md bg-blue-950/80 text-[10px] text-blue-300 border border-blue-500/30">🛣️ Infra</span>
+                </div>
+                <div class="p-4 space-y-1.5">
+                  <h5 class="font-serif text-base text-white font-medium group-hover:text-gold-300 transition-colors">Luxury Entry Gate</h5>
+                  <p class="text-[11px] text-gold-400 font-semibold">भव्य मुख्य प्रवेश द्वार</p>
+                  <p class="text-xs text-slate-300 leading-relaxed">Monumental entrance gateway with 24/7 security cabin, automated boom barriers, RFID access, and royal stone carving.</p>
+                </div>
+              </div>
+              <div class="p-4 pt-0">
+                <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20want%20details%20about%20Luxury%20Entry%20Gate%20in%20300%20Bigha%20Township,%20Diggi%20Road,%20Jaipur." target="_blank" data-config="wa-link" class="w-full py-2 px-3 rounded-xl bg-white/5 hover:bg-gold-500 hover:text-royal-950 text-slate-200 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all">
+                  <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Inquire on WhatsApp
+                </a>
+              </div>
+            </div>
+
+            <!-- 11. Park Entry -->
+            <div class="amenity-card rounded-2xl bg-royal-950/90 border border-white/10 overflow-hidden hover:border-gold-400/60 transition-all group flex flex-col justify-between" data-category="infra">
+              <div>
+                <div class="relative h-44 overflow-hidden bg-royal-900">
+                  <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80" alt="Park Entry" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-md bg-royal-950/80 backdrop-blur-md text-[10px] font-mono text-gold-300 border border-gold-400/30 font-bold">#11</span>
+                  <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md bg-blue-950/80 text-[10px] text-blue-300 border border-blue-500/30">🛣️ Infra</span>
+                </div>
+                <div class="p-4 space-y-1.5">
+                  <h5 class="font-serif text-base text-white font-medium group-hover:text-gold-300 transition-colors">Park Entry</h5>
+                  <p class="text-[11px] text-gold-400 font-semibold">पार्क प्रवेश द्वार</p>
+                  <p class="text-xs text-slate-300 leading-relaxed">Ornamental landscaped portal leading into the central garden with illuminated archways and colorful flower beds.</p>
+                </div>
+              </div>
+              <div class="p-4 pt-0">
+                <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20want%20details%20about%20Park%20Entry%20in%20300%20Bigha%20Township,%20Diggi%20Road,%20Jaipur." target="_blank" data-config="wa-link" class="w-full py-2 px-3 rounded-xl bg-white/5 hover:bg-gold-500 hover:text-royal-950 text-slate-200 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all">
+                  <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Inquire on WhatsApp
+                </a>
+              </div>
+            </div>
+
+            <!-- 12. Shopping Center -->
+            <div class="amenity-card rounded-2xl bg-royal-950/90 border border-white/10 overflow-hidden hover:border-gold-400/60 transition-all group flex flex-col justify-between" data-category="retail">
+              <div>
+                <div class="relative h-44 overflow-hidden bg-royal-900">
+                  <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Shopping Center" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-md bg-royal-950/80 backdrop-blur-md text-[10px] font-mono text-gold-300 border border-gold-400/30 font-bold">#12</span>
+                  <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md bg-amber-950/80 text-[10px] text-amber-300 border border-amber-500/30">🏛️ Retail</span>
+                </div>
+                <div class="p-4 space-y-1.5">
+                  <h5 class="font-serif text-base text-white font-medium group-hover:text-gold-300 transition-colors">Shopping Center</h5>
+                  <p class="text-[11px] text-gold-400 font-semibold">दैनिक शॉपिंग सेंटर</p>
+                  <p class="text-xs text-slate-300 leading-relaxed">Integrated neighborhood commercial arcade housing grocery, medical pharmacy, ATM, and daily household needs.</p>
+                </div>
+              </div>
+              <div class="p-4 pt-0">
+                <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20want%20details%20about%20Shopping%20Center%20in%20300%20Bigha%20Township,%20Diggi%20Road,%20Jaipur." target="_blank" data-config="wa-link" class="w-full py-2 px-3 rounded-xl bg-white/5 hover:bg-gold-500 hover:text-royal-950 text-slate-200 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all">
+                  <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Inquire on WhatsApp
+                </a>
+              </div>
+            </div>
+
+            <!-- 13. Feature Wall -->
+            <div class="amenity-card rounded-2xl bg-royal-950/90 border border-white/10 overflow-hidden hover:border-gold-400/60 transition-all group flex flex-col justify-between" data-category="infra">
+              <div>
+                <div class="relative h-44 overflow-hidden bg-royal-900">
+                  <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" alt="Feature Wall" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-md bg-royal-950/80 backdrop-blur-md text-[10px] font-mono text-gold-300 border border-gold-400/30 font-bold">#13</span>
+                  <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md bg-blue-950/80 text-[10px] text-blue-300 border border-blue-500/30">🛣️ Infra</span>
+                </div>
+                <div class="p-4 space-y-1.5">
+                  <h5 class="font-serif text-base text-white font-medium group-hover:text-gold-300 transition-colors">Feature Wall</h5>
+                  <p class="text-[11px] text-gold-400 font-semibold">लैंडमार्क फीचर वॉल</p>
+                  <p class="text-xs text-slate-300 leading-relaxed">Artistic stone masonry waterfall wall and iconic township emblem with ambient night illumination.</p>
+                </div>
+              </div>
+              <div class="p-4 pt-0">
+                <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20want%20details%20about%20Feature%20Wall%20in%20300%20Bigha%20Township,%20Diggi%20Road,%20Jaipur." target="_blank" data-config="wa-link" class="w-full py-2 px-3 rounded-xl bg-white/5 hover:bg-gold-500 hover:text-royal-950 text-slate-200 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all">
+                  <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Inquire on WhatsApp
+                </a>
+              </div>
+            </div>
+
+            <!-- 14. Street Demarcation -->
+            <div class="amenity-card rounded-2xl bg-royal-950/90 border border-white/10 overflow-hidden hover:border-gold-400/60 transition-all group flex flex-col justify-between" data-category="infra">
+              <div>
+                <div class="relative h-44 overflow-hidden bg-royal-900">
+                  <img src="https://images.unsplash.com/photo-1506521781263-d8422e82f27a?auto=format&fit=crop&w=800&q=80" alt="Street Demarcation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-md bg-royal-950/80 backdrop-blur-md text-[10px] font-mono text-gold-300 border border-gold-400/30 font-bold">#14</span>
+                  <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md bg-blue-950/80 text-[10px] text-blue-300 border border-blue-500/30">🛣️ Infra</span>
+                </div>
+                <div class="p-4 space-y-1.5">
+                  <h5 class="font-serif text-base text-white font-medium group-hover:text-gold-300 transition-colors">Street Demarcation</h5>
+                  <p class="text-[11px] text-gold-400 font-semibold">सटीक प्लॉट व सड़क सीमांकन</p>
+                  <p class="text-xs text-slate-300 leading-relaxed">Survey-grade boundary stones, numbered plot demarcation pillars, street signage, and standard kerb stone edgings.</p>
+                </div>
+              </div>
+              <div class="p-4 pt-0">
+                <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20want%20details%20about%20Street%20Demarcation%20in%20300%20Bigha%20Township,%20Diggi%20Road,%20Jaipur." target="_blank" data-config="wa-link" class="w-full py-2 px-3 rounded-xl bg-white/5 hover:bg-gold-500 hover:text-royal-950 text-slate-200 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all">
+                  <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Inquire on WhatsApp
+                </a>
+              </div>
+            </div>
+
+            <!-- 15. Temple -->
+            <div class="amenity-card rounded-2xl bg-royal-950/90 border border-white/10 overflow-hidden hover:border-gold-400/60 transition-all group flex flex-col justify-between" data-category="retail">
+              <div>
+                <div class="relative h-44 overflow-hidden bg-royal-900">
+                  <img src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80" alt="Temple" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-md bg-royal-950/80 backdrop-blur-md text-[10px] font-mono text-gold-300 border border-gold-400/30 font-bold">#15</span>
+                  <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md bg-amber-950/80 text-[10px] text-amber-300 border border-amber-500/30">🏛️ Mandir</span>
+                </div>
+                <div class="p-4 space-y-1.5">
+                  <h5 class="font-serif text-base text-white font-medium group-hover:text-gold-300 transition-colors">Temple (Mandir)</h5>
+                  <p class="text-[11px] text-gold-400 font-semibold">पवित्र मंदिर</p>
+                  <p class="text-xs text-slate-300 leading-relaxed">Sacred Rajasthani stone-crafted temple within the township for daily prayers, aarti, and spiritual serenity.</p>
+                </div>
+              </div>
+              <div class="p-4 pt-0">
+                <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20want%20details%20about%20Temple%20in%20300%20Bigha%20Township,%20Diggi%20Road,%20Jaipur." target="_blank" data-config="wa-link" class="w-full py-2 px-3 rounded-xl bg-white/5 hover:bg-gold-500 hover:text-royal-950 text-slate-200 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all">
+                  <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Inquire on WhatsApp
+                </a>
+              </div>
+            </div>
+
+            <!-- 16. Town Walk -->
+            <div class="amenity-card rounded-2xl bg-royal-950/90 border border-white/10 overflow-hidden hover:border-gold-400/60 transition-all group flex flex-col justify-between" data-category="sports">
+              <div>
+                <div class="relative h-44 overflow-hidden bg-royal-900">
+                  <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80" alt="Town Walk" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-md bg-royal-950/80 backdrop-blur-md text-[10px] font-mono text-gold-300 border border-gold-400/30 font-bold">#16</span>
+                  <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md bg-cyan-950/80 text-[10px] text-cyan-300 border border-cyan-500/30">🏃 Sports</span>
+                </div>
+                <div class="p-4 space-y-1.5">
+                  <h5 class="font-serif text-base text-white font-medium group-hover:text-gold-300 transition-colors">Town Walk</h5>
+                  <p class="text-[11px] text-gold-400 font-semibold">टाउन वॉकवे / जॉगिंग ट्रैक</p>
+                  <p class="text-xs text-slate-300 leading-relaxed">Continuous paved perimeter jogging and walking promenade with low-glare solar bollard lighting and manicured trees.</p>
+                </div>
+              </div>
+              <div class="p-4 pt-0">
+                <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20want%20details%20about%20Town%20Walk%20in%20300%20Bigha%20Township,%20Diggi%20Road,%20Jaipur." target="_blank" data-config="wa-link" class="w-full py-2 px-3 rounded-xl bg-white/5 hover:bg-gold-500 hover:text-royal-950 text-slate-200 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all">
+                  <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Inquire on WhatsApp
+                </a>
+              </div>
+            </div>
+
+            <!-- 17. Selfie Zone -->
+            <div class="amenity-card rounded-2xl bg-royal-950/90 border border-white/10 overflow-hidden hover:border-gold-400/60 transition-all group flex flex-col justify-between" data-category="retail">
+              <div>
+                <div class="relative h-44 overflow-hidden bg-royal-900">
+                  <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=800&q=80" alt="Selfie Zone" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-md bg-royal-950/80 backdrop-blur-md text-[10px] font-mono text-gold-300 border border-gold-400/30 font-bold">#17</span>
+                  <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md bg-amber-950/80 text-[10px] text-amber-300 border border-amber-500/30">🏛️ Retail</span>
+                </div>
+                <div class="p-4 space-y-1.5">
+                  <h5 class="font-serif text-base text-white font-medium group-hover:text-gold-300 transition-colors">Selfie Zone</h5>
+                  <p class="text-[11px] text-gold-400 font-semibold">सेल्फी ज़ोन</p>
+                  <p class="text-xs text-slate-300 leading-relaxed">Beautifully designed landscape sculpture and floral frames created for vibrant family photography and memories.</p>
+                </div>
+              </div>
+              <div class="p-4 pt-0">
+                <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20want%20details%20about%20Selfie%20Zone%20in%20300%20Bigha%20Township,%20Diggi%20Road,%20Jaipur." target="_blank" data-config="wa-link" class="w-full py-2 px-3 rounded-xl bg-white/5 hover:bg-gold-500 hover:text-royal-950 text-slate-200 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all">
+                  <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Inquire on WhatsApp
+                </a>
+              </div>
+            </div>
+
+            <!-- 18. Yoga & Meditation Zone -->
+            <div class="amenity-card rounded-2xl bg-royal-950/90 border border-white/10 overflow-hidden hover:border-gold-400/60 transition-all group flex flex-col justify-between" data-category="nature">
+              <div>
+                <div class="relative h-44 overflow-hidden bg-royal-900">
+                  <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80" alt="Yoga & Meditation Zone" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-md bg-royal-950/80 backdrop-blur-md text-[10px] font-mono text-gold-300 border border-gold-400/30 font-bold">#18</span>
+                  <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md bg-emerald-950/80 text-[10px] text-emerald-300 border border-emerald-500/30">🌿 Nature</span>
+                </div>
+                <div class="p-4 space-y-1.5">
+                  <h5 class="font-serif text-base text-white font-medium group-hover:text-gold-300 transition-colors">Yoga & Meditation Zone</h5>
+                  <p class="text-[11px] text-gold-400 font-semibold">योग एवं ध्यान केंद्र</p>
+                  <p class="text-xs text-slate-300 leading-relaxed">Serene open-air wooden deck situated in quiet zone for morning Surya Namaskar, pranayama, and mindful relaxation.</p>
+                </div>
+              </div>
+              <div class="p-4 pt-0">
+                <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20want%20details%20about%20Yoga%20and%20Meditation%20Zone%20in%20300%20Bigha%20Township,%20Diggi%20Road,%20Jaipur." target="_blank" data-config="wa-link" class="w-full py-2 px-3 rounded-xl bg-white/5 hover:bg-gold-500 hover:text-royal-950 text-slate-200 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all">
+                  <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Inquire on WhatsApp
+                </a>
+              </div>
+            </div>
+
+            <!-- 19. Open Gym -->
+            <div class="amenity-card rounded-2xl bg-royal-950/90 border border-white/10 overflow-hidden hover:border-gold-400/60 transition-all group flex flex-col justify-between" data-category="sports">
+              <div>
+                <div class="relative h-44 overflow-hidden bg-royal-900">
+                  <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80" alt="Open Gym" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-md bg-royal-950/80 backdrop-blur-md text-[10px] font-mono text-gold-300 border border-gold-400/30 font-bold">#19</span>
+                  <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md bg-cyan-950/80 text-[10px] text-cyan-300 border border-cyan-500/30">🏃 Sports</span>
+                </div>
+                <div class="p-4 space-y-1.5">
+                  <h5 class="font-serif text-base text-white font-medium group-hover:text-gold-300 transition-colors">Open Gym</h5>
+                  <p class="text-[11px] text-gold-400 font-semibold">ओपन एयर जिम</p>
+                  <p class="text-xs text-slate-300 leading-relaxed">Weather-resistant outdoor gym equipment including cross-trainer, air walker, seated chest press, and abs bench.</p>
+                </div>
+              </div>
+              <div class="p-4 pt-0">
+                <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20want%20details%20about%20Open%20Gym%20in%20300%20Bigha%20Township,%20Diggi%20Road,%20Jaipur." target="_blank" data-config="wa-link" class="w-full py-2 px-3 rounded-xl bg-white/5 hover:bg-gold-500 hover:text-royal-950 text-slate-200 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all">
+                  <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Inquire on WhatsApp
+                </a>
+              </div>
+            </div>
+
+            <!-- 20. Swimming Pool -->
+            <div class="amenity-card rounded-2xl bg-royal-950/90 border border-white/10 overflow-hidden hover:border-gold-400/60 transition-all group flex flex-col justify-between" data-category="sports">
+              <div>
+                <div class="relative h-44 overflow-hidden bg-royal-900">
+                  <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=800&q=80" alt="Swimming Pool" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-md bg-royal-950/80 backdrop-blur-md text-[10px] font-mono text-gold-300 border border-gold-400/30 font-bold">#20</span>
+                  <span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-md bg-cyan-950/80 text-[10px] text-cyan-300 border border-cyan-500/30">🏃 Sports</span>
+                </div>
+                <div class="p-4 space-y-1.5">
+                  <h5 class="font-serif text-base text-white font-medium group-hover:text-gold-300 transition-colors">Swimming Pool</h5>
+                  <p class="text-[11px] text-gold-400 font-semibold">भव्य स्विमिंग पूल</p>
+                  <p class="text-xs text-slate-300 leading-relaxed">Crystal-clear full-size swimming pool with dedicated kids splash area, sundeck loungers, and private changing rooms.</p>
+                </div>
+              </div>
+              <div class="p-4 pt-0">
+                <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20want%20details%20about%20Swimming%20Pool%20in%20300%20Bigha%20Township,%20Diggi%20Road,%20Jaipur." target="_blank" data-config="wa-link" class="w-full py-2 px-3 rounded-xl bg-white/5 hover:bg-gold-500 hover:text-royal-950 text-slate-200 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all">
+                  <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Inquire on WhatsApp
+                </a>
+              </div>
             </div>
 
           </div>
+
+          <!-- Bottom Site Visit CTA Banner for 20 Amenities -->
+          <div class="p-5 rounded-2xl bg-royal-950 border border-gold-500/30 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-gold-500/20 text-gold-400 border border-gold-500/40 flex items-center justify-center shrink-0">
+                <i data-lucide="map" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <strong class="text-white block text-sm">Download Township 20-Amenity Master Layout</strong>
+                <p class="text-slate-400">Navratan Kumawat se sabhi 20 suvidhaon ka high-res PDF map WhatsApp par mangwayein.</p>
+              </div>
+            </div>
+            <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20please%20send%20the%2020-Amenity%20Master%20Layout%20Brochure%20for%20300%20Bigha%20Mega%20Township,%20Diggi%20Road,%20Jaipur." target="_blank" data-config="wa-link" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold whitespace-nowrap flex items-center gap-2 transition-all shadow-md">
+              <i data-lucide="file-text" class="w-4 h-4"></i> WhatsApp par Brochure Mangwayein
+            </a>
+          </div>
+
         </div>
 
         <!-- Tab 3: Why Invest Here? -->
@@ -1743,40 +2165,162 @@
     </div>
   </section>
 
-  <!-- ==================== 10. ABOUT ROYAL RAJASTHAN PROPERTIES ==================== -->
-  <section id="about" class="py-20 bg-[#faf8f5] border-b border-slate-200">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-white rounded-3xl p-8 sm:p-12 border border-gold-300/40 shadow-card-luxury">
-        <div class="flex items-center gap-2 text-gold-600 text-xs font-semibold uppercase tracking-widest mb-2 font-display">
-          <span class="w-6 h-px bg-gold-600"></span> Advisory Overview
+  <!-- ==================== 10. ABOUT ROYAL RAJASTHAN PROPERTIES & LEADERSHIP ==================== -->
+  <section id="about" class="py-20 md:py-28 bg-[#faf8f5] border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-2 text-gold-700 text-xs font-bold uppercase tracking-widest mb-3 font-display bg-gold-500/10 px-3.5 py-1.5 rounded-full border border-gold-400/40">
+          <i data-lucide="award" class="w-4 h-4 text-gold-600"></i>
+          <span>Leadership & Advisory Profile</span>
         </div>
-        <h2 class="font-serif text-3xl sm:text-4xl text-royal-950 font-normal">
-          About Royal Rajasthan Properties
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl text-royal-950 font-medium">
+          Meet Navratan Kumawat
         </h2>
-        <div class="mt-6 text-sm sm:text-base text-slate-700 leading-relaxed space-y-4">
-          <p>
-            <strong>ROYAL RAJASTHAN PROPERTIES</strong> operates as a boutique luxury real-estate consultancy delivering high-trust property advisory, portfolio curation, and strategic investment guidance throughout Rajasthan, with our primary operations centered in the capital city of Jaipur.
-          </p>
-          <div class="p-4 rounded-xl bg-sand-100 border border-gold-200 font-mono text-xs text-slate-600">
-            <code>[ADD COMPANY INFORMATION]</code> — Corporate history, founder credentials, trade licenses, official office addresses, and verified company milestones are updated in this section as supplied by company leadership.
+        <p class="mt-2 text-gold-700 font-display text-sm sm:text-base font-semibold uppercase tracking-wider">
+          Founder & Principal Real Estate Consultant • Royal Rajasthan Properties
+        </p>
+        <p class="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed">
+          Delivering fiduciary property guidance, verified mega township investments, and transparent title due diligence across Jaipur and Rajasthan.
+        </p>
+      </div>
+
+      <!-- Profile Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left: Consultant Persona Card -->
+        <div class="lg:col-span-5 bg-white rounded-3xl p-6 sm:p-8 border-2 border-gold-400/40 shadow-card-luxury text-center space-y-5">
+          <div class="relative w-36 h-36 mx-auto rounded-3xl overflow-hidden border-4 border-gold-400/80 shadow-gold-md bg-royal-900">
+            <img id="aboutConsultantImg" data-profile="img" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=85" alt="Navratan Kumawat - Real Estate Consultant" class="w-full h-full object-cover">
+            <div class="absolute bottom-1 right-1 bg-emerald-500 text-white p-1 rounded-full border-2 border-white" title="Verified Real Estate Consultant">
+              <i data-lucide="check" class="w-3.5 h-3.5 stroke-[3]"></i>
+            </div>
           </div>
-          <p>
-            Our core mission is to represent our clients with fiduciary care—evaluating every property against rigorous due-diligence standards, title clarity, municipal layout approvals, and official RERA schedules so that families and investors make informed decisions.
-          </p>
+
+          <div>
+            <h3 class="font-serif text-2xl font-bold text-royal-950" data-profile="name">Navratan Kumawat</h3>
+            <p class="text-xs font-semibold text-gold-700 uppercase tracking-wider mt-1" data-profile="title">
+              Founder & Senior Property Investment Advisor
+            </p>
+            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-300 text-[11px] font-semibold">
+              <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>100% Legal Title Verified Advisory</span>
+            </div>
+          </div>
+
+          <!-- Verified Key Metrics -->
+          <div class="grid grid-cols-2 gap-3 pt-3 border-t border-slate-100 text-left">
+            <div class="p-3 rounded-2xl bg-sand-50 border border-gold-200/60">
+              <span class="text-[10px] uppercase font-bold text-slate-500 block">Experience</span>
+              <strong class="text-base font-serif text-royal-950" data-profile="experience">10+ Years</strong>
+              <span class="text-[10px] text-slate-500 block">Rajasthan Markets</span>
+            </div>
+            <div class="p-3 rounded-2xl bg-sand-50 border border-gold-200/60">
+              <span class="text-[10px] uppercase font-bold text-slate-500 block">Families Advised</span>
+              <strong class="text-base font-serif text-royal-950" data-profile="families">850+ Families</strong>
+              <span class="text-[10px] text-slate-500 block">Settled & Guided</span>
+            </div>
+            <div class="p-3 rounded-2xl bg-sand-50 border border-gold-200/60">
+              <span class="text-[10px] uppercase font-bold text-slate-500 block">Area Transacted</span>
+              <strong class="text-base font-serif text-royal-950" data-profile="area">15+ Lakh Sq.Ft.</strong>
+              <span class="text-[10px] text-slate-500 block">Residential & Com.</span>
+            </div>
+            <div class="p-3 rounded-2xl bg-sand-50 border border-gold-200/60">
+              <span class="text-[10px] uppercase font-bold text-slate-500 block">Loan Assistance</span>
+              <strong class="text-base font-serif text-emerald-700">Up to 80%</strong>
+              <span class="text-[10px] text-slate-500 block">Nationalized Banks</span>
+            </div>
+          </div>
+
+          <!-- Quick Action Buttons -->
+          <div class="space-y-2 pt-2">
+            <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20would%20like%20to%20consult%20with%20you%20regarding%20property%20investment%20in%20Jaipur." target="_blank" data-config="wa-link" class="w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-sm transition-all">
+              <i data-lucide="message-circle" class="w-4 h-4"></i> Chat on WhatsApp with Navratan ji
+            </a>
+            <a href="tel:+919461812342" data-config="phone-link" class="w-full py-2.5 px-4 rounded-xl bg-royal-900 hover:bg-royal-800 text-gold-300 font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 border border-gold-400/30 transition-all">
+              <i data-lucide="phone-call" class="w-4 h-4 text-gold-400"></i> Direct Call: <span data-config="phone">+91 94618 12342</span>
+            </a>
+          </div>
         </div>
 
-        <div class="mt-8 pt-6 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-500">
-          <div>
-            <strong>Primary Corporate Focus:</strong> Jaipur, Rajasthan, India
+        <!-- Right: Story, Vision & Fiduciary Mission -->
+        <div class="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-10 border border-gold-300/40 shadow-card-luxury space-y-6">
+          <div class="flex items-center gap-2 text-gold-700 text-xs font-bold uppercase tracking-widest font-display">
+            <span class="w-6 h-px bg-gold-600"></span> Advisory Vision & Standards
           </div>
-          <div>
-            <strong>Geographic Reach:</strong> Jaipur, Jodhpur, Udaipur, Kota, Ajmer
+
+          <h3 class="font-serif text-2xl sm:text-3xl text-royal-950 font-normal">
+            Your Trusted Property Partner in Rajasthan
+          </h3>
+
+          <div class="text-sm sm:text-base text-slate-700 leading-relaxed space-y-4">
+            <p data-profile="bio">
+              With over a decade of hands-on experience in Rajasthan's prime real estate corridors, <strong>Navratan Kumawat</strong> founded <strong>Royal Rajasthan Properties</strong> with a clear purpose: to bring institutional-grade transparency, meticulous title verification, and true client advocacy to every property deal.
+            </p>
+            <p>
+              Whether you are looking for an approved residential plot in a 300 Bigha mega township, a grand highway commercial frontage on 200 Ft. Diggi Road, or high-appreciation investment parcels, our advisory guarantees complete peace of mind.
+            </p>
           </div>
-          <a href="#contact" class="text-gold-700 hover:text-gold-900 font-semibold underline">
-            Request Official Corporate Profile →
-          </a>
+
+          <!-- 4 Core Advisory Pillars -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-100">
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-xl bg-gold-500/10 text-gold-700 flex items-center justify-center shrink-0 border border-gold-500/30">
+                <i data-lucide="file-check-2" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <strong class="text-xs uppercase font-bold text-royal-950 block">100% Legal Title Due Diligence</strong>
+                <p class="text-xs text-slate-600 mt-0.5">Every layout, RERA filing, and municipal approval is verified before client presentation.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-xl bg-gold-500/10 text-gold-700 flex items-center justify-center shrink-0 border border-gold-500/30">
+                <i data-lucide="badge-percent" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <strong class="text-xs uppercase font-bold text-royal-950 block">Direct Best Pricing</strong>
+                <p class="text-xs text-slate-600 mt-0.5">Zero hidden markups. We secure direct developer rates with verified ₹1,000/Gaj buyer discounts.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-xl bg-gold-500/10 text-gold-700 flex items-center justify-center shrink-0 border border-gold-500/30">
+                <i data-lucide="car" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <strong class="text-xs uppercase font-bold text-royal-950 block">Complimentary Site Visit Cab</strong>
+                <p class="text-xs text-slate-600 mt-0.5">We provide free pick-and-drop site visits for families across Jaipur and nearby districts.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-xl bg-gold-500/10 text-gold-700 flex items-center justify-center shrink-0 border border-gold-500/30">
+                <i data-lucide="banknote" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <strong class="text-xs uppercase font-bold text-royal-950 block">Hassle-Free Bank Loans</strong>
+                <p class="text-xs text-slate-600 mt-0.5">Complete loan processing support up to 80% from leading nationalized and private banks.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Desk Address -->
+          <div class="mt-6 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-slate-600">
+            <div>
+              <strong class="text-royal-950">Advisory Desk:</strong>
+              <span data-config="address" class="ml-1">Opposite Knowledge City, Diggi Road, Jaipur, Rajasthan</span>
+            </div>
+            <a href="mailto:nav00900@gmail.com" data-config="email-link" class="text-gold-700 hover:text-gold-900 font-semibold underline flex items-center gap-1">
+              <i data-lucide="mail" class="w-3.5 h-3.5"></i> <span data-config="email">nav00900@gmail.com</span>
+            </a>
+          </div>
+
         </div>
+
       </div>
+
     </div>
   </section>
 
@@ -1911,8 +2455,8 @@
                 <span class="flex items-center gap-1"><i data-lucide="building-2" class="w-3.5 h-3.5 text-gold-600"></i> Premium Sky Residences</span>
               </div>
               <div class="flex items-center gap-2">
-                <a href="[ADD LOCATION/MAP LINKS]" class="text-gold-700 hover:text-gold-900 font-medium underline flex items-center gap-1">
-                  <i data-lucide="map" class="w-3.5 h-3.5"></i> [ADD LOCATION/MAP LINKS]
+                <a href="https://maps.google.com/?q=Jaipur+Rajasthan" target="_blank" rel="noopener" class="text-gold-700 hover:text-gold-900 font-medium underline flex items-center gap-1">
+                  <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> View Google Map
                 </a>
                 <button onclick="filterProjectsByLocation('Jaipur')" class="px-3.5 py-1.5 rounded-lg bg-royal-900 text-gold-300 hover:bg-royal-800 transition-colors font-semibold">
                   View Jaipur Properties
@@ -1937,8 +2481,8 @@
               The Sun City offers high-yield commercial hubs, heritage plots near Mehrangarh buffer, and upscale developments along Pal Road and Shikargarh.
             </p>
             <div class="flex items-center justify-between pt-3 border-t border-slate-100 text-xs">
-              <a href="[ADD LOCATION/MAP LINKS]" class="text-slate-500 hover:text-gold-700 underline flex items-center gap-1">
-                <i data-lucide="map" class="w-3.5 h-3.5"></i> [ADD LOCATION/MAP LINKS]
+              <a href="https://maps.google.com/?q=Jodhpur+Rajasthan" target="_blank" rel="noopener" class="text-slate-500 hover:text-gold-700 underline flex items-center gap-1">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> View Google Map
               </a>
               <button onclick="filterProjectsByLocation('Jodhpur')" class="px-3 py-1.5 rounded-lg bg-royal-900 text-gold-300 text-xs font-semibold">
                 Explore Jodhpur
@@ -1962,8 +2506,8 @@
               Renowned for luxury vacation homes, boutique eco-residences, and prime hospitality parcels across Fatehsagar and Sukher corridors.
             </p>
             <div class="flex items-center justify-between pt-3 border-t border-slate-100 text-xs">
-              <a href="[ADD LOCATION/MAP LINKS]" class="text-slate-500 hover:text-gold-700 underline flex items-center gap-1">
-                <i data-lucide="map" class="w-3.5 h-3.5"></i> [ADD LOCATION/MAP LINKS]
+              <a href="https://maps.google.com/?q=Udaipur+Rajasthan" target="_blank" rel="noopener" class="text-slate-500 hover:text-gold-700 underline flex items-center gap-1">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> View Google Map
               </a>
               <button onclick="filterProjectsByLocation('Udaipur')" class="px-3 py-1.5 rounded-lg bg-royal-900 text-gold-300 text-xs font-semibold">
                 Explore Udaipur
@@ -1987,8 +2531,8 @@
               A dynamic institutional and commercial market with high rental yield potentials, student housing spaces, and expanding residential sectors.
             </p>
             <div class="flex items-center justify-between pt-3 border-t border-slate-100 text-xs">
-              <a href="[ADD LOCATION/MAP LINKS]" class="text-slate-500 hover:text-gold-700 underline flex items-center gap-1">
-                <i data-lucide="map" class="w-3.5 h-3.5"></i> [ADD LOCATION/MAP LINKS]
+              <a href="https://maps.google.com/?q=Kota+Rajasthan" target="_blank" rel="noopener" class="text-slate-500 hover:text-gold-700 underline flex items-center gap-1">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> View Google Map
               </a>
               <button onclick="filterProjectsByLocation('Kota')" class="px-3 py-1.5 rounded-lg bg-royal-900 text-gold-300 text-xs font-semibold">
                 Explore Kota
@@ -2012,8 +2556,8 @@
               Spiritual tourism gateway with emerging farmhouses, gated residential townships, and prime commercial plots along the Jaipur-Ajmer express highway.
             </p>
             <div class="flex items-center justify-between pt-3 border-t border-slate-100 text-xs">
-              <a href="[ADD LOCATION/MAP LINKS]" class="text-slate-500 hover:text-gold-700 underline flex items-center gap-1">
-                <i data-lucide="map" class="w-3.5 h-3.5"></i> [ADD LOCATION/MAP LINKS]
+              <a href="https://maps.google.com/?q=Ajmer+Rajasthan" target="_blank" rel="noopener" class="text-slate-500 hover:text-gold-700 underline flex items-center gap-1">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5"></i> View Google Map
               </a>
               <button onclick="filterProjectsByLocation('Ajmer')" class="px-3 py-1.5 rounded-lg bg-royal-900 text-gold-300 text-xs font-semibold">
                 Explore Ajmer
@@ -2114,7 +2658,7 @@
               <div class="p-2 rounded-lg bg-royal-900 text-gold-400 shrink-0"><i data-lucide="map-pin" class="w-4 h-4"></i></div>
               <div>
                 <strong class="text-white block text-sm">Corporate Office</strong>
-                <p class="text-slate-400 mt-0.5"><code>[ADD OFFICE/LOCATION ADDRESS]</code>, Jaipur, Rajasthan, India</p>
+                <p class="text-slate-400 mt-0.5"><span data-config="address">Opposite Knowledge City, Diggi Road, Jaipur, Rajasthan</span></p>
               </div>
             </div>
 
@@ -2122,7 +2666,7 @@
               <div class="p-2 rounded-lg bg-royal-900 text-gold-400 shrink-0"><i data-lucide="phone" class="w-4 h-4"></i></div>
               <div>
                 <strong class="text-white block text-sm">Telephone Hotline</strong>
-                <a href="tel:+919461812342" class="text-gold-300 hover:underline">+91 94618 12342</a>
+                <a href="tel:+919461812342" data-config="phone-link" class="text-gold-300 hover:underline"><span data-config="phone">+91 94618 12342</span></a>
               </div>
             </div>
 
@@ -2130,8 +2674,8 @@
               <div class="p-2 rounded-lg bg-royal-900 text-emerald-400 shrink-0"><i data-lucide="message-circle" class="w-4 h-4"></i></div>
               <div>
                 <strong class="text-white block text-sm">Direct WhatsApp Sales</strong>
-                <a href="https://wa.me/919461812342?text=Hello%20Royal%20Rajasthan%20Properties,%20I%20would%20like%20to%20inquire%20about%20properties." target="_blank" rel="noopener" class="text-emerald-400 hover:underline">
-                  Chat with Sales Desk →
+                <a href="https://wa.me/919461812342?text=Hello%20Royal%20Rajasthan%20Properties,%20I%20would%20like%20to%20inquire%20about%20properties." data-config="wa-link" target="_blank" rel="noopener" class="text-emerald-400 hover:underline">
+                  Chat with Sales Desk (<span data-config="wa-text">9461812342</span>) →
                 </a>
               </div>
             </div>
@@ -2140,7 +2684,7 @@
               <div class="p-2 rounded-lg bg-royal-900 text-gold-400 shrink-0"><i data-lucide="mail" class="w-4 h-4"></i></div>
               <div>
                 <strong class="text-white block text-sm">Advisory Email</strong>
-                <a href="mailto:nav00900@gmail.com" class="text-slate-300 hover:underline">nav00900@gmail.com</a>
+                <a href="mailto:nav00900@gmail.com" data-config="email-link" class="text-slate-300 hover:underline"><span data-config="email">nav00900@gmail.com</span></a>
               </div>
             </div>
 
@@ -2408,7 +2952,7 @@
           <div class="flex items-center gap-5">
             <a href="#" class="hover:text-gold-400 transition-colors">Privacy Policy</a>
             <a href="#" class="hover:text-gold-400 transition-colors">Terms of Advisory</a>
-            <a href="[ADD RERA DETAILS LINK]" class="text-gold-500 hover:underline">RERA Verification Disclosure</a>
+            <a href="https://rera.rajasthan.gov.in" target="_blank" rel="noopener" class="text-gold-500 hover:underline">RERA Verification Disclosure</a>
           </div>
         </div>
       </div>
@@ -2602,27 +3146,27 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-slate-600">
             <div class="p-2.5 bg-white rounded-lg border border-slate-200">
               <span class="font-semibold text-royal-950 block text-[11px]">RERA Regulatory Dossier:</span>
-              <a href="[ADD RERA DETAILS LINK]" class="text-gold-700 hover:text-gold-900 underline truncate block mt-0.5 font-mono text-[11px]">[ADD RERA DETAILS LINK]</a>
+              <a id="modalDocRera" href="https://rera.rajasthan.gov.in" target="_blank" rel="noopener" class="text-gold-700 hover:text-gold-900 underline truncate block mt-0.5 font-medium text-[11px]">Official Rajasthan RERA Portal →</a>
             </div>
             <div class="p-2.5 bg-white rounded-lg border border-slate-200">
               <span class="font-semibold text-royal-950 block text-[11px]">Official Pricing Schedule:</span>
-              <a href="[ADD PRICING LINK]" class="text-gold-700 hover:text-gold-900 underline truncate block mt-0.5 font-mono text-[11px]">[ADD PRICING LINK]</a>
+              <a id="modalDocPricing" href="#mega-township-diggi" class="text-gold-700 hover:text-gold-900 underline truncate block mt-0.5 font-medium text-[11px]">Verified Price & Offers →</a>
             </div>
             <div class="p-2.5 bg-white rounded-lg border border-slate-200">
               <span class="font-semibold text-royal-950 block text-[11px]">High-Res Project Photography:</span>
-              <a href="[ADD PROJECT PHOTOS LINK]" class="text-gold-700 hover:text-gold-900 underline truncate block mt-0.5 font-mono text-[11px]">[ADD PROJECT PHOTOS LINK]</a>
+              <a id="modalDocPhotos" href="#mega-township-diggi" class="text-gold-700 hover:text-gold-900 underline truncate block mt-0.5 font-medium text-[11px]">View Photo Gallery →</a>
             </div>
             <div class="p-2.5 bg-white rounded-lg border border-slate-200">
               <span class="font-semibold text-royal-950 block text-[11px]">Cinematic Video Walkthrough:</span>
-              <a href="[ADD PROJECT VIDEO LINK]" class="text-gold-700 hover:text-gold-900 underline truncate block mt-0.5 font-mono text-[11px]">[ADD PROJECT VIDEO LINK]</a>
+              <a id="modalDocVideo" href="https://wa.me/919461812342?text=Please%20send%20video%20walkthrough" target="_blank" data-config="wa-link" class="text-gold-700 hover:text-gold-900 underline truncate block mt-0.5 font-medium text-[11px]">Request Video Tour on WhatsApp →</a>
             </div>
             <div class="p-2.5 bg-white rounded-lg border border-slate-200">
               <span class="font-semibold text-royal-950 block text-[11px]">Technical Features & Floor Specs:</span>
-              <a href="[ADD FEATURES INFORMATION LINK]" class="text-gold-700 hover:text-gold-900 underline truncate block mt-0.5 font-mono text-[11px]">[ADD FEATURES INFORMATION LINK]</a>
+              <a id="modalDocSpecs" href="#contact" class="text-gold-700 hover:text-gold-900 underline truncate block mt-0.5 font-medium text-[11px]">Approved Master Layout Specs →</a>
             </div>
             <div class="p-2.5 bg-white rounded-lg border border-slate-200">
               <span class="font-semibold text-royal-950 block text-[11px]">Geographic Location & Master Map:</span>
-              <a href="[ADD LOCATION/MAP LINKS]" class="text-gold-700 hover:text-gold-900 underline truncate block mt-0.5 font-mono text-[11px]">[ADD LOCATION/MAP LINKS]</a>
+              <a id="modalDocMap" href="https://maps.google.com/?q=Diggi+Road+Jaipur" target="_blank" rel="noopener" class="text-gold-700 hover:text-gold-900 underline truncate block mt-0.5 font-medium text-[11px]">Open Location on Google Maps →</a>
             </div>
           </div>
         </div>
@@ -2637,7 +3181,7 @@
               <i data-lucide="phone-call" class="w-4 h-4"></i> Request Callback
             </button>
           </div>
-          <a id="modalBrochureBtn" href="[ADD BROCHURE LINK]" class="w-full sm:w-auto px-4 py-3 rounded-xl border border-gold-500/50 hover:bg-gold-50 text-gold-800 text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all">
+          <a id="modalBrochureBtn" href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20please%20send%20verified%20project%20brochure%20and%20rates." target="_blank" data-config="wa-link" class="w-full sm:w-auto px-4 py-3 rounded-xl border border-gold-500/50 hover:bg-gold-50 text-gold-800 text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all">
             <i data-lucide="download" class="w-4 h-4 text-gold-600"></i> Download Project Brochure
           </a>
         </div>
@@ -3489,16 +4033,28 @@
         </div>
       </div>
 
-      <!-- Admin Tab Switcher -->
-      <div class="px-5 pt-3 bg-royal-950 border-b border-white/10 flex items-center gap-6 text-xs font-display">
-        <button id="tabBtnAdminLeads" onclick="switchAdminTab('leads')" class="pb-3 border-b-2 border-gold-400 text-gold-300 font-bold flex items-center gap-2 transition-all">
+      <!-- Admin Tab Switcher / Navigation Menu Bar -->
+      <div class="px-5 pt-3 bg-royal-950 border-b border-white/10 flex items-center gap-2 sm:gap-6 overflow-x-auto no-scrollbar text-xs font-display">
+        <button id="tabBtnAdminLeads" onclick="switchAdminTab('leads')" class="pb-3 border-b-2 border-gold-400 text-gold-300 font-bold flex items-center gap-2 transition-all whitespace-nowrap">
           <i data-lucide="users" class="w-4 h-4"></i>
-          <span>Captured Leads & Telemetry</span>
+          <span>Captured Leads</span>
         </button>
-        <button id="tabBtnAdminProjects" onclick="switchAdminTab('projects')" class="pb-3 border-b-2 border-transparent text-slate-400 hover:text-white font-semibold flex items-center gap-2 transition-all">
+        <button id="tabBtnAdminProjects" onclick="switchAdminTab('projects')" class="pb-3 border-b-2 border-transparent text-slate-400 hover:text-white font-semibold flex items-center gap-2 transition-all whitespace-nowrap">
           <i data-lucide="building-2" class="w-4 h-4"></i>
-          <span>Manage Projects (प्रोजेक्ट हटाएं / जोड़ें)</span>
+          <span>Manage Projects</span>
           <span id="adminProjectsCountBadge" class="px-2 py-0.5 rounded-full bg-royal-800 text-[10px] text-gold-400">0</span>
+        </button>
+        <button id="tabBtnAdminSettings" onclick="switchAdminTab('settings')" class="pb-3 border-b-2 border-transparent text-slate-400 hover:text-white font-semibold flex items-center gap-2 transition-all whitespace-nowrap">
+          <i data-lucide="settings" class="w-4 h-4 text-amber-400"></i>
+          <span>Website Menu & Contacts (ईमेल / WhatsApp)</span>
+        </button>
+        <button id="tabBtnAdminProfile" onclick="switchAdminTab('profile')" class="pb-3 border-b-2 border-transparent text-slate-400 hover:text-white font-semibold flex items-center gap-2 transition-all whitespace-nowrap">
+          <i data-lucide="user-check" class="w-4 h-4 text-emerald-400"></i>
+          <span>Profile Details (नवरत्न कुमावत प्रोफाइल)</span>
+        </button>
+        <button id="tabBtnAdminSecurity" onclick="switchAdminTab('security')" class="pb-3 border-b-2 border-transparent text-slate-400 hover:text-white font-semibold flex items-center gap-2 transition-all whitespace-nowrap">
+          <i data-lucide="shield-check" class="w-4 h-4 text-gold-400"></i>
+          <span>Security & PIN</span>
         </button>
       </div>
 
@@ -3612,6 +4168,303 @@
                 <!-- Dynamically populated via renderAdminProjects() -->
               </tbody>
             </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: WEBSITE MENU & CONTACTS SETTINGS -->
+      <div id="adminSettingsTabContent" class="hidden flex-1 flex flex-col overflow-y-auto p-5 sm:p-6 bg-royal-900/60 space-y-6 text-xs text-slate-200">
+        <div class="flex items-center justify-between pb-3 border-b border-white/10">
+          <div>
+            <h4 class="font-serif text-lg text-white font-medium flex items-center gap-2">
+              <i data-lucide="settings" class="w-5 h-5 text-amber-400"></i> Website Contact & Menu Settings (ईमेल व व्हाट्सएप बदलें)
+            </h4>
+            <p class="text-[11px] text-slate-400 mt-0.5">
+              Yahan badla gaya WhatsApp number, Phone aur Email poori website ke sabhi buttons aur contact forms par turant update ho jayega.
+            </p>
+          </div>
+          <span class="px-2.5 py-1 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-[10px] text-emerald-300 font-bold">
+            Live Reactive Sync
+          </span>
+        </div>
+
+        <form id="adminSiteSettingsForm" onsubmit="saveSiteConfigFromAdmin(event)" class="space-y-5">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            
+            <!-- WhatsApp Number -->
+            <div class="p-4 rounded-xl bg-royal-950 border border-emerald-500/30 space-y-2">
+              <label class="block text-[11px] uppercase tracking-wider font-bold text-emerald-400 flex items-center gap-1.5">
+                <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp Chat Number (व्हाट्सएप नंबर)
+              </label>
+              <input type="text" id="adminSettingWhatsApp" placeholder="e.g. 9461812342" class="w-full bg-royal-900 border border-white/20 rounded-xl px-3.5 py-2.5 text-white font-mono text-sm focus:outline-none focus:border-emerald-400">
+              <p class="text-[10px] text-slate-400">
+                Sirf 10 digit number ya country code ke sath likhein (e.g. <code>9461812342</code> ya <code>919461812342</code>). Sabhi "Chat on WhatsApp" buttons par yahi number activate hoga.
+              </p>
+            </div>
+
+            <!-- Calling Phone -->
+            <div class="p-4 rounded-xl bg-royal-950 border border-gold-500/30 space-y-2">
+              <label class="block text-[11px] uppercase tracking-wider font-bold text-gold-400 flex items-center gap-1.5">
+                <i data-lucide="phone-call" class="w-4 h-4"></i> Call Desk Phone (कॉलिंग फोन नंबर)
+              </label>
+              <input type="text" id="adminSettingPhone" placeholder="e.g. +91 94618 12342" class="w-full bg-royal-900 border border-white/20 rounded-xl px-3.5 py-2.5 text-white font-mono text-sm focus:outline-none focus:border-gold-400">
+              <p class="text-[10px] text-slate-400">
+                Format: <code>+91 94618 12342</code>. Header, topbar, mobile bar aur contact section me yahi number dikhega.
+              </p>
+            </div>
+
+            <!-- Email Address -->
+            <div class="p-4 rounded-xl bg-royal-950 border border-blue-500/30 space-y-2">
+              <label class="block text-[11px] uppercase tracking-wider font-bold text-blue-400 flex items-center gap-1.5">
+                <i data-lucide="mail" class="w-4 h-4"></i> Official Email ID (ऑफिशियल ईमेल)
+              </label>
+              <input type="email" id="adminSettingEmail" placeholder="e.g. nav00900@gmail.com" class="w-full bg-royal-900 border border-white/20 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-blue-400">
+              <p class="text-[10px] text-slate-400">
+                Website ke footer aur lead notification alert me yahi email prayog hoga.
+              </p>
+            </div>
+
+            <!-- Working Hours -->
+            <div class="p-4 rounded-xl bg-royal-950 border border-white/10 space-y-2">
+              <label class="block text-[11px] uppercase tracking-wider font-bold text-slate-300 flex items-center gap-1.5">
+                <i data-lucide="clock" class="w-4 h-4 text-gold-400"></i> Office Working Hours (कार्यालय समय)
+              </label>
+              <input type="text" id="adminSettingHours" placeholder="e.g. Mon - Sun: 9:00 AM - 8:30 PM" class="w-full bg-royal-900 border border-white/20 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-gold-400">
+              <p class="text-[10px] text-slate-400">
+                Clients ko site visit aur call desk availability ka samay dikhane ke liye.
+              </p>
+            </div>
+
+          </div>
+
+          <!-- Corporate Office Address -->
+          <div class="p-4 rounded-xl bg-royal-950 border border-white/10 space-y-2">
+            <label class="block text-[11px] uppercase tracking-wider font-bold text-slate-300 flex items-center gap-1.5">
+              <i data-lucide="map-pin" class="w-4 h-4 text-red-400"></i> Office / Corporate Address (कार्यालय का पता)
+            </label>
+            <input type="text" id="adminSettingAddress" placeholder="e.g. Opposite Knowledge City, Diggi Road, Jaipur, Rajasthan 302029" class="w-full bg-royal-900 border border-white/20 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-gold-400">
+            <p class="text-[10px] text-slate-400">
+              About section, Contact card aur Footer me yahi address show hoga (purana placeholder <code>[ADD OFFICE ADDRESS]</code> hat jayega).
+            </p>
+          </div>
+
+          <!-- Top Announcement / Headline -->
+          <div class="p-4 rounded-xl bg-royal-950 border border-white/10 space-y-2">
+            <label class="block text-[11px] uppercase tracking-wider font-bold text-slate-300 flex items-center gap-1.5">
+              <i data-lucide="bell" class="w-4 h-4 text-amber-400"></i> Top Announcement / Highlight Notice (वेबसाइट सूचना)
+            </label>
+            <input type="text" id="adminSettingAnnouncement" placeholder="e.g. ✨ 300 Bigha Mega Township Diggi Road par launch! Limited ₹1,000/Gaj discount active." class="w-full bg-royal-900 border border-white/20 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-gold-400">
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-white/10">
+            <button type="button" onclick="resetSiteConfigToDefaults()" class="px-4 py-2.5 rounded-xl bg-royal-800 text-slate-300 hover:text-rose-400 text-xs font-semibold flex items-center gap-1.5 transition-colors">
+              <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> Reset to Defaults
+            </button>
+            <button type="submit" class="px-6 py-2.5 rounded-xl bg-gold-500 hover:bg-gold-400 text-royal-950 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-gold-sm transition-all">
+              <i data-lucide="check" class="w-4 h-4"></i> Save Website Settings (सेव करें)
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- TAB 4: CONSULTANT PROFILE DETAILS (NAVRATAN KUMAWAT) -->
+      <div id="adminProfileTabContent" class="hidden flex-1 flex flex-col overflow-y-auto p-5 sm:p-6 bg-royal-900/60 space-y-6 text-xs text-slate-200">
+        <div class="flex items-center justify-between pb-3 border-b border-white/10">
+          <div>
+            <h4 class="font-serif text-lg text-white font-medium flex items-center gap-2">
+              <i data-lucide="user-check" class="w-5 h-5 text-emerald-400"></i> Consultant Profile Manager (नवरत्न कुमावत प्रोफाइल बार)
+            </h4>
+            <p class="text-[11px] text-slate-400 mt-0.5">
+              Yahan aap apna naam, photo, bio, anubhav aur credentials daal sakte hain. Ye website ke "About" section aur Contact bar me sundar tareeqe se dikhega.
+            </p>
+          </div>
+          <span class="px-2.5 py-1 rounded-full bg-gold-500/20 border border-gold-400/40 text-[10px] text-gold-300 font-bold">
+            Founder & Advisor Card
+          </span>
+        </div>
+
+        <form id="adminProfileForm" onsubmit="saveProfileConfigFromAdmin(event)" class="space-y-6">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            
+            <!-- Left: Inputs (8 cols) -->
+            <div class="lg:col-span-8 space-y-4">
+              
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-[11px] uppercase tracking-wider font-bold text-slate-300 mb-1">Full Name (पूरा नाम)</label>
+                  <input type="text" id="adminProfileName" value="Navratan Kumawat" class="w-full bg-royal-950 border border-white/20 rounded-xl px-3.5 py-2.5 text-white font-semibold text-sm focus:outline-none focus:border-gold-400">
+                </div>
+                <div>
+                  <label class="block text-[11px] uppercase tracking-wider font-bold text-slate-300 mb-1">Designation / Role (पद / उपाधि)</label>
+                  <input type="text" id="adminProfileTitle" value="Founder & Senior Property Investment Advisor" class="w-full bg-royal-950 border border-white/20 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-gold-400">
+                </div>
+              </div>
+
+              <!-- Profile Photo (Upload or URL) -->
+              <div class="p-4 rounded-xl bg-royal-950 border border-white/10 space-y-3">
+                <div class="flex items-center justify-between">
+                  <label class="block text-[11px] uppercase tracking-wider font-bold text-gold-400 flex items-center gap-1.5">
+                    <i data-lucide="image" class="w-4 h-4"></i> Profile Photo (अपनी फोटो अपलोड करें या लिंक डालें)
+                  </label>
+                  <span class="text-[10px] text-slate-400">JPG, PNG, WebP (Max 5MB)</span>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <span class="text-[10px] text-slate-400 block mb-1">1. Device se Photo Chunein (Mobile/Laptop):</span>
+                    <input type="file" id="adminProfilePhotoFile" accept="image/*" class="w-full text-xs text-slate-400 file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-gold-500 file:text-royal-950 hover:file:bg-gold-400 cursor-pointer">
+                  </div>
+                  <div>
+                    <span class="text-[10px] text-slate-400 block mb-1">2. Ya Online Image URL Paste Karein:</span>
+                    <input type="url" id="adminProfilePhotoUrl" placeholder="https://..." class="w-full bg-royal-900 border border-white/20 rounded-lg px-3 py-1.5 text-xs text-white focus:outline-none focus:border-gold-400">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Contact & RERA -->
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div>
+                  <label class="block text-[11px] uppercase tracking-wider font-bold text-slate-300 mb-1">Direct Calling Phone</label>
+                  <input type="text" id="adminProfilePhone" value="+91 94618 12342" class="w-full bg-royal-950 border border-white/20 rounded-xl px-3 py-2 text-white font-mono text-xs focus:outline-none focus:border-gold-400">
+                </div>
+                <div>
+                  <label class="block text-[11px] uppercase tracking-wider font-bold text-emerald-400 mb-1">WhatsApp Number</label>
+                  <input type="text" id="adminProfileWhatsApp" value="9461812342" class="w-full bg-royal-950 border border-white/20 rounded-xl px-3 py-2 text-white font-mono text-xs focus:outline-none focus:border-emerald-400">
+                </div>
+                <div>
+                  <label class="block text-[11px] uppercase tracking-wider font-bold text-blue-400 mb-1">Direct Email</label>
+                  <input type="email" id="adminProfileEmail" value="nav00900@gmail.com" class="w-full bg-royal-950 border border-white/20 rounded-xl px-3 py-2 text-white text-xs focus:outline-none focus:border-blue-400">
+                </div>
+              </div>
+
+              <!-- Track Record Metrics -->
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div>
+                  <label class="block text-[11px] uppercase tracking-wider font-bold text-slate-300 mb-1">Experience (वर्ष)</label>
+                  <input type="text" id="adminProfileExp" value="10+ Years" class="w-full bg-royal-950 border border-white/20 rounded-xl px-3 py-2 text-white text-xs focus:outline-none focus:border-gold-400">
+                </div>
+                <div>
+                  <label class="block text-[11px] uppercase tracking-wider font-bold text-slate-300 mb-1">Families Advised (संतुष्ट परिवार)</label>
+                  <input type="text" id="adminProfileFamilies" value="850+ Families" class="w-full bg-royal-950 border border-white/20 rounded-xl px-3 py-2 text-white text-xs focus:outline-none focus:border-gold-400">
+                </div>
+                <div>
+                  <label class="block text-[11px] uppercase tracking-wider font-bold text-slate-300 mb-1">Area Sold / Transacted</label>
+                  <input type="text" id="adminProfileArea" value="15+ Lakh Sq.Ft." class="w-full bg-royal-950 border border-white/20 rounded-xl px-3 py-2 text-white text-xs focus:outline-none focus:border-gold-400">
+                </div>
+              </div>
+
+              <!-- Full Bio -->
+              <div>
+                <label class="block text-[11px] uppercase tracking-wider font-bold text-slate-300 mb-1">Consultant Biography & Vision (विस्तृत परिचय)</label>
+                <textarea id="adminProfileBio" rows="4" class="w-full bg-royal-950 border border-white/20 rounded-xl p-3 text-white text-xs leading-relaxed focus:outline-none focus:border-gold-400" placeholder="Jaipur ke vishwasniya property consultant jo plots aur mega townships me kanooni janch ke sath safe investment karwate hain..."></textarea>
+              </div>
+
+              <!-- Office / Desk Location -->
+              <div>
+                <label class="block text-[11px] uppercase tracking-wider font-bold text-slate-300 mb-1">Consultant Primary Office Desk</label>
+                <input type="text" id="adminProfileOffice" value="Opposite Knowledge City, Diggi Road, Jaipur, Rajasthan" class="w-full bg-royal-950 border border-white/20 rounded-xl px-3.5 py-2.5 text-white text-xs focus:outline-none focus:border-gold-400">
+              </div>
+
+            </div>
+
+            <!-- Right: Live Profile Preview Card (4 cols) -->
+            <div class="lg:col-span-4 bg-royal-950 border border-gold-400/40 rounded-2xl p-5 space-y-4 sticky top-4">
+              <div class="text-center">
+                <span class="text-[10px] uppercase font-bold text-gold-400 tracking-wider block mb-2">Live Website Preview</span>
+                <div class="relative w-24 h-24 mx-auto rounded-2xl overflow-hidden border-2 border-gold-400 shadow-gold-sm bg-royal-900 mb-3">
+                  <img id="adminProfilePreviewImg" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" alt="Consultant Preview" class="w-full h-full object-cover">
+                </div>
+                <h5 id="adminProfilePreviewName" class="font-serif text-lg text-white font-bold">Navratan Kumawat</h5>
+                <p id="adminProfilePreviewTitle" class="text-[11px] text-gold-300">Founder & Senior Property Investment Advisor</p>
+                <div class="mt-2 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-950 border border-emerald-500/40 text-[10px] text-emerald-300 font-semibold">
+                  <i data-lucide="shield-check" class="w-3 h-3 text-emerald-400"></i> Verified Consultant
+                </div>
+              </div>
+
+              <div class="p-3 rounded-xl bg-royal-900/80 border border-white/5 space-y-2 text-[11px]">
+                <div class="flex justify-between text-slate-300">
+                  <span class="text-slate-400">Experience:</span>
+                  <strong id="adminProfilePreviewExp" class="text-white">10+ Years</strong>
+                </div>
+                <div class="flex justify-between text-slate-300">
+                  <span class="text-slate-400">Happy Clients:</span>
+                  <strong id="adminProfilePreviewFamilies" class="text-white">850+ Families</strong>
+                </div>
+                <div class="flex justify-between text-slate-300">
+                  <span class="text-slate-400">Area Marketed:</span>
+                  <strong id="adminProfilePreviewArea" class="text-white">15+ Lakh Sq.Ft.</strong>
+                </div>
+              </div>
+
+              <p id="adminProfilePreviewBio" class="text-[11px] text-slate-300 leading-relaxed italic border-t border-white/10 pt-3">
+                "Specializing in high-growth mega townships and verified residential plots with 100% legal clarity."
+              </p>
+
+              <div class="grid grid-cols-2 gap-2 pt-2">
+                <a id="adminProfilePreviewWa" href="#" class="py-2 px-3 rounded-lg bg-emerald-600 text-white text-[11px] font-bold text-center flex items-center justify-center gap-1">
+                  <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> WhatsApp
+                </a>
+                <a id="adminProfilePreviewCall" href="#" class="py-2 px-3 rounded-lg bg-royal-800 border border-gold-400/40 text-gold-300 text-[11px] font-bold text-center flex items-center justify-center gap-1">
+                  <i data-lucide="phone" class="w-3.5 h-3.5"></i> Call Desk
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Profile Actions -->
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-white/10">
+            <button type="button" onclick="resetProfileConfigToDefaults()" class="px-4 py-2.5 rounded-xl bg-royal-800 text-slate-300 hover:text-rose-400 text-xs font-semibold flex items-center gap-1.5 transition-colors">
+              <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> Reset Profile to Defaults
+            </button>
+            <button type="submit" class="px-6 py-2.5 rounded-xl bg-gold-500 hover:bg-gold-400 text-royal-950 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-gold-sm transition-all">
+              <i data-lucide="check" class="w-4 h-4"></i> Save Profile Details (प्रोफाइल सेव करें)
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- TAB 5: SECURITY & ADMIN PIN -->
+      <div id="adminSecurityTabContent" class="hidden flex-1 flex flex-col overflow-y-auto p-5 sm:p-6 bg-royal-900/60 space-y-6 text-xs text-slate-200">
+        <div class="flex items-center justify-between pb-3 border-b border-white/10">
+          <div>
+            <h4 class="font-serif text-lg text-white font-medium flex items-center gap-2">
+              <i data-lucide="shield-check" class="w-5 h-5 text-gold-400"></i> Admin Portal Security & PIN Management
+            </h4>
+            <p class="text-[11px] text-slate-400 mt-0.5">
+              Portal PIN aur 2-Factor Authentication settings yahan se prabandhit karein.
+            </p>
+          </div>
+          <span class="px-2.5 py-1 rounded-full bg-gold-500/20 border border-gold-400/40 text-[10px] text-gold-300 font-bold">
+            2-Factor OTP Protected
+          </span>
+        </div>
+
+        <div class="max-w-xl mx-auto w-full space-y-5">
+          <div class="p-5 rounded-2xl bg-royal-950 border border-gold-500/30 space-y-4">
+            <div class="flex items-center justify-between">
+              <div>
+                <strong class="text-sm text-white block">Current Admin PIN / Password</strong>
+                <span class="text-[11px] text-slate-400">Portal unlock karne ke liye prayog hota hai (Default: <code>1234</code>)</span>
+              </div>
+              <button onclick="openChangePasswordModal()" class="px-3.5 py-2 rounded-xl bg-gold-500 hover:bg-gold-400 text-royal-950 text-xs font-bold flex items-center gap-1.5 transition-all">
+                <i data-lucide="key" class="w-3.5 h-3.5"></i> Change Password
+              </button>
+            </div>
+            
+            <div class="pt-3 border-t border-white/10 flex items-center justify-between text-xs">
+              <span class="text-slate-400">Owner Verification Number:</span>
+              <strong class="text-emerald-400 font-mono">+91 94618 12342 (Navratan Kumawat)</strong>
+            </div>
+
+            <div class="flex items-center justify-between text-xs">
+              <span class="text-slate-400">Security Mode:</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 font-mono text-[10px] border border-emerald-500/40">Active WhatsApp 2FA</span>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-xl bg-royal-900/60 border border-white/10 text-slate-400 leading-relaxed text-[11px]">
+            <p class="mb-2"><strong class="text-gold-300">Suraksha Niyam:</strong> Jab bhi aap password badlenge ya koi project delete karenge, aapke mobile number <code>+91 94618 12342</code> par WhatsApp/SMS dwara 6-digit OTP bheja jayega.</p>
           </div>
         </div>
       </div>
@@ -3849,13 +4702,13 @@
         area: '4,850 – 6,200 sq.ft.',
         budgetTier: '5Cr',
         priceLabel: 'Price Available on Request',
-        pricingPlaceholder: '[ADD PRICING LINK]',
-        reraPlaceholder: '[ADD RERA DETAILS LINK]',
-        photosPlaceholder: '[ADD PROJECT PHOTOS LINK]',
-        videoPlaceholder: '[ADD PROJECT VIDEO LINK]',
-        featuresPlaceholder: '[ADD FEATURES INFORMATION LINK]',
-        locationPlaceholder: '[ADD LOCATION/MAP LINKS]',
-        brochurePlaceholder: '[ADD BROCHURE LINK]',
+        pricingPlaceholder: '#contact',
+        reraPlaceholder: 'https://rera.rajasthan.gov.in',
+        photosPlaceholder: '#plot-gallery',
+        videoPlaceholder: 'https://wa.me/919461812342?text=Please%20send%20video%20walkthrough',
+        featuresPlaceholder: '#contact',
+        locationPlaceholder: 'https://maps.google.com/?q=C-Scheme+Jaipur',
+        brochurePlaceholder: 'https://wa.me/919461812342?text=Please%20send%20brochure',
         image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80',
         gallery: [
           'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80',
@@ -3878,13 +4731,13 @@
         area: '2,150 – 3,400 sq.ft.',
         budgetTier: '1Cr',
         priceLabel: 'Starting from ₹1.15 Cr*',
-        pricingPlaceholder: '[ADD PRICING LINK]',
-        reraPlaceholder: '[ADD RERA DETAILS LINK]',
-        photosPlaceholder: '[ADD PROJECT PHOTOS LINK]',
-        videoPlaceholder: '[ADD PROJECT VIDEO LINK]',
-        featuresPlaceholder: '[ADD FEATURES INFORMATION LINK]',
-        locationPlaceholder: '[ADD LOCATION/MAP LINKS]',
-        brochurePlaceholder: '[ADD BROCHURE LINK]',
+        pricingPlaceholder: '#contact',
+        reraPlaceholder: 'https://rera.rajasthan.gov.in',
+        photosPlaceholder: '#plot-gallery',
+        videoPlaceholder: 'https://wa.me/919461812342?text=Please%20send%20video%20walkthrough',
+        featuresPlaceholder: '#contact',
+        locationPlaceholder: 'https://maps.google.com/?q=Jagatpura+Jaipur',
+        brochurePlaceholder: 'https://wa.me/919461812342?text=Please%20send%20brochure',
         image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1000&q=80',
         gallery: [
           'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1000&q=80',
@@ -3907,13 +4760,13 @@
         area: '2,250 – 4,500 sq.ft.',
         budgetTier: '50L',
         priceLabel: 'Starting from ₹42 Lakh*',
-        pricingPlaceholder: '[ADD PRICING LINK]',
-        reraPlaceholder: '[ADD RERA DETAILS LINK]',
-        photosPlaceholder: '[ADD PROJECT PHOTOS LINK]',
-        videoPlaceholder: '[ADD PROJECT VIDEO LINK]',
-        featuresPlaceholder: '[ADD FEATURES INFORMATION LINK]',
-        locationPlaceholder: '[ADD LOCATION/MAP LINKS]',
-        brochurePlaceholder: '[ADD BROCHURE LINK]',
+        pricingPlaceholder: '#contact',
+        reraPlaceholder: 'https://rera.rajasthan.gov.in',
+        photosPlaceholder: '#plot-gallery',
+        videoPlaceholder: 'https://wa.me/919461812342?text=Please%20send%20video%20walkthrough',
+        featuresPlaceholder: '#contact',
+        locationPlaceholder: 'https://maps.google.com/?q=Ajmer+Road+Jaipur',
+        brochurePlaceholder: 'https://wa.me/919461812342?text=Please%20send%20brochure',
         image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=80',
         gallery: [
           'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=80',
@@ -3935,13 +4788,13 @@
         area: '1,200 – 15,000 sq.ft.',
         budgetTier: '2Cr',
         priceLabel: 'Price Available on Request',
-        pricingPlaceholder: '[ADD PRICING LINK]',
-        reraPlaceholder: '[ADD RERA DETAILS LINK]',
-        photosPlaceholder: '[ADD PROJECT PHOTOS LINK]',
-        videoPlaceholder: '[ADD PROJECT VIDEO LINK]',
-        featuresPlaceholder: '[ADD FEATURES INFORMATION LINK]',
-        locationPlaceholder: '[ADD LOCATION/MAP LINKS]',
-        brochurePlaceholder: '[ADD BROCHURE LINK]',
+        pricingPlaceholder: '#contact',
+        reraPlaceholder: 'https://rera.rajasthan.gov.in',
+        photosPlaceholder: '#plot-gallery',
+        videoPlaceholder: 'https://wa.me/919461812342?text=Please%20send%20video%20walkthrough',
+        featuresPlaceholder: '#contact',
+        locationPlaceholder: 'https://maps.google.com/?q=Tonk+Road+Jaipur',
+        brochurePlaceholder: 'https://wa.me/919461812342?text=Please%20send%20brochure',
         image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80',
         gallery: [
           'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80',
@@ -3963,13 +4816,13 @@
         area: '5,500 – 8,000 sq.ft.',
         budgetTier: '5Cr+',
         priceLabel: 'Ultra-Luxury Tier (Inquire)',
-        pricingPlaceholder: '[ADD PRICING LINK]',
-        reraPlaceholder: '[ADD RERA DETAILS LINK]',
-        photosPlaceholder: '[ADD PROJECT PHOTOS LINK]',
-        videoPlaceholder: '[ADD PROJECT VIDEO LINK]',
-        featuresPlaceholder: '[ADD FEATURES INFORMATION LINK]',
-        locationPlaceholder: '[ADD LOCATION/MAP LINKS]',
-        brochurePlaceholder: '[ADD BROCHURE LINK]',
+        pricingPlaceholder: '#contact',
+        reraPlaceholder: 'https://rera.rajasthan.gov.in',
+        photosPlaceholder: '#plot-gallery',
+        videoPlaceholder: 'https://wa.me/919461812342?text=Please%20send%20video%20walkthrough',
+        featuresPlaceholder: '#contact',
+        locationPlaceholder: 'https://maps.google.com/?q=Fatehsagar+Udaipur',
+        brochurePlaceholder: 'https://wa.me/919461812342?text=Please%20send%20brochure',
         image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1000&q=80',
         gallery: [
           'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1000&q=80',
@@ -3991,13 +4844,13 @@
         area: '1,800 – 2,400 sq.ft.',
         budgetTier: '1Cr',
         priceLabel: 'Starting from ₹85 Lakh*',
-        pricingPlaceholder: '[ADD PRICING LINK]',
-        reraPlaceholder: '[ADD RERA DETAILS LINK]',
-        photosPlaceholder: '[ADD PROJECT PHOTOS LINK]',
-        videoPlaceholder: '[ADD PROJECT VIDEO LINK]',
-        featuresPlaceholder: '[ADD FEATURES INFORMATION LINK]',
-        locationPlaceholder: '[ADD LOCATION/MAP LINKS]',
-        brochurePlaceholder: '[ADD BROCHURE LINK]',
+        pricingPlaceholder: '#contact',
+        reraPlaceholder: 'https://rera.rajasthan.gov.in',
+        photosPlaceholder: '#plot-gallery',
+        videoPlaceholder: 'https://wa.me/919461812342?text=Please%20send%20video%20walkthrough',
+        featuresPlaceholder: '#contact',
+        locationPlaceholder: 'https://maps.google.com/?q=Pal+Road+Jodhpur',
+        brochurePlaceholder: 'https://wa.me/919461812342?text=Please%20send%20brochure',
         image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=80',
         gallery: [
           'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=80',
@@ -5298,24 +6151,293 @@
     }
 
     function switchAdminTab(tabName) {
-      const leadsTab = document.getElementById('adminLeadsTabContent');
-      const projectsTab = document.getElementById('adminProjectsTabContent');
-      const btnLeads = document.getElementById('tabBtnAdminLeads');
-      const btnProjects = document.getElementById('tabBtnAdminProjects');
+      const tabs = {
+        leads: { content: document.getElementById('adminLeadsTabContent'), btn: document.getElementById('tabBtnAdminLeads') },
+        projects: { content: document.getElementById('adminProjectsTabContent'), btn: document.getElementById('tabBtnAdminProjects') },
+        settings: { content: document.getElementById('adminSettingsTabContent'), btn: document.getElementById('tabBtnAdminSettings') },
+        profile: { content: document.getElementById('adminProfileTabContent'), btn: document.getElementById('tabBtnAdminProfile') },
+        security: { content: document.getElementById('adminSecurityTabContent'), btn: document.getElementById('tabBtnAdminSecurity') }
+      };
+
+      Object.keys(tabs).forEach(k => {
+        const t = tabs[k];
+        if (t.content) {
+          if (k === tabName) {
+            t.content.classList.remove('hidden');
+          } else {
+            t.content.classList.add('hidden');
+          }
+        }
+        if (t.btn) {
+          if (k === tabName) {
+            t.btn.className = 'pb-3 border-b-2 border-gold-400 text-gold-300 font-bold flex items-center gap-2 transition-all whitespace-nowrap';
+          } else {
+            t.btn.className = 'pb-3 border-b-2 border-transparent text-slate-400 hover:text-white font-semibold flex items-center gap-2 transition-all whitespace-nowrap';
+          }
+        }
+      });
 
       if (tabName === 'leads') {
-        leadsTab?.classList.remove('hidden');
-        projectsTab?.classList.add('hidden');
-        if (btnLeads) btnLeads.className = 'pb-3 border-b-2 border-gold-400 text-gold-300 font-bold flex items-center gap-2 transition-all';
-        if (btnProjects) btnProjects.className = 'pb-3 border-b-2 border-transparent text-slate-400 hover:text-white font-semibold flex items-center gap-2 transition-all';
         updateAdminKPIs();
         renderAdminLeads();
-      } else {
-        leadsTab?.classList.add('hidden');
-        projectsTab?.classList.remove('hidden');
-        if (btnProjects) btnProjects.className = 'pb-3 border-b-2 border-gold-400 text-gold-300 font-bold flex items-center gap-2 transition-all';
-        if (btnLeads) btnLeads.className = 'pb-3 border-b-2 border-transparent text-slate-400 hover:text-white font-semibold flex items-center gap-2 transition-all';
+      } else if (tabName === 'projects') {
         renderAdminProjects();
+      } else if (tabName === 'settings' || tabName === 'profile') {
+        applySiteAndProfileConfig();
+      }
+      if (window.lucide) lucide.createIcons();
+    }
+
+    // ====================================================
+    // REACTIVE SITE & CONSULTANT PROFILE CONFIGURATION ENGINE
+    // ====================================================
+    const SITE_CONFIG_STORAGE_KEY = 'rrp_site_config';
+    const PROFILE_CONFIG_STORAGE_KEY = 'rrp_profile_config';
+
+    const defaultSiteConfig = {
+      whatsapp: '9461812342',
+      phone: '+91 94618 12342',
+      email: 'nav00900@gmail.com',
+      address: 'Opposite Knowledge City, Diggi Road, Jaipur, Rajasthan 302029',
+      hours: 'Mon - Sun: 9:00 AM - 8:30 PM',
+      announcement: '✨ 300 Bigha Mega Township Diggi Road par launch! Limited ₹1,000/Gaj discount active.'
+    };
+
+    const defaultProfileConfig = {
+      name: 'Navratan Kumawat',
+      title: 'Founder & Senior Property Investment Advisor',
+      phone: '+91 94618 12342',
+      whatsapp: '9461812342',
+      email: 'nav00900@gmail.com',
+      experience: '10+ Years',
+      families: '850+ Families',
+      area: '15+ Lakh Sq.Ft.',
+      rera: 'RAJ/A/2024/VERIFIED',
+      office: 'Opposite Knowledge City, Diggi Road, Jaipur, Rajasthan',
+      photo: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=85',
+      bio: "With over a decade of hands-on experience in Rajasthan's prime real estate corridors, Navratan Kumawat founded Royal Rajasthan Properties with a clear purpose: to bring institutional-grade transparency, meticulous title verification, and true client advocacy to every property deal."
+    };
+
+    function getSiteConfig() {
+      try {
+        const raw = localStorage.getItem(SITE_CONFIG_STORAGE_KEY);
+        if (raw) return { ...defaultSiteConfig, ...JSON.parse(raw) };
+      } catch (e) {
+        console.warn('Error reading site config:', e);
+      }
+      return { ...defaultSiteConfig };
+    }
+
+    function saveSiteConfig(cfg) {
+      try {
+        localStorage.setItem(SITE_CONFIG_STORAGE_KEY, JSON.stringify(cfg));
+      } catch (e) {
+        console.warn('Error saving site config:', e);
+      }
+      applySiteAndProfileConfig();
+    }
+
+    function getProfileConfig() {
+      try {
+        const raw = localStorage.getItem(PROFILE_CONFIG_STORAGE_KEY);
+        if (raw) return { ...defaultProfileConfig, ...JSON.parse(raw) };
+      } catch (e) {
+        console.warn('Error reading profile config:', e);
+      }
+      return { ...defaultProfileConfig };
+    }
+
+    function saveProfileConfig(cfg) {
+      try {
+        localStorage.setItem(PROFILE_CONFIG_STORAGE_KEY, JSON.stringify(cfg));
+      } catch (e) {
+        console.warn('Error saving profile config:', e);
+      }
+      applySiteAndProfileConfig();
+    }
+
+    function applySiteAndProfileConfig() {
+      const site = getSiteConfig();
+      const prof = getProfileConfig();
+
+      const cleanPhone = site.phone.trim();
+      const telLink = 'tel:' + cleanPhone.replace(/[^\d+]/g, '');
+      const rawWa = site.whatsapp.replace(/\D/g, '');
+      const waDomain = rawWa.length === 10 ? '91' + rawWa : rawWa;
+      const cleanEmail = site.email.trim();
+      const mailLink = 'mailto:' + cleanEmail;
+
+      // 1. Update text nodes for phone, email, address
+      document.querySelectorAll('[data-config="phone"]').forEach(el => { el.textContent = cleanPhone; });
+      document.querySelectorAll('[data-config="phone-link"]').forEach(el => { el.href = telLink; });
+      document.querySelectorAll('[data-config="email"]').forEach(el => { el.textContent = cleanEmail; });
+      document.querySelectorAll('[data-config="email-link"]').forEach(el => { el.href = mailLink; });
+      document.querySelectorAll('[data-config="address"]').forEach(el => { el.textContent = site.address; });
+      document.querySelectorAll('[data-config="wa-text"]').forEach(el => { el.textContent = site.whatsapp; });
+
+      // 2. Globally update all WhatsApp links on the page (matching wa.me/)
+      document.querySelectorAll('a[href*="wa.me/"]').forEach(a => {
+        try {
+          const currentUrl = a.href;
+          const textParamMatch = currentUrl.match(/(\?text=.+)/);
+          const textParam = textParamMatch ? textParamMatch[1] : '';
+          a.href = `https://wa.me/${waDomain}${textParam}`;
+        } catch (err) {}
+      });
+
+      // 3. Globally update all tel: links
+      document.querySelectorAll('a[href^="tel:"]').forEach(a => {
+        a.href = telLink;
+      });
+
+      // 4. Update Profile Details across the page
+      document.querySelectorAll('[data-profile="name"]').forEach(el => { el.textContent = prof.name; });
+      document.querySelectorAll('[data-profile="title"]').forEach(el => { el.textContent = prof.title; });
+      document.querySelectorAll('[data-profile="experience"]').forEach(el => { el.textContent = prof.experience; });
+      document.querySelectorAll('[data-profile="families"]').forEach(el => { el.textContent = prof.families; });
+      document.querySelectorAll('[data-profile="area"]').forEach(el => { el.textContent = prof.area; });
+      document.querySelectorAll('[data-profile="bio"]').forEach(el => { el.textContent = prof.bio; });
+      document.querySelectorAll('[data-profile="img"]').forEach(el => { 
+        if (prof.photo) el.src = prof.photo; 
+      });
+
+      // 5. Update Admin Form Inputs
+      const inWa = document.getElementById('adminSettingWhatsApp');
+      if (inWa && !inWa.matches(':focus')) inWa.value = site.whatsapp;
+      const inPh = document.getElementById('adminSettingPhone');
+      if (inPh && !inPh.matches(':focus')) inPh.value = site.phone;
+      const inEm = document.getElementById('adminSettingEmail');
+      if (inEm && !inEm.matches(':focus')) inEm.value = site.email;
+      const inAd = document.getElementById('adminSettingAddress');
+      if (inAd && !inAd.matches(':focus')) inAd.value = site.address;
+      const inHr = document.getElementById('adminSettingHours');
+      if (inHr && !inHr.matches(':focus')) inHr.value = site.hours;
+      const inAn = document.getElementById('adminSettingAnnouncement');
+      if (inAn && !inAn.matches(':focus')) inAn.value = site.announcement;
+
+      const prName = document.getElementById('adminProfileName');
+      if (prName && !prName.matches(':focus')) prName.value = prof.name;
+      const prTitle = document.getElementById('adminProfileTitle');
+      if (prTitle && !prTitle.matches(':focus')) prTitle.value = prof.title;
+      const prPh = document.getElementById('adminProfilePhone');
+      if (prPh && !prPh.matches(':focus')) prPh.value = prof.phone;
+      const prWa = document.getElementById('adminProfileWhatsApp');
+      if (prWa && !prWa.matches(':focus')) prWa.value = prof.whatsapp;
+      const prEm = document.getElementById('adminProfileEmail');
+      if (prEm && !prEm.matches(':focus')) prEm.value = prof.email;
+      const prExp = document.getElementById('adminProfileExp');
+      if (prExp && !prExp.matches(':focus')) prExp.value = prof.experience;
+      const prFam = document.getElementById('adminProfileFamilies');
+      if (prFam && !prFam.matches(':focus')) prFam.value = prof.families;
+      const prArea = document.getElementById('adminProfileArea');
+      if (prArea && !prArea.matches(':focus')) prArea.value = prof.area;
+      const prBio = document.getElementById('adminProfileBio');
+      if (prBio && !prBio.matches(':focus')) prBio.value = prof.bio;
+      const prOff = document.getElementById('adminProfileOffice');
+      if (prOff && !prOff.matches(':focus')) prOff.value = prof.office;
+      const prUrl = document.getElementById('adminProfilePhotoUrl');
+      if (prUrl && !prUrl.matches(':focus')) prUrl.value = prof.photo;
+
+      // Admin Live Preview Card
+      const prevImg = document.getElementById('adminProfilePreviewImg');
+      if (prevImg && prof.photo) prevImg.src = prof.photo;
+      const prevName = document.getElementById('adminProfilePreviewName');
+      if (prevName) prevName.textContent = prof.name;
+      const prevTitle = document.getElementById('adminProfilePreviewTitle');
+      if (prevTitle) prevTitle.textContent = prof.title;
+      const prevExp = document.getElementById('adminProfilePreviewExp');
+      if (prevExp) prevExp.textContent = prof.experience;
+      const prevFam = document.getElementById('adminProfilePreviewFamilies');
+      if (prevFam) prevFam.textContent = prof.families;
+      const prevArea = document.getElementById('adminProfilePreviewArea');
+      if (prevArea) prevArea.textContent = prof.area;
+      const prevBio = document.getElementById('adminProfilePreviewBio');
+      if (prevBio) prevBio.textContent = `"${prof.bio.substring(0, 140)}..."`;
+      const prevWa = document.getElementById('adminProfilePreviewWa');
+      if (prevWa) prevWa.href = `https://wa.me/${waDomain}?text=Hello%20${encodeURIComponent(prof.name)},%20I%20am%20inquiring%20about%20Jaipur%20properties.`;
+      const prevCall = document.getElementById('adminProfilePreviewCall');
+      if (prevCall) prevCall.href = telLink;
+
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function saveSiteConfigFromAdmin(event) {
+      if (event) event.preventDefault();
+      const cfg = {
+        whatsapp: (document.getElementById('adminSettingWhatsApp')?.value || '').trim() || '9461812342',
+        phone: (document.getElementById('adminSettingPhone')?.value || '').trim() || '+91 94618 12342',
+        email: (document.getElementById('adminSettingEmail')?.value || '').trim() || 'nav00900@gmail.com',
+        address: (document.getElementById('adminSettingAddress')?.value || '').trim() || 'Opposite Knowledge City, Diggi Road, Jaipur, Rajasthan 302029',
+        hours: (document.getElementById('adminSettingHours')?.value || '').trim() || 'Mon - Sun: 9:00 AM - 8:30 PM',
+        announcement: (document.getElementById('adminSettingAnnouncement')?.value || '').trim()
+      };
+      saveSiteConfig(cfg);
+      alert('✅ Website Contact Settings safalta-purvak save ho gayi hain! WhatsApp number, Phone aur Email poori website par turant update ho gaye hain.');
+    }
+
+    function resetSiteConfigToDefaults() {
+      if (confirm('Kya aap website contact settings ko default manon par wapas lana chahte hain?')) {
+        saveSiteConfig(defaultSiteConfig);
+        alert('Website contact settings default par reset ho gayi hain.');
+      }
+    }
+
+    function saveProfileConfigFromAdmin(event) {
+      if (event) event.preventDefault();
+      const cfg = {
+        name: (document.getElementById('adminProfileName')?.value || '').trim() || 'Navratan Kumawat',
+        title: (document.getElementById('adminProfileTitle')?.value || '').trim() || 'Founder & Senior Property Investment Advisor',
+        phone: (document.getElementById('adminProfilePhone')?.value || '').trim() || '+91 94618 12342',
+        whatsapp: (document.getElementById('adminProfileWhatsApp')?.value || '').trim() || '9461812342',
+        email: (document.getElementById('adminProfileEmail')?.value || '').trim() || 'nav00900@gmail.com',
+        experience: (document.getElementById('adminProfileExp')?.value || '').trim() || '10+ Years',
+        families: (document.getElementById('adminProfileFamilies')?.value || '').trim() || '850+ Families',
+        area: (document.getElementById('adminProfileArea')?.value || '').trim() || '15+ Lakh Sq.Ft.',
+        bio: (document.getElementById('adminProfileBio')?.value || '').trim() || defaultProfileConfig.bio,
+        office: (document.getElementById('adminProfileOffice')?.value || '').trim() || 'Opposite Knowledge City, Diggi Road, Jaipur, Rajasthan',
+        photo: (document.getElementById('adminProfilePhotoUrl')?.value || '').trim() || (document.getElementById('adminProfilePreviewImg')?.src || defaultProfileConfig.photo)
+      };
+      saveProfileConfig(cfg);
+      alert('✅ Navratan Kumawat ji ki profile details safalta-purvak save ho gayi hain! Website ke About section aur preview par turant update ho gaya hai.');
+    }
+
+    function resetProfileConfigToDefaults() {
+      if (confirm('Kya aap profile details ko default manon par wapas lana chahte hain?')) {
+        saveProfileConfig(defaultProfileConfig);
+        alert('Profile details default par reset ho gayi hain.');
+      }
+    }
+
+    function initProfilePhotoUpload() {
+      const fileInput = document.getElementById('adminProfilePhotoFile');
+      const urlInput = document.getElementById('adminProfilePhotoUrl');
+      const previewImg = document.getElementById('adminProfilePreviewImg');
+
+      if (fileInput) {
+        fileInput.addEventListener('change', function(e) {
+          const file = e.target.files && e.target.files[0];
+          if (file) {
+            if (file.size > 5 * 1024 * 1024) {
+              alert('Photo ka size 5MB se chhota hona chahiye.');
+              return;
+            }
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+              const base64 = evt.target.result;
+              if (previewImg) previewImg.src = base64;
+              if (urlInput) urlInput.value = base64;
+            };
+            reader.readAsDataURL(file);
+          }
+        });
+      }
+
+      if (urlInput) {
+        urlInput.addEventListener('input', function() {
+          if (urlInput.value && previewImg) {
+            previewImg.src = urlInput.value;
+          }
+        });
       }
     }
 
@@ -5477,6 +6599,26 @@
       const activeBtn = document.getElementById('megaTabBtn-' + tabId);
       if (activeBtn) {
         activeBtn.className = 'mega-tab-btn active px-4 py-2.5 rounded-xl bg-gold-500 text-royal-950 font-bold text-xs uppercase tracking-wider whitespace-nowrap transition-all flex items-center gap-1.5 shadow-gold-sm';
+      }
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function filterMegaAmenities(category, btnElement) {
+      const cards = document.querySelectorAll('.amenity-card');
+      cards.forEach(card => {
+        const cardCat = card.getAttribute('data-category');
+        if (category === 'all' || cardCat === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      if (btnElement) {
+        document.querySelectorAll('.amenity-filter-btn').forEach(btn => {
+          btn.className = 'amenity-filter-btn px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/15 text-slate-300 hover:text-white font-semibold whitespace-nowrap transition-all';
+        });
+        btnElement.className = 'amenity-filter-btn active px-3 py-1.5 rounded-lg bg-gold-500 text-royal-950 font-bold whitespace-nowrap transition-all shadow-sm';
       }
       if (window.lucide) lucide.createIcons();
     }
@@ -6534,6 +7676,8 @@
     // Initialize 300 Bigha Township Calculator & Admin Upload Listeners
     calculateMegaTownshipRate();
     initFileUploadListeners();
+    initProfilePhotoUpload();
+    applySiteAndProfileConfig();
 
     // Global Modal Escape Key Listener
     window.addEventListener('keydown', (e) => {
