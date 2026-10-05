@@ -254,120 +254,295 @@
 
   <!-- ==================== 1. STICKY HEADER ==================== -->
   <header class="sticky top-0 z-40 backdrop-blur-md bg-royal-900/95 border-b border-gold-subtle shadow-lg">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-20 sm:h-24 flex items-center justify-between gap-2 sm:gap-4">
       
-      <!-- Brand Logo (Large & Clear, Clickable for Enlarged View) -->
-      <div class="flex items-center gap-3.5 group py-1">
-        <div onclick="openLogoModal();" class="cursor-pointer relative h-16 w-16 sm:h-20 sm:w-20 rounded-2xl bg-white p-1.5 border-2 border-gold-400/80 shadow-gold-md flex items-center justify-center group-hover:scale-105 hover:border-gold-300 transition-all duration-300 overflow-hidden shrink-0" title="Click to view large logo">
-          <img src="logo.png" alt="Royal Rajasthan Properties Logo" class="h-full w-full object-contain">
-          <div class="absolute bottom-1 right-1 bg-royal-950/80 text-gold-400 p-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-            <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+      <!-- LEFT SIDE: MENU BUTTON + BRAND LOGO -->
+      <div class="flex items-center gap-2 sm:gap-3.5 shrink-0">
+        <!-- Prominent Left Menu Button (Accessible on ALL screens) -->
+        <button id="leftDrawerMenuToggle" onclick="toggleLeftDrawer(true)" class="px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-gradient-to-r from-royal-800 to-royal-750 hover:from-gold-500/20 hover:to-gold-500/30 border border-gold-400/60 hover:border-gold-300 text-gold-300 hover:text-white flex items-center gap-2 transition-all shadow-gold-sm group shrink-0" aria-label="Open Navigation & Tools Menu" title="Open Menu, About, Profile & Tools">
+          <i data-lucide="menu" class="w-5 h-5 text-gold-400 group-hover:scale-110 transition-transform"></i>
+          <span class="text-xs font-bold uppercase tracking-wider font-sans">MENU</span>
+        </button>
+
+        <!-- Brand Logo (Large & Clear, Clickable for Enlarged View) -->
+        <div class="flex items-center gap-2 sm:gap-3 group py-1">
+          <div onclick="openLogoModal();" class="cursor-pointer relative h-12 w-12 sm:h-16 sm:w-16 md:h-18 md:w-18 rounded-2xl bg-white p-1 border-2 border-gold-400/80 shadow-gold-md flex items-center justify-center group-hover:scale-105 hover:border-gold-300 transition-all duration-300 overflow-hidden shrink-0" title="Click to view large logo">
+            <img src="logo.png" alt="Royal Rajasthan Properties Logo" class="h-full w-full object-contain">
+            <div class="absolute bottom-1 right-1 bg-royal-950/80 text-gold-400 p-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+              <i data-lucide="zoom-in" class="w-3 h-3"></i>
+            </div>
           </div>
+          <a href="#hero" class="flex flex-col cursor-pointer" title="Royal Rajasthan Properties">
+            <span class="font-display font-bold text-base sm:text-xl lg:text-2xl tracking-wider text-white group-hover:text-gold-300 transition-colors leading-tight">
+              ROYAL RAJASTHAN
+            </span>
+            <span class="text-[9px] sm:text-xs tracking-[0.25em] text-gold-400 uppercase font-semibold">
+              PROPERTIES
+            </span>
+            <span class="hidden md:inline text-[9px] sm:text-[10px] tracking-wider text-sand-300 font-serif italic opacity-90 mt-0.5">
+              Your Dream • Our Priority
+            </span>
+          </a>
         </div>
-        <a href="#hero" class="flex flex-col cursor-pointer" title="Royal Rajasthan Properties">
-          <span class="font-display font-bold text-lg sm:text-2xl tracking-wider text-white group-hover:text-gold-300 transition-colors leading-tight">
-            ROYAL RAJASTHAN
-          </span>
-          <span class="text-xs sm:text-sm tracking-[0.28em] text-gold-400 uppercase font-semibold">
-            PROPERTIES
-          </span>
-          <span class="hidden sm:inline text-[10px] tracking-wider text-sand-300 font-serif italic opacity-90 mt-0.5">
-            Your Dream • Our Priority
-          </span>
-        </a>
       </div>
 
-      <!-- Desktop Navigation (Exact order: Home, Schedule Visit, Projects, Reviews, About, Why Us, Locations, Contact) -->
-      <nav class="hidden lg:flex items-center gap-6 xl:gap-7 text-xs font-medium uppercase tracking-wider text-sand-200">
-        <a href="#hero" class="hover:text-gold-400 transition-colors">Home</a>
-        <a href="#mega-township-diggi" class="text-amber-300 hover:text-amber-200 transition-colors flex items-center gap-1.5 font-bold">
-          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-gold-400"></i> 300 Bigha Township
+      <!-- CENTER: Streamlined Desktop Highlights (Prevents horizontal scrollbar) -->
+      <nav class="hidden xl:flex items-center gap-4 2xl:gap-5 text-xs font-medium uppercase tracking-wider text-sand-200">
+        <a href="#mega-township-diggi" class="text-amber-300 hover:text-amber-200 transition-colors flex items-center gap-1 font-bold bg-amber-500/10 px-2.5 py-1 rounded-lg border border-amber-500/30">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-gold-400"></i> 300 Bigha
         </a>
-        <a href="#schedule-visit" class="text-gold-300 hover:text-gold-200 transition-colors flex items-center gap-1.5 font-semibold">
-          <i data-lucide="calendar" class="w-3.5 h-3.5 text-gold-400"></i> Visit & Clock
-        </a>
-        <a href="#plot-gallery" class="text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-1.5 font-semibold">
-          <i data-lucide="badge-percent" class="w-3.5 h-3.5 text-emerald-400"></i> Plot Rates & Gallery
+        <a href="#plot-gallery" class="text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-1 font-semibold">
+          <i data-lucide="badge-percent" class="w-3.5 h-3.5"></i> Plot Rates
         </a>
         <a href="#projects" class="hover:text-gold-400 transition-colors">Projects</a>
-        <a href="#reviews" class="text-amber-400 hover:text-amber-300 transition-colors flex items-center gap-1">
-          <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i> Reviews
-        </a>
-        <a href="#about" class="hover:text-gold-400 transition-colors">About</a>
-        <a href="#why-us" class="hover:text-gold-400 transition-colors">Why Us</a>
-        <a href="#locations" class="hover:text-gold-400 transition-colors">Locations</a>
-        <a href="#contact" class="hover:text-gold-400 transition-colors">Contact</a>
-        <a href="thank-you.html" class="text-gold-300 hover:text-gold-200 transition-colors flex items-center gap-1 font-semibold border-b border-gold-500/40 pb-0.5" title="View Inquiry Confirmation & Status Desk">
-          <i data-lucide="file-check-2" class="w-3.5 h-3.5 text-emerald-400"></i>
-          <span>Inquiry Desk</span>
-        </a>
+        <button onclick="openProfileModal()" class="hover:text-gold-400 transition-colors flex items-center gap-1">
+          <i data-lucide="user-check" class="w-3.5 h-3.5 text-emerald-400"></i> Profile
+        </button>
+        <button onclick="openAboutModal()" class="hover:text-gold-400 transition-colors flex items-center gap-1">
+          <i data-lucide="info" class="w-3.5 h-3.5 text-gold-400"></i> About
+        </button>
+        <button onclick="openToolsModal('all')" class="text-gold-300 hover:text-gold-200 transition-colors flex items-center gap-1 font-semibold">
+          <i data-lucide="calculator" class="w-3.5 h-3.5"></i> Tools
+        </button>
       </nav>
 
-      <!-- Header CTA Buttons (Explore Properties & Book / Request a Callback) -->
-      <div class="hidden sm:flex items-center gap-3">
-        <a href="#projects" class="px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider text-gold-300 border border-gold-500/50 hover:bg-gold-500/10 hover:border-gold-400 transition-all">
-          Explore Properties
+      <!-- RIGHT SIDE: INQUIRY DESK (2ND PAGE) + CALL/BOOK ACTION -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <a href="thank-you.html" class="px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl text-[11px] sm:text-xs font-bold uppercase tracking-wider text-emerald-300 bg-emerald-950/80 hover:bg-emerald-900/80 border border-emerald-500/50 flex items-center gap-1.5 transition-all shadow-sm" title="Go to Official Inquiry & Receipt Desk (2nd Page)">
+          <i data-lucide="file-check-2" class="w-3.5 h-3.5 text-emerald-400"></i>
+          <span class="hidden sm:inline">Inquiry Desk</span>
+          <span class="px-1 py-0.2 rounded bg-emerald-500/30 text-[9px] text-white">2nd Page</span>
         </a>
-        <a href="#contact" class="px-4 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider text-royal-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:from-gold-200 hover:to-gold-400 shadow-gold-sm transition-all font-sans">
-          Book / Request a Callback
+        <a href="#contact" class="hidden sm:inline-flex px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider text-royal-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:from-gold-200 hover:to-gold-400 shadow-gold-sm transition-all font-sans">
+          Callback / Visit
+        </a>
+        <a href="tel:+919461812342" class="p-2 sm:p-2.5 rounded-xl bg-royal-800 hover:bg-royal-750 text-gold-400 border border-gold-500/40 transition-colors" title="Call Senior Consultant Direct: 9461812342">
+          <i data-lucide="phone-call" class="w-4 h-4"></i>
         </a>
       </div>
 
-      <!-- Mobile Hamburger -->
-      <button id="mobileMenuToggle" class="lg:hidden p-2 rounded-lg text-gold-400 hover:bg-royal-800 transition-colors" aria-label="Toggle Navigation Menu">
-        <i data-lucide="menu" class="w-6 h-6"></i>
+    </div>
+  </header>
+
+  <!-- ==================== TOP SUB-BAR: INQUIRY DESK & QUICK ACCESS (JUST BELOW TOP HEADER) ==================== -->
+  <div id="topInquiryQuickBar" class="bg-gradient-to-r from-royal-950 via-royal-900 to-royal-950 text-white border-b border-gold-500/30 py-2 sm:py-2.5 px-3 sm:px-6 shadow-md text-xs relative z-30">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      
+      <!-- Left: Menu trigger & Inquiry page notice -->
+      <div class="flex items-center gap-2 sm:gap-3 flex-wrap">
+        <button onclick="toggleLeftDrawer(true)" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-royal-800 hover:bg-gold-500/20 text-gold-300 border border-gold-500/40 text-[11px] font-bold uppercase tracking-wider transition-all">
+          <i data-lucide="menu" class="w-3.5 h-3.5 text-gold-400"></i>
+          <span>Left Menu</span>
+        </button>
+
+        <a href="thank-you.html" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950/90 border border-emerald-500/50 text-emerald-300 text-[11px] font-semibold hover:bg-emerald-900/80 transition-all shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="font-bold">📄 Official Inquiry Desk (2nd Page):</span>
+          <span class="text-white underline">View Receipt & Status →</span>
+        </a>
+      </div>
+
+      <!-- Right: Quick Navigation Chips -->
+      <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto py-0.5 no-scrollbar text-[11px]">
+        <button onclick="openAboutModal()" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-gold-500/20 text-sand-200 hover:text-gold-300 border border-white/10 transition-colors flex items-center gap-1 shrink-0 font-medium">
+          <i data-lucide="info" class="w-3 h-3 text-gold-400"></i> About Us
+        </button>
+        <button onclick="openProfileModal()" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-gold-500/20 text-sand-200 hover:text-gold-300 border border-white/10 transition-colors flex items-center gap-1 shrink-0 font-medium">
+          <i data-lucide="user-check" class="w-3 h-3 text-emerald-400"></i> Advisor Profile
+        </button>
+        <a href="#mega-township-diggi" class="px-2.5 py-1 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 transition-colors flex items-center gap-1 shrink-0 font-semibold">
+          <i data-lucide="sparkles" class="w-3 h-3 text-gold-400"></i> 300 Bigha
+        </a>
+        <button onclick="openToolsModal('all')" class="px-2.5 py-1 rounded-lg bg-gold-500/15 hover:bg-gold-500/25 text-gold-300 border border-gold-500/40 transition-colors flex items-center gap-1 shrink-0 font-semibold">
+          <i data-lucide="calculator" class="w-3 h-3 text-gold-400"></i> Property Tools
+        </button>
+        <button onclick="openAddMenuItemModal()" class="px-2.5 py-1 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/50 transition-colors flex items-center gap-1 shrink-0 font-bold" title="Add custom menu link">
+          <i data-lucide="plus-circle" class="w-3.5 h-3.5 text-emerald-400"></i> + Add Link
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== LUXURY LEFT SIDEBAR DRAWER MENU ==================== -->
+  <div id="leftDrawerBackdrop" onclick="toggleLeftDrawer(false)" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 transition-opacity opacity-0 pointer-events-none duration-300"></div>
+
+  <aside id="leftDrawerMenu" class="fixed top-0 left-0 bottom-0 w-[320px] sm:w-[380px] bg-royal-950 border-r border-gold-500/40 shadow-[0_0_50px_rgba(0,0,0,0.8)] z-50 transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col text-white">
+    
+    <!-- Drawer Header -->
+    <div class="p-4 sm:p-5 border-b border-gold-900/60 bg-royal-900/80 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="logo.png" alt="Royal Rajasthan Properties" class="h-10 w-10 object-contain rounded-xl bg-white p-1 border border-gold-400">
+        <div>
+          <h3 class="font-display font-bold text-sm tracking-wider text-white">ROYAL RAJASTHAN</h3>
+          <p class="text-[10px] tracking-[0.2em] text-gold-400 uppercase font-semibold">MENU & TOOLS</p>
+        </div>
+      </div>
+      <button onclick="toggleLeftDrawer(false)" class="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-royal-800 transition-colors" aria-label="Close Menu">
+        <i data-lucide="x" class="w-5 h-5"></i>
       </button>
     </div>
 
-    <!-- Mobile Slide-out Menu -->
-    <div id="mobileMenu" class="hidden lg:hidden bg-royal-950 border-b border-gold-subtle px-6 py-5 space-y-3">
-      <div class="flex items-center gap-3.5 pb-4 mb-2 border-b border-white/10">
-        <div onclick="openLogoModal();" class="cursor-pointer relative h-14 w-14 rounded-2xl bg-white p-1 border-2 border-gold-400/80 shadow-gold-sm flex items-center justify-center overflow-hidden shrink-0 group active:scale-95 transition-transform" title="Click to view large logo">
-          <img src="logo.png" alt="Royal Rajasthan Properties Logo" class="h-full w-full object-contain">
-          <div class="absolute bottom-0.5 right-0.5 bg-royal-950/80 text-gold-400 p-0.5 rounded-full text-[9px]">
-            <i data-lucide="zoom-in" class="w-3 h-3"></i>
+    <!-- Scrollable Drawer Body -->
+    <div class="flex-1 overflow-y-auto p-4 sm:p-5 space-y-6 text-xs">
+      
+      <!-- 1. Advisor Profile Mini Card -->
+      <div class="p-3.5 rounded-2xl bg-gradient-to-br from-royal-900 to-royal-850 border border-gold-500/30 flex items-center gap-3 relative overflow-hidden group">
+        <div class="w-14 h-14 rounded-2xl overflow-hidden border-2 border-gold-400 shrink-0 bg-royal-950">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80" alt="Navratan Kumawat" class="w-full h-full object-cover">
+        </div>
+        <div class="flex-1 min-w-0">
+          <span class="text-[9px] uppercase tracking-wider text-gold-400 font-bold block">Founder & Senior Consultant</span>
+          <h4 class="font-serif text-base font-bold text-white truncate" data-profile="name">Navratan Kumawat</h4>
+          <p class="text-[11px] text-slate-300 font-mono">+91 94618 12342</p>
+          <div class="mt-1.5 flex items-center gap-2">
+            <button onclick="openProfileModal(); toggleLeftDrawer(false);" class="text-[10px] text-gold-300 hover:text-white underline font-medium">
+              View Profile →
+            </button>
+            <span class="text-slate-600">•</span>
+            <a href="https://wa.me/919461812342" target="_blank" class="text-[10px] text-emerald-400 hover:text-emerald-300 font-semibold flex items-center gap-0.5">
+              <i data-lucide="message-circle" class="w-2.5 h-2.5"></i> WhatsApp
+            </a>
           </div>
         </div>
-        <div>
-          <span class="font-display font-bold text-base tracking-wider text-white block">ROYAL RAJASTHAN</span>
-          <span class="text-[10px] tracking-[0.25em] text-gold-400 uppercase font-semibold block">PROPERTIES</span>
-          <span class="text-[9px] text-sand-300 italic block">Your Dream • Our Priority</span>
+      </div>
+
+      <!-- 2. Core Navigation Pages -->
+      <div>
+        <div class="text-[10px] uppercase font-bold tracking-widest text-gold-400 mb-2.5 px-1 flex items-center justify-between">
+          <span>Website Pages & Corridors</span>
+          <span class="text-[9px] text-slate-500 lowercase">explore</span>
+        </div>
+        <nav class="space-y-1">
+          <a href="#hero" onclick="toggleLeftDrawer(false)" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-royal-800 text-sand-100 hover:text-gold-300 transition-colors font-medium">
+            <i data-lucide="home" class="w-4 h-4 text-gold-400"></i>
+            <span>Home Experience</span>
+          </a>
+          <a href="thank-you.html" class="flex items-center justify-between px-3 py-2.5 rounded-xl bg-emerald-950/50 hover:bg-emerald-900/60 border border-emerald-500/30 text-emerald-300 font-semibold transition-colors">
+            <div class="flex items-center gap-3">
+              <i data-lucide="file-check-2" class="w-4 h-4 text-emerald-400"></i>
+              <span>Inquiry Desk & Receipt (2nd Page)</span>
+            </div>
+            <span class="text-[9px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold uppercase">New</span>
+          </a>
+          <button onclick="openAboutModal(); toggleLeftDrawer(false);" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-royal-800 text-sand-100 hover:text-gold-300 transition-colors font-medium text-left">
+            <i data-lucide="info" class="w-4 h-4 text-gold-400"></i>
+            <span>About Royal Rajasthan Properties</span>
+          </button>
+          <button onclick="openProfileModal(); toggleLeftDrawer(false);" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-royal-800 text-sand-100 hover:text-gold-300 transition-colors font-medium text-left">
+            <i data-lucide="user-check" class="w-4 h-4 text-emerald-400"></i>
+            <span>Advisor Profile (Navratan Kumawat)</span>
+          </button>
+          <a href="#mega-township-diggi" onclick="toggleLeftDrawer(false)" class="flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-royal-800 text-amber-300 font-bold transition-colors">
+            <div class="flex items-center gap-3">
+              <i data-lucide="sparkles" class="w-4 h-4 text-gold-400"></i>
+              <span>300 Bigha Mega Township</span>
+            </div>
+            <span class="text-[9px] px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300">Diggi Rd</span>
+          </a>
+          <a href="#plot-gallery" onclick="toggleLeftDrawer(false)" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-royal-800 text-emerald-400 font-semibold transition-colors">
+            <i data-lucide="badge-percent" class="w-4 h-4"></i>
+            <span>Plot Rates & Gallery (₹1,000 Off)</span>
+          </a>
+          <a href="#projects" onclick="toggleLeftDrawer(false)" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-royal-800 text-sand-100 hover:text-gold-300 transition-colors font-medium">
+            <i data-lucide="building-2" class="w-4 h-4 text-gold-400"></i>
+            <span>All Projects & Villa Enclaves</span>
+          </a>
+          <a href="#schedule-visit" onclick="toggleLeftDrawer(false)" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-royal-800 text-sand-100 hover:text-gold-300 transition-colors font-medium">
+            <i data-lucide="calendar" class="w-4 h-4 text-gold-400"></i>
+            <span>Site Visit Scheduler & Clock</span>
+          </a>
+          <a href="#reviews" onclick="toggleLeftDrawer(false)" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-royal-800 text-sand-100 hover:text-gold-300 transition-colors font-medium">
+            <i data-lucide="star" class="w-4 h-4 text-amber-400"></i>
+            <span>Client Reviews & Ratings</span>
+          </a>
+          <a href="#contact" onclick="toggleLeftDrawer(false)" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-royal-800 text-sand-100 hover:text-gold-300 transition-colors font-medium">
+            <i data-lucide="phone" class="w-4 h-4 text-gold-400"></i>
+            <span>Contact & Callback Desk</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- 3. Real Estate Interactive Tools Hub -->
+      <div>
+        <div class="text-[10px] uppercase font-bold tracking-widest text-gold-400 mb-2.5 px-1 flex items-center justify-between">
+          <span>Property Calculation Tools</span>
+          <span class="text-[9px] text-emerald-400 font-mono">calculator</span>
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          <button onclick="openToolsModal('gaj'); toggleLeftDrawer(false);" class="p-3 rounded-xl bg-royal-900 hover:bg-royal-850 border border-white/10 hover:border-gold-400/50 text-left transition-all group">
+            <i data-lucide="ruler" class="w-4 h-4 text-gold-400 mb-1 group-hover:scale-110 transition-transform"></i>
+            <span class="font-bold text-white block text-[11px]">Gaj ⇄ Sq. Ft</span>
+            <span class="text-[10px] text-slate-400 block">Land Converter</span>
+          </button>
+
+          <button onclick="openToolsModal('emi'); toggleLeftDrawer(false);" class="p-3 rounded-xl bg-royal-900 hover:bg-royal-850 border border-white/10 hover:border-gold-400/50 text-left transition-all group">
+            <i data-lucide="calculator" class="w-4 h-4 text-emerald-400 mb-1 group-hover:scale-110 transition-transform"></i>
+            <span class="font-bold text-white block text-[11px]">EMI Calculator</span>
+            <span class="text-[10px] text-slate-400 block">Bank Loan Math</span>
+          </button>
+
+          <button onclick="openToolsModal('registry'); toggleLeftDrawer(false);" class="p-3 rounded-xl bg-royal-900 hover:bg-royal-850 border border-white/10 hover:border-gold-400/50 text-left transition-all group">
+            <i data-lucide="receipt" class="w-4 h-4 text-amber-400 mb-1 group-hover:scale-110 transition-transform"></i>
+            <span class="font-bold text-white block text-[11px]">Stamp Duty</span>
+            <span class="text-[10px] text-slate-400 block">Registry Estimate</span>
+          </button>
+
+          <a href="thank-you.html" class="p-3 rounded-xl bg-royal-900 hover:bg-royal-850 border border-white/10 hover:border-gold-400/50 text-left transition-all group block">
+            <i data-lucide="search" class="w-4 h-4 text-blue-400 mb-1 group-hover:scale-110 transition-transform"></i>
+            <span class="font-bold text-white block text-[11px]">Inquiry Receipt</span>
+            <span class="text-[10px] text-slate-400 block">Status Lookup</span>
+          </a>
         </div>
       </div>
-      <a href="#hero" class="block text-sm font-medium text-sand-200 hover:text-gold-400">Home</a>
-      <a href="#mega-township-diggi" class="block text-sm font-bold text-amber-300 hover:text-amber-200 flex items-center gap-2">
-        <i data-lucide="sparkles" class="w-4 h-4 text-gold-400"></i> 🏡 300 Bigha Mega Township (Diggi Road)
-      </a>
-      <a href="#schedule-visit" class="block text-sm font-medium text-gold-300 hover:text-gold-200 flex items-center gap-2">
-        <i data-lucide="calendar" class="w-4 h-4 text-gold-400"></i> Live Clock & Visit Calendar
-      </a>
-      <a href="#plot-gallery" class="block text-sm font-semibold text-emerald-400 hover:text-emerald-300 flex items-center gap-2">
-        <i data-lucide="badge-percent" class="w-4 h-4 text-emerald-400"></i> 🏷️ Plot Rates & Gallery (₹1,000 Off)
-      </a>
-      <a href="#projects" class="block text-sm font-medium text-sand-200 hover:text-gold-400">Projects</a>
-      <a href="#reviews" class="block text-sm font-medium text-amber-400 hover:text-amber-300 flex items-center gap-2">
-        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i> ⭐ Ratings & Reviews
-      </a>
-      <a href="#about" class="block text-sm font-medium text-sand-200 hover:text-gold-400">About</a>
-      <a href="#why-us" class="block text-sm font-medium text-sand-200 hover:text-gold-400">Why Us</a>
-      <a href="#locations" class="block text-sm font-medium text-sand-200 hover:text-gold-400">Locations</a>
-      <a href="#budget-match" class="block text-sm font-medium text-sand-200 hover:text-gold-400">Budget Matching</a>
-      <a href="#contact" class="block text-sm font-medium text-sand-200 hover:text-gold-400">Contact / Callback</a>
-      <a href="thank-you.html" class="block text-sm font-semibold text-gold-300 hover:text-gold-200 flex items-center gap-2">
-        <i data-lucide="file-check-2" class="w-4 h-4 text-emerald-400"></i> 📄 Inquiry Confirmation & Status Desk
-      </a>
-      <div class="pt-4 border-t border-royal-800 flex flex-col gap-2">
-        <button onclick="openFeedbackModal()" class="w-full py-2.5 px-3 text-center text-xs font-semibold uppercase tracking-wider text-amber-300 bg-amber-950/50 hover:bg-amber-900/60 border border-amber-500/40 rounded-lg flex items-center justify-center gap-2">
-          <i data-lucide="star" class="w-4 h-4 fill-amber-300"></i> Rate Us & Give Feedback
-        </button>
-        <a href="https://wa.me/919461812342?text=Hello%20Royal%20Rajasthan%20Properties,%20I%20would%20like%20to%20inquire%20about%20properties%20in%20Jaipur." target="_blank" class="w-full py-2.5 text-center text-xs font-semibold uppercase tracking-wider text-emerald-400 border border-emerald-500/40 rounded-lg flex items-center justify-center gap-2">
-          <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp Sales Desk
-        </a>
-        <button onclick="openAdminModal()" class="w-full py-2 text-center text-xs text-slate-400 hover:text-gold-400 flex items-center justify-center gap-1.5">
-          <i data-lucide="lock" class="w-3.5 h-3.5"></i> Open Admin Portal
+
+      <!-- 4. Custom Menu Items Section (Owner can add anything!) -->
+      <div>
+        <div class="text-[10px] uppercase font-bold tracking-widest text-gold-400 mb-2.5 px-1 flex items-center justify-between">
+          <span>Custom Menu Links</span>
+          <button onclick="openAddMenuItemModal()" class="text-[10px] text-emerald-400 hover:text-emerald-300 font-bold flex items-center gap-1">
+            <i data-lucide="plus-circle" class="w-3 h-3"></i> Add Link
+          </button>
+        </div>
+        <div id="drawerCustomLinksContainer" class="space-y-1">
+          <!-- Dynamically populated from localStorage -->
+        </div>
+        <button onclick="openAddMenuItemModal()" class="w-full mt-2 py-2 px-3 rounded-xl border border-dashed border-gold-500/40 hover:border-gold-400 bg-gold-500/5 hover:bg-gold-500/10 text-gold-300 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all">
+          <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+          <span>Add Custom Menu Link / Page</span>
         </button>
       </div>
+
+      <!-- 5. Edit Everything / Admin Section -->
+      <div class="p-3.5 rounded-2xl bg-royal-900/90 border border-white/10 space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400">Admin Control</span>
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+        </div>
+        <p class="text-[10px] text-slate-400 leading-relaxed">
+          आप इस मेन्यू, प्रोफाइल, फोन/व्हाट्सएप और सभी पेजों को कभी भी एडिट कर सकते हैं।
+        </p>
+        <div class="flex items-center gap-2 pt-1">
+          <button onclick="openAdminModal(); toggleLeftDrawer(false);" class="flex-1 py-2 px-3 rounded-lg bg-gold-500 hover:bg-gold-400 text-royal-950 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors">
+            <i data-lucide="settings" class="w-3.5 h-3.5"></i> Edit Everything
+          </button>
+          <button onclick="openAddMenuItemModal()" class="py-2 px-3 rounded-lg bg-royal-800 hover:bg-royal-750 text-gold-300 border border-gold-500/30 text-xs font-semibold flex items-center gap-1">
+            <i data-lucide="plus" class="w-3.5 h-3.5"></i> Add
+          </button>
+        </div>
+      </div>
+
     </div>
+
+    <!-- Drawer Footer -->
+    <div class="p-4 border-t border-gold-900/60 bg-royal-900/90 flex items-center justify-between text-[11px] text-slate-400">
+      <span>Call Desk: +91 94618 12342</span>
+      <a href="https://wa.me/919461812342" target="_blank" class="text-emerald-400 hover:underline flex items-center gap-1">
+        <i data-lucide="message-circle" class="w-3 h-3"></i> WhatsApp
+      </a>
+    </div>
+
+  </aside>
   </header>
 
   <!-- ==================== 2. HERO SECTION ==================== -->
@@ -3604,6 +3779,445 @@
       </button>
     </form>
 
+  </div>
+
+  <!-- ==================== 1. ABOUT ROYAL RAJASTHAN MODAL ==================== -->
+  <div id="aboutModal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4 sm:p-6 overflow-y-auto" role="dialog" aria-modal="true">
+    <div class="fixed inset-0 bg-royal-950/85 backdrop-blur-md" onclick="closeAboutModal()"></div>
+    <div class="relative z-10 w-full max-w-2xl bg-royal-950 rounded-3xl border-2 border-gold-400/80 shadow-[0_0_50px_rgba(212,175,55,0.3)] p-6 sm:p-8 text-white my-auto max-h-[90vh] flex flex-col">
+      <div class="flex items-center justify-between pb-4 border-b border-gold-900/60 shrink-0">
+        <div class="flex items-center gap-3">
+          <div class="p-2 rounded-xl bg-gold-500/20 text-gold-400 border border-gold-500/40">
+            <i data-lucide="info" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="font-serif text-xl sm:text-2xl font-bold text-white">About Royal Rajasthan Properties</h3>
+            <p class="text-[11px] text-gold-400 font-sans uppercase tracking-wider">Your Dream • Our Priority • Verified Advisory</p>
+          </div>
+        </div>
+        <button onclick="closeAboutModal()" class="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-royal-800 transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="overflow-y-auto py-5 space-y-4 text-xs sm:text-sm text-sand-200 leading-relaxed pr-1">
+        <p>
+          <strong>Royal Rajasthan Properties</strong> is Rajasthan’s premier luxury real estate advisory and township development consultancy headquartered in Jaipur. Founded on the bedrock principles of legal title transparency, government-approved layouts, and customer fiduciary trust, we connect families, NRI investors, and commercial developers with high-yield properties.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 my-4">
+          <div class="p-4 rounded-2xl bg-royal-900 border border-gold-500/30 text-center">
+            <span class="font-serif text-2xl font-bold text-gold-400 block">10+ Years</span>
+            <span class="text-[11px] text-slate-400">Market Experience</span>
+          </div>
+          <div class="p-4 rounded-2xl bg-royal-900 border border-emerald-500/30 text-center">
+            <span class="font-serif text-2xl font-bold text-emerald-400 block">850+</span>
+            <span class="text-[11px] text-slate-400">Happy Families</span>
+          </div>
+          <div class="p-4 rounded-2xl bg-royal-900 border border-amber-500/30 text-center">
+            <span class="font-serif text-2xl font-bold text-amber-300 block">100% RERA</span>
+            <span class="text-[11px] text-slate-400">Verified Titles</span>
+          </div>
+        </div>
+
+        <h4 class="font-serif text-lg font-bold text-gold-300 pt-2">Our Key Specializations:</h4>
+        <ul class="space-y-2 list-none">
+          <li class="flex items-start gap-2">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+            <span><strong>300 Bigha Mega Township (Diggi Road, Jaipur):</strong> Government approved gated residential & commercial plots with 20+ world-class amenities at just ₹26,950/Gaj.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+            <span><strong>Title Diligence & Registry:</strong> Complete legal title search, JDA/RERA verification, and hassle-free registry with 80% bank loan sanctioning.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+            <span><strong>Free Pick-and-Drop Site Visits:</strong> Luxury cab pickup anywhere in Jaipur for personalized on-ground inspections.</span>
+          </li>
+        </ul>
+
+        <div class="p-4 rounded-2xl bg-gold-950/40 border border-gold-500/40 mt-4 flex items-center justify-between gap-3">
+          <div>
+            <span class="text-[10px] text-gold-400 uppercase font-bold block">Jaipur Corporate Office</span>
+            <span class="text-xs text-white">Opposite Knowledge City, Diggi Road, Jaipur, Rajasthan</span>
+          </div>
+          <a href="tel:+919461812342" class="px-3.5 py-2 rounded-xl bg-gold-500 hover:bg-gold-400 text-royal-950 font-bold text-xs uppercase shrink-0">
+            Call Desk
+          </a>
+        </div>
+      </div>
+
+      <div class="pt-4 border-t border-gold-900/60 flex items-center justify-between shrink-0">
+        <a href="#about" onclick="closeAboutModal()" class="text-xs text-gold-400 hover:underline">
+          View full section on page →
+        </a>
+        <button onclick="closeAboutModal()" class="px-5 py-2 rounded-xl bg-royal-800 text-slate-300 hover:text-white text-xs font-semibold">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 2. ADVISOR PROFILE MODAL (NAVRATAN KUMAWAT) ==================== -->
+  <div id="profileModal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4 sm:p-6 overflow-y-auto" role="dialog" aria-modal="true">
+    <div class="fixed inset-0 bg-royal-950/85 backdrop-blur-md" onclick="closeProfileModal()"></div>
+    <div class="relative z-10 w-full max-w-xl bg-royal-950 rounded-3xl border-2 border-gold-400/80 shadow-[0_0_50px_rgba(212,175,55,0.3)] p-6 sm:p-8 text-white my-auto max-h-[90vh] flex flex-col">
+      <div class="flex items-center justify-between pb-4 border-b border-gold-900/60 shrink-0">
+        <div class="flex items-center gap-2">
+          <i data-lucide="user-check" class="w-5 h-5 text-emerald-400"></i>
+          <h3 class="font-serif text-xl font-bold text-white">Advisor & Founder Profile</h3>
+        </div>
+        <button onclick="closeProfileModal()" class="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-royal-800 transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="overflow-y-auto py-5 space-y-5 text-xs text-slate-200 pr-1">
+        
+        <!-- Profile Header Card -->
+        <div class="text-center p-5 rounded-3xl bg-royal-900/80 border border-gold-500/30 relative">
+          <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border-4 border-gold-400 p-0.5 shadow-gold-sm bg-royal-950 mb-3">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" alt="Navratan Kumawat" class="w-full h-full object-cover">
+          </div>
+          <span class="px-3 py-1 rounded-full bg-gold-500/20 text-gold-300 text-[10px] font-bold uppercase tracking-wider border border-gold-500/40 inline-block mb-1">
+            Founder & Principal Advisor
+          </span>
+          <h4 class="font-serif text-2xl font-bold text-white" data-profile="name">Navratan Kumawat</h4>
+          <p class="text-xs text-slate-400 mt-0.5">Senior Township & Real Estate Investment Consultant</p>
+
+          <div class="mt-4 pt-3 border-t border-white/10 grid grid-cols-2 gap-3 text-left">
+            <div class="p-2.5 rounded-xl bg-royal-950/80 border border-white/5">
+              <span class="text-[10px] text-slate-400 block font-medium">Industry Experience</span>
+              <strong class="text-sm text-gold-300 font-bold">10+ Years</strong>
+            </div>
+            <div class="p-2.5 rounded-xl bg-royal-950/80 border border-white/5">
+              <span class="text-[10px] text-slate-400 block font-medium">Families Settled</span>
+              <strong class="text-sm text-emerald-400 font-bold">850+ Families</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-3 leading-relaxed">
+          <h5 class="text-xs uppercase tracking-wider font-bold text-gold-400 font-display">About Navratan Kumawat:</h5>
+          <p>
+            Navratan Kumawat has been serving the Jaipur and Rajasthan real estate sector for over a decade. His fiduciary approach guarantees clients 100% legal title verification, crystal-clear pricing without hidden brokerage, and end-to-end registry support.
+          </p>
+          <p>
+            Whether you are looking for high-appreciation land investment in the 300 Bigha Township on Diggi Road, luxury residential villas in Jagatpura/C-Scheme, or commercial hubs, Navratan Kumawat provides direct, confidential guidance.
+          </p>
+        </div>
+
+        <!-- Direct Actions -->
+        <div class="space-y-2.5 pt-2">
+          <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20would%20like%20to%20consult%20regarding%20property%20investments%20in%20Rajasthan." target="_blank" class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-emerald-600 via-emerald-500 to-green-500 hover:brightness-110 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg transition-all">
+            <i data-lucide="message-circle" class="w-4 h-4"></i>
+            <span>Chat on WhatsApp Directly (+91 94618 12342)</span>
+          </a>
+
+          <a href="tel:+919461812342" class="w-full py-3 px-4 rounded-xl bg-royal-900 hover:bg-royal-850 text-gold-300 border border-gold-500/40 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all">
+            <i data-lucide="phone-call" class="w-4 h-4"></i>
+            <span>Direct Call: 9461812342</span>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="pt-4 border-t border-gold-900/60 flex items-center justify-between shrink-0">
+        <button onclick="openAdminModal(); closeProfileModal();" class="text-xs text-gold-400 hover:underline flex items-center gap-1">
+          <i data-lucide="edit-3" class="w-3.5 h-3.5"></i> Edit Profile Info (Admin)
+        </button>
+        <button onclick="closeProfileModal()" class="px-5 py-2 rounded-xl bg-royal-800 text-slate-300 hover:text-white text-xs font-semibold">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 3. PROPERTY CALCULATION & INTERACTIVE TOOLS MODAL ==================== -->
+  <div id="toolsModal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4 sm:p-6 overflow-y-auto" role="dialog" aria-modal="true">
+    <div class="fixed inset-0 bg-royal-950/85 backdrop-blur-md" onclick="closeToolsModal()"></div>
+    <div class="relative z-10 w-full max-w-2xl bg-royal-950 rounded-3xl border-2 border-gold-400/80 shadow-[0_0_50px_rgba(212,175,55,0.3)] p-6 sm:p-8 text-white my-auto max-h-[90vh] flex flex-col">
+      
+      <!-- Modal Header & Tabs -->
+      <div class="pb-4 border-b border-gold-900/60 shrink-0">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-2.5">
+            <div class="p-2 rounded-xl bg-gold-500/20 text-gold-400 border border-gold-500/40">
+              <i data-lucide="calculator" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="font-serif text-xl sm:text-2xl font-bold text-white">Rajasthan Real Estate Tools</h3>
+              <p class="text-[11px] text-slate-400 font-sans">Instant Gaj Converter, EMI Calculator & Registry Estimator</p>
+            </div>
+          </div>
+          <button onclick="closeToolsModal()" class="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-royal-800 transition-colors">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <!-- Tool Selection Tabs -->
+        <div class="flex flex-wrap gap-2 text-xs">
+          <button id="tabBtnGaj" onclick="switchToolsTab('gaj')" class="px-3 py-1.5 rounded-lg bg-gold-500 text-royal-950 font-bold transition-all flex items-center gap-1.5">
+            <i data-lucide="ruler" class="w-3.5 h-3.5"></i>
+            <span>Gaj ⇄ Sq. Ft</span>
+          </button>
+          <button id="tabBtnEmi" onclick="switchToolsTab('emi')" class="px-3 py-1.5 rounded-lg bg-royal-900 text-slate-300 hover:text-white font-semibold transition-all flex items-center gap-1.5">
+            <i data-lucide="percent" class="w-3.5 h-3.5"></i>
+            <span>EMI Calculator</span>
+          </button>
+          <button id="tabBtnRegistry" onclick="switchToolsTab('registry')" class="px-3 py-1.5 rounded-lg bg-royal-900 text-slate-300 hover:text-white font-semibold transition-all flex items-center gap-1.5">
+            <i data-lucide="receipt" class="w-3.5 h-3.5"></i>
+            <span>Registry Cost</span>
+          </button>
+          <button id="tabBtnInquiry" onclick="switchToolsTab('inquiry')" class="px-3 py-1.5 rounded-lg bg-royal-900 text-slate-300 hover:text-white font-semibold transition-all flex items-center gap-1.5">
+            <i data-lucide="search" class="w-3.5 h-3.5 text-emerald-400"></i>
+            <span>Inquiry Status</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Tab Contents Area -->
+      <div class="overflow-y-auto py-5 pr-1 flex-1">
+        
+        <!-- TAB 1: GAJ CONVERTER -->
+        <div id="tabContentGaj" class="space-y-4">
+          <p class="text-xs text-slate-300">
+            राजस्थान में जमीन की नाप <strong>गज (Square Yard)</strong> एवं <strong>बीघा</strong> में की जाती है (1 गज = 9 वर्ग फीट):
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-royal-900/60 p-4 rounded-2xl border border-white/10">
+            <div>
+              <label class="block text-[11px] uppercase font-bold text-gold-400 mb-1">Gaj (Square Yards)</label>
+              <input type="number" id="calcInputGaj" value="100" oninput="runGajConverter('gaj')" class="w-full bg-royal-950 border border-white/20 rounded-xl px-3.5 py-2.5 text-white font-mono text-base focus:border-gold-400 focus:outline-none">
+            </div>
+
+            <div>
+              <label class="block text-[11px] uppercase font-bold text-emerald-400 mb-1">Square Feet (Sq. Ft)</label>
+              <input type="number" id="calcInputSqFt" value="900" oninput="runGajConverter('sqft')" class="w-full bg-royal-950 border border-white/20 rounded-xl px-3.5 py-2.5 text-white font-mono text-base focus:border-emerald-400 focus:outline-none">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-3 gap-2 text-center text-xs">
+            <div class="p-3 rounded-xl bg-royal-900 border border-white/5">
+              <span class="text-[10px] text-slate-400 block">Square Meters</span>
+              <strong id="calcResultSqM" class="font-mono text-gold-300">83.61 m²</strong>
+            </div>
+            <div class="p-3 rounded-xl bg-royal-900 border border-white/5">
+              <span class="text-[10px] text-slate-400 block">Kaccha Bigha</span>
+              <strong id="calcResultKacchaBigha" class="font-mono text-emerald-400">0.06 Bigha</strong>
+            </div>
+            <div class="p-3 rounded-xl bg-royal-900 border border-white/5">
+              <span class="text-[10px] text-slate-400 block">Standard Bigha (1936 Gaj)</span>
+              <strong id="calcResultPuccaBigha" class="font-mono text-amber-300">0.05 Bigha</strong>
+            </div>
+          </div>
+
+          <!-- 300 Bigha Rate Estimator -->
+          <div class="p-4 rounded-2xl bg-gradient-to-r from-amber-950/60 to-royal-900 border border-gold-500/40 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-amber-300">🏡 300 Bigha Township Rate (₹26,950/Gaj):</span>
+              <strong id="calcTownshipCost" class="text-sm font-mono text-gold-300">₹26,95,000</strong>
+            </div>
+            <p class="text-[11px] text-slate-400">
+              इस साइज के प्लॉट पर आपको ₹1,000/गज की सीधी छूट (लगभग <span id="calcTownshipSaving" class="text-emerald-400 font-bold">₹1,00,000 बचत</span>) मिल रही है।
+            </p>
+          </div>
+        </div>
+
+        <!-- TAB 2: EMI CALCULATOR -->
+        <div id="tabContentEmi" class="hidden space-y-4">
+          <p class="text-xs text-slate-300">
+            अपने प्लॉट या विला के लिए मासिक किस्त (EMI) की गणना करें:
+          </p>
+
+          <div class="space-y-3 bg-royal-900/60 p-4 rounded-2xl border border-white/10 text-xs">
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="text-slate-300 font-medium">Loan Amount (ऋण राशि):</span>
+                <span id="emiLoanAmountDisplay" class="font-mono text-gold-300 font-bold">₹25,00,000</span>
+              </div>
+              <input type="range" id="emiLoanAmount" min="500000" max="20000000" step="100000" value="2500000" oninput="runEmiCalc()" class="w-full accent-gold-400">
+            </div>
+
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="text-slate-300 font-medium">Interest Rate (ब्याज दर %):</span>
+                <span id="emiRateDisplay" class="font-mono text-emerald-400 font-bold">8.5%</span>
+              </div>
+              <input type="range" id="emiRate" min="6.5" max="14.0" step="0.1" value="8.5" oninput="runEmiCalc()" class="w-full accent-emerald-400">
+            </div>
+
+            <div>
+              <div class="flex justify-between mb-1">
+                <span class="text-slate-300 font-medium">Tenure (अवधि):</span>
+                <span id="emiTenureDisplay" class="font-mono text-amber-300 font-bold">15 Years</span>
+              </div>
+              <input type="range" id="emiTenure" min="1" max="30" step="1" value="15" oninput="runEmiCalc()" class="w-full accent-amber-400">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-3 gap-2 text-center text-xs">
+            <div class="p-3.5 rounded-xl bg-gold-950/80 border border-gold-500/40">
+              <span class="text-[10px] text-gold-400 block uppercase font-bold">Monthly EMI</span>
+              <strong id="emiMonthlyResult" class="font-mono text-base text-gold-300 font-bold">₹24,620</strong>
+            </div>
+            <div class="p-3 rounded-xl bg-royal-900 border border-white/5">
+              <span class="text-[10px] text-slate-400 block">Total Interest</span>
+              <strong id="emiTotalInterest" class="font-mono text-slate-300">₹19,31,600</strong>
+            </div>
+            <div class="p-3 rounded-xl bg-royal-900 border border-white/5">
+              <span class="text-[10px] text-slate-400 block">Total Payment</span>
+              <strong id="emiTotalPayment" class="font-mono text-white">₹44,31,600</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 3: REGISTRY COST -->
+        <div id="tabContentRegistry" class="hidden space-y-4">
+          <p class="text-xs text-slate-300">
+            राजस्थान में स्टाम्प ड्यूटी एवं रजिस्ट्री शुल्क का अनुमान लगाएं:
+          </p>
+
+          <div class="bg-royal-900/60 p-4 rounded-2xl border border-white/10 space-y-3 text-xs">
+            <div>
+              <label class="block text-[11px] uppercase font-bold text-gold-400 mb-1">Property Value / DLC Value (कुल कीमत)</label>
+              <input type="number" id="registryValueInput" value="3000000" oninput="runRegistryCalc()" class="w-full bg-royal-950 border border-white/20 rounded-xl px-3.5 py-2.5 text-white font-mono text-base focus:border-gold-400 focus:outline-none">
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-[11px] text-slate-300 mb-1">Purchaser Category</label>
+                <select id="registryCategory" onchange="runRegistryCalc()" class="w-full bg-royal-950 border border-white/20 rounded-xl px-3 py-2 text-white">
+                  <option value="male">Male Buyer (6% Stamp Duty)</option>
+                  <option value="female">Female Buyer (5% Stamp Duty)</option>
+                  <option value="joint">Joint (Male + Female - 5.5%)</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-[11px] text-slate-300 mb-1">Registration Fee</label>
+                <input type="text" readonly value="1.0% of Value" class="w-full bg-royal-900 border border-white/10 rounded-xl px-3 py-2 text-slate-400 font-mono">
+              </div>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-royal-900 border border-white/10 space-y-2 text-xs">
+            <div class="flex justify-between py-1 border-b border-white/5">
+              <span class="text-slate-400">Stamp Duty:</span>
+              <strong id="registryStampResult" class="font-mono text-gold-300">₹1,80,000</strong>
+            </div>
+            <div class="flex justify-between py-1 border-b border-white/5">
+              <span class="text-slate-400">Registration Fee (1%):</span>
+              <strong id="registryFeeResult" class="font-mono text-emerald-400">₹30,000</strong>
+            </div>
+            <div class="flex justify-between py-1 border-b border-white/5">
+              <span class="text-slate-400">Surcharge & Municipal Cess (~20% on Stamp):</span>
+              <strong id="registryCessResult" class="font-mono text-slate-300">₹36,000</strong>
+            </div>
+            <div class="flex justify-between pt-2 text-sm font-bold">
+              <span class="text-white">Estimated Total Government Cost:</span>
+              <strong id="registryTotalResult" class="font-mono text-amber-300 text-base">₹2,46,000</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 4: INQUIRY LOOKUP -->
+        <div id="tabContentInquiry" class="hidden space-y-4">
+          <p class="text-xs text-slate-300">
+            यदि आपने पहले से वेबसाइट पर इन्क्वायरी फॉर्म भरा है, तो अपनी रसीद या स्टेटस देखने के लिए अपना नाम या रेफरेंस नंबर डालें:
+          </p>
+
+          <div class="bg-royal-900/60 p-4 rounded-2xl border border-white/10 space-y-3">
+            <div>
+              <label class="block text-[11px] uppercase font-bold text-gold-400 mb-1">Reference Number / Client Name</label>
+              <input type="text" id="lookupInquiryInput" placeholder="e.g. RRP-INQ-123456 or your phone" class="w-full bg-royal-950 border border-white/20 rounded-xl px-3.5 py-2.5 text-white font-mono text-xs focus:border-gold-400 focus:outline-none">
+            </div>
+            <button type="button" onclick="submitInquiryLookup()" class="w-full py-3 rounded-xl bg-gold-500 hover:bg-gold-400 text-royal-950 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2">
+              <i data-lucide="search" class="w-4 h-4"></i>
+              <span>Open 2nd Page Inquiry Receipt</span>
+            </button>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-emerald-950/40 border border-emerald-500/30 text-xs text-emerald-200">
+            💡 आप सीधे भी हमारे <strong>आधिकारिक 2nd पेज</strong> (<a href="thank-you.html" class="underline font-bold text-white">thank-you.html</a>) पर जाकर अपनी रसीद व अगले स्टेप्स देख सकते हैं।
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-4 border-t border-gold-900/60 flex items-center justify-between shrink-0">
+        <a href="thank-you.html" class="text-xs text-emerald-400 hover:underline flex items-center gap-1 font-semibold">
+          <i data-lucide="file-check-2" class="w-3.5 h-3.5"></i> Go to Inquiry Confirmation Desk →
+        </a>
+        <button onclick="closeToolsModal()" class="px-5 py-2 rounded-xl bg-royal-800 text-slate-300 hover:text-white text-xs font-semibold">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 4. ADD CUSTOM MENU LINK MODAL ==================== -->
+  <div id="addMenuItemModal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4 sm:p-6 overflow-y-auto" role="dialog" aria-modal="true">
+    <div class="fixed inset-0 bg-royal-950/85 backdrop-blur-md" onclick="closeAddMenuItemModal()"></div>
+    <div class="relative z-10 w-full max-w-md bg-royal-950 rounded-3xl border-2 border-gold-400/80 shadow-[0_0_50px_rgba(212,175,55,0.3)] p-6 sm:p-8 text-white my-auto">
+      
+      <div class="flex items-center justify-between pb-4 border-b border-gold-900/60 mb-4">
+        <div class="flex items-center gap-2">
+          <div class="p-1.5 rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/40">
+            <i data-lucide="plus-circle" class="w-4 h-4"></i>
+          </div>
+          <h3 class="font-serif text-xl font-bold text-white">Add New Menu Link</h3>
+        </div>
+        <button onclick="closeAddMenuItemModal()" class="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-royal-800 transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <p class="text-xs text-slate-300 mb-4 leading-relaxed">
+        आप वेबसाइट के मेन्यू में अपनी पसंद का कोई भी नया पेज, सेक्शन या एक्सटर्नल लिंक जोड़ सकते हैं:
+      </p>
+
+      <form id="addCustomMenuForm" onsubmit="saveNewMenuItem(event)" class="space-y-4 text-xs text-left">
+        <div>
+          <label class="block text-[11px] uppercase font-bold text-gold-400 mb-1.5">
+            Link Title (मेन्यू में क्या नाम दिखे) <span class="text-gold-300">*</span>
+          </label>
+          <input type="text" id="newMenuTitle" required placeholder="e.g. 🏡 Diggi Road Video Tour or PDF Brochure" class="w-full bg-royal-900 border border-white/20 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-gold-400">
+        </div>
+
+        <div>
+          <label class="block text-[11px] uppercase font-bold text-gold-400 mb-1.5">
+            Target URL or Section Anchor <span class="text-gold-300">*</span>
+          </label>
+          <input type="text" id="newMenuUrl" required placeholder="e.g. #projects or thank-you.html or https://..." class="w-full bg-royal-900 border border-white/20 rounded-xl px-3.5 py-2.5 text-white font-mono focus:outline-none focus:border-gold-400">
+          <p class="text-[10px] text-slate-400 mt-1">Section ke liye <code>#projects</code> ya doosre page ke liye <code>thank-you.html</code> likhein.</p>
+        </div>
+
+        <div>
+          <label class="block text-[11px] uppercase font-bold text-gold-400 mb-1.5">
+            Icon Style
+          </label>
+          <select id="newMenuIcon" class="w-full bg-royal-900 border border-white/20 rounded-xl px-3.5 py-2.5 text-white focus:outline-none focus:border-gold-400">
+            <option value="sparkles">✨ Sparkles / Special</option>
+            <option value="external-link">🔗 Link / Page</option>
+            <option value="file-text">📄 Document / PDF</option>
+            <option value="map-pin">📍 Location / Map</option>
+            <option value="phone">📞 Phone / Support</option>
+            <option value="award">🏆 Award / Certificate</option>
+          </select>
+        </div>
+
+        <div class="pt-2 flex items-center justify-end gap-2.5">
+          <button type="button" onclick="closeAddMenuItemModal()" class="px-4 py-2.5 rounded-xl bg-royal-800 text-slate-300 hover:text-white">
+            Cancel
+          </button>
+          <button type="submit" class="px-5 py-2.5 rounded-xl bg-gold-500 hover:bg-gold-400 text-royal-950 font-bold uppercase tracking-wider shadow-gold-sm flex items-center gap-1.5">
+            <i data-lucide="check" class="w-4 h-4"></i> Add to Menu
+          </button>
+        </div>
+      </form>
+
+    </div>
   </div>
 
   <!-- ==================== ADMIN LOGIN MODAL ==================== -->
@@ -8446,9 +9060,298 @@
       document.querySelectorAll('.reveal-on-scroll').forEach(el => revealObserver.observe(el));
     }
 
+    // ==========================================
+    // 15. LEFT DRAWER MENU & CUSTOM TOOLS ENGINE
+    // ==========================================
+    const CUSTOM_MENU_KEY = 'rrp_custom_menu_items';
+
+    function getCustomMenuLinks() {
+      try {
+        const stored = localStorage.getItem(CUSTOM_MENU_KEY);
+        if (stored) return JSON.parse(stored);
+      } catch (e) {}
+      return [
+        { id: 'c1', title: '🏡 300 Bigha Master Layout', url: '#mega-township-diggi', icon: 'sparkles' },
+        { id: 'c2', title: '📜 RERA Title Verification Checklist', url: '#about', icon: 'award' }
+      ];
+    }
+
+    function saveCustomMenuLinks(links) {
+      localStorage.setItem(CUSTOM_MENU_KEY, JSON.stringify(links));
+    }
+
+    function toggleLeftDrawer(isOpen) {
+      const backdrop = document.getElementById('leftDrawerBackdrop');
+      const drawer = document.getElementById('leftDrawerMenu');
+      if (!backdrop || !drawer) return;
+
+      if (isOpen) {
+        backdrop.classList.remove('opacity-0', 'pointer-events-none');
+        backdrop.classList.add('opacity-100');
+        drawer.classList.remove('-translate-x-full');
+        drawer.classList.add('translate-x-0');
+        document.body.style.overflow = 'hidden';
+        renderDrawerCustomLinks();
+        if (window.lucide) lucide.createIcons();
+      } else {
+        backdrop.classList.add('opacity-0', 'pointer-events-none');
+        backdrop.classList.remove('opacity-100');
+        drawer.classList.add('-translate-x-full');
+        drawer.classList.remove('translate-x-0');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function renderDrawerCustomLinks() {
+      const container = document.getElementById('drawerCustomLinksContainer');
+      if (!container) return;
+
+      const links = getCustomMenuLinks();
+      if (!links || links.length === 0) {
+        container.innerHTML = '<p class="text-[11px] text-slate-500 italic p-2">No custom links added yet.</p>';
+        return;
+      }
+
+      container.innerHTML = links.map(item => `
+        <div class="flex items-center justify-between p-2 rounded-xl bg-royal-900/60 hover:bg-royal-850 border border-white/5 group transition-colors">
+          <a href="${item.url}" onclick="toggleLeftDrawer(false)" class="flex items-center gap-2.5 text-sand-100 hover:text-gold-300 flex-1 truncate font-medium text-xs">
+            <i data-lucide="${item.icon || 'external-link'}" class="w-3.5 h-3.5 text-gold-400 shrink-0"></i>
+            <span class="truncate">${item.title}</span>
+          </a>
+          <button onclick="deleteCustomMenuItem('${item.id}')" class="text-slate-500 hover:text-rose-400 p-1 opacity-0 group-hover:opacity-100 transition-opacity" title="Remove custom link">
+            <i data-lucide="trash-2" class="w-3 h-3"></i>
+          </button>
+        </div>
+      `).join('');
+
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function openAddMenuItemModal() {
+      toggleLeftDrawer(false);
+      const modal = document.getElementById('addMenuItemModal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => document.getElementById('newMenuTitle')?.focus(), 150);
+        if (window.lucide) lucide.createIcons();
+      }
+    }
+
+    function closeAddMenuItemModal() {
+      const modal = document.getElementById('addMenuItemModal');
+      if (modal) modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    function saveNewMenuItem(e) {
+      e.preventDefault();
+      const title = document.getElementById('newMenuTitle').value.trim();
+      const url = document.getElementById('newMenuUrl').value.trim();
+      const icon = document.getElementById('newMenuIcon').value;
+
+      if (!title || !url) return;
+
+      const links = getCustomMenuLinks();
+      links.push({
+        id: 'c-' + Date.now(),
+        title,
+        url,
+        icon
+      });
+
+      saveCustomMenuLinks(links);
+      closeAddMenuItemModal();
+      toggleLeftDrawer(true);
+      document.getElementById('addCustomMenuForm').reset();
+    }
+
+    function deleteCustomMenuItem(id) {
+      if (!confirm('Are you sure you want to remove this menu item?')) return;
+      let links = getCustomMenuLinks();
+      links = links.filter(l => l.id !== id);
+      saveCustomMenuLinks(links);
+      renderDrawerCustomLinks();
+    }
+
+    // Modal Handlers: About & Profile
+    function openAboutModal() {
+      toggleLeftDrawer(false);
+      const modal = document.getElementById('aboutModal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        if (window.lucide) lucide.createIcons();
+      }
+    }
+
+    function closeAboutModal() {
+      const modal = document.getElementById('aboutModal');
+      if (modal) modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    function openProfileModal() {
+      toggleLeftDrawer(false);
+      const modal = document.getElementById('profileModal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        if (window.lucide) lucide.createIcons();
+      }
+    }
+
+    function closeProfileModal() {
+      const modal = document.getElementById('profileModal');
+      if (modal) modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    // Property Calculation Tools Modal
+    function openToolsModal(tab = 'gaj') {
+      toggleLeftDrawer(false);
+      const modal = document.getElementById('toolsModal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        switchToolsTab(tab === 'all' ? 'gaj' : tab);
+        if (window.lucide) lucide.createIcons();
+      }
+    }
+
+    function closeToolsModal() {
+      const modal = document.getElementById('toolsModal');
+      if (modal) modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    function switchToolsTab(tab) {
+      const tabs = ['gaj', 'emi', 'registry', 'inquiry'];
+      tabs.forEach(t => {
+        const btn = document.getElementById(`tabBtn${t.charAt(0).toUpperCase() + t.slice(1)}`);
+        const content = document.getElementById(`tabContent${t.charAt(0).toUpperCase() + t.slice(1)}`);
+        if (t === tab) {
+          if (btn) {
+            btn.className = 'px-3 py-1.5 rounded-lg bg-gold-500 text-royal-950 font-bold transition-all flex items-center gap-1.5';
+          }
+          if (content) content.classList.remove('hidden');
+        } else {
+          if (btn) {
+            btn.className = 'px-3 py-1.5 rounded-lg bg-royal-900 text-slate-300 hover:text-white font-semibold transition-all flex items-center gap-1.5';
+          }
+          if (content) content.classList.add('hidden');
+        }
+      });
+
+      if (tab === 'gaj') runGajConverter('gaj');
+      if (tab === 'emi') runEmiCalc();
+      if (tab === 'registry') runRegistryCalc();
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function runGajConverter(source) {
+      const gajInput = document.getElementById('calcInputGaj');
+      const sqftInput = document.getElementById('calcInputSqFt');
+      if (!gajInput || !sqftInput) return;
+
+      let gaj = 0;
+      if (source === 'gaj') {
+        gaj = parseFloat(gajInput.value) || 0;
+        sqftInput.value = Math.round(gaj * 9 * 100) / 100;
+      } else {
+        const sqft = parseFloat(sqftInput.value) || 0;
+        gaj = Math.round((sqft / 9) * 100) / 100;
+        gajInput.value = gaj;
+      }
+
+      const sqM = Math.round(gaj * 0.836127 * 100) / 100;
+      const kacchaBigha = Math.round((gaj / 1600) * 1000) / 1000;
+      const puccaBigha = Math.round((gaj / 1936) * 1000) / 1000;
+      const cost = Math.round(gaj * 26950);
+      const savings = Math.round(gaj * 1000);
+
+      const rSqM = document.getElementById('calcResultSqM');
+      const rKaccha = document.getElementById('calcResultKacchaBigha');
+      const rPucca = document.getElementById('calcResultPuccaBigha');
+      const rCost = document.getElementById('calcTownshipCost');
+      const rSavings = document.getElementById('calcTownshipSaving');
+
+      if (rSqM) rSqM.textContent = `${sqM} m²`;
+      if (rKaccha) rKaccha.textContent = `${kacchaBigha} Bigha`;
+      if (rPucca) rPucca.textContent = `${puccaBigha} Bigha`;
+      if (rCost) rCost.textContent = `₹${cost.toLocaleString('en-IN')}`;
+      if (rSavings) rSavings.textContent = `₹${savings.toLocaleString('en-IN')} बचत`;
+    }
+
+    function runEmiCalc() {
+      const amount = parseFloat(document.getElementById('emiLoanAmount')?.value) || 2500000;
+      const rate = parseFloat(document.getElementById('emiRate')?.value) || 8.5;
+      const tenure = parseInt(document.getElementById('emiTenure')?.value) || 15;
+
+      const amtDisp = document.getElementById('emiLoanAmountDisplay');
+      const rateDisp = document.getElementById('emiRateDisplay');
+      const tenureDisp = document.getElementById('emiTenureDisplay');
+
+      if (amtDisp) amtDisp.textContent = `₹${amount.toLocaleString('en-IN')}`;
+      if (rateDisp) rateDisp.textContent = `${rate.toFixed(1)}%`;
+      if (tenureDisp) tenureDisp.textContent = `${tenure} Years`;
+
+      const monthlyRate = (rate / 12) / 100;
+      const totalMonths = tenure * 12;
+      const emi = Math.round((amount * monthlyRate * Math.pow(1 + monthlyRate, totalMonths)) / (Math.pow(1 + monthlyRate, totalMonths) - 1));
+      const totalPayment = emi * totalMonths;
+      const totalInterest = totalPayment - amount;
+
+      const rEmi = document.getElementById('emiMonthlyResult');
+      const rInt = document.getElementById('emiTotalInterest');
+      const rPay = document.getElementById('emiTotalPayment');
+
+      if (rEmi) rEmi.textContent = `₹${emi.toLocaleString('en-IN')}`;
+      if (rInt) rInt.textContent = `₹${totalInterest.toLocaleString('en-IN')}`;
+      if (rPay) rPay.textContent = `₹${totalPayment.toLocaleString('en-IN')}`;
+    }
+
+    function runRegistryCalc() {
+      const val = parseFloat(document.getElementById('registryValueInput')?.value) || 3000000;
+      const cat = document.getElementById('registryCategory')?.value || 'male';
+
+      let stampRate = 0.06;
+      if (cat === 'female') stampRate = 0.05;
+      if (cat === 'joint') stampRate = 0.055;
+
+      const stamp = Math.round(val * stampRate);
+      const fee = Math.round(val * 0.01);
+      const cess = Math.round(stamp * 0.20);
+      const total = stamp + fee + cess;
+
+      const rStamp = document.getElementById('registryStampResult');
+      const rFee = document.getElementById('registryFeeResult');
+      const rCess = document.getElementById('registryCessResult');
+      const rTot = document.getElementById('registryTotalResult');
+
+      if (rStamp) rStamp.textContent = `₹${stamp.toLocaleString('en-IN')}`;
+      if (rFee) rFee.textContent = `₹${fee.toLocaleString('en-IN')}`;
+      if (rCess) rCess.textContent = `₹${cess.toLocaleString('en-IN')}`;
+      if (rTot) rTot.textContent = `₹${total.toLocaleString('en-IN')}`;
+    }
+
+    function submitInquiryLookup() {
+      const q = document.getElementById('lookupInquiryInput')?.value.trim();
+      if (!q) {
+        window.location.href = 'thank-you.html';
+      } else {
+        window.location.href = `thank-you.html?ref=${encodeURIComponent(q)}&name=${encodeURIComponent(q)}`;
+      }
+    }
+
     // Global Modal Escape Key Listener
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
+        toggleLeftDrawer(false);
+        closeAboutModal();
+        closeProfileModal();
+        closeToolsModal();
+        closeAddMenuItemModal();
         closeOtpModal();
         hideOnScreenSmsNotification();
         closeAdminLoginModal();
@@ -8462,6 +9365,12 @@
         closeTownshipBrochureModal();
       }
     });
+
+    // Initialize Drawer Custom Links & Tools
+    renderDrawerCustomLinks();
+    runGajConverter('gaj');
+    runEmiCalc();
+    runRegistryCalc();
 
     if (window.lucide) {
       lucide.createIcons();
