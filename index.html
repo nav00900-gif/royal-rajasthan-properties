@@ -297,6 +297,10 @@
         <a href="#why-us" class="hover:text-gold-400 transition-colors">Why Us</a>
         <a href="#locations" class="hover:text-gold-400 transition-colors">Locations</a>
         <a href="#contact" class="hover:text-gold-400 transition-colors">Contact</a>
+        <a href="thank-you.html" class="text-gold-300 hover:text-gold-200 transition-colors flex items-center gap-1 font-semibold border-b border-gold-500/40 pb-0.5" title="View Inquiry Confirmation & Status Desk">
+          <i data-lucide="file-check-2" class="w-3.5 h-3.5 text-emerald-400"></i>
+          <span>Inquiry Desk</span>
+        </a>
       </nav>
 
       <!-- Header CTA Buttons (Explore Properties & Book / Request a Callback) -->
@@ -349,6 +353,9 @@
       <a href="#locations" class="block text-sm font-medium text-sand-200 hover:text-gold-400">Locations</a>
       <a href="#budget-match" class="block text-sm font-medium text-sand-200 hover:text-gold-400">Budget Matching</a>
       <a href="#contact" class="block text-sm font-medium text-sand-200 hover:text-gold-400">Contact / Callback</a>
+      <a href="thank-you.html" class="block text-sm font-semibold text-gold-300 hover:text-gold-200 flex items-center gap-2">
+        <i data-lucide="file-check-2" class="w-4 h-4 text-emerald-400"></i> 📄 Inquiry Confirmation & Status Desk
+      </a>
       <div class="pt-4 border-t border-royal-800 flex flex-col gap-2">
         <button onclick="openFeedbackModal()" class="w-full py-2.5 px-3 text-center text-xs font-semibold uppercase tracking-wider text-amber-300 bg-amber-950/50 hover:bg-amber-900/60 border border-amber-500/40 rounded-lg flex items-center justify-center gap-2">
           <i data-lucide="star" class="w-4 h-4 fill-amber-300"></i> Rate Us & Give Feedback
@@ -3165,18 +3172,22 @@
 
           <!-- Form Success State Banner -->
           <div id="leadSuccessBanner" class="hidden mt-6 p-6 rounded-2xl bg-emerald-950/80 border border-emerald-500/40 text-center">
-            <div class="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-3">
+            <div class="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-3 animate-bounce">
               <i data-lucide="check-circle-2" class="w-6 h-6"></i>
             </div>
-            <h4 class="font-serif text-xl font-medium text-white">Your Inquiry Has Been Recorded</h4>
+            <h4 class="font-serif text-xl font-medium text-white">आपकी इन्क्वायरी सफलतापूर्वक दर्ज हो गई है!</h4>
             <p class="text-xs text-emerald-200 mt-1 max-w-md mx-auto">
-              A Senior Property Consultant from Royal Rajasthan Properties has received your requirement. You will receive a personalized callback during your preferred window.
+              वरिष्ठ सलाहकार नवरत्न कुमावत (+91 94618 12342) को आपकी आवश्यकता प्राप्त हो चुकी है। आपको आधिकारिक थैंक यू एवं इन्क्वायरी रसीद पेज पर भेजा जा रहा है...
             </p>
-            <div class="mt-4 flex flex-wrap items-center justify-center gap-3">
-              <a id="instantWhatsAppBtn" href="#" target="_blank" class="px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5 transition-all">
-                <i data-lucide="message-circle" class="w-4 h-4"></i> Continue on WhatsApp
+            <div class="mt-5 flex flex-wrap items-center justify-center gap-3">
+              <a id="thankYouRedirectBtn" href="thank-you.html" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:from-gold-200 hover:to-gold-400 text-royal-950 text-xs font-bold uppercase tracking-wider flex items-center gap-2 transition-all shadow-gold-sm">
+                <span>View Official Inquiry Receipt</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
               </a>
-              <button onclick="resetLeadForm()" class="px-4 py-2.5 rounded-lg bg-royal-800 text-slate-300 text-xs font-medium hover:text-white">
+              <a id="instantWhatsAppBtn" href="#" target="_blank" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5 transition-all">
+                <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp Priority
+              </a>
+              <button onclick="resetLeadForm()" class="px-4 py-2.5 rounded-xl bg-royal-800 text-slate-300 text-xs font-medium hover:text-white">
                 Submit Another Inquiry
               </button>
             </div>
@@ -3230,6 +3241,7 @@
             <li><a href="#why-us" class="hover:text-gold-400 transition-colors">Why Royal Rajasthan</a></li>
             <li><a href="#locations" class="hover:text-gold-400 transition-colors">Rajasthan Locations</a></li>
             <li><a href="#contact" class="hover:text-gold-400 transition-colors">Contact / Callback</a></li>
+            <li><a href="thank-you.html" class="text-gold-300 hover:text-gold-200 transition-colors flex items-center gap-1.5 font-semibold"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i> Inquiry Confirmation Desk</a></li>
           </ul>
         </div>
 
@@ -5832,6 +5844,11 @@
 
       saveLeadToStore(newLead);
 
+      // Cache latest inquiry in sessionStorage for thank-you.html
+      try {
+        sessionStorage.setItem('rrp_latest_inquiry', JSON.stringify(newLead));
+      } catch (e) {}
+
       // Dispatch Instant Lead Email Notification to nav00900@gmail.com
       try {
         fetch('https://formsubmit.co/ajax/nav00900@gmail.com', {
@@ -5864,9 +5881,22 @@
 
       const waBtn = document.getElementById('instantWhatsAppBtn');
       const waText = `*New Inquiry - Royal Rajasthan Properties*\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nProject: ${projectInterest}\nLocation: ${locationPreference}\nBudget: ${budget}\nPurpose: ${purpose}\nPreferred Callback: ${preferredCallbackTime}\nMessage: ${message || 'Looking for verified options'}`;
-      waBtn.href = `https://wa.me/919461812342?text=${encodeURIComponent(waText)}`;
+      if (waBtn) waBtn.href = `https://wa.me/919461812342?text=${encodeURIComponent(waText)}`;
+
+      // Construct Target Thank-You URL with inquiry parameters
+      const targetThankYouUrl = `thank-you.html?ref=${encodeURIComponent(newLead.id)}&name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}&email=${encodeURIComponent(email)}&project=${encodeURIComponent(projectInterest)}&budget=${encodeURIComponent(budget)}&location=${encodeURIComponent(locationPreference)}&time=${encodeURIComponent(preferredCallbackTime)}`;
+
+      const redirectBtn = document.getElementById('thankYouRedirectBtn');
+      if (redirectBtn) {
+        redirectBtn.href = targetThankYouUrl;
+      }
 
       lucide.createIcons();
+
+      // Automatically redirect to thank-you.html after a smooth 800ms transition
+      setTimeout(() => {
+        window.location.href = targetThankYouUrl;
+      }, 800);
     }
 
     function resetLeadForm() {
@@ -7981,13 +8011,21 @@
           };
 
           saveLeadToStore(chatLead);
+          try {
+            sessionStorage.setItem('rrp_latest_inquiry', JSON.stringify(chatLead));
+          } catch (e) {}
+
+          const thankYouChatUrl = `thank-you.html?ref=${encodeURIComponent(chatLead.id)}&name=${encodeURIComponent(chatLead.name)}&phone=${encodeURIComponent(chatLead.phone)}&project=${encodeURIComponent(chatLead.projectInterest)}&budget=${encodeURIComponent(chatLead.budget)}`;
 
           appendBotMessage(`
             <p class="text-emerald-300 font-medium">✓ Thank you! Your requirements have been registered with our senior advisory desk.</p>
-            <p>Our senior property consultant will reach out via WhatsApp shortly. For immediate assistance, feel free to connect with our direct WhatsApp desk:</p>
-            <div class="pt-2">
-              <a href="https://wa.me/919461812342?text=Hello%20Royal%20Rajasthan%20Properties,%20I%20completed%20the%20AI%20Concierge%20consultation%20for%20${encodeURIComponent(chatResponses.type || 'Rajasthan properties')}." target="_blank" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-50 text-white font-semibold text-xs tracking-wider uppercase">
-                <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Open WhatsApp Chat
+            <p>Our senior property consultant will reach out via WhatsApp shortly. You can also view your official inquiry receipt or connect directly on WhatsApp:</p>
+            <div class="pt-2 flex flex-wrap gap-2">
+              <a href="${thankYouChatUrl}" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-gold-500 hover:bg-gold-400 text-royal-950 font-bold text-xs tracking-wider uppercase shadow-gold-sm">
+                <i data-lucide="file-check-2" class="w-3.5 h-3.5"></i> View Receipt Desk
+              </a>
+              <a href="https://wa.me/919461812342?text=Hello%20Royal%20Rajasthan%20Properties,%20I%20completed%20the%20AI%20Concierge%20consultation%20for%20${encodeURIComponent(chatResponses.type || 'Rajasthan properties')}." target="_blank" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs tracking-wider uppercase">
+                <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> Open WhatsApp
               </a>
             </div>
           `);
