@@ -91,6 +91,26 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
+    /* Mobile Optimization & Viewport Protection */
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+      touch-action: manipulation;
+    }
+    img, svg, video, canvas {
+      max-width: 100%;
+      height: auto;
+    }
+    @media screen and (max-width: 768px) {
+      input, select, textarea {
+        font-size: 16px !important;
+      }
+    }
+    a, button {
+      -webkit-tap-highlight-color: transparent;
+    }
+
     .bg-royal-gradient {
       background: linear-gradient(180deg, #0b111c 0%, #070a10 100%);
     }
