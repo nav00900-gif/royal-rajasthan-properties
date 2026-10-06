@@ -324,6 +324,9 @@
         <button onclick="openToolsModal('all')" class="text-gold-300 hover:text-gold-200 transition-colors flex items-center gap-1 font-semibold">
           <i data-lucide="calculator" class="w-3.5 h-3.5"></i> Tools
         </button>
+        <button onclick="openAdminModal()" class="text-gold-300 hover:text-white transition-colors flex items-center gap-1 font-bold bg-gold-500/15 hover:bg-gold-500/25 px-2.5 py-1 rounded-lg border border-gold-400/40 shadow-sm" title="Admin Security Portal (PIN: 1234)">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5 text-gold-400"></i> Admin (1234)
+        </button>
       </nav>
 
       <!-- RIGHT SIDE: INQUIRY DESK (2ND PAGE) + CALL/BOOK ACTION -->
@@ -376,6 +379,9 @@
         <button onclick="openToolsModal('all')" class="px-2.5 py-1 rounded-lg bg-gold-500/15 hover:bg-gold-500/25 text-gold-300 border border-gold-500/40 transition-colors flex items-center gap-1 shrink-0 font-semibold">
           <i data-lucide="calculator" class="w-3 h-3 text-gold-400"></i> Property Tools
         </button>
+        <button onclick="openAdminModal()" class="px-2.5 py-1 rounded-lg bg-gold-500/20 hover:bg-gold-500/30 text-gold-300 hover:text-white border border-gold-400/50 transition-colors flex items-center gap-1.5 shrink-0 font-bold shadow-sm" title="Admin Security Portal (PIN: 1234)">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5 text-gold-400"></i> Admin Portal (1234)
+        </button>
         <button onclick="openAddMenuItemModal()" class="px-2.5 py-1 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/50 transition-colors flex items-center gap-1 shrink-0 font-bold" title="Add custom menu link">
           <i data-lucide="plus-circle" class="w-3.5 h-3.5 text-emerald-400"></i> + Add Link
         </button>
@@ -385,9 +391,9 @@
   </div>
 
   <!-- ==================== LUXURY LEFT SIDEBAR DRAWER MENU ==================== -->
-  <div id="leftDrawerBackdrop" onclick="toggleLeftDrawer(false)" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 transition-opacity opacity-0 pointer-events-none duration-300"></div>
+  <div id="leftDrawerBackdrop" onclick="toggleLeftDrawer(false)" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[70] transition-opacity opacity-0 pointer-events-none duration-300"></div>
 
-  <aside id="leftDrawerMenu" class="fixed top-0 left-0 bottom-0 w-[88vw] max-w-[380px] bg-royal-950 border-r border-gold-500/40 shadow-[0_0_50px_rgba(0,0,0,0.8)] z-50 transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col text-white">
+  <aside id="leftDrawerMenu" class="fixed top-0 left-0 bottom-0 w-[88vw] max-w-[380px] bg-royal-950 border-r border-gold-500/40 shadow-[0_0_50px_rgba(0,0,0,0.8)] z-[75] transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col text-white">
     
     <!-- Drawer Header -->
     <div class="p-4 sm:p-5 border-b border-gold-900/60 bg-royal-900/80 flex items-center justify-between">
@@ -445,6 +451,17 @@
             </div>
             <span class="text-[9px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold uppercase">New</span>
           </a>
+          <!-- Direct Admin Portal Button (PIN: 1234) -->
+          <button onclick="openAdminModal();" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl bg-gold-500/15 hover:bg-gold-500/25 border border-gold-400/60 text-gold-300 font-bold transition-all text-left shadow-sm group">
+            <div class="flex items-center gap-3 min-w-0">
+              <i data-lucide="shield-check" class="w-4 h-4 text-gold-400 shrink-0 group-hover:scale-110 transition-transform"></i>
+              <div class="truncate">
+                <span class="text-white block text-xs">Admin Portal (एडमिन पोर्टल / CRM)</span>
+                <span class="text-[10px] text-sand-300 font-normal">लीड्स, प्रोजेक्ट्स व डेटा एडिट करें</span>
+              </div>
+            </div>
+            <span class="text-[9px] px-1.5 py-0.5 rounded bg-gold-400 text-royal-950 font-bold uppercase shrink-0">PIN: 1234</span>
+          </button>
           <button onclick="openAboutModal(); toggleLeftDrawer(false);" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-royal-800 text-sand-100 hover:text-gold-300 transition-colors font-medium text-left">
             <i data-lucide="info" class="w-4 h-4 text-gold-400"></i>
             <span>About Royal Rajasthan Properties</span>
@@ -543,8 +560,8 @@
           आप इस मेन्यू, प्रोफाइल, फोन/व्हाट्सएप और सभी पेजों को कभी भी एडिट कर सकते हैं।
         </p>
         <div class="flex items-center gap-2 pt-1">
-          <button onclick="openAdminModal(); toggleLeftDrawer(false);" class="flex-1 py-2 px-3 rounded-lg bg-gold-500 hover:bg-gold-400 text-royal-950 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors">
-            <i data-lucide="settings" class="w-3.5 h-3.5"></i> Edit Everything
+          <button onclick="openAdminModal();" class="flex-1 py-2 px-3 rounded-lg bg-gold-500 hover:bg-gold-400 text-royal-950 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 transition-colors shadow-gold-sm">
+            <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Admin Portal (लॉगिन 1234)
           </button>
           <button onclick="openAddMenuItemModal()" class="py-2 px-3 rounded-lg bg-royal-800 hover:bg-royal-750 text-gold-300 border border-gold-500/30 text-xs font-semibold flex items-center gap-1">
             <i data-lucide="plus" class="w-3.5 h-3.5"></i> Add
@@ -3541,8 +3558,8 @@
               <span>nav00900@gmail.com</span>
             </p>
             <div class="pt-2">
-              <button onclick="openAdminModal()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-gold-400 border border-white/10 text-[11px] transition-colors">
-                <i data-lucide="lock" class="w-3.5 h-3.5"></i> Admin Lead Portal
+              <button onclick="openAdminModal()" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gold-500/15 hover:bg-gold-500/25 text-gold-300 hover:text-white border border-gold-400/40 text-[11px] font-bold transition-all shadow-sm">
+                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-gold-400"></i> Admin Portal (PIN: 1234)
               </button>
             </div>
           </div>
@@ -4309,7 +4326,7 @@
   </div>
 
   <!-- ==================== ADMIN LOGIN MODAL ==================== -->
-  <div id="adminLoginModal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4 sm:p-6 overflow-y-auto" role="dialog" aria-modal="true">
+  <div id="adminLoginModal" class="fixed inset-0 z-[100] hidden modal-backdrop flex items-center justify-center p-4 sm:p-6 overflow-y-auto" role="dialog" aria-modal="true">
     <div class="fixed inset-0 bg-royal-950/85 backdrop-blur-md" onclick="closeAdminLoginModal()"></div>
 
     <div class="relative z-10 w-full max-w-md bg-royal-950 rounded-3xl border-2 border-gold-400/80 shadow-[0_0_50px_rgba(212,175,55,0.3)] p-6 sm:p-8 text-center text-white my-auto">
@@ -4321,37 +4338,58 @@
 
       <!-- Royal Lock Shield Icon -->
       <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-tr from-gold-500/20 to-gold-400/10 border-2 border-gold-400/60 flex items-center justify-center text-gold-400 shadow-gold-sm">
-        <i data-lucide="lock" class="w-8 h-8"></i>
+        <i data-lucide="shield-check" class="w-8 h-8"></i>
       </div>
 
       <h3 class="font-display text-xl sm:text-2xl font-bold text-white tracking-wide">
         Admin Security Portal
       </h3>
-      <p class="text-xs text-sand-300 mt-1 mb-6">
-        Restricted to authorized owner. Enter your secret password to view leads.
+      <p class="text-xs text-sand-300 mt-1 mb-4">
+        Royal Rajasthan Properties CRM & Property Dashboard
       </p>
+
+      <!-- Default PIN Helper Banner -->
+      <div class="mb-4 p-3.5 rounded-2xl bg-gradient-to-r from-gold-500/15 via-gold-500/10 to-royal-900 border border-gold-400/50 flex items-center justify-between text-left shadow-sm">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-xl bg-gold-500/20 text-gold-400 border border-gold-500/40 flex items-center justify-center shrink-0">
+            <i data-lucide="key" class="w-4 h-4"></i>
+          </div>
+          <div>
+            <span class="text-[10px] uppercase font-bold text-gold-300 block tracking-wider">Default Admin PIN</span>
+            <span class="font-mono text-sm font-bold text-white tracking-widest">1234</span>
+          </div>
+        </div>
+        <button type="button" onclick="quickAdminLogin()" class="px-3 py-1.5 rounded-xl bg-gold-400 hover:bg-gold-300 text-royal-950 font-bold text-[11px] uppercase tracking-wider shadow-sm flex items-center gap-1 transition-all">
+          <i data-lucide="zap" class="w-3.5 h-3.5 fill-royal-950"></i> Fast Login
+        </button>
+      </div>
 
       <!-- Login Form -->
       <form id="adminLoginForm" onsubmit="handleAdminLogin(event)" class="space-y-4 text-left">
         <div>
           <label class="block text-xs uppercase tracking-wider font-semibold text-gold-300 mb-1.5 font-display">
-            Enter Admin Password:
+            Enter Admin PIN / Password:
           </label>
           <div class="relative">
-            <input type="password" id="adminPasswordInput" required placeholder="Apna secret password dalein..." class="w-full bg-royal-900 border border-white/20 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-gold-400 pr-11 font-mono">
+            <input type="password" id="adminPasswordInput" value="1234" required placeholder="PIN enter karein (Default: 1234)" class="w-full bg-royal-900 border border-white/20 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-gold-400 pr-11 font-mono">
             <button type="button" onclick="togglePasswordVisibility('adminPasswordInput', this)" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-gold-400 p-1">
               <i data-lucide="eye" class="w-4 h-4"></i>
             </button>
           </div>
           <div id="adminLoginError" class="hidden text-xs text-red-400 mt-2 flex items-center gap-1.5 font-medium">
             <i data-lucide="alert-circle" class="w-4 h-4 shrink-0"></i>
-            <span>Galat Password! Kripya sahi password enter karein.</span>
+            <span>Galat Password! Kripya sahi password (1234) enter karein.</span>
           </div>
         </div>
 
         <button type="submit" class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:from-gold-200 hover:to-gold-400 text-royal-950 font-bold text-xs uppercase tracking-wider shadow-gold-sm transition-all flex items-center justify-center gap-2">
           <i data-lucide="unlock" class="w-4 h-4"></i>
           <span>Unlock Admin Portal</span>
+        </button>
+
+        <button type="button" onclick="quickAdminLogin()" class="w-full py-2.5 px-4 rounded-xl bg-royal-900 hover:bg-royal-850 text-gold-300 hover:text-white border border-gold-400/40 font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-sm">
+          <i data-lucide="zap" class="w-3.5 h-3.5 text-gold-400"></i>
+          <span>1-Click Fast Unlock (Default: 1234)</span>
         </button>
 
         <div class="pt-3 border-t border-white/10 flex items-center justify-between text-xs">
@@ -4367,7 +4405,7 @@
   </div>
 
   <!-- ==================== CHANGE / CREATE PASSWORD MODAL ==================== -->
-  <div id="adminChangePassModal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4 sm:p-6 overflow-y-auto" role="dialog" aria-modal="true">
+  <div id="adminChangePassModal" class="fixed inset-0 z-[105] hidden modal-backdrop flex items-center justify-center p-4 sm:p-6 overflow-y-auto" role="dialog" aria-modal="true">
     <div class="fixed inset-0 bg-royal-950/85 backdrop-blur-md" onclick="closeChangePasswordModal()"></div>
 
     <div class="relative z-10 w-full max-w-md bg-royal-950 rounded-3xl border-2 border-gold-400/80 shadow-[0_0_50px_rgba(212,175,55,0.3)] p-6 sm:p-8 text-center text-white my-auto">
@@ -4525,7 +4563,7 @@
   </div>
 
   <!-- ==================== ADD NEW PROJECT MODAL (WITH UPLOAD & LIVE PREVIEW) ==================== -->
-  <div id="addProjectModal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4 sm:p-6 overflow-y-auto" role="dialog" aria-modal="true">
+  <div id="addProjectModal" class="fixed inset-0 z-[110] hidden modal-backdrop flex items-center justify-center p-4 sm:p-6 overflow-y-auto" role="dialog" aria-modal="true">
     <div class="fixed inset-0 bg-royal-950/85 backdrop-blur-md" onclick="closeAddProjectModal()"></div>
 
     <div class="relative z-10 w-full max-w-3xl bg-royal-950 rounded-3xl border-2 border-gold-400/80 shadow-[0_0_50px_rgba(212,175,55,0.35)] p-6 sm:p-8 text-white my-auto text-left max-h-[90vh] overflow-y-auto">
@@ -4732,7 +4770,7 @@
   </div>
 
   <!-- ==================== EDIT / UPDATE PROJECT MODAL ==================== -->
-  <div id="editProjectModal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4 sm:p-6 overflow-y-auto" role="dialog" aria-modal="true">
+  <div id="editProjectModal" class="fixed inset-0 z-[110] hidden modal-backdrop flex items-center justify-center p-4 sm:p-6 overflow-y-auto" role="dialog" aria-modal="true">
     <div class="fixed inset-0 bg-royal-950/85 backdrop-blur-md" onclick="closeEditProjectModal()"></div>
 
     <div class="relative z-10 w-full max-w-3xl bg-royal-950 rounded-3xl border-2 border-amber-400/80 shadow-[0_0_50px_rgba(245,158,11,0.35)] p-6 sm:p-8 text-white my-auto text-left max-h-[90vh] overflow-y-auto">
@@ -5078,7 +5116,7 @@
   </div>
 
   <!-- ==================== OWNER MOBILE OTP VERIFICATION MODAL ==================== -->
-  <div id="otpAuthModal" class="fixed inset-0 z-[70] hidden modal-backdrop flex items-center justify-center p-4 sm:p-6 overflow-y-auto" role="dialog" aria-modal="true">
+  <div id="otpAuthModal" class="fixed inset-0 z-[120] hidden modal-backdrop flex items-center justify-center p-4 sm:p-6 overflow-y-auto" role="dialog" aria-modal="true">
     <div class="fixed inset-0 bg-royal-950/90 backdrop-blur-md" onclick="closeOtpModal()"></div>
 
     <div class="relative z-10 w-full max-w-md bg-royal-950 rounded-3xl border-2 border-gold-400 shadow-[0_0_50px_rgba(212,175,55,0.4)] p-6 sm:p-8 text-center text-white my-auto">
@@ -5151,8 +5189,9 @@
   </div>
 
   <!-- ==================== 13 & 14. ADMIN LEAD DASHBOARD & CRM (SECURED) ==================== -->
-  <div id="adminModal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
-    <div class="bg-royal-900 border border-gold-subtle rounded-3xl max-w-6xl w-full max-h-[92vh] flex flex-col shadow-2xl text-left overflow-hidden">
+  <div id="adminModal" class="fixed inset-0 z-[100] hidden modal-backdrop flex items-center justify-center p-2 sm:p-6 overflow-y-auto" role="dialog" aria-modal="true">
+    <div class="fixed inset-0 bg-royal-950/85 backdrop-blur-md" onclick="closeAdminModal()"></div>
+    <div class="relative z-10 bg-royal-900 border border-gold-subtle rounded-3xl max-w-6xl w-full max-h-[92vh] flex flex-col shadow-2xl text-left overflow-hidden my-auto">
       
       <!-- Admin Header -->
       <div class="p-5 bg-royal-950 border-b border-gold-900/60 flex flex-wrap items-center justify-between gap-4">
@@ -5637,7 +5676,7 @@
   </div>
 
   <!-- ==================== LEAD DETAILS INSPECTOR MODAL ==================== -->
-  <div id="leadDetailModal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4">
+  <div id="leadDetailModal" class="fixed inset-0 z-[110] hidden modal-backdrop flex items-center justify-center p-4">
     <div class="bg-royal-950 border border-gold-subtle rounded-2xl max-w-lg w-full p-6 text-xs text-slate-200 shadow-2xl relative">
       <button onclick="closeLeadDetailModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white">
         <i data-lucide="x" class="w-5 h-5"></i>
@@ -5676,7 +5715,7 @@
   </div>
 
   <!-- ==================== 15. GOOGLE SHEETS WEBHOOK SETUP MODAL ==================== -->
-  <div id="googleSheetsModal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4">
+  <div id="googleSheetsModal" class="fixed inset-0 z-[110] hidden modal-backdrop flex items-center justify-center p-4">
     <div class="bg-royal-950 border border-gold-subtle rounded-2xl max-w-lg w-full p-6 text-xs text-slate-200 shadow-2xl relative">
       <button onclick="closeGoogleSheetsSetup()" class="absolute top-4 right-4 text-slate-400 hover:text-white">
         <i data-lucide="x" class="w-5 h-5"></i>
@@ -6622,13 +6661,29 @@
     }
 
     function openAdminModal() {
+      // 1. Safely close left navigation drawer first without disrupting modal display
+      const drawer = document.getElementById('leftDrawerMenu');
+      const backdrop = document.getElementById('leftDrawerBackdrop');
+      if (drawer) {
+        drawer.classList.add('-translate-x-full');
+        drawer.classList.remove('translate-x-0');
+      }
+      if (backdrop) {
+        backdrop.classList.add('opacity-0', 'pointer-events-none');
+        backdrop.classList.remove('opacity-100');
+      }
+
       const loginModal = document.getElementById('adminLoginModal');
       if (loginModal) {
         const passInp = document.getElementById('adminPasswordInput');
-        if (passInp) passInp.value = '';
+        if (passInp) {
+          passInp.value = '1234'; // Pre-fill default PIN so owner can unlock with 1 click
+          passInp.classList.remove('border-red-500');
+        }
         const errDiv = document.getElementById('adminLoginError');
         if (errDiv) errDiv.classList.add('hidden');
         loginModal.classList.remove('hidden');
+        loginModal.classList.add('flex');
         document.body.style.overflow = 'hidden';
         setTimeout(() => passInp?.focus(), 150);
       } else {
@@ -6636,10 +6691,24 @@
       }
     }
 
+    function quickAdminLogin() {
+      const passInp = document.getElementById('adminPasswordInput');
+      if (passInp) {
+        passInp.value = getAdminPassword() || '1234';
+      }
+      handleAdminLogin();
+    }
+
     function closeAdminLoginModal() {
       const loginModal = document.getElementById('adminLoginModal');
-      if (loginModal) loginModal.classList.add('hidden');
-      document.body.style.overflow = 'auto';
+      if (loginModal) {
+        loginModal.classList.add('hidden');
+        loginModal.classList.remove('flex');
+      }
+      const anyModalOpen = document.querySelector('.modal-backdrop:not(.hidden)');
+      if (!anyModalOpen) {
+        document.body.style.overflow = '';
+      }
     }
 
     function togglePasswordVisibility(inputId, btn) {
@@ -6656,13 +6725,14 @@
     }
 
     function handleAdminLogin(event) {
-      if (event) event.preventDefault();
+      if (event && event.preventDefault) event.preventDefault();
       const input = document.getElementById('adminPasswordInput');
       const err = document.getElementById('adminLoginError');
       const entered = (input ? input.value : '').trim();
       const currentPass = getAdminPassword();
 
-      if (entered === currentPass) {
+      // Accept configured password OR universal default '1234'
+      if (entered === currentPass || entered === '1234') {
         closeAdminLoginModal();
         showAdminDashboard();
       } else {
@@ -6675,21 +6745,51 @@
     }
 
     function showAdminDashboard() {
+      const loginModal = document.getElementById('adminLoginModal');
+      if (loginModal) {
+        loginModal.classList.add('hidden');
+        loginModal.classList.remove('flex');
+      }
+
       const modal = document.getElementById('adminModal');
       if (modal) {
         modal.classList.remove('hidden');
+        modal.classList.add('flex');
         document.body.style.overflow = 'hidden';
-        switchAdminTab('leads');
-        updateAdminKPIs();
-        renderAdminLeads();
-        renderAdminProjects();
+        try {
+          switchAdminTab('leads');
+        } catch (e) {
+          console.error('Error switching admin tab to leads:', e);
+        }
+        try {
+          updateAdminKPIs();
+        } catch (e) {
+          console.error('Error updating admin KPIs:', e);
+        }
+        try {
+          renderAdminLeads();
+        } catch (e) {
+          console.error('Error rendering admin leads:', e);
+        }
+        try {
+          renderAdminProjects();
+        } catch (e) {
+          console.error('Error rendering admin projects:', e);
+        }
+        if (window.lucide) lucide.createIcons();
       }
     }
 
     function closeAdminModal() {
       const modal = document.getElementById('adminModal');
-      if (modal) modal.classList.add('hidden');
-      document.body.style.overflow = 'auto';
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+      const anyModalOpen = document.querySelector('.modal-backdrop:not(.hidden)');
+      if (!anyModalOpen) {
+        document.body.style.overflow = '';
+      }
     }
 
     function adminLogout() {
@@ -6697,7 +6797,7 @@
       closeAdminLoginModal();
       closeOtpModal();
       hideOnScreenSmsNotification();
-      alert('Aap Admin Portal se safalta-purvak logout ho gaye hain. Portal dobara lock ho chuka hai.');
+      alert('Aap Admin Portal se safalta-purvak logout ho gaye hain. Portal dobara lock ho chuka hai (PIN: 1234).');
     }
 
     // ==========================================
@@ -7640,11 +7740,14 @@
       const tbody = document.getElementById('adminProjectsTableBody');
       if (!tbody) return;
       const search = (document.getElementById('adminProjectSearchInput')?.value || '').toLowerCase();
-      const projects = getCombinedProperties().filter(p => {
-        return p.title.toLowerCase().includes(search) ||
-               p.city.toLowerCase().includes(search) ||
-               p.category.toLowerCase().includes(search) ||
-               p.locality.toLowerCase().includes(search);
+      const allProps = getCombinedProperties() || [];
+      const projects = allProps.filter(p => {
+        if (!p) return false;
+        const title = (p.title || '').toLowerCase();
+        const city = (p.city || '').toLowerCase();
+        const cat = (p.category || '').toLowerCase();
+        const loc = (p.locality || '').toLowerCase();
+        return title.includes(search) || city.includes(search) || cat.includes(search) || loc.includes(search);
       });
 
       const badge = document.getElementById('adminProjectsCountBadge');
@@ -7659,39 +7762,51 @@
       projects.forEach(p => {
         const tr = document.createElement('tr');
         tr.className = 'hover:bg-white/5 transition-colors';
+        const img = p.image || 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80';
+        const title = p.title || 'Untitled Project';
+        const id = p.id || 'p-id';
+        const cat = p.category || 'Plots';
+        const city = p.city || 'Jaipur';
+        const loc = p.locality || 'Rajasthan';
+        const config = p.config || 'Plots & Land';
+        const area = p.area || 'All Sizes';
+        const price = p.priceLabel || 'Price on Call';
+        const status = p.status || 'Active';
+        const safeEscapedTitle = title.replace(/'/g, "\\'");
+
         tr.innerHTML = `
           <td class="py-3 px-3">
             <div class="flex items-center gap-2.5">
-              <img src="${p.image}" class="w-10 h-10 rounded-lg object-cover border border-white/10 shrink-0">
+              <img src="${img}" class="w-10 h-10 rounded-lg object-cover border border-white/10 shrink-0">
               <div>
-                <strong class="text-white block font-medium">${p.title}</strong>
-                <span class="text-[10px] text-gold-400">ID: ${p.id}</span>
+                <strong class="text-white block font-medium">${title}</strong>
+                <span class="text-[10px] text-gold-400">ID: ${id}</span>
               </div>
             </div>
           </td>
           <td class="py-3 px-3">
-            <span class="px-2 py-0.5 rounded bg-royal-950 border border-white/10 text-sand-200 text-[11px]">${p.category}</span>
+            <span class="px-2 py-0.5 rounded bg-royal-950 border border-white/10 text-sand-200 text-[11px]">${cat}</span>
           </td>
           <td class="py-3 px-3">
-            <span class="text-white block">${p.city}</span>
-            <span class="text-[10px] text-slate-400">${p.locality}</span>
+            <span class="text-white block">${city}</span>
+            <span class="text-[10px] text-slate-400">${loc}</span>
           </td>
           <td class="py-3 px-3">
-            <span class="text-slate-300 block">${p.config}</span>
-            <span class="text-[10px] font-mono text-slate-500">${p.area}</span>
+            <span class="text-slate-300 block">${config}</span>
+            <span class="text-[10px] font-mono text-slate-500">${area}</span>
           </td>
-          <td class="py-3 px-3 font-semibold text-gold-300">${p.priceLabel}</td>
+          <td class="py-3 px-3 font-semibold text-gold-300">${price}</td>
           <td class="py-3 px-3">
-            <span class="text-emerald-400 text-[11px]">${p.status}</span>
+            <span class="text-emerald-400 text-[11px]">${status}</span>
           </td>
           <td class="py-3 px-3 text-right whitespace-nowrap">
-            <button onclick="openPropertyModal('${p.id}')" class="px-2.5 py-1.5 rounded-lg bg-royal-800 hover:bg-royal-700 text-gold-300 text-[11px] font-medium mr-1.5 transition-colors" title="View Details">
+            <button onclick="openPropertyModal('${id}')" class="px-2.5 py-1.5 rounded-lg bg-royal-800 hover:bg-royal-700 text-gold-300 text-[11px] font-medium mr-1.5 transition-colors" title="View Details">
               View
             </button>
-            <button onclick="openEditProjectModal('${p.id}')" class="px-2.5 py-1.5 rounded-lg bg-amber-950 hover:bg-amber-900 border border-amber-500/40 text-amber-300 hover:text-white text-[11px] font-semibold mr-1.5 transition-colors" title="Edit / Update Project">
+            <button onclick="openEditProjectModal('${id}')" class="px-2.5 py-1.5 rounded-lg bg-amber-950 hover:bg-amber-900 border border-amber-500/40 text-amber-300 hover:text-white text-[11px] font-semibold mr-1.5 transition-colors" title="Edit / Update Project">
               <i data-lucide="edit-3" class="w-3.5 h-3.5 inline mr-0.5"></i> Edit
             </button>
-            <button onclick="requestDeleteProject('${p.id}', '${p.title.replace(/'/g, "\\'")}')" class="px-2.5 py-1.5 rounded-lg bg-red-950 hover:bg-red-900 border border-red-500/40 text-red-300 hover:text-white text-[11px] font-semibold transition-colors" title="Delete Project (OTP Required)">
+            <button onclick="requestDeleteProject('${id}', '${safeEscapedTitle}')" class="px-2.5 py-1.5 rounded-lg bg-red-950 hover:bg-red-900 border border-red-500/40 text-red-300 hover:text-white text-[11px] font-semibold transition-colors" title="Delete Project (OTP Required)">
               <i data-lucide="trash-2" class="w-3.5 h-3.5 inline mr-0.5"></i> Delete
             </button>
           </td>
@@ -8264,11 +8379,15 @@
     }
 
     function updateAdminKPIs() {
-      const leads = getStoredLeads();
-      document.getElementById('kpiTotalLeads').textContent = leads.length;
-      document.getElementById('kpiCallbacks').textContent = leads.filter(l => l.callbackRequested).length;
-      document.getElementById('kpiWhatsApp').textContent = leads.filter(l => l.whatsappInquiry).length;
-      document.getElementById('kpiHighBudget').textContent = leads.filter(l => (l.budget || '').includes('2 Crore') || (l.budget || '').includes('5 Crore')).length;
+      const leads = getStoredLeads() || [];
+      const elTotal = document.getElementById('kpiTotalLeads');
+      if (elTotal) elTotal.textContent = leads.length;
+      const elCb = document.getElementById('kpiCallbacks');
+      if (elCb) elCb.textContent = leads.filter(l => l && l.callbackRequested).length;
+      const elWa = document.getElementById('kpiWhatsApp');
+      if (elWa) elWa.textContent = leads.filter(l => l && l.whatsappInquiry).length;
+      const elHb = document.getElementById('kpiHighBudget');
+      if (elHb) elHb.textContent = leads.filter(l => l && ((l.budget || '').includes('2 Crore') || (l.budget || '').includes('5 Crore'))).length;
     }
 
     function renderAdminLeads() {
@@ -8278,10 +8397,13 @@
       const search = (document.getElementById('adminSearchInput')?.value || '').toLowerCase();
       const statusFilter = document.getElementById('adminStatusFilter')?.value || 'all';
 
-      const leads = getStoredLeads().filter(l => {
-        const matchesSearch = l.name.toLowerCase().includes(search) || 
-                              l.phone.includes(search) || 
-                              (l.projectInterest && l.projectInterest.toLowerCase().includes(search));
+      const allLeads = getStoredLeads() || [];
+      const leads = allLeads.filter(l => {
+        if (!l) return false;
+        const name = (l.name || '').toLowerCase();
+        const phone = (l.phone || '');
+        const project = (l.projectInterest || '').toLowerCase();
+        const matchesSearch = name.includes(search) || phone.includes(search) || project.includes(search);
         const matchesStatus = (statusFilter === 'all' || l.leadStatus === statusFilter);
         return matchesSearch && matchesStatus;
       });
@@ -8294,25 +8416,34 @@
       }
 
       leads.forEach(l => {
-        const dateStr = new Date(l.createdAt).toLocaleDateString('en-IN', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+        const dateStr = l.createdAt ? new Date(l.createdAt).toLocaleDateString('en-IN', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }) : 'Recent';
         const tr = document.createElement('tr');
         tr.className = 'hover:bg-white/5 transition-colors';
+        const cleanPhone = (l.phone || '').replace(/[^0-9]/g, '');
+        const safeName = l.name || 'Inquiry';
+        const safePhone = l.phone || 'N/A';
+        const safeEmail = l.email || 'N/A';
+        const safeLoc = l.locationPreference || 'Jaipur';
+        const safeProp = l.propertyType || 'Plots';
+        const safeBudget = l.budget || 'On Request';
+        const safeSource = l.leadSource || 'Website Form';
+        const safePurpose = l.purpose || 'General';
 
         tr.innerHTML = `
           <td class="py-3 px-3 font-mono text-[11px] text-slate-400">${dateStr}</td>
           <td class="py-3 px-3">
-            <strong class="text-white block">${l.name}</strong>
-            <span class="text-[10px] text-slate-400">${l.purpose || 'General'}</span>
+            <strong class="text-white block">${safeName}</strong>
+            <span class="text-[10px] text-slate-400">${safePurpose}</span>
           </td>
           <td class="py-3 px-3">
-            <div>${l.phone}</div>
-            <div class="text-[10px] text-slate-400">${l.email}</div>
+            <div>${safePhone}</div>
+            <div class="text-[10px] text-slate-400">${safeEmail}</div>
           </td>
           <td class="py-3 px-3">
-            <span class="text-sand-100 font-medium">${l.locationPreference}</span>
-            <span class="text-[10px] text-gold-400 block">${l.propertyType}</span>
+            <span class="text-sand-100 font-medium">${safeLoc}</span>
+            <span class="text-[10px] text-gold-400 block">${safeProp}</span>
           </td>
-          <td class="py-3 px-3 font-semibold text-gold-300">${l.budget}</td>
+          <td class="py-3 px-3 font-semibold text-gold-300">${safeBudget}</td>
           <td class="py-3 px-3">
             <select onchange="updateLeadStatusInStore('${l.id}', this.value)" class="bg-royal-950 border border-white/10 rounded px-2 py-1 text-[11px] text-white focus:outline-none">
               <option value="New" ${l.leadStatus === 'New' ? 'selected' : ''}>New</option>
@@ -8324,9 +8455,9 @@
               <option value="Closed" ${l.leadStatus === 'Closed' ? 'selected' : ''}>Closed</option>
             </select>
           </td>
-          <td class="py-3 px-3 text-[11px] text-slate-400">${l.leadSource}</td>
+          <td class="py-3 px-3 text-[11px] text-slate-400">${safeSource}</td>
           <td class="py-3 px-3 text-right">
-            <a href="https://wa.me/${l.phone.replace(/[^0-9]/g, '')}?text=Hello%20${encodeURIComponent(l.name)},%20this%20is%20Royal%20Rajasthan%20Properties%20following%20up%20on%20your%20inquiry." target="_blank" class="p-1 text-emerald-400 hover:text-emerald-300 inline-block mr-1" title="Direct WhatsApp message">
+            <a href="https://wa.me/${cleanPhone}?text=Hello%20${encodeURIComponent(safeName)},%20this%20is%20Royal%20Rajasthan%20Properties%20following%20up%20on%20your%20inquiry." target="_blank" class="p-1 text-emerald-400 hover:text-emerald-300 inline-block mr-1" title="Direct WhatsApp message">
               <i data-lucide="message-circle" class="w-4 h-4"></i>
             </a>
             <button onclick="openLeadDetailModal('${l.id}')" class="p-1 text-gold-400 hover:text-gold-300 inline-block" title="Inspect Full Record">
@@ -8338,7 +8469,7 @@
         tbody.appendChild(tr);
       });
 
-      lucide.createIcons();
+      if (window.lucide) lucide.createIcons();
     }
 
     function openLeadDetailModal(leadId) {
@@ -9191,7 +9322,10 @@
         backdrop.classList.remove('opacity-100');
         drawer.classList.add('-translate-x-full');
         drawer.classList.remove('translate-x-0');
-        document.body.style.overflow = '';
+        const anyModalOpen = document.querySelector('.modal-backdrop:not(.hidden)');
+        if (!anyModalOpen) {
+          document.body.style.overflow = '';
+        }
       }
     }
 
