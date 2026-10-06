@@ -135,6 +135,26 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
+    /* Mobile Optimization & Viewport Protection */
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+      touch-action: manipulation;
+    }
+    img, svg, video, canvas {
+      max-width: 100%;
+      height: auto;
+    }
+    @media screen and (max-width: 768px) {
+      input, select, textarea {
+        font-size: 16px !important; /* Prevents iOS Safari auto-zoom on input focus */
+      }
+    }
+    a, button {
+      -webkit-tap-highlight-color: transparent;
+    }
+
     /* Custom Luxury Royal Aesthetics */
     .bg-royal-gradient {
       background: linear-gradient(180deg, #0b111c 0%, #070a10 100%);
@@ -218,35 +238,35 @@
 <body class="bg-[#faf8f5] text-slate-800 font-sans antialiased selection:bg-gold-500 selection:text-white pb-16 lg:pb-0">
 
   <!-- ==================== TOP CONSULTANT CONTACT BAR ==================== -->
-  <div class="bg-royal-950 text-sand-100 text-xs py-2 px-4 border-b border-gold-900/40">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-      <div class="flex items-center gap-3 sm:gap-4">
-        <span class="flex items-center gap-1.5 text-gold-400">
-          <i data-lucide="map-pin" class="w-3.5 h-3.5 text-gold-500"></i>
-          <span>Primary Focus: <strong>Jaipur, Rajasthan</strong> | Statewide Opportunities</span>
+  <div class="bg-royal-950 text-sand-100 text-xs py-1.5 sm:py-2 px-3 sm:px-4 border-b border-gold-900/40">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-1.5 sm:gap-2">
+      <div class="flex items-center justify-between sm:justify-start w-full sm:w-auto gap-2 sm:gap-4 text-[11px] sm:text-xs">
+        <span class="flex items-center gap-1.5 text-gold-400 truncate">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5 text-gold-500 shrink-0"></i>
+          <span><strong>Jaipur, Rajasthan</strong> <span class="hidden sm:inline">| Statewide Opportunities</span></span>
         </span>
         <span class="hidden md:inline text-slate-600">•</span>
-        <span class="hidden sm:inline-flex items-center gap-1.5 text-gold-300 font-mono text-[11px] bg-royal-900/90 px-2.5 py-0.5 rounded-full border border-gold-500/30">
+        <span class="inline-flex items-center gap-1.5 text-gold-300 font-mono text-[10px] sm:text-[11px] bg-royal-900/90 px-2 sm:px-2.5 py-0.5 rounded-full border border-gold-500/30 shrink-0">
           <i data-lucide="clock" class="w-3 h-3 text-gold-400"></i>
           <span id="topBarClock">--:--:-- IST</span>
         </span>
       </div>
-      <div class="flex items-center gap-4 sm:gap-5 text-[11px] sm:text-xs">
-        <button onclick="openFeedbackModal()" class="text-amber-400 hover:text-amber-300 font-medium flex items-center gap-1 transition-colors" title="Rate Website & Give Feedback">
-          <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
-          <span>Rate Us (★ 4.9)</span>
+      <div class="flex items-center justify-center sm:justify-end gap-2.5 sm:gap-4 text-[11px] sm:text-xs overflow-x-auto no-scrollbar w-full sm:w-auto py-0.5">
+        <button onclick="openFeedbackModal()" class="text-amber-400 hover:text-amber-300 font-medium flex items-center gap-1 transition-colors whitespace-nowrap shrink-0" title="Rate Website & Give Feedback">
+          <i data-lucide="star" class="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-amber-400"></i>
+          <span>Rate (★ 4.9)</span>
         </button>
         <span class="text-slate-700">|</span>
-        <a href="https://wa.me/919461812342?text=Hello%20Royal%20Rajasthan%20Properties,%20I%20would%20like%20to%20inquire%20about%20properties%20in%20Jaipur." target="_blank" rel="noopener" class="text-emerald-400 hover:text-emerald-300 font-medium flex items-center gap-1.5 transition-colors">
-          <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> WhatsApp Sales Desk
+        <a href="https://wa.me/919461812342?text=Hello%20Royal%20Rajasthan%20Properties,%20I%20would%20like%20to%20inquire%20about%20properties%20in%20Jaipur." target="_blank" rel="noopener" class="text-emerald-400 hover:text-emerald-300 font-medium flex items-center gap-1 transition-colors whitespace-nowrap shrink-0">
+          <i data-lucide="message-circle" class="w-3 h-3 sm:w-3.5 sm:h-3.5"></i> WhatsApp
         </a>
         <span class="text-slate-700">|</span>
-        <a href="#contact" class="text-gold-300 hover:text-white flex items-center gap-1 transition-colors">
-          <i data-lucide="phone-call" class="w-3.5 h-3.5"></i> Request Callback
+        <a href="#contact" class="text-gold-300 hover:text-white flex items-center gap-1 transition-colors whitespace-nowrap shrink-0">
+          <i data-lucide="phone-call" class="w-3 h-3 sm:w-3.5 sm:h-3.5"></i> Callback
         </a>
         <span class="text-slate-700">|</span>
-        <button onclick="openAdminModal()" class="text-slate-400 hover:text-gold-400 flex items-center gap-1 transition-colors" title="Admin Lead Dashboard (Secured)">
-          <i data-lucide="lock" class="w-3.5 h-3.5"></i> Admin Portal
+        <button onclick="openAdminModal()" class="text-slate-400 hover:text-gold-400 flex items-center gap-1 transition-colors whitespace-nowrap shrink-0" title="Admin Lead Dashboard (Secured)">
+          <i data-lucide="lock" class="w-3 h-3 sm:w-3.5 sm:h-3.5"></i> Admin
         </button>
       </div>
     </div>
@@ -254,29 +274,29 @@
 
   <!-- ==================== 1. STICKY HEADER ==================== -->
   <header class="sticky top-0 z-40 backdrop-blur-md bg-royal-900/95 border-b border-gold-subtle shadow-lg">
-    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-20 sm:h-24 flex items-center justify-between gap-2 sm:gap-4">
+    <div class="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8 h-16 sm:h-24 flex items-center justify-between gap-1.5 sm:gap-4">
       
       <!-- LEFT SIDE: MENU BUTTON + BRAND LOGO -->
-      <div class="flex items-center gap-2 sm:gap-3.5 shrink-0">
+      <div class="flex items-center gap-1.5 sm:gap-3.5 shrink-0 min-w-0">
         <!-- Prominent Left Menu Button (Accessible on ALL screens) -->
-        <button id="leftDrawerMenuToggle" onclick="toggleLeftDrawer(true)" class="px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-gradient-to-r from-royal-800 to-royal-750 hover:from-gold-500/20 hover:to-gold-500/30 border border-gold-400/60 hover:border-gold-300 text-gold-300 hover:text-white flex items-center gap-2 transition-all shadow-gold-sm group shrink-0" aria-label="Open Navigation & Tools Menu" title="Open Menu, About, Profile & Tools">
-          <i data-lucide="menu" class="w-5 h-5 text-gold-400 group-hover:scale-110 transition-transform"></i>
-          <span class="text-xs font-bold uppercase tracking-wider font-sans">MENU</span>
+        <button id="leftDrawerMenuToggle" onclick="toggleLeftDrawer(true)" class="px-2.5 py-1.5 sm:px-4 sm:py-2.5 rounded-xl bg-gradient-to-r from-royal-800 to-royal-750 hover:from-gold-500/20 hover:to-gold-500/30 border border-gold-400/60 hover:border-gold-300 text-gold-300 hover:text-white flex items-center gap-1.5 sm:gap-2 transition-all shadow-gold-sm group shrink-0" aria-label="Open Navigation & Tools Menu" title="Open Menu, About, Profile & Tools">
+          <i data-lucide="menu" class="w-4 h-4 sm:w-5 sm:h-5 text-gold-400 group-hover:scale-110 transition-transform"></i>
+          <span class="text-[11px] sm:text-xs font-bold uppercase tracking-wider font-sans">MENU</span>
         </button>
 
         <!-- Brand Logo (Large & Clear, Clickable for Enlarged View) -->
-        <div class="flex items-center gap-2 sm:gap-3 group py-1">
-          <div onclick="openLogoModal();" class="cursor-pointer relative h-12 w-12 sm:h-16 sm:w-16 md:h-18 md:w-18 rounded-2xl bg-white p-1 border-2 border-gold-400/80 shadow-gold-md flex items-center justify-center group-hover:scale-105 hover:border-gold-300 transition-all duration-300 overflow-hidden shrink-0" title="Click to view large logo">
+        <div class="flex items-center gap-1.5 sm:gap-3 group py-1 min-w-0">
+          <div onclick="openLogoModal();" class="cursor-pointer relative h-10 w-10 sm:h-16 sm:w-16 md:h-18 md:w-18 rounded-xl sm:rounded-2xl bg-white p-1 border-2 border-gold-400/80 shadow-gold-md flex items-center justify-center group-hover:scale-105 hover:border-gold-300 transition-all duration-300 overflow-hidden shrink-0" title="Click to view large logo">
             <img src="logo.png" alt="Royal Rajasthan Properties Logo" class="h-full w-full object-contain">
-            <div class="absolute bottom-1 right-1 bg-royal-950/80 text-gold-400 p-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-              <i data-lucide="zoom-in" class="w-3 h-3"></i>
+            <div class="absolute bottom-0.5 right-0.5 bg-royal-950/80 text-gold-400 p-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+              <i data-lucide="zoom-in" class="w-2.5 h-2.5 sm:w-3 sm:h-3"></i>
             </div>
           </div>
-          <a href="#hero" class="flex flex-col cursor-pointer" title="Royal Rajasthan Properties">
-            <span class="font-display font-bold text-base sm:text-xl lg:text-2xl tracking-wider text-white group-hover:text-gold-300 transition-colors leading-tight">
+          <a href="#hero" class="flex flex-col cursor-pointer min-w-0" title="Royal Rajasthan Properties">
+            <span class="font-display font-bold text-xs sm:text-xl lg:text-2xl tracking-wider text-white group-hover:text-gold-300 transition-colors leading-tight truncate">
               ROYAL RAJASTHAN
             </span>
-            <span class="text-[9px] sm:text-xs tracking-[0.25em] text-gold-400 uppercase font-semibold">
+            <span class="text-[8px] sm:text-xs tracking-[0.2em] sm:tracking-[0.25em] text-gold-400 uppercase font-semibold">
               PROPERTIES
             </span>
             <span class="hidden md:inline text-[9px] sm:text-[10px] tracking-wider text-sand-300 font-serif italic opacity-90 mt-0.5">
@@ -307,16 +327,16 @@
       </nav>
 
       <!-- RIGHT SIDE: INQUIRY DESK (2ND PAGE) + CALL/BOOK ACTION -->
-      <div class="flex items-center gap-2 sm:gap-3">
-        <a href="thank-you.html" class="px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl text-[11px] sm:text-xs font-bold uppercase tracking-wider text-emerald-300 bg-emerald-950/80 hover:bg-emerald-900/80 border border-emerald-500/50 flex items-center gap-1.5 transition-all shadow-sm" title="Go to Official Inquiry & Receipt Desk (2nd Page)">
+      <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
+        <a href="thank-you.html" class="px-2 sm:px-3 py-1.5 sm:py-2 rounded-xl text-[10px] sm:text-xs font-bold uppercase tracking-wider text-emerald-300 bg-emerald-950/80 hover:bg-emerald-900/80 border border-emerald-500/50 flex items-center gap-1 sm:gap-1.5 transition-all shadow-sm shrink-0" title="Go to Official Inquiry & Receipt Desk (2nd Page)">
           <i data-lucide="file-check-2" class="w-3.5 h-3.5 text-emerald-400"></i>
           <span class="hidden sm:inline">Inquiry Desk</span>
-          <span class="px-1 py-0.2 rounded bg-emerald-500/30 text-[9px] text-white">2nd Page</span>
+          <span class="px-1 py-0.2 rounded bg-emerald-500/30 text-[8px] sm:text-[9px] text-white">2nd Page</span>
         </a>
-        <a href="#contact" class="hidden sm:inline-flex px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider text-royal-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:from-gold-200 hover:to-gold-400 shadow-gold-sm transition-all font-sans">
+        <a href="#contact" class="hidden md:inline-flex px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider text-royal-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:from-gold-200 hover:to-gold-400 shadow-gold-sm transition-all font-sans">
           Callback / Visit
         </a>
-        <a href="tel:+919461812342" class="p-2 sm:p-2.5 rounded-xl bg-royal-800 hover:bg-royal-750 text-gold-400 border border-gold-500/40 transition-colors" title="Call Senior Consultant Direct: 9461812342">
+        <a href="tel:+919461812342" class="p-1.5 sm:p-2.5 rounded-xl bg-royal-800 hover:bg-royal-750 text-gold-400 border border-gold-500/40 transition-colors shrink-0" title="Call Senior Consultant Direct: 9461812342">
           <i data-lucide="phone-call" class="w-4 h-4"></i>
         </a>
       </div>
@@ -367,7 +387,7 @@
   <!-- ==================== LUXURY LEFT SIDEBAR DRAWER MENU ==================== -->
   <div id="leftDrawerBackdrop" onclick="toggleLeftDrawer(false)" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 transition-opacity opacity-0 pointer-events-none duration-300"></div>
 
-  <aside id="leftDrawerMenu" class="fixed top-0 left-0 bottom-0 w-[320px] sm:w-[380px] bg-royal-950 border-r border-gold-500/40 shadow-[0_0_50px_rgba(0,0,0,0.8)] z-50 transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col text-white">
+  <aside id="leftDrawerMenu" class="fixed top-0 left-0 bottom-0 w-[88vw] max-w-[380px] bg-royal-950 border-r border-gold-500/40 shadow-[0_0_50px_rgba(0,0,0,0.8)] z-50 transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col text-white">
     
     <!-- Drawer Header -->
     <div class="p-4 sm:p-5 border-b border-gold-900/60 bg-royal-900/80 flex items-center justify-between">
@@ -574,11 +594,11 @@
       </div>
 
       <!-- Regal Emblem Badge -->
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-royal-800/85 border border-gold-500/40 shadow-gold-sm text-xs font-medium text-gold-300 mb-8 backdrop-blur-sm">
-        <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
-        <span class="tracking-widest uppercase text-[11px] font-display">Rajasthan's Premier Property Advisory</span>
-        <span class="text-gold-600">|</span>
-        <span>Jaipur • Jodhpur • Udaipur • Kota • Ajmer</span>
+      <div class="inline-flex max-w-[92vw] sm:max-w-full flex-wrap justify-center items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 rounded-2xl sm:rounded-full bg-royal-800/85 border border-gold-500/40 shadow-gold-sm text-[10px] sm:text-xs font-medium text-gold-300 mb-6 sm:mb-8 backdrop-blur-sm text-center">
+        <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse shrink-0"></span>
+        <span class="tracking-widest uppercase text-[10px] sm:text-[11px] font-display">Rajasthan's Premier Property Advisory</span>
+        <span class="hidden sm:inline text-gold-600">|</span>
+        <span class="text-[10px] sm:text-xs text-sand-300">Jaipur • Jodhpur • Udaipur • Kota • Ajmer</span>
       </div>
 
       <!-- Primary Headline -->
@@ -2508,7 +2528,7 @@
               </div>
 
               <!-- Plot Tiles Container (Populated dynamically) -->
-              <div id="plotMatrixContainer" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2.5 max-h-[460px] overflow-y-auto pr-1">
+              <div id="plotMatrixContainer" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 sm:gap-2.5 max-h-[460px] overflow-y-auto pr-1">
                 <!-- Javascript will inject interactive plot tiles -->
               </div>
 
@@ -3780,8 +3800,8 @@
   </div>
 
   <!-- ==================== FLOATING DIRECT WHATSAPP SALES DESK ==================== -->
-  <div class="fixed bottom-6 right-6 z-40">
-    <a id="floatingWhatsAppBtn" href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20am%20exploring%20properties%20on%20Royal%20Rajasthan%20Properties%20website.%20Please%20share%20verified%20project%20details%20and%20rates." target="_blank" rel="noopener" class="group px-4 py-3 sm:px-5 sm:py-3.5 rounded-full bg-gradient-to-r from-emerald-600 via-emerald-500 to-green-500 text-white hover:brightness-110 shadow-[0_10px_35px_rgba(16,185,129,0.5)] border-2 border-white/20 flex items-center gap-3 transition-all duration-300 hover:scale-105 active:scale-95" aria-label="Chat on WhatsApp with Navratan Kumawat">
+  <div class="fixed bottom-20 right-3.5 sm:bottom-6 sm:right-6 z-40">
+    <a id="floatingWhatsAppBtn" href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20am%20exploring%20properties%20on%20Royal%20Rajasthan%20Properties%20website.%20Please%20share%20verified%20project%20details%20and%20rates." target="_blank" rel="noopener" class="group px-3.5 py-2.5 sm:px-5 sm:py-3.5 rounded-full bg-gradient-to-r from-emerald-600 via-emerald-500 to-green-500 text-white hover:brightness-110 shadow-[0_10px_35px_rgba(16,185,129,0.5)] border-2 border-white/20 flex items-center gap-2.5 sm:gap-3 transition-all duration-300 hover:scale-105 active:scale-95" aria-label="Chat on WhatsApp with Navratan Kumawat">
       <div class="relative w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white text-emerald-600 flex items-center justify-center font-bold shrink-0 shadow-sm">
         <i data-lucide="message-circle" class="w-5 h-5 fill-emerald-600 stroke-[1.5]"></i>
         <span class="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-green-400 border-2 border-white animate-ping"></span>
@@ -5692,29 +5712,34 @@
   </div>
 
   <!-- ==================== 18. STICKY BOTTOM MOBILE ACTION BAR ==================== -->
-  <div class="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-royal-950/95 backdrop-blur-md border-t border-gold-subtle py-1.5 px-3 flex items-center justify-around text-xs shadow-2xl">
-    <a href="https://wa.me/919461812342?text=Hello%20Royal%20Rajasthan%20Properties,%20I%20am%20inquiring%20about%20Jaipur%20and%20Rajasthan%20properties." target="_blank" class="flex flex-col items-center gap-0.5 text-emerald-400 hover:text-emerald-300">
-      <i data-lucide="message-circle" class="w-5 h-5"></i>
-      <span class="text-[10px] font-medium">WhatsApp</span>
-    </a>
-    <a href="tel:+919461812342" class="flex flex-col items-center gap-0.5 text-gold-400 hover:text-gold-300">
+  <div class="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-royal-950/95 backdrop-blur-md border-t border-gold-subtle py-1.5 px-2 flex items-center justify-around text-xs shadow-2xl safe-area-pb">
+    <!-- 1. Menu Drawer -->
+    <button onclick="toggleLeftDrawer(true)" class="flex flex-col items-center gap-0.5 text-sand-200 hover:text-gold-300 active:scale-95 transition-transform" aria-label="Open Navigation Menu">
+      <i data-lucide="menu" class="w-5 h-5 text-gold-400"></i>
+      <span class="text-[10px] font-medium">Menu</span>
+    </button>
+    <!-- 2. Direct Call -->
+    <a href="tel:+919461812342" class="flex flex-col items-center gap-0.5 text-gold-400 hover:text-gold-300 active:scale-95 transition-transform">
       <i data-lucide="phone-call" class="w-5 h-5"></i>
       <span class="text-[10px] font-medium">Call</span>
     </a>
+    <!-- 3. Center Highlight: 300 Bigha Township -->
     <a href="#mega-township-diggi" class="flex flex-col items-center gap-0.5 -mt-4 px-3 py-1.5 rounded-2xl bg-gradient-to-tr from-gold-500 via-amber-400 to-gold-300 text-royal-950 font-bold shadow-[0_0_20px_rgba(212,175,55,0.6)] border-2 border-royal-950 scale-105 transition-transform active:scale-95">
       <i data-lucide="sparkles" class="w-5 h-5"></i>
       <span class="text-[9px] uppercase tracking-wider font-extrabold leading-none">300 Bigha</span>
     </a>
-    <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20would%20like%20to%20inquire%20about%20properties." target="_blank" class="flex flex-col items-center gap-0.5 text-emerald-400 hover:text-emerald-300">
+    <!-- 4. Direct WhatsApp -->
+    <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20am%20exploring%20properties%20on%20Royal%20Rajasthan%20Properties%20website." target="_blank" rel="noopener" class="flex flex-col items-center gap-0.5 text-emerald-400 hover:text-emerald-300 active:scale-95 transition-transform">
       <div class="relative">
-        <i data-lucide="message-circle" class="w-5 h-5"></i>
+        <i data-lucide="message-circle" class="w-5 h-5 fill-emerald-600/30 stroke-[2]"></i>
         <span class="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
       </div>
       <span class="text-[10px] font-semibold">WhatsApp</span>
     </a>
-    <a href="#contact" class="flex flex-col items-center gap-0.5 text-sand-200 hover:text-gold-400">
-      <i data-lucide="calendar" class="w-5 h-5"></i>
-      <span class="text-[10px] font-medium">Visit Cab</span>
+    <!-- 5. Advisory / Inquiry Form -->
+    <a href="#contact" class="flex flex-col items-center gap-0.5 text-sand-200 hover:text-gold-400 active:scale-95 transition-transform">
+      <i data-lucide="file-text" class="w-5 h-5 text-gold-400"></i>
+      <span class="text-[10px] font-medium">Inquiry</span>
     </a>
   </div>
 
