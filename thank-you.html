@@ -514,8 +514,13 @@
       // 3. Fallback to latest CRM lead in localStorage
       if (!leadData) {
         try {
-          const crmLeads = JSON.parse(localStorage.getItem('rrp_crm_leads') || '[]');
-          if (crmLeads && crmLeads.length > 0) leadData = crmLeads[0];
+          const directStored = localStorage.getItem('rrp_latest_inquiry');
+          if (directStored) {
+            leadData = JSON.parse(directStored);
+          } else {
+            const crmLeads = JSON.parse(localStorage.getItem('royal_rajasthan_leads_v1') || localStorage.getItem('rrp_crm_leads') || '[]');
+            if (crmLeads && crmLeads.length > 0) leadData = crmLeads[crmLeads.length - 1];
+          }
         } catch (e) {}
       }
 
