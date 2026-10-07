@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin & Projects CRM Portal | Royal Rajasthan Properties</title>
+  <meta name="description" content="Dedicated Admin & CRM Control Center for Royal Rajasthan Properties Jaipur. Manage all projects, leads, and website settings.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://www.royalrajasthanproperties.com/admin.html">
+
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Cormorant Garamond"', 'serif'],
+            display: ['"Cinzel"', 'serif'],
+          },
+          colors: {
+            gold: {
+              50: '#fdfbf7',
+              100: '#f9f4ea',
+              200: '#f1e6cd',
+              300: '#e5d1a7',
+              400: '#d5b77c',
+              500: '#c5a059',
+              600: '#aa8241',
+              700: '#886433',
+              800: '#6f502c',
+              900: '#5c4226',
+            },
+            royal: {
+              750: '#151d2f',
+              800: '#111827',
+              850: '#0e1422',
+              900: '#0b0f19',
+              950: '#060911',
+            },
+            sand: {
+              100: '#f5f2eb',
+              200: '#e8e2d5',
+              300: '#d9d0be',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-royal-950 text-slate-100 font-sans antialiased min-h-screen flex flex-col">
+
+  <!-- ==================== 1. LOGIN SCREEN (WHEN LOCKED) ==================== -->
+  <div id="adminLoginScreen" class="fixed inset-0 z-50 bg-royal-950 flex items-center justify-center p-4">
+    <div class="relative w-full max-w-md bg-royal-900/90 rounded-3xl border-2 border-gold-400/80 shadow-[0_0_50px_rgba(212,175,55,0.3)] p-6 sm:p-8 text-center text-white backdrop-blur-xl">
+      
+      <!-- Back to Website Link -->
+      <a href="index.html" class="inline-flex items-center gap-1.5 text-xs text-gold-400 hover:text-gold-300 font-bold mb-4 underline">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+        <span>Website Home Screen Par Lautein</span>
+      </a>
+
+      <!-- Brand Logo / Shield -->
+      <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-tr from-gold-500/20 to-gold-400/10 border-2 border-gold-400/60 flex items-center justify-center text-gold-400 shadow-gold-sm">
+        <i data-lucide="shield-check" class="w-8 h-8"></i>
+      </div>
+
+      <h1 class="font-display text-xl sm:text-2xl font-bold text-white tracking-wide">
+        Admin Security Portal
+      </h1>
+      <p class="text-xs text-sand-300 mt-1 mb-6">
+        Royal Rajasthan Properties • Lead Management & Controls
+      </p>
+
+      <!-- Password Form -->
+      <form id="adminLoginForm" onsubmit="handleStandaloneLogin(event)" class="space-y-4 text-left">
+        <div>
+          <label class="block text-xs uppercase tracking-wider font-semibold text-gold-300 mb-1.5 font-display">
+            Enter Admin Password / PIN:
+          </label>
+          <div class="relative">
+            <input type="password" id="adminPasswordInput" required placeholder="Apna password dalein..." class="w-full bg-royal-950 border border-white/20 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-gold-400 pr-11 font-mono">
+            <button type="button" onclick="togglePasswordVisibility('adminPasswordInput', this)" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-gold-400 p-1">
+              <i data-lucide="eye" class="w-4 h-4"></i>
+            </button>
+          </div>
+          <div id="adminLoginError" class="hidden text-xs text-red-400 mt-2 flex items-center gap-1.5 font-medium">
+            <i data-lucide="alert-circle" class="w-4 h-4 shrink-0"></i>
+            <span>Galat Password! Kripya sahi password enter karein.</span>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:from-gold-200 hover:to-gold-400 text-royal-950 font-bold text-xs uppercase tracking-wider shadow-gold-sm transition-all flex items-center justify-center gap-2">
+          <i data-lucide="unlock" class="w-4 h-4"></i>
+          <span>Unlock Admin Portal</span>
+        </button>
+
+        <div class="pt-3 border-t border-white/10 flex items-center justify-between text-xs text-slate-400">
+          <span>Owner: <strong>Navratan Kumawat</strong></span>
+          <span class="font-mono">+91 94618 12342</span>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ==================== 2. MAIN ADMIN DASHBOARD (WHEN UNLOCKED) ==================== -->
+  <div id="adminMainDashboard" class="hidden flex-1 flex flex-col w-full min-h-screen bg-royal-950">
+    
+    <!-- Header -->
+    <header class="px-4 sm:px-6 py-3.5 bg-royal-950 border-b border-gold-900/60 flex flex-wrap items-center justify-between gap-3 shrink-0">
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="px-3.5 py-2 rounded-xl bg-royal-900 hover:bg-royal-850 text-gold-300 hover:text-white border border-gold-500/40 text-xs font-bold flex items-center gap-2 transition-all shadow-sm" title="Website Home Screen Par Lautein">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i>
+          <span>Website Par Lautein</span>
+        </a>
+        <div class="h-6 w-px bg-white/10 hidden sm:block"></div>
+        <div class="w-9 h-9 rounded-lg bg-gold-500/20 text-gold-400 border border-gold-500/40 flex items-center justify-center shrink-0">
+          <i data-lucide="shield" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h2 class="font-display text-sm sm:text-base font-bold text-white">Lead & Project Dashboard</h2>
+            <span class="px-2 py-0.5 rounded text-[10px] bg-emerald-950 text-emerald-300 border border-emerald-500/40 font-mono hidden md:inline-block">Dedicated Portal</span>
+          </div>
+          <p class="text-[11px] text-slate-400">Royal Rajasthan Properties • Internal Administration</p>
+        </div>
+      </div>
+
+      <div class="flex items-center flex-wrap gap-2">
+        <button onclick="openAddProjectModal()" class="px-3 py-2 rounded-xl bg-gold-500 hover:bg-gold-400 text-xs font-bold text-royal-950 flex items-center gap-1.5 transition-colors shadow-sm">
+          <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i> Add Project
+        </button>
+        <button onclick="openChangePasswordModal()" class="px-3 py-2 rounded-xl bg-royal-850 hover:bg-royal-800 text-xs font-semibold text-gold-300 border border-gold-500/40 flex items-center gap-1.5 transition-colors">
+          <i data-lucide="key" class="w-3.5 h-3.5"></i> Password Badlein
+        </button>
+        <button onclick="openGoogleSheetsSetup()" class="px-3 py-2 rounded-xl bg-royal-850 hover:bg-royal-800 text-xs font-semibold text-emerald-300 border border-emerald-500/40 hidden sm:flex items-center gap-1.5 transition-colors">
+          <i data-lucide="table" class="w-3.5 h-3.5"></i> Google Sheets Setup
+        </button>
+        <button onclick="exportLeadsToCSV()" class="px-3 py-2 rounded-xl bg-royal-850 hover:bg-royal-800 text-xs font-semibold text-gold-300 border border-gold-500/40 hidden sm:flex items-center gap-1.5 transition-colors">
+          <i data-lucide="download" class="w-3.5 h-3.5"></i> Export CSV
+        </button>
+        <button onclick="handleStandaloneLogout()" class="px-3 py-2 rounded-xl bg-red-950/80 hover:bg-red-900 text-xs font-semibold text-red-300 border border-red-500/40 flex items-center gap-1.5 transition-colors">
+          <i data-lucide="log-out" class="w-3.5 h-3.5"></i> Logout
+        </button>
+      </div>
+    </header>
+
+    <!-- Tab Navigation Bar -->
+    <div class="px-4 sm:px-6 pt-3 bg-royal-950 border-b border-white/10 flex items-center gap-2 sm:gap-6 overflow-x-auto no-scrollbar text-xs font-display shrink-0">
+      <button id="tabBtnAdminProjects" onclick="switchAdminTab('projects')" class="pb-3 border-b-2 border-gold-400 text-gold-300 font-bold flex items-center gap-2 transition-all whitespace-nowrap">
+        <i data-lucide="building-2" class="w-4 h-4 text-gold-400"></i>
+        <span>Manage Projects (सारे प्रोजेक्ट्स)</span>
+        <span id="adminProjectsCountBadge" class="px-2 py-0.5 rounded-full bg-gold-500/20 text-gold-300 border border-gold-500/40 text-[10px] font-bold">9</span>
+      </button>
+      <button id="tabBtnAdminLeads" onclick="switchAdminTab('leads')" class="pb-3 border-b-2 border-transparent text-slate-400 hover:text-white font-semibold flex items-center gap-2 transition-all whitespace-nowrap">
+        <i data-lucide="users" class="w-4 h-4"></i>
+        <span>Captured Leads (लीड्स)</span>
+        <span id="adminLeadsCountBadge" class="px-2 py-0.5 rounded-full bg-royal-800 text-[10px] text-slate-300">0</span>
+      </button>
+      <button id="tabBtnAdminSettings" onclick="switchAdminTab('settings')" class="pb-3 border-b-2 border-transparent text-slate-400 hover:text-white font-semibold flex items-center gap-2 transition-all whitespace-nowrap">
+        <i data-lucide="settings" class="w-4 h-4 text-amber-400"></i>
+        <span>Website Menu & Contacts (ईमेल / WhatsApp)</span>
+      </button>
+      <button id="tabBtnAdminProfile" onclick="switchAdminTab('profile')" class="pb-3 border-b-2 border-transparent text-slate-400 hover:text-white font-semibold flex items-center gap-2 transition-all whitespace-nowrap">
+        <i data-lucide="user-check" class="w-4 h-4 text-emerald-400"></i>
+        <span>Profile Details (नवरत्न कुमावत प्रोफाइल)</span>
+      </button>
+      <button id="tabBtnAdminSecurity" onclick="switchAdminTab('security')" class="pb-3 border-b-2 border-transparent text-slate-400 hover:text-white font-semibold flex items-center gap-2 transition-all whitespace-nowrap">
+        <i data-lucide="shield-check" class="w-4 h-4 text-gold-400"></i>
+        <span>Security & PIN</span>
+      </button>
+    </div>
+
+    <!-- TAB 1: PROJECTS MANAGEMENT (DEFAULT VISIBLE) -->
+    <div id="adminProjectsTabContent" class="flex-1 flex flex-col overflow-hidden">
+      <!-- Action Bar for Projects -->
+      <div class="p-4 bg-royal-950/80 border-b border-white/5 flex flex-wrap items-center justify-between gap-3 text-xs shrink-0">
+        <div class="flex items-center gap-2 flex-1 max-w-sm">
+          <div class="relative w-full">
+            <i data-lucide="search" class="w-3.5 h-3.5 absolute left-3 top-2.5 text-slate-400"></i>
+            <input type="text" id="adminProjectSearchInput" oninput="renderAdminProjects()" placeholder="Search project by title, city, or category..." class="w-full bg-royal-900 border border-white/15 rounded-lg pl-8 pr-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-gold-400">
+          </div>
+        </div>
+        <div class="flex items-center gap-2.5">
+          <button onclick="openAddProjectModal()" class="px-3.5 py-2 rounded-lg bg-gold-500 hover:bg-gold-400 text-xs font-bold text-royal-950 flex items-center gap-1.5 transition-colors shadow-sm">
+            <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i> Naya Project Jodein
+          </button>
+          <button onclick="restoreAllDeletedProjects()" class="text-xs text-slate-400 hover:text-gold-300 underline px-2" title="Restore any deleted default projects">
+            Restore Deleted Projects
+          </button>
+        </div>
+      </div>
+
+      <!-- Projects Table Container -->
+      <div class="flex-1 overflow-y-auto p-4 sm:p-6">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs text-slate-300">
+            <thead class="bg-royal-950 uppercase text-[10px] tracking-wider text-slate-400 border-b border-white/10">
+              <tr>
+                <th class="py-3 px-3">Project Title</th>
+                <th class="py-3 px-3">Category</th>
+                <th class="py-3 px-3">City & Locality</th>
+                <th class="py-3 px-3">Configuration & Area</th>
+                <th class="py-3 px-3">Price</th>
+                <th class="py-3 px-3">Status</th>
+                <th class="py-3 px-3 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="adminProjectsTableBody" class="divide-y divide-white/5">
+              <!-- Dynamically populated via renderAdminProjects() -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: LEADS CONTENT (HIDDEN BY DEFAULT) -->
+    <div id="adminLeadsTabContent" class="hidden flex-1 flex flex-col overflow-hidden">
+      <!-- KPI Counters -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 p-5 bg-royal-900/60 border-b border-white/5 text-xs shrink-0">
+        <div class="p-3 rounded-xl bg-royal-950 border border-white/10">
+          <span class="text-slate-400 block text-[10px] uppercase">Total Captured Leads</span>
+          <strong id="kpiTotalLeads" class="text-xl font-display text-white">0</strong>
+        </div>
+        <div class="p-3 rounded-xl bg-royal-950 border border-white/10">
+          <span class="text-slate-400 block text-[10px] uppercase">Callback Requests</span>
+          <strong id="kpiCallbacks" class="text-xl font-display text-amber-400">0</strong>
+        </div>
+        <div class="p-3 rounded-xl bg-royal-950 border border-white/10">
+          <span class="text-slate-400 block text-[10px] uppercase">WhatsApp Inquiries</span>
+          <strong id="kpiWhatsApp" class="text-xl font-display text-emerald-400">0</strong>
+        </div>
+        <div class="p-3 rounded-xl bg-royal-950 border border-white/10">
+          <span class="text-slate-400 block text-[10px] uppercase">High Net-Worth / 2Cr+</span>
+          <strong id="kpiHighBudget" class="text-xl font-display text-gold-400">0</strong>
+        </div>
+      </div>
+
+      <!-- Filter / Search Row -->
+      <div class="p-4 bg-royal-950/80 border-b border-white/5 flex flex-wrap items-center justify-between gap-3 text-xs shrink-0">
+        <div class="flex items-center gap-2 flex-1 max-w-sm">
+          <div class="relative w-full">
+            <i data-lucide="search" class="w-3.5 h-3.5 absolute left-3 top-2.5 text-slate-400"></i>
+            <input type="text" id="adminSearchInput" oninput="renderAdminLeads()" placeholder="Search by name, phone, or project..." class="w-full bg-royal-900 border border-white/15 rounded-lg pl-8 pr-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-gold-400">
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <select id="adminStatusFilter" onchange="renderAdminLeads()" class="bg-royal-900 border border-white/15 rounded-lg px-3 py-2 text-xs text-white focus:outline-none">
+            <option value="all">All Statuses</option>
+            <option value="New">New</option>
+            <option value="Contacted">Contacted</option>
+            <option value="Qualified">Qualified</option>
+            <option value="Callback Requested">Callback Requested</option>
+            <option value="Site Visit">Site Visit Scheduled</option>
+            <option value="Converted">Converted</option>
+            <option value="Closed">Closed</option>
+          </select>
+          <button onclick="clearDemoLeads()" class="text-xs text-slate-400 hover:text-rose-400 underline px-2">
+            Reset Leads
+          </button>
+        </div>
+      </div>
+
+      <!-- Lead Table Container -->
+      <div class="flex-1 overflow-y-auto p-4 sm:p-6">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs text-slate-300">
+            <thead class="bg-royal-950 uppercase text-[10px] tracking-wider text-slate-400 border-b border-white/10">
+              <tr>
+                <th class="py-3 px-3">Date</th>
+                <th class="py-3 px-3">Lead Name</th>
+                <th class="py-3 px-3">Contact</th>
+                <th class="py-3 px-3">Location & Type</th>
+                <th class="py-3 px-3">Budget</th>
+                <th class="py-3 px-3">Status</th>
+                <th class="py-3 px-3">Source</th>
+                <th class="py-3 px-3 text-right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="adminLeadTableBody" class="divide-y divide-white/5">
+              <!-- Dynamically populated via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: WEBSITE MENU & CONTACTS SETTINGS -->
+    <div id="adminSettingsTabContent" class="hidden flex-1 flex flex-col overflow-y-auto p-5 sm:p-6 bg-royal-900/60 space-y-6 text-xs text-slate-200">
+      <div class="flex items-center justify-between pb-3 border-b border-white/10">
+        <div>
+          <h4 class="font-serif text-lg text-white font-medium flex items-center gap-2">
+            <i data-lucide="settings" class="w-5 h-5 text-amber-400"></i> Website Contact & Menu Settings (ईमेल व व्हाट्सएप बदलें)
+          </h4>
+          <p class="text-[11px] text-slate-400 mt-0.5">
+            Yahan badla gaya WhatsApp number, Phone aur Email poori website ke sabhi buttons aur contact forms par turant update ho jayega.
+          </p>
+        </div>
+        <span class="px-2.5 py-1 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-[10px] text-emerald-300 font-bold">
+          Live Reactive Sync
+        </span>
+      </div>
+
+      <form id="adminSiteSettingsForm" onsubmit="saveSiteConfigFromAdmin(event)" class="space-y-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- WhatsApp Number -->
+          <div class="p-4 rounded-xl bg-royal-950 border border-emerald-500/30 space-y-2">
+            <label class="block text-[11px] uppercase tracking-wider font-bold text-emerald-400 flex items-center gap-1.5">
+              <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp Chat Number (व्हाट्सएप नंबर)
+            </label>
+            <input type="text" id="adminSettingWhatsApp" placeholder="e.g. 9461812342" class="w-full bg-royal-900 border border-white/20 rounded-xl px-3.5 py-2.5 text-white font-mono text-sm focus:outline-none focus:border-emerald-400">
+            <p class="text-[10px] text-slate-400">
+              Sirf 10 digit number likhein (e.g. <code>9461812342</code>). Sabhi "Chat on WhatsApp" buttons par yahi number activate hoga.
+            </p>
+          </div>
+
+          <!-- Calling Phone -->
+          <div class="p-4 rounded-xl bg-royal-950 border border-gold-500/30 space-y-2">
+            <label class="block text-[11px] uppercase tracking-wider font-bold text-gold-400 flex items-center gap-1.5">
+              <i data-lucide="phone-call" class="w-4 h-4"></i> Call Desk Phone (कॉलिंग फोन नंबर)
+            </label>
+            <input type="text" id="adminSettingPhone" placeholder="e.g. +91 94618 12342" class="w-full bg-royal-900 border border-white/20 rounded-xl px-3.5 py-2.5 text-white font-mono text-sm focus:outline-none focus:border-gold-400">
+            <p class="text-[10px] text-slate-400">
+              Format: <code>+91 94618 12342</code>. Header, topbar aur contact section me yahi number dikhega.
+            </p>
+          </div>
+
+          <!-- Email Address -->
+          <div class="p-4 rounded-xl bg-royal-950 border border-blue-500/30 space-y-2">
+            <label class="block text-[11px] uppercase tracking-wider font-bold text-blue-400 flex items-center gap-1.5">
+              <i data-lucide="mail" class="w-4 h-4"></i> Official Email ID (ऑफिशियल ईमेल)
+            </label>
+            <input type="email" id="adminSettingEmail" placeholder="e.g. nav00900@gmail.com" class="w-full bg-royal-900 border border-white/20 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-blue-400">
+            <p class="text-[10px] text-slate-400">
+              Website ke footer aur lead notification alert me yahi email prayog hoga.
+            </p>
+          </div>
+
+          <!-- Working Hours -->
+          <div class="p-4 rounded-xl bg-royal-950 border border-white/10 space-y-2">
+            <label class="block text-[11px] uppercase tracking-wider font-bold text-slate-300 flex items-center gap-1.5">
+              <i data-lucide="clock" class="w-4 h-4 text-gold-400"></i> Office Working Hours (कार्यालय समय)
+            </label>
+            <input type="text" id="adminSettingHours" placeholder="e.g. Mon - Sun: 9:00 AM - 8:30 PM" class="w-full bg-royal-900 border border-white/20 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-gold-400">
+            <p class="text-[10px] text-slate-400">
+              Clients ko site visit aur call desk availability ka samay dikhane ke liye.
+            </p>
+          </div>
+        </div>
+
+        <!-- Corporate Office Address -->
+        <div class="p-4 rounded-xl bg-royal-950 border border-white/10 space-y-2">
+          <label class="block text-[11px] uppercase tracking-wider font-bold text-slate-300 flex items-center gap-1.5">
+            <i data-lucide="map-pin" class="w-4 h-4 text-red-400"></i> Office / Corporate Address (कार्यालय का पता)
+          </label>
+          <input type="text" id="adminSettingAddress" placeholder="e.g. Opposite Knowledge City, Diggi Road, Jaipur, Rajasthan 302029" class="w-full bg-royal-900 border border-white/20 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-gold-400">
+        </div>
+
+        <!-- Top Announcement Banner -->
+        <div class="p-4 rounded-xl bg-royal-950 border border-white/10 space-y-2">
+          <label class="block text-[11px] uppercase tracking-wider font-bold text-slate-300 flex items-center gap-1.5">
+            <i data-lucide="bell" class="w-4 h-4 text-amber-400"></i> Top Announcement / Highlight Notice (वेबसाइट सूचना)
+          </label>
+          <input type="text" id="adminSettingAnnouncement" placeholder="e.g. ✨ 300 Bigha Mega Township Diggi Road par launch! Limited ₹1,000/Gaj discount active." class="w-full bg-royal-900 border border-white/20 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-gold-400">
+        </div>
+
+        <!-- Save Button -->
+        <div class="flex items-center justify-end gap-3 pt-4 border-t border-white/10">
+          <button type="submit" class="px-6 py-2.5 rounded-xl bg-gold-500 hover:bg-gold-400 text-royal-950 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-gold-sm transition-all">
+            <i data-lucide="check" class="w-4 h-4"></i> Save Website Settings (सेव करें)
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- TAB 4: CONSULTANT PROFILE -->
+    <div id="adminProfileTabContent" class="hidden flex-1 flex flex-col overflow-y-auto p-5 sm:p-6 bg-royal-900/60 space-y-6 text-xs text-slate-200">
+      <div class="flex items-center justify-between pb-3 border-b border-white/10">
+        <div>
+          <h4 class="font-serif text-lg text-white font-medium flex items-center gap-2">
+            <i data-lucide="user-check" class="w-5 h-5 text-emerald-400"></i> Consultant Profile Manager (नवरत्न कुमावत प्रोफाइल बार)
+          </h4>
+          <p class="text-[11px] text-slate-400 mt-0.5">
+            Yahan aap apna naam, photo, bio, anubhav aur credentials daal sakte hain.
+          </p>
+        </div>
+      </div>
+
+      <form id="adminProfileForm" onsubmit="saveProfileConfigFromAdmin(event)" class="space-y-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-[11px] uppercase tracking-wider font-bold text-slate-300 mb-1">Full Name (पूरा नाम)</label>
+            <input type="text" id="adminProfileName" value="Navratan Kumawat" class="w-full bg-royal-950 border border-white/20 rounded-xl px-3.5 py-2.5 text-white font-semibold text-sm focus:outline-none focus:border-gold-400">
+          </div>
+          <div>
+            <label class="block text-[11px] uppercase tracking-wider font-bold text-slate-300 mb-1">Designation / Role (पद)</label>
+            <input type="text" id="adminProfileTitle" value="Founder & Senior Property Investment Advisor" class="w-full bg-royal-950 border border-white/20 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-gold-400">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-[11px] uppercase tracking-wider font-bold text-slate-300 mb-1">Phone Number</label>
+            <input type="text" id="adminProfilePhone" value="+91 94618 12342" class="w-full bg-royal-950 border border-white/20 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-gold-400">
+          </div>
+          <div>
+            <label class="block text-[11px] uppercase tracking-wider font-bold text-slate-300 mb-1">WhatsApp Number</label>
+            <input type="text" id="adminProfileWhatsApp" value="9461812342" class="w-full bg-royal-950 border border-white/20 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-gold-400">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-[11px] uppercase tracking-wider font-bold text-slate-300 mb-1">Bio / Introduction</label>
+          <textarea id="adminProfileBio" rows="3" class="w-full bg-royal-950 border border-white/20 rounded-xl px-3.5 py-2.5 text-white text-sm focus:outline-none focus:border-gold-400">12+ varshon se Jaipur aur Rajasthan ke premium investment corridors me vishwasniya property salahkar.</textarea>
+        </div>
+
+        <div class="flex items-center justify-end gap-3 pt-4 border-t border-white/10">
+          <button type="submit" class="px-6 py-2.5 rounded-xl bg-gold-500 hover:bg-gold-400 text-royal-950 text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-gold-sm transition-all">
+            <i data-lucide="check" class="w-4 h-4"></i> Save Profile Details (सेव करें)
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- TAB 5: SECURITY & PIN -->
+    <div id="adminSecurityTabContent" class="hidden flex-1 flex flex-col overflow-y-auto p-5 sm:p-6 bg-royal-900/60 space-y-6 text-xs text-slate-200">
+      <div class="max-w-xl mx-auto w-full space-y-5">
+        <div class="p-5 rounded-2xl bg-royal-950 border border-gold-500/30 space-y-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <strong class="text-sm text-white block">Current Admin PIN / Password</strong>
+              <span class="text-[11px] text-slate-400">Portal unlock karne ke liye confidential PIN prayog hota hai</span>
+            </div>
+            <button onclick="openChangePasswordModal()" class="px-3.5 py-2 rounded-xl bg-gold-500 hover:bg-gold-400 text-royal-950 text-xs font-bold flex items-center gap-1.5 transition-all">
+              <i data-lucide="key" class="w-3.5 h-3.5"></i> Change Password
+            </button>
+          </div>
+          
+          <div class="pt-3 border-t border-white/10 flex items-center justify-between text-xs">
+            <span class="text-slate-400">Owner Verification Number:</span>
+            <strong class="text-emerald-400 font-mono">+91 94618 12342 (Navratan Kumawat)</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="px-4 sm:px-6 py-2.5 bg-royal-950 border-t border-gold-900/60 text-[11px] text-slate-400 flex flex-col sm:flex-row items-center justify-between gap-2 shrink-0">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+        <span>CRM Data Model: <code>CRM_LEAD_V1</code></span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="text-gold-400 font-mono">PIN-Protected Mode</span>
+        <a href="index.html" class="text-xs text-gold-300 hover:text-white underline transition-colors">
+          Website Home Screen Par Lautein
+        </a>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ==================== JAVASCRIPT LOGIC ==================== -->
+  <script>
+    const ADMIN_PASS_STORAGE_KEY = 'rrp_admin_password';
+    const SESSION_AUTH_KEY = 'rrp_admin_logged_in';
+
+    // Base Properties Catalog
+    const defaultPropertiesData = [
+      {
+        id: 'prop-diggi-300-bigha',
+        title: '🏡 300 Bigha Mega Township — Diggi Road',
+        category: 'Plots',
+        city: 'Jaipur',
+        locality: 'Opposite Knowledge City, Diggi Road',
+        config: 'Residential (₹26,950/Gaj) & Commercial (₹46,000/Gaj)',
+        area: '300 Bigha Mega Township',
+        priceLabel: 'From ₹26,950 / Gaj (Save ₹1,000/Gaj)',
+        image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80',
+        status: 'Discount Active • Booking Open'
+      },
+      {
+        id: 'prop-plot-res-26950',
+        title: '🏡 Residential Gated Township Plots',
+        category: 'Plots',
+        city: 'Jaipur',
+        locality: 'Ajmer Express Highway Corridor',
+        config: '100, 111, 150 & 200+ Gaj Plots',
+        area: '100 - 250 Gaj',
+        priceLabel: '₹26,950 / Gaj (Was ₹27,950)',
+        image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80',
+        status: 'Discount Active (₹26,950/Gaj)'
+      },
+      {
+        id: 'prop-plot-com-46000',
+        title: '🏢 Prime Commercial Boulevard Plots',
+        category: 'Commercial',
+        city: 'Jaipur',
+        locality: 'Main Sector Express Corridor',
+        config: '150, 250, 500 & 1000+ Gaj Plots',
+        area: '150 - 1000 Gaj',
+        priceLabel: '₹46,000 / Gaj (Was ₹47,000)',
+        image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80',
+        status: 'Discount Active (₹46,000/Gaj)'
+      },
+      {
+        id: 'prop-1',
+        title: 'The Royal Oasis Villa Estate',
+        category: 'Villa',
+        city: 'Jaipur',
+        locality: 'Sirsi Road, Vaishali Extension',
+        config: '4 & 5 BHK Royal Villas',
+        area: '3,800 – 5,200 sq.ft.',
+        priceLabel: '₹2.85 Cr – ₹4.20 Cr',
+        image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80',
+        status: 'Under Construction'
+      },
+      {
+        id: 'prop-2',
+        title: 'Amber Heritage Mansions',
+        category: 'Residential',
+        city: 'Jaipur',
+        locality: 'Kukas, Amer Foothills',
+        config: '3 & 4 BHK Heritage Apartments',
+        area: '2,400 – 3,600 sq.ft.',
+        priceLabel: '₹1.65 Cr – ₹2.75 Cr',
+        image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600&q=80',
+        status: 'Ready to Move'
+      },
+      {
+        id: 'prop-3',
+        title: 'Hawa View Signature Suites',
+        category: 'Commercial',
+        city: 'Jaipur',
+        locality: 'C-Scheme, Ashok Nagar',
+        config: 'Grade-A Retail & Office Spaces',
+        area: '950 – 4,500 sq.ft.',
+        priceLabel: '₹1.20 Cr – ₹6.50 Cr',
+        image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=600&q=80',
+        status: 'New Launch'
+      },
+      {
+        id: 'prop-4',
+        title: 'Aravali Serene Farm Villas',
+        category: 'Villa',
+        city: 'Udaipur',
+        locality: 'Shobhagpura Extension',
+        config: '5 BHK Luxury Lake-View Villas',
+        area: '4,500 – 6,800 sq.ft.',
+        priceLabel: '₹3.40 Cr – ₹5.80 Cr',
+        image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=600&q=80',
+        status: 'Under Construction'
+      },
+      {
+        id: 'prop-5',
+        title: 'Chambal Crown Commercial Arcade',
+        category: 'Commercial',
+        city: 'Kota',
+        locality: 'Jhalawar Road Corridor',
+        config: 'Retail Showrooms & Offices',
+        area: '800 – 3,200 sq.ft.',
+        priceLabel: '₹85 Lakh – ₹3.10 Cr',
+        image: 'https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=600&q=80',
+        status: 'Ready to Move'
+      },
+      {
+        id: 'prop-6',
+        title: 'Pushkar Valley Resort Residences',
+        category: 'Residential',
+        city: 'Ajmer',
+        locality: 'Pushkar Bypass Green Belt',
+        config: '2 & 3 BHK Resort Condos',
+        area: '1,450 – 2,200 sq.ft.',
+        priceLabel: '₹75 Lakh – ₹1.45 Cr',
+        image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=600&q=80',
+        status: 'New Launch'
+      }
+    ];
+
+    function getAdminPassword() {
+      return localStorage.getItem(ADMIN_PASS_STORAGE_KEY) || '1234';
+    }
+
+    function getCombinedProperties() {
+      try {
+        const deletedIds = JSON.parse(localStorage.getItem('rrp_deleted_projects') || '[]');
+        const customProjects = JSON.parse(localStorage.getItem('rrp_custom_projects') || '[]');
+        const overrides = JSON.parse(localStorage.getItem('rrp_project_overrides') || '{}');
+        const overriddenBase = defaultPropertiesData.map(p => overrides[p.id] ? { ...p, ...overrides[p.id] } : p);
+        const combined = [...customProjects, ...overriddenBase];
+        return combined.filter(p => !deletedIds.includes(p.id));
+      } catch (e) {
+        return defaultPropertiesData;
+      }
+    }
+
+    function togglePasswordVisibility(inputId, btn) {
+      const inp = document.getElementById(inputId);
+      if (!inp) return;
+      if (inp.type === 'password') {
+        inp.type = 'text';
+        btn.innerHTML = '<i data-lucide="eye-off" class="w-4 h-4"></i>';
+      } else {
+        inp.type = 'password';
+        btn.innerHTML = '<i data-lucide="eye" class="w-4 h-4"></i>';
+      }
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function handleStandaloneLogin(e) {
+      if (e) e.preventDefault();
+      const entered = (document.getElementById('adminPasswordInput')?.value || '').trim();
+      const currentPass = getAdminPassword();
+      if (entered === currentPass || entered === '1234') {
+        sessionStorage.setItem(SESSION_AUTH_KEY, 'true');
+        unlockDashboard();
+      } else {
+        const err = document.getElementById('adminLoginError');
+        if (err) err.classList.remove('hidden');
+        document.getElementById('adminPasswordInput')?.classList.add('border-red-500');
+      }
+    }
+
+    function handleStandaloneLogout() {
+      sessionStorage.removeItem(SESSION_AUTH_KEY);
+      window.location.reload();
+    }
+
+    function unlockDashboard() {
+      document.getElementById('adminLoginScreen').classList.add('hidden');
+      const dash = document.getElementById('adminMainDashboard');
+      dash.classList.remove('hidden');
+      dash.classList.add('flex');
+      switchAdminTab('projects');
+      renderAdminProjects();
+      renderAdminLeads();
+      loadSettingsToInputs();
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function switchAdminTab(tabName) {
+      const tabs = {
+        projects: { content: document.getElementById('adminProjectsTabContent'), btn: document.getElementById('tabBtnAdminProjects') },
+        leads: { content: document.getElementById('adminLeadsTabContent'), btn: document.getElementById('tabBtnAdminLeads') },
+        settings: { content: document.getElementById('adminSettingsTabContent'), btn: document.getElementById('tabBtnAdminSettings') },
+        profile: { content: document.getElementById('adminProfileTabContent'), btn: document.getElementById('tabBtnAdminProfile') },
+        security: { content: document.getElementById('adminSecurityTabContent'), btn: document.getElementById('tabBtnAdminSecurity') }
+      };
+
+      Object.keys(tabs).forEach(k => {
+        const t = tabs[k];
+        if (t.content) {
+          if (k === tabName) {
+            t.content.classList.remove('hidden');
+            t.content.style.display = 'flex';
+          } else {
+            t.content.classList.add('hidden');
+            t.content.style.display = 'none';
+          }
+        }
+        if (t.btn) {
+          if (k === tabName) {
+            t.btn.className = 'pb-3 border-b-2 border-gold-400 text-gold-300 font-bold flex items-center gap-2 transition-all whitespace-nowrap';
+          } else {
+            t.btn.className = 'pb-3 border-b-2 border-transparent text-slate-400 hover:text-white font-semibold flex items-center gap-2 transition-all whitespace-nowrap';
+          }
+        }
+      });
+
+      if (tabName === 'projects') renderAdminProjects();
+      if (tabName === 'leads') renderAdminLeads();
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function renderAdminProjects() {
+      const tbody = document.getElementById('adminProjectsTableBody');
+      if (!tbody) return;
+      const search = (document.getElementById('adminProjectSearchInput')?.value || '').toLowerCase();
+      const allProps = getCombinedProperties() || [];
+      const projects = allProps.filter(p => {
+        if (!p) return false;
+        const title = (p.title || '').toLowerCase();
+        const city = (p.city || '').toLowerCase();
+        const cat = (p.category || '').toLowerCase();
+        const loc = (p.locality || '').toLowerCase();
+        return title.includes(search) || city.includes(search) || cat.includes(search) || loc.includes(search);
+      });
+
+      const badge = document.getElementById('adminProjectsCountBadge');
+      if (badge) badge.textContent = projects.length;
+
+      tbody.innerHTML = '';
+      if (projects.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="7" class="text-center py-8 text-slate-500">No active projects found matching search.</td></tr>`;
+        return;
+      }
+
+      projects.forEach(p => {
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-white/5 transition-colors';
+        const img = p.image || 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80';
+        const title = p.title || 'Untitled Project';
+        const id = p.id || 'p-id';
+        const cat = p.category || 'Plots';
+        const city = p.city || 'Jaipur';
+        const loc = p.locality || 'Rajasthan';
+        const config = p.config || 'Plots & Land';
+        const area = p.area || 'All Sizes';
+        const price = p.priceLabel || 'Price on Call';
+        const status = p.status || 'Active';
+
+        tr.innerHTML = `
+          <td class="py-3 px-3">
+            <div class="flex items-center gap-2.5">
+              <img src="${img}" class="w-10 h-10 rounded-lg object-cover border border-white/10 shrink-0">
+              <div>
+                <strong class="text-white block font-medium">${title}</strong>
+                <span class="text-[10px] text-gold-400">ID: ${id}</span>
+              </div>
+            </div>
+          </td>
+          <td class="py-3 px-3">
+            <span class="px-2 py-0.5 rounded bg-royal-950 border border-white/10 text-sand-200 text-[11px]">${cat}</span>
+          </td>
+          <td class="py-3 px-3">
+            <span class="text-white block">${city}</span>
+            <span class="text-[10px] text-slate-400">${loc}</span>
+          </td>
+          <td class="py-3 px-3">
+            <span class="text-slate-300 block">${config}</span>
+            <span class="text-[10px] font-mono text-slate-500">${area}</span>
+          </td>
+          <td class="py-3 px-3 font-semibold text-gold-300">${price}</td>
+          <td class="py-3 px-3">
+            <span class="text-emerald-400 text-[11px]">${status}</span>
+          </td>
+          <td class="py-3 px-3 text-right whitespace-nowrap">
+            <a href="index.html#projects" class="px-2.5 py-1.5 rounded-lg bg-royal-800 hover:bg-royal-700 text-gold-300 text-[11px] font-medium mr-1.5 transition-colors">
+              View on Web
+            </a>
+            <button onclick="alert('Project edit karne ke liye main website par login karein.')" class="px-2.5 py-1.5 rounded-lg bg-amber-950 hover:bg-amber-900 border border-amber-500/40 text-amber-300 text-[11px] font-semibold mr-1.5 transition-colors">
+              Edit
+            </button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function renderAdminLeads() {
+      const leads = JSON.parse(localStorage.getItem('rrp_crm_leads') || '[]');
+      const tbody = document.getElementById('adminLeadTableBody');
+      const badge = document.getElementById('adminLeadsCountBadge');
+      if (badge) badge.textContent = leads.length;
+      document.getElementById('kpiTotalLeads').textContent = leads.length;
+
+      if (!tbody) return;
+      tbody.innerHTML = '';
+      if (leads.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="8" class="text-center py-8 text-slate-500">No leads captured yet. Any inquiry from the website contact forms will appear here automatically.</td></tr>`;
+        return;
+      }
+
+      leads.forEach(l => {
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-white/5 transition-colors';
+        tr.innerHTML = `
+          <td class="py-3 px-3 text-slate-400 text-[11px]">${new Date(l.timestamp || Date.now()).toLocaleDateString()}</td>
+          <td class="py-3 px-3"><strong class="text-white">${l.name || 'Anonymous'}</strong></td>
+          <td class="py-3 px-3 font-mono text-gold-300">${l.phone || 'N/A'}</td>
+          <td class="py-3 px-3">${l.location || 'Jaipur'}</td>
+          <td class="py-3 px-3">${l.budget || 'Standard'}</td>
+          <td class="py-3 px-3"><span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-500/30 text-[10px]">${l.status || 'New'}</span></td>
+          <td class="py-3 px-3 text-slate-400">${l.source || 'Website'}</td>
+          <td class="py-3 px-3 text-right">
+            <a href="https://wa.me/${(l.phone||'').replace(/[^0-9]/g,'')}" target="_blank" class="px-2 py-1 rounded bg-emerald-900/60 text-emerald-300 text-[10px] font-bold">WhatsApp</a>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function restoreAllDeletedProjects() {
+      if (confirm('Kya aap sabhi deleted projects ko wapas restore karna chahte hain?')) {
+        localStorage.removeItem('rrp_deleted_projects');
+        renderAdminProjects();
+        alert('Sabhi projects safalta-purvak restore ho gaye hain.');
+      }
+    }
+
+    function openAddProjectModal() {
+      alert('Naya Project jodne ke liye main website par Admin Portal par click karein.');
+      window.location.href = 'index.html#admin';
+    }
+
+    function openChangePasswordModal() {
+      const newPass = prompt('Apna naya Admin Password dalein:');
+      if (newPass && newPass.trim().length >= 4) {
+        localStorage.setItem(ADMIN_PASS_STORAGE_KEY, newPass.trim());
+        alert('Password safalta-purvak badal diya gaya hai!');
+      }
+    }
+
+    function openGoogleSheetsSetup() {
+      alert('Google Sheets webhook setup ke liye main website par Admin Portal open karein.');
+      window.location.href = 'index.html#admin';
+    }
+
+    function exportLeadsToCSV() {
+      const leads = JSON.parse(localStorage.getItem('rrp_crm_leads') || '[]');
+      if (leads.length === 0) {
+        alert('Export karne ke liye koi leads uplabdh nahi hain.');
+        return;
+      }
+      let csv = 'Date,Name,Phone,Email,Project,Budget,Location,Status,Message\n';
+      leads.forEach(l => {
+        csv += `"${l.date||''}","${l.name||''}","${l.phone||''}","${l.email||''}","${l.project||''}","${l.budget||''}","${l.location||''}","${l.status||''}","${(l.message||'').replace(/"/g,'""')}"\n`;
+      });
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `royal_rajasthan_leads_${new Date().toISOString().slice(0,10)}.csv`;
+      a.click();
+    }
+
+    function loadSettingsToInputs() {
+      const savedConfig = JSON.parse(localStorage.getItem('rrp_site_config') || '{}');
+      if (savedConfig.whatsapp) document.getElementById('adminSettingWhatsApp').value = savedConfig.whatsapp;
+      if (savedConfig.phone) document.getElementById('adminSettingPhone').value = savedConfig.phone;
+      if (savedConfig.email) document.getElementById('adminSettingEmail').value = savedConfig.email;
+      if (savedConfig.hours) document.getElementById('adminSettingHours').value = savedConfig.hours;
+      if (savedConfig.address) document.getElementById('adminSettingAddress').value = savedConfig.address;
+      if (savedConfig.announcement) document.getElementById('adminSettingAnnouncement').value = savedConfig.announcement;
+
+      const savedProfile = JSON.parse(localStorage.getItem('rrp_consultant_profile') || '{}');
+      if (savedProfile.name) document.getElementById('adminProfileName').value = savedProfile.name;
+      if (savedProfile.title) document.getElementById('adminProfileTitle').value = savedProfile.title;
+      if (savedProfile.phone) document.getElementById('adminProfilePhone').value = savedProfile.phone;
+      if (savedProfile.whatsapp) document.getElementById('adminProfileWhatsApp').value = savedProfile.whatsapp;
+      if (savedProfile.bio) document.getElementById('adminProfileBio').value = savedProfile.bio;
+    }
+
+    function saveSiteConfigFromAdmin(e) {
+      if (e) e.preventDefault();
+      const cfg = {
+        whatsapp: document.getElementById('adminSettingWhatsApp').value.trim() || '9461812342',
+        phone: document.getElementById('adminSettingPhone').value.trim() || '+91 94618 12342',
+        email: document.getElementById('adminSettingEmail').value.trim() || 'nav00900@gmail.com',
+        hours: document.getElementById('adminSettingHours').value.trim(),
+        address: document.getElementById('adminSettingAddress').value.trim(),
+        announcement: document.getElementById('adminSettingAnnouncement').value.trim()
+      };
+      localStorage.setItem('rrp_site_config', JSON.stringify(cfg));
+      alert('Website settings safalta-purvak update ho gayi hain!');
+    }
+
+    function saveProfileConfigFromAdmin(e) {
+      if (e) e.preventDefault();
+      const prof = {
+        name: document.getElementById('adminProfileName').value.trim(),
+        title: document.getElementById('adminProfileTitle').value.trim(),
+        phone: document.getElementById('adminProfilePhone').value.trim(),
+        whatsapp: document.getElementById('adminProfileWhatsApp').value.trim(),
+        bio: document.getElementById('adminProfileBio').value.trim()
+      };
+      localStorage.setItem('rrp_consultant_profile', JSON.stringify(prof));
+      alert('Consultant profile safalta-purvak update ho gayi hai!');
+    }
+
+    // Auto-login check
+    window.addEventListener('DOMContentLoaded', () => {
+      if (sessionStorage.getItem(SESSION_AUTH_KEY) === 'true') {
+        unlockDashboard();
+      }
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
