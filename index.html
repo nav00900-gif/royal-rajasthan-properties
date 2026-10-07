@@ -6553,8 +6553,14 @@
       }
     }
 
-    function handleLeadSubmit(e) {
+    async function handleLeadSubmit(e) {
       e.preventDefault();
+
+      const submitBtn = e.target.querySelector('button[type="submit"]');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>दर्ज किया जा रहा है...</span>';
+      }
 
       const name = document.getElementById('leadName').value.trim();
       const phone = document.getElementById('leadPhone').value.trim();
@@ -6589,38 +6595,46 @@
       };
 
       saveLeadToStore(newLead);
+      if (typeof dispatchLeadToGoogleSheets === 'function') {
+        dispatchLeadToGoogleSheets(newLead);
+      }
 
-      // Cache latest inquiry in sessionStorage for thank-you.html
+      // Cache latest inquiry in sessionStorage and localStorage for thank-you.html
       try {
         sessionStorage.setItem('rrp_latest_inquiry', JSON.stringify(newLead));
+        localStorage.setItem('rrp_latest_inquiry', JSON.stringify(newLead));
       } catch (e) {}
 
       // Dispatch Instant Lead Email Notification to nav00900@gmail.com
-      try {
-        fetch('https://formsubmit.co/ajax/nav00900@gmail.com', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({
-            _subject: `New Lead: ${name} (${phone}) - Royal Rajasthan Properties`,
-            Client_Name: name,
-            Phone_WhatsApp: phone,
-            Email_Address: email,
-            Location_Preference: locationPreference,
-            Property_Type: propertyType,
-            Budget: budget,
-            Investment_Purpose: purpose,
-            Project_Interest: projectInterest,
-            Preferred_Callback: preferredCallbackTime,
-            Client_Message: message || 'None',
-            Source: 'Website Lead Form'
-          })
-        }).catch(err => console.log('Email delivery status:', err));
-      } catch (err) {
-        console.log('Lead notification error:', err);
-      }
+      const emailPromise = fetch('https://formsubmit.co/ajax/nav00900@gmail.com', {
+        method: 'POST',
+        keepalive: true,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `New Lead: ${name} (${phone}) - Royal Rajasthan Properties`,
+          Client_Name: name,
+          Phone_WhatsApp: phone,
+          Email_Address: email || 'Not Provided',
+          Location_Preference: locationPreference,
+          Property_Type: propertyType,
+          Budget: budget,
+          Investment_Purpose: purpose,
+          Project_Interest: projectInterest,
+          Preferred_Callback: preferredCallbackTime,
+          Client_Message: message || 'None',
+          Source: 'Website Lead Form'
+        })
+      }).then(r => r.json()).catch(err => {
+        console.log('Email delivery status:', err);
+        return null;
+      });
+
+      // Wait up to 1.8 seconds for email dispatch to complete
+      const timeoutPromise = new Promise(resolve => setTimeout(resolve, 1800));
+      await Promise.race([emailPromise, timeoutPromise]);
 
       document.getElementById('leadForm').classList.add('hidden');
       document.getElementById('leadSuccessBanner').classList.remove('hidden');
@@ -6630,19 +6644,21 @@
       if (waBtn) waBtn.href = `https://wa.me/919461812342?text=${encodeURIComponent(waText)}`;
 
       // Construct Target Thank-You URL with inquiry parameters
-      const targetThankYouUrl = `thank-you.html?ref=${encodeURIComponent(newLead.id)}&name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}&email=${encodeURIComponent(email)}&project=${encodeURIComponent(projectInterest)}&budget=${encodeURIComponent(budget)}&location=${encodeURIComponent(locationPreference)}&time=${encodeURIComponent(preferredCallbackTime)}`;
+      const targetThankYouUrl = `thank-you.html?ref=${encodeURIComponent(newLead.id)}&name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}&email=${encodeURIComponent(email)}&project=${encodeURIComponent(projectInterest)}&budget=${encodeURIComponent(budget)}&location=${encodeURIComponent(locationPreference)}&time=${encodeURIComponent(preferredCallbackTime)}&wa=1`;
 
       const redirectBtn = document.getElementById('thankYouRedirectBtn');
       if (redirectBtn) {
         redirectBtn.href = targetThankYouUrl;
       }
 
-      lucide.createIcons();
+      if (window.lucide) {
+        lucide.createIcons();
+      }
 
-      // Automatically redirect to thank-you.html after a smooth 800ms transition
+      // Smooth transition to thank-you.html
       setTimeout(() => {
         window.location.href = targetThankYouUrl;
-      }, 800);
+      }, 1000);
     }
 
     function resetLeadForm() {
