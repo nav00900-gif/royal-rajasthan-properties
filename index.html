@@ -322,8 +322,12 @@
         </button>
       </nav>
 
-      <!-- RIGHT SIDE: INQUIRY DESK (2ND PAGE) + CALL/BOOK ACTION -->
+      <!-- RIGHT SIDE: INQUIRY DESK (2ND PAGE) + ADMIN PORTAL + CALL/BOOK ACTION -->
       <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
+        <button onclick="openAdminModal()" class="px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl text-[10px] sm:text-xs font-bold uppercase tracking-wider text-royal-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:from-gold-200 hover:to-gold-400 border border-gold-400 shadow-gold-sm flex items-center gap-1 sm:gap-1.5 transition-all shrink-0" title="Open Admin CRM & Projects Portal">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+          <span>Admin Portal</span>
+        </button>
         <a href="thank-you.html" class="px-2 sm:px-3 py-1.5 sm:py-2 rounded-xl text-[10px] sm:text-xs font-bold uppercase tracking-wider text-emerald-300 bg-emerald-950/80 hover:bg-emerald-900/80 border border-emerald-500/50 flex items-center gap-1 sm:gap-1.5 transition-all shadow-sm shrink-0" title="Go to Official Inquiry & Receipt Desk (2nd Page)">
           <i data-lucide="file-check-2" class="w-3.5 h-3.5 text-emerald-400"></i>
           <span class="hidden sm:inline">Inquiry Desk</span>
@@ -351,15 +355,23 @@
           <span>Left Menu</span>
         </button>
 
+        <button onclick="openAdminModal()" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-500/20 hover:bg-gold-500/30 text-gold-300 border border-gold-500/40 text-[11px] font-bold transition-all">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5 text-gold-400"></i>
+          <span>Admin Portal (Projects & CRM)</span>
+        </button>
+
         <a href="thank-you.html" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950/90 border border-emerald-500/50 text-emerald-300 text-[11px] font-semibold hover:bg-emerald-900/80 transition-all shadow-sm">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span class="font-bold">📄 Official Inquiry Desk (2nd Page):</span>
-          <span class="text-white underline">View Receipt & Status →</span>
+          <span class="font-bold">📄 Official Inquiry Desk:</span>
+          <span class="text-white underline">View Receipt →</span>
         </a>
       </div>
 
       <!-- Right: Quick Navigation Chips -->
       <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto py-0.5 no-scrollbar text-[11px]">
+        <button onclick="openAdminModal()" class="px-2.5 py-1 rounded-lg bg-gold-500/20 hover:bg-gold-500/30 text-gold-300 border border-gold-500/40 transition-colors flex items-center gap-1 shrink-0 font-bold">
+          <i data-lucide="shield-check" class="w-3 h-3 text-gold-400"></i> Admin Portal
+        </button>
         <button onclick="openAboutModal()" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-gold-500/20 text-sand-200 hover:text-gold-300 border border-white/10 transition-colors flex items-center gap-1 shrink-0 font-medium">
           <i data-lucide="info" class="w-3 h-3 text-gold-400"></i> About Us
         </button>
@@ -421,6 +433,22 @@
             </a>
           </div>
         </div>
+      </div>
+
+      <!-- Admin & Projects Portal Fast Access (Prominent at top of menu) -->
+      <div class="p-3.5 rounded-2xl bg-gradient-to-r from-gold-500/20 via-gold-400/10 to-royal-900 border-2 border-gold-400/60 flex items-center justify-between gap-2.5 shadow-gold-sm">
+        <div class="flex items-center gap-2.5 min-w-0">
+          <div class="w-9 h-9 rounded-xl bg-gold-500/20 text-gold-400 border border-gold-500/50 flex items-center justify-center shrink-0">
+            <i data-lucide="shield-check" class="w-5 h-5"></i>
+          </div>
+          <div class="min-w-0">
+            <strong class="text-xs font-bold text-white block truncate">Admin & Projects Portal</strong>
+            <span class="text-[10px] text-gold-300 block">Manage all 9+ projects & leads</span>
+          </div>
+        </div>
+        <button onclick="openAdminModal(); toggleLeftDrawer(false);" class="px-3.5 py-2 rounded-xl bg-gradient-to-r from-gold-400 to-gold-500 hover:from-gold-300 hover:to-gold-400 text-royal-950 font-bold text-xs uppercase tracking-wider transition-all shadow-md shrink-0">
+          Open
+        </button>
       </div>
 
       <!-- 2. Core Navigation Pages -->
@@ -3548,7 +3576,10 @@
         </p>
         <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-white/5 text-slate-500 text-[11px]">
           <p>© 2026 ROYAL RAJASTHAN PROPERTIES. All rights reserved. Jaipur, Rajasthan, India.</p>
-          <div class="flex items-center gap-5">
+          <div class="flex items-center flex-wrap gap-4 sm:gap-5">
+            <button onclick="openAdminModal()" class="text-gold-400 hover:text-gold-300 font-bold flex items-center gap-1 transition-colors">
+              <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> Admin Portal
+            </button>
             <a href="#" class="hover:text-gold-400 transition-colors">Privacy Policy</a>
             <a href="#" class="hover:text-gold-400 transition-colors">Terms of Advisory</a>
             <a href="https://rera.rajasthan.gov.in" target="_blank" rel="noopener" class="text-gold-500 hover:underline">RERA Verification Disclosure</a>
@@ -5189,14 +5220,15 @@
 
       <!-- Admin Tab Switcher / Navigation Menu Bar -->
       <div class="px-4 sm:px-6 pt-3 bg-royal-950 border-b border-white/10 flex items-center gap-2 sm:gap-6 overflow-x-auto no-scrollbar text-xs font-display shrink-0">
-        <button id="tabBtnAdminLeads" onclick="switchAdminTab('leads')" class="pb-3 border-b-2 border-gold-400 text-gold-300 font-bold flex items-center gap-2 transition-all whitespace-nowrap">
-          <i data-lucide="users" class="w-4 h-4"></i>
-          <span>Captured Leads</span>
+        <button id="tabBtnAdminProjects" onclick="switchAdminTab('projects')" class="pb-3 border-b-2 border-gold-400 text-gold-300 font-bold flex items-center gap-2 transition-all whitespace-nowrap">
+          <i data-lucide="building-2" class="w-4 h-4 text-gold-400"></i>
+          <span>Manage Projects (सारे प्रोजेक्ट्स)</span>
+          <span id="adminProjectsCountBadge" class="px-2 py-0.5 rounded-full bg-gold-500/20 text-gold-300 border border-gold-500/40 text-[10px] font-bold">9</span>
         </button>
-        <button id="tabBtnAdminProjects" onclick="switchAdminTab('projects')" class="pb-3 border-b-2 border-transparent text-slate-400 hover:text-white font-semibold flex items-center gap-2 transition-all whitespace-nowrap">
-          <i data-lucide="building-2" class="w-4 h-4"></i>
-          <span>Manage Projects</span>
-          <span id="adminProjectsCountBadge" class="px-2 py-0.5 rounded-full bg-royal-800 text-[10px] text-gold-400">0</span>
+        <button id="tabBtnAdminLeads" onclick="switchAdminTab('leads')" class="pb-3 border-b-2 border-transparent text-slate-400 hover:text-white font-semibold flex items-center gap-2 transition-all whitespace-nowrap">
+          <i data-lucide="users" class="w-4 h-4"></i>
+          <span>Captured Leads (लीड्स)</span>
+          <span id="adminLeadsCountBadge" class="px-2 py-0.5 rounded-full bg-royal-800 text-[10px] text-slate-300">0</span>
         </button>
         <button id="tabBtnAdminSettings" onclick="switchAdminTab('settings')" class="pb-3 border-b-2 border-transparent text-slate-400 hover:text-white font-semibold flex items-center gap-2 transition-all whitespace-nowrap">
           <i data-lucide="settings" class="w-4 h-4 text-amber-400"></i>
@@ -5212,10 +5244,53 @@
         </button>
       </div>
 
-      <!-- TAB 1: LEADS CONTENT -->
-      <div id="adminLeadsTabContent" class="flex-1 flex flex-col overflow-hidden">
+      <!-- TAB 1: PROJECTS MANAGEMENT CONTENT (DEFAULT VISIBLE) -->
+      <div id="adminProjectsTabContent" class="flex-1 flex flex-col overflow-hidden">
+        <!-- Action Bar for Projects -->
+        <div class="p-4 bg-royal-950/80 border-b border-white/5 flex flex-wrap items-center justify-between gap-3 text-xs shrink-0">
+          <div class="flex items-center gap-2 flex-1 max-w-sm">
+            <div class="relative w-full">
+              <i data-lucide="search" class="w-3.5 h-3.5 absolute left-3 top-2.5 text-slate-400"></i>
+              <input type="text" id="adminProjectSearchInput" oninput="renderAdminProjects()" placeholder="Search project by title, city, or category..." class="w-full bg-royal-900 border border-white/15 rounded-lg pl-8 pr-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-gold-400">
+            </div>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <button onclick="openAddProjectModal()" class="px-3.5 py-2 rounded-lg bg-gold-500 hover:bg-gold-400 text-xs font-bold text-royal-950 flex items-center gap-1.5 transition-colors shadow-sm">
+              <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i> Naya Project Jodein
+            </button>
+            <button onclick="restoreAllDeletedProjects()" class="text-xs text-slate-400 hover:text-gold-300 underline px-2" title="Restore any deleted default projects">
+              Restore Deleted Projects
+            </button>
+          </div>
+        </div>
+
+        <!-- Projects Table Container -->
+        <div class="flex-1 overflow-y-auto p-4 sm:p-6">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs text-slate-300">
+              <thead class="bg-royal-950 uppercase text-[10px] tracking-wider text-slate-400 border-b border-white/10">
+                <tr>
+                  <th class="py-3 px-3">Project Title</th>
+                  <th class="py-3 px-3">Category</th>
+                  <th class="py-3 px-3">City & Locality</th>
+                  <th class="py-3 px-3">Configuration & Area</th>
+                  <th class="py-3 px-3">Price</th>
+                  <th class="py-3 px-3">Status</th>
+                  <th class="py-3 px-3 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="adminProjectsTableBody" class="divide-y divide-white/5">
+                <!-- Dynamically populated via renderAdminProjects() -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: LEADS CONTENT (HIDDEN BY DEFAULT) -->
+      <div id="adminLeadsTabContent" class="hidden flex-1 flex flex-col overflow-hidden">
         <!-- Admin KPI Counters -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 p-5 bg-royal-900/60 border-b border-white/5 text-xs">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 p-5 bg-royal-900/60 border-b border-white/5 text-xs shrink-0">
           <div class="p-3 rounded-xl bg-royal-950 border border-white/10">
             <span class="text-slate-400 block text-[10px] uppercase">Total Captured Leads</span>
             <strong id="kpiTotalLeads" class="text-xl font-display text-white">0</strong>
@@ -5235,7 +5310,7 @@
         </div>
 
         <!-- Filter / Search Row -->
-        <div class="p-4 bg-royal-950/80 border-b border-white/5 flex flex-wrap items-center justify-between gap-3 text-xs">
+        <div class="p-4 bg-royal-950/80 border-b border-white/5 flex flex-wrap items-center justify-between gap-3 text-xs shrink-0">
           <div class="flex items-center gap-2 flex-1 max-w-sm">
             <div class="relative w-full">
               <i data-lucide="search" class="w-3.5 h-3.5 absolute left-3 top-2.5 text-slate-400"></i>
@@ -5260,7 +5335,7 @@
         </div>
 
         <!-- Lead Table Container -->
-        <div class="flex-1 overflow-y-auto p-4">
+        <div class="flex-1 overflow-y-auto p-4 sm:p-6">
           <div class="overflow-x-auto">
             <table class="w-full text-left text-xs text-slate-300">
               <thead class="bg-royal-950 uppercase text-[10px] tracking-wider text-slate-400 border-b border-white/10">
@@ -5277,49 +5352,6 @@
               </thead>
               <tbody id="adminLeadTableBody" class="divide-y divide-white/5">
                 <!-- Dynamically populated via JS -->
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <!-- TAB 2: PROJECTS MANAGEMENT CONTENT -->
-      <div id="adminProjectsTabContent" class="hidden flex-1 flex flex-col overflow-hidden">
-        <!-- Action Bar for Projects -->
-        <div class="p-4 bg-royal-950/80 border-b border-white/5 flex flex-wrap items-center justify-between gap-3 text-xs">
-          <div class="flex items-center gap-2 flex-1 max-w-sm">
-            <div class="relative w-full">
-              <i data-lucide="search" class="w-3.5 h-3.5 absolute left-3 top-2.5 text-slate-400"></i>
-              <input type="text" id="adminProjectSearchInput" oninput="renderAdminProjects()" placeholder="Search project by title, city, or category..." class="w-full bg-royal-900 border border-white/15 rounded-lg pl-8 pr-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-gold-400">
-            </div>
-          </div>
-          <div class="flex items-center gap-2.5">
-            <button onclick="openAddProjectModal()" class="px-3.5 py-2 rounded-lg bg-gold-500 hover:bg-gold-400 text-xs font-bold text-royal-950 flex items-center gap-1.5 transition-colors">
-              <i data-lucide="plus-circle" class="w-3.5 h-3.5"></i> Naya Project Jodein
-            </button>
-            <button onclick="restoreAllDeletedProjects()" class="text-xs text-slate-400 hover:text-gold-300 underline px-2" title="Restore any deleted default projects">
-              Restore Deleted Projects
-            </button>
-          </div>
-        </div>
-
-        <!-- Projects Table Container -->
-        <div class="flex-1 overflow-y-auto p-4">
-          <div class="overflow-x-auto">
-            <table class="w-full text-left text-xs text-slate-300">
-              <thead class="bg-royal-950 uppercase text-[10px] tracking-wider text-slate-400 border-b border-white/10">
-                <tr>
-                  <th class="py-3 px-3">Project Title</th>
-                  <th class="py-3 px-3">Category</th>
-                  <th class="py-3 px-3">City & Locality</th>
-                  <th class="py-3 px-3">Configuration & Area</th>
-                  <th class="py-3 px-3">Price</th>
-                  <th class="py-3 px-3">Status</th>
-                  <th class="py-3 px-3 text-right">Actions (OTP Protected)</th>
-                </tr>
-              </thead>
-              <tbody id="adminProjectsTableBody" class="divide-y divide-white/5">
-                <!-- Dynamically populated via renderAdminProjects() -->
               </tbody>
             </table>
           </div>
@@ -6665,6 +6697,7 @@
         if (errDiv) errDiv.classList.add('hidden');
         loginModal.classList.remove('hidden');
         loginModal.classList.add('flex');
+        loginModal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
         setTimeout(() => passInp?.focus(), 150);
       } else {
@@ -6677,6 +6710,7 @@
       if (loginModal) {
         loginModal.classList.add('hidden');
         loginModal.classList.remove('flex');
+        loginModal.style.display = 'none';
       }
       const anyModalOpen = document.querySelector('.modal-backdrop:not(.hidden)');
       if (!anyModalOpen) {
@@ -6722,17 +6756,24 @@
       if (loginModal) {
         loginModal.classList.add('hidden');
         loginModal.classList.remove('flex');
+        loginModal.style.display = 'none';
       }
 
       const modal = document.getElementById('adminModal');
       if (modal) {
         modal.classList.remove('hidden');
         modal.classList.add('flex');
+        modal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
         try {
-          switchAdminTab('leads');
+          switchAdminTab('projects');
         } catch (e) {
-          console.error('Error switching admin tab to leads:', e);
+          console.error('Error switching admin tab to projects:', e);
+        }
+        try {
+          renderAdminProjects();
+        } catch (e) {
+          console.error('Error rendering admin projects:', e);
         }
         try {
           updateAdminKPIs();
@@ -6744,11 +6785,6 @@
         } catch (e) {
           console.error('Error rendering admin leads:', e);
         }
-        try {
-          renderAdminProjects();
-        } catch (e) {
-          console.error('Error rendering admin projects:', e);
-        }
         if (window.lucide) lucide.createIcons();
       }
     }
@@ -6758,6 +6794,7 @@
       if (modal) {
         modal.classList.add('hidden');
         modal.classList.remove('flex');
+        modal.style.display = 'none';
       }
       const anyModalOpen = document.querySelector('.modal-backdrop:not(.hidden)');
       if (!anyModalOpen) {
@@ -7432,8 +7469,10 @@
         if (t.content) {
           if (k === tabName) {
             t.content.classList.remove('hidden');
+            t.content.style.display = 'flex';
           } else {
             t.content.classList.add('hidden');
+            t.content.style.display = 'none';
           }
         }
         if (t.btn) {
@@ -9571,6 +9610,16 @@
     runGajConverter('gaj');
     runEmiCalc();
     runRegistryCalc();
+
+    // URL Hash Auto-Open (#admin, #crm, #portal)
+    function checkAdminHash() {
+      const hash = (window.location.hash || '').toLowerCase();
+      if (hash === '#admin' || hash === '#crm' || hash === '#portal' || hash === '#adminportal') {
+        openAdminModal();
+      }
+    }
+    window.addEventListener('hashchange', checkAdminHash);
+    setTimeout(checkAdminHash, 250);
 
     if (window.lucide) {
       lucide.createIcons();
