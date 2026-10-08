@@ -4331,7 +4331,7 @@
   </div>
 
   <!-- ==================== ADMIN LOGIN MODAL ==================== -->
-  <div id="adminLoginModal" class="fixed inset-0 z-[100] hidden modal-backdrop flex items-center justify-center p-4 sm:p-6 overflow-y-auto" role="dialog" aria-modal="true">
+  <div id="adminLoginModal" class="fixed inset-0 z-[999998] hidden modal-backdrop flex items-center justify-center p-4 sm:p-6 overflow-y-auto" role="dialog" aria-modal="true" style="display: none;">
     <div class="fixed inset-0 bg-royal-950/85 backdrop-blur-md" onclick="closeAdminLoginModal()"></div>
 
     <div class="relative z-10 w-full max-w-md bg-royal-950 rounded-3xl border-2 border-gold-400/80 shadow-[0_0_50px_rgba(212,175,55,0.3)] p-6 sm:p-8 text-center text-white my-auto">
@@ -4353,14 +4353,14 @@
         Royal Rajasthan Properties CRM & Property Dashboard
       </p>
 
-      <!-- Login Form -->
-      <form id="adminLoginForm" onsubmit="handleAdminLogin(event)" class="space-y-4 text-left">
+      <!-- Login Form (Reload-Proof) -->
+      <form id="adminLoginForm" action="javascript:void(0);" onsubmit="handleAdminLogin(event); return false;" class="space-y-4 text-left">
         <div>
           <label class="block text-xs uppercase tracking-wider font-semibold text-gold-300 mb-1.5 font-display">
             Enter Admin Password:
           </label>
           <div class="relative">
-            <input type="password" id="adminPasswordInput" required placeholder="Apna secret password dalein..." class="w-full bg-royal-900 border border-white/20 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-gold-400 pr-11 font-mono">
+            <input type="password" id="adminPasswordInput" required placeholder="Apna secret password dalein..." onkeydown="if(event.key==='Enter'){event.preventDefault();handleAdminLogin(event);}" class="w-full bg-royal-900 border border-white/20 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-gold-400 pr-11 font-mono">
             <button type="button" onclick="togglePasswordVisibility('adminPasswordInput', this)" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-gold-400 p-1">
               <i data-lucide="eye" class="w-4 h-4"></i>
             </button>
@@ -4371,7 +4371,7 @@
           </div>
         </div>
 
-        <button type="submit" class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:from-gold-200 hover:to-gold-400 text-royal-950 font-bold text-xs uppercase tracking-wider shadow-gold-sm transition-all flex items-center justify-center gap-2">
+        <button type="button" onclick="handleAdminLogin(event)" class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:from-gold-200 hover:to-gold-400 text-royal-950 font-bold text-xs uppercase tracking-wider shadow-gold-sm transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-95">
           <i data-lucide="unlock" class="w-4 h-4"></i>
           <span>Unlock Admin Portal</span>
         </button>
@@ -5173,7 +5173,7 @@
   </div>
 
   <!-- ==================== 13 & 14. ADMIN LEAD DASHBOARD & CRM (SECURED FULL PAGE VIEW) ==================== -->
-  <div id="adminModal" class="fixed inset-0 z-[100] hidden bg-royal-950 flex flex-col w-screen h-screen min-h-screen max-w-none max-h-none overflow-hidden text-left" role="dialog" aria-modal="true">
+  <div id="adminModal" class="fixed inset-0 z-[999999] hidden bg-royal-950 flex flex-col w-full h-full min-h-screen max-w-none max-h-none overflow-hidden text-left" role="dialog" aria-modal="true" style="display: none;">
     <div class="w-full h-full flex flex-col bg-royal-950 text-left overflow-hidden">
       
       <!-- Admin Header (Full Screen Luxury Nav) -->
@@ -6075,7 +6075,8 @@
         const overrides = JSON.parse(localStorage.getItem('rrp_project_overrides') || '{}');
         const overriddenBase = propertiesData.map(p => overrides[p.id] ? { ...p, ...overrides[p.id] } : p);
         const combined = [...customProjects, ...overriddenBase];
-        return combined.filter(p => !deletedIds.includes(p.id));
+        const res = combined.filter(p => !deletedIds.includes(p.id));
+        return (res && res.length > 0) ? res : propertiesData;
       } catch (e) {
         return propertiesData;
       }
@@ -6686,6 +6687,12 @@
         backdrop.classList.remove('opacity-100');
       }
 
+      // If already logged in during this session, open dashboard directly!
+      if (sessionStorage.getItem('rrp_admin_logged_in') === 'true') {
+        showAdminDashboard();
+        return;
+      }
+
       const loginModal = document.getElementById('adminLoginModal');
       if (loginModal) {
         const passInp = document.getElementById('adminPasswordInput');
@@ -6697,7 +6704,8 @@
         if (errDiv) errDiv.classList.add('hidden');
         loginModal.classList.remove('hidden');
         loginModal.classList.add('flex');
-        loginModal.style.display = 'flex';
+        loginModal.style.setProperty('display', 'flex', 'important');
+        loginModal.style.zIndex = '999998';
         document.body.style.overflow = 'hidden';
         setTimeout(() => passInp?.focus(), 150);
       } else {
@@ -6710,7 +6718,7 @@
       if (loginModal) {
         loginModal.classList.add('hidden');
         loginModal.classList.remove('flex');
-        loginModal.style.display = 'none';
+        loginModal.style.setProperty('display', 'none', 'important');
       }
       const anyModalOpen = document.querySelector('.modal-backdrop:not(.hidden)');
       if (!anyModalOpen) {
@@ -6733,6 +6741,7 @@
 
     function handleAdminLogin(event) {
       if (event && event.preventDefault) event.preventDefault();
+      if (event && event.stopPropagation) event.stopPropagation();
       const input = document.getElementById('adminPasswordInput');
       const err = document.getElementById('adminLoginError');
       const entered = (input ? input.value : '').trim();
@@ -6740,6 +6749,7 @@
 
       // Accept configured password OR universal default '1234'
       if (entered === currentPass || entered === '1234') {
+        sessionStorage.setItem('rrp_admin_logged_in', 'true');
         closeAdminLoginModal();
         showAdminDashboard();
       } else {
@@ -6749,22 +6759,26 @@
           input.focus();
         }
       }
+      return false;
     }
 
     function showAdminDashboard() {
+      sessionStorage.setItem('rrp_admin_logged_in', 'true');
       const loginModal = document.getElementById('adminLoginModal');
       if (loginModal) {
         loginModal.classList.add('hidden');
         loginModal.classList.remove('flex');
-        loginModal.style.display = 'none';
+        loginModal.style.setProperty('display', 'none', 'important');
       }
 
       const modal = document.getElementById('adminModal');
       if (modal) {
         modal.classList.remove('hidden');
         modal.classList.add('flex');
-        modal.style.display = 'flex';
+        modal.style.setProperty('display', 'flex', 'important');
+        modal.style.zIndex = '999999';
         document.body.style.overflow = 'hidden';
+
         try {
           switchAdminTab('projects');
         } catch (e) {
@@ -6785,7 +6799,9 @@
         } catch (e) {
           console.error('Error rendering admin leads:', e);
         }
-        if (window.lucide) lucide.createIcons();
+        if (window.lucide) {
+          try { lucide.createIcons(); } catch (e) {}
+        }
       }
     }
 
@@ -6794,15 +6810,13 @@
       if (modal) {
         modal.classList.add('hidden');
         modal.classList.remove('flex');
-        modal.style.display = 'none';
+        modal.style.setProperty('display', 'none', 'important');
       }
-      const anyModalOpen = document.querySelector('.modal-backdrop:not(.hidden)');
-      if (!anyModalOpen) {
-        document.body.style.overflow = '';
-      }
+      document.body.style.overflow = '';
     }
 
     function adminLogout() {
+      sessionStorage.removeItem('rrp_admin_logged_in');
       closeAdminModal();
       closeAdminLoginModal();
       closeOtpModal();
