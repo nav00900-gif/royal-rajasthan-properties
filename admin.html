@@ -86,14 +86,14 @@
         Royal Rajasthan Properties • Lead Management & Controls
       </p>
 
-      <!-- Password Form -->
-      <form id="adminLoginForm" onsubmit="handleStandaloneLogin(event)" class="space-y-4 text-left">
+      <!-- Password Form (Reload-Proof) -->
+      <form id="adminLoginForm" action="javascript:void(0);" onsubmit="handleStandaloneLogin(event); return false;" class="space-y-4 text-left">
         <div>
           <label class="block text-xs uppercase tracking-wider font-semibold text-gold-300 mb-1.5 font-display">
             Enter Admin Password / PIN:
           </label>
           <div class="relative">
-            <input type="password" id="adminPasswordInput" required placeholder="Apna password dalein..." class="w-full bg-royal-950 border border-white/20 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-gold-400 pr-11 font-mono">
+            <input type="password" id="adminPasswordInput" required placeholder="Apna password dalein..." onkeydown="if(event.key==='Enter'){event.preventDefault();handleStandaloneLogin(event);}" class="w-full bg-royal-950 border border-white/20 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-gold-400 pr-11 font-mono">
             <button type="button" onclick="togglePasswordVisibility('adminPasswordInput', this)" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-gold-400 p-1">
               <i data-lucide="eye" class="w-4 h-4"></i>
             </button>
@@ -104,7 +104,7 @@
           </div>
         </div>
 
-        <button type="submit" class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:from-gold-200 hover:to-gold-400 text-royal-950 font-bold text-xs uppercase tracking-wider shadow-gold-sm transition-all flex items-center justify-center gap-2">
+        <button type="button" onclick="handleStandaloneLogin(event)" class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:from-gold-200 hover:to-gold-400 text-royal-950 font-bold text-xs uppercase tracking-wider shadow-gold-sm transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-95">
           <i data-lucide="unlock" class="w-4 h-4"></i>
           <span>Unlock Admin Portal</span>
         </button>
@@ -603,7 +603,8 @@
         const overrides = JSON.parse(localStorage.getItem('rrp_project_overrides') || '{}');
         const overriddenBase = defaultPropertiesData.map(p => overrides[p.id] ? { ...p, ...overrides[p.id] } : p);
         const combined = [...customProjects, ...overriddenBase];
-        return combined.filter(p => !deletedIds.includes(p.id));
+        const res = combined.filter(p => !deletedIds.includes(p.id));
+        return (res && res.length > 0) ? res : defaultPropertiesData;
       } catch (e) {
         return defaultPropertiesData;
       }
@@ -623,7 +624,8 @@
     }
 
     function handleStandaloneLogin(e) {
-      if (e) e.preventDefault();
+      if (e && e.preventDefault) e.preventDefault();
+      if (e && e.stopPropagation) e.stopPropagation();
       const entered = (document.getElementById('adminPasswordInput')?.value || '').trim();
       const currentPass = getAdminPassword();
       if (entered === currentPass || entered === '1234') {
@@ -632,8 +634,13 @@
       } else {
         const err = document.getElementById('adminLoginError');
         if (err) err.classList.remove('hidden');
-        document.getElementById('adminPasswordInput')?.classList.add('border-red-500');
+        const passInp = document.getElementById('adminPasswordInput');
+        if (passInp) {
+          passInp.classList.add('border-red-500');
+          passInp.focus();
+        }
       }
+      return false;
     }
 
     function handleStandaloneLogout() {
@@ -642,15 +649,44 @@
     }
 
     function unlockDashboard() {
-      document.getElementById('adminLoginScreen').classList.add('hidden');
+      sessionStorage.setItem(SESSION_AUTH_KEY, 'true');
+      const loginScr = document.getElementById('adminLoginScreen');
+      if (loginScr) {
+        loginScr.classList.add('hidden');
+        loginScr.classList.remove('flex');
+        loginScr.style.setProperty('display', 'none', 'important');
+      }
+
       const dash = document.getElementById('adminMainDashboard');
-      dash.classList.remove('hidden');
-      dash.classList.add('flex');
-      switchAdminTab('projects');
-      renderAdminProjects();
-      renderAdminLeads();
-      loadSettingsToInputs();
-      if (window.lucide) lucide.createIcons();
+      if (dash) {
+        dash.classList.remove('hidden');
+        dash.classList.add('flex');
+        dash.style.setProperty('display', 'flex', 'important');
+      }
+
+      try {
+        switchAdminTab('projects');
+      } catch (err) {
+        console.error('Error switching tab:', err);
+      }
+      try {
+        renderAdminProjects();
+      } catch (err) {
+        console.error('Error rendering projects:', err);
+      }
+      try {
+        renderAdminLeads();
+      } catch (err) {
+        console.error('Error rendering leads:', err);
+      }
+      try {
+        loadSettingsToInputs();
+      } catch (err) {
+        console.error('Error loading settings:', err);
+      }
+      if (window.lucide) {
+        try { lucide.createIcons(); } catch (err) {}
+      }
     }
 
     function switchAdminTab(tabName) {
@@ -841,20 +877,28 @@
     }
 
     function loadSettingsToInputs() {
-      const savedConfig = JSON.parse(localStorage.getItem('rrp_site_config') || '{}');
-      if (savedConfig.whatsapp) document.getElementById('adminSettingWhatsApp').value = savedConfig.whatsapp;
-      if (savedConfig.phone) document.getElementById('adminSettingPhone').value = savedConfig.phone;
-      if (savedConfig.email) document.getElementById('adminSettingEmail').value = savedConfig.email;
-      if (savedConfig.hours) document.getElementById('adminSettingHours').value = savedConfig.hours;
-      if (savedConfig.address) document.getElementById('adminSettingAddress').value = savedConfig.address;
-      if (savedConfig.announcement) document.getElementById('adminSettingAnnouncement').value = savedConfig.announcement;
+      try {
+        const savedConfig = JSON.parse(localStorage.getItem('rrp_site_config') || '{}');
+        const setVal = (id, val) => {
+          const el = document.getElementById(id);
+          if (el && val !== undefined && val !== null) el.value = val;
+        };
+        if (savedConfig.whatsapp) setVal('adminSettingWhatsApp', savedConfig.whatsapp);
+        if (savedConfig.phone) setVal('adminSettingPhone', savedConfig.phone);
+        if (savedConfig.email) setVal('adminSettingEmail', savedConfig.email);
+        if (savedConfig.hours) setVal('adminSettingHours', savedConfig.hours);
+        if (savedConfig.address) setVal('adminSettingAddress', savedConfig.address);
+        if (savedConfig.announcement) setVal('adminSettingAnnouncement', savedConfig.announcement);
 
-      const savedProfile = JSON.parse(localStorage.getItem('rrp_consultant_profile') || '{}');
-      if (savedProfile.name) document.getElementById('adminProfileName').value = savedProfile.name;
-      if (savedProfile.title) document.getElementById('adminProfileTitle').value = savedProfile.title;
-      if (savedProfile.phone) document.getElementById('adminProfilePhone').value = savedProfile.phone;
-      if (savedProfile.whatsapp) document.getElementById('adminProfileWhatsApp').value = savedProfile.whatsapp;
-      if (savedProfile.bio) document.getElementById('adminProfileBio').value = savedProfile.bio;
+        const savedProfile = JSON.parse(localStorage.getItem('rrp_consultant_profile') || '{}');
+        if (savedProfile.name) setVal('adminProfileName', savedProfile.name);
+        if (savedProfile.title) setVal('adminProfileTitle', savedProfile.title);
+        if (savedProfile.phone) setVal('adminProfilePhone', savedProfile.phone);
+        if (savedProfile.whatsapp) setVal('adminProfileWhatsApp', savedProfile.whatsapp);
+        if (savedProfile.bio) setVal('adminProfileBio', savedProfile.bio);
+      } catch (err) {
+        console.warn('loadSettingsToInputs warning:', err);
+      }
     }
 
     function saveSiteConfigFromAdmin(e) {
