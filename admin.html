@@ -841,8 +841,30 @@
     }
 
     function openAddProjectModal() {
-      alert('Naya Project jodne ke liye main website par Admin Portal par click karein.');
-      window.location.href = 'index.html#admin';
+      const title = prompt('Naye Project ka Title / Naam dalein:');
+      if (!title || !title.trim()) return;
+      const cat = prompt('Category (Plots / Commercial / Residential / Villa):', 'Plots');
+      const city = prompt('City:', 'Jaipur');
+      const locality = prompt('Locality / Address:', 'Jaipur, Rajasthan');
+      const config = prompt('Configuration (e.g. 100, 150, 200 Gaj Plots):', '100, 150 & 200 Gaj');
+      const price = prompt('Price Display Label (e.g. ₹26,950 / Gaj):', '₹26,950 / Gaj');
+      const newProj = {
+        id: 'prop-custom-' + Date.now(),
+        title: title.trim(),
+        category: cat || 'Plots',
+        city: city || 'Jaipur',
+        locality: locality || 'Jaipur',
+        config: config || 'Plots',
+        area: 'All Sizes',
+        priceLabel: price || 'Price on Request',
+        status: 'Booking Open',
+        image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80'
+      };
+      const customProjects = JSON.parse(localStorage.getItem('rrp_custom_projects') || '[]');
+      customProjects.unshift(newProj);
+      localStorage.setItem('rrp_custom_projects', JSON.stringify(customProjects));
+      renderAdminProjects();
+      alert('Naya Project safalta-purvak add ho gaya!');
     }
 
     function openChangePasswordModal() {
@@ -854,8 +876,12 @@
     }
 
     function openGoogleSheetsSetup() {
-      alert('Google Sheets webhook setup ke liye main website par Admin Portal open karein.');
-      window.location.href = 'index.html#admin';
+      const currentUrl = localStorage.getItem('rrp_google_sheets_webhook') || '';
+      const newUrl = prompt('Apna Google Sheets Webhook AppScript URL dalein:', currentUrl);
+      if (newUrl !== null) {
+        localStorage.setItem('rrp_google_sheets_webhook', newUrl.trim());
+        alert('Google Sheets Webhook URL update ho gaya!');
+      }
     }
 
     function exportLeadsToCSV() {
