@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
@@ -596,388 +596,406 @@
   </aside>
   </header>
 
-  <!-- ==================== 2. HERO SECTION ==================== -->
-  <section id="hero" class="relative min-h-[92vh] flex items-center justify-center bg-royal-gradient text-white overflow-hidden">
+    <!-- ==================== 2. HERO SECTION WITH VISIBLE ENQUIRY FORM (ABOVE THE FOLD) ==================== -->
+  <section id="hero" class="relative min-h-[92vh] flex items-center justify-center bg-royal-gradient text-white overflow-hidden py-10 lg:py-16">
     <!-- Cinematic Luxury Hero Background -->
     <div class="absolute inset-0 z-0">
-      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80" alt="Rajasthan Luxury Villa Architecture" class="w-full h-full object-cover object-center opacity-25 scale-105 transition-transform duration-1000 ease-out">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80" alt="Rajasthan Luxury Real Estate Architecture" class="w-full h-full object-cover object-center opacity-25 scale-105 transition-transform duration-1000 ease-out">
       <div class="absolute inset-0 bg-gradient-to-t from-royal-950 via-royal-900/80 to-royal-950/90"></div>
       <div class="absolute inset-0 bg-jali-pattern opacity-35 pointer-events-none"></div>
     </div>
 
-    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
-      
-      <!-- Official Grand Brand Logo Showcase in Hero (Click to Enlarge) -->
-      <div class="mb-6 flex justify-center">
-        <div onclick="openLogoModal();" class="cursor-pointer inline-flex flex-col sm:flex-row items-center gap-4 bg-white/95 backdrop-blur-md px-6 py-3.5 rounded-3xl border-2 border-gold-400 shadow-gold-glow hover:scale-105 hover:border-gold-300 transition-all duration-300 group" title="Click to view full large logo">
-          <div class="relative">
-            <img src="logo.png" alt="Royal Rajasthan Properties Official Logo" class="h-20 sm:h-24 w-auto object-contain">
-            <span class="absolute -bottom-1 -right-1 bg-royal-950/90 text-gold-400 p-1 rounded-full shadow border border-gold-400/40 text-[10px] flex items-center justify-center opacity-80 group-hover:opacity-100 transition-opacity">
-              <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
-            </span>
-          </div>
-          <div class="text-left hidden sm:block border-l border-gold-400/40 pl-4">
-            <span class="font-display font-bold text-lg text-royal-950 block tracking-wider leading-tight">ROYAL RAJASTHAN</span>
-            <span class="text-xs font-bold text-gold-700 uppercase tracking-[0.25em] block">PROPERTIES</span>
-            <span class="text-[10px] text-slate-600 font-serif italic block mt-0.5">Your Dream • Our Priority</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Regal Emblem Badge -->
-      <div class="inline-flex max-w-[92vw] sm:max-w-full flex-wrap justify-center items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 rounded-2xl sm:rounded-full bg-royal-800/85 border border-gold-500/40 shadow-gold-sm text-[10px] sm:text-xs font-medium text-gold-300 mb-6 sm:mb-8 backdrop-blur-sm text-center">
-        <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse shrink-0"></span>
-        <span class="tracking-widest uppercase text-[10px] sm:text-[11px] font-display">Rajasthan's Premier Property Advisory</span>
-        <span class="hidden sm:inline text-gold-600">|</span>
-        <span class="text-[10px] sm:text-xs text-sand-300">Jaipur • Jodhpur • Udaipur • Kota • Ajmer</span>
-      </div>
-
-      <!-- Primary Headline -->
-      <h1 class="font-serif font-medium text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight text-white leading-[1.15]">
-        Discover Exceptional <br>
-        <span class="font-display text-gold-gradient font-bold">Real Estate Across Rajasthan</span>
-      </h1>
-
-      <!-- Supporting Message -->
-      <p class="mt-6 text-base sm:text-lg md:text-xl text-sand-200 max-w-3xl mx-auto font-light leading-relaxed">
-        Explore premium properties, discover the right investment, and connect with our real-estate experts. Tailored advisory for families, investors, luxury buyers, and first-time homeowners.
-      </p>
-
-      <!-- Three Core CTAs (Explore Properties, Find My Property, Ask AI Property Concierge) -->
-      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#projects" class="w-full sm:w-auto px-8 py-4 rounded-xl text-xs sm:text-sm font-semibold uppercase tracking-wider text-royal-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:from-gold-200 hover:to-gold-400 shadow-gold-glow hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2">
-          <span>Explore Properties</span>
-          <i data-lucide="arrow-right" class="w-4 h-4"></i>
-        </a>
-        <a href="#budget-match" class="w-full sm:w-auto px-8 py-4 rounded-xl text-xs sm:text-sm font-semibold uppercase tracking-wider text-gold-200 bg-royal-800/80 hover:bg-royal-700/80 border border-gold-500/40 shadow-sm transition-all duration-300 flex items-center justify-center gap-2">
-          <i data-lucide="calculator" class="w-4 h-4 text-gold-400"></i>
-          <span>Find My Property</span>
-        </a>
-        <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20am%20exploring%20properties%20on%20Royal%20Rajasthan%20Properties%20website.%20Please%20guide%20me." target="_blank" class="w-full sm:w-auto px-7 py-4 rounded-xl text-xs sm:text-sm font-semibold uppercase tracking-wider text-emerald-300 bg-emerald-950/60 hover:bg-emerald-900/60 border border-emerald-500/40 backdrop-blur-sm transition-all duration-300 flex items-center justify-center gap-2">
-          <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
-          <span>WhatsApp Consultation</span>
-        </a>
-      </div>
-
-      <!-- Quick Search / Filter Bar -->
-      <div class="mt-14 max-w-4xl mx-auto p-3 rounded-2xl bg-royal-900/90 border border-gold-subtle shadow-2xl backdrop-blur-md">
-        <div class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-3 text-left">
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        <!-- LEFT COLUMN: HEADLINE, DESCRIPTION, TRUST BADGES & ACTIONS (7 cols) -->
+        <div class="lg:col-span-7 text-left space-y-6">
           
-          <!-- Location Filter -->
-          <div class="p-3 rounded-xl bg-royal-950/80 border border-white/10">
-            <label class="block text-[10px] uppercase tracking-wider font-semibold text-gold-400 mb-1">Location</label>
-            <select id="heroLocationSelect" class="w-full bg-transparent text-sm text-white focus:outline-none cursor-pointer">
-              <option value="all" class="bg-royal-900">All Rajasthan</option>
-              <option value="Jaipur" class="bg-royal-900" selected>Jaipur (Primary)</option>
-              <option value="Jodhpur" class="bg-royal-900">Jodhpur</option>
-              <option value="Udaipur" class="bg-royal-900">Udaipur</option>
-              <option value="Kota" class="bg-royal-900">Kota</option>
-              <option value="Ajmer" class="bg-royal-900">Ajmer</option>
-            </select>
+          <!-- Official Brand Badge -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-royal-800/90 border border-gold-500/40 text-gold-300 text-xs font-semibold uppercase tracking-wider backdrop-blur-sm shadow-gold-sm">
+            <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse shrink-0"></span>
+            <span class="tracking-widest uppercase font-display">Premier Luxury Realty Advisory</span>
+            <span class="text-gold-600 hidden sm:inline">|</span>
+            <span class="text-sand-300 text-[11px] hidden sm:inline">Jaipur â€¢ Udaipur â€¢ Jodhpur</span>
           </div>
 
-          <!-- Type Filter -->
-          <div class="p-3 rounded-xl bg-royal-950/80 border border-white/10">
-            <label class="block text-[10px] uppercase tracking-wider font-semibold text-gold-400 mb-1">Property Type</label>
-            <select id="heroTypeSelect" class="w-full bg-transparent text-sm text-white focus:outline-none cursor-pointer">
-              <option value="all" class="bg-royal-900">All Categories</option>
-              <option value="Villa" class="bg-royal-900">Luxury Villas</option>
-              <option value="Residential" class="bg-royal-900">Residential Apartments</option>
-              <option value="Plots" class="bg-royal-900">Gated Plots</option>
-              <option value="Commercial" class="bg-royal-900">Commercial Spaces</option>
-            </select>
+          <!-- Main Headline -->
+          <h1 class="font-serif font-medium text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.12]">
+            Find Your Dream Property in <br>
+            <span class="font-display text-gold-gradient font-bold">Jaipur & Rajasthan</span>
+          </h1>
+
+          <!-- Supporting Text -->
+          <p class="text-sand-200 text-base sm:text-lg font-light leading-relaxed max-w-2xl">
+            Explore residential properties, commercial spaces, premium plots, villas, and township projects with Royal Rajasthan Properties. Verified legal titles, direct developer pricing, and dedicated senior advisory.
+          </p>
+
+          <!-- Key Trust Indicators -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-xs text-sand-300">
+            <div class="flex items-center gap-2 p-2.5 rounded-xl bg-royal-900/70 border border-white/10">
+              <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+              <span>100% RERA / JDA Verified</span>
+            </div>
+            <div class="flex items-center gap-2 p-2.5 rounded-xl bg-royal-900/70 border border-white/10">
+              <i data-lucide="badge-percent" class="w-4 h-4 text-gold-400 shrink-0"></i>
+              <span>Zero Brokerage Direct</span>
+            </div>
+            <div class="flex items-center gap-2 p-2.5 rounded-xl bg-royal-900/70 border border-white/10 col-span-2 sm:col-span-1">
+              <i data-lucide="car" class="w-4 h-4 text-amber-400 shrink-0"></i>
+              <span>Free VIP Cab Visit</span>
+            </div>
           </div>
 
-          <!-- Budget Filter -->
-          <div class="p-3 rounded-xl bg-royal-950/80 border border-white/10">
-            <label class="block text-[10px] uppercase tracking-wider font-semibold text-gold-400 mb-1">Approx. Budget</label>
-            <select id="heroBudgetSelect" class="w-full bg-transparent text-sm text-white focus:outline-none cursor-pointer">
-              <option value="all" class="bg-royal-900">Any Budget</option>
-              <option value="50L" class="bg-royal-900">Under ₹50 Lakh</option>
-              <option value="1Cr" class="bg-royal-900">₹50 Lakh – ₹1 Crore</option>
-              <option value="2Cr" class="bg-royal-900">₹1 Crore – ₹2 Crore</option>
-              <option value="5Cr" class="bg-royal-900">₹2 Crore – ₹5 Crore</option>
-              <option value="5Cr+" class="bg-royal-900">₹5 Crore+</option>
-            </select>
+          <!-- Contact / Instant Action CTAs -->
+          <div class="pt-2 flex flex-wrap items-center gap-3">
+            <a href="tel:+919461812342" class="px-5 py-3 rounded-xl bg-royal-900 hover:bg-royal-850 border border-gold-500/50 text-gold-300 font-bold text-xs uppercase tracking-wider flex items-center gap-2 transition-all">
+              <i data-lucide="phone-call" class="w-4 h-4 text-gold-400"></i>
+              <span>Call: +91 94618 12342</span>
+            </a>
+            <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20am%20exploring%20properties%20on%20Royal%20Rajasthan%20Properties." target="_blank" rel="noopener" class="px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-lg transition-all">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>
+              <span>WhatsApp Consultation</span>
+            </a>
+            <a href="/projects/index.html" class="px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs uppercase tracking-wider flex items-center gap-1.5 transition-colors">
+              <span>View All Projects</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
           </div>
 
-          <!-- Search Button -->
-          <div class="flex items-end">
-            <button onclick="applyHeroFilters()" class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-gold-400 to-gold-600 text-royal-950 font-semibold text-xs uppercase tracking-wider hover:brightness-110 shadow-gold-sm transition-all flex items-center justify-center gap-1.5">
-              <i data-lucide="search" class="w-4 h-4"></i>
-              <span>Find Matches</span>
-            </button>
-          </div>
+        </div>
 
+        <!-- RIGHT COLUMN: PROMINENT ENQUIRY FORM (ABOVE THE FOLD) (5 cols) -->
+        <div id="hero-enquiry" class="lg:col-span-5 w-full">
+          <div class="bg-royal-900/95 border-2 border-gold-400 rounded-3xl p-6 sm:p-7 shadow-[0_0_50px_rgba(197,160,89,0.25)] backdrop-blur-md relative">
+            
+            <div class="mb-4 pb-3 border-b border-white/10">
+              <span class="text-[10px] uppercase font-bold text-gold-400 tracking-wider flex items-center gap-1">
+                <i data-lucide="sparkles" class="w-3 h-3 text-gold-400"></i> Direct Senior Advisory Desk
+              </span>
+              <h2 class="font-serif text-xl sm:text-2xl font-bold text-white mt-1">
+                Enquire About Verified Properties
+              </h2>
+              <p class="text-xs text-sand-300 mt-0.5">
+                Immediate callback & official price brochures
+              </p>
+            </div>
+
+            <!-- Reload-Proof Enquiry Form -->
+            <form id="leadForm" onsubmit="handleLeadSubmit(event)" class="space-y-3.5 text-left">
+              
+              <!-- Full Name (Required) -->
+              <div>
+                <label for="leadName" class="block text-[11px] font-semibold text-slate-300 uppercase tracking-wider mb-1">
+                  Full Name <span class="text-gold-400">*</span>
+                </label>
+                <input type="text" id="leadName" required placeholder="Aapka Poora Naam..." class="w-full bg-royal-950 border border-white/20 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-gold-400 transition-colors">
+              </div>
+
+              <!-- Mobile Number (Required) -->
+              <div>
+                <label for="leadPhone" class="block text-[11px] font-semibold text-slate-300 uppercase tracking-wider mb-1">
+                  Mobile / WhatsApp Number <span class="text-gold-400">*</span>
+                </label>
+                <div class="relative">
+                  <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-xs text-gold-400 font-mono">+91</span>
+                  <input type="tel" id="leadPhone" required maxlength="10" pattern="[0-9]{10}" placeholder="10-digit Mobile Number" class="w-full bg-royal-950 border border-white/20 rounded-xl pl-12 pr-3.5 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-gold-400 font-mono transition-colors">
+                </div>
+              </div>
+
+              <!-- Two Column: Property Type & Preferred Location -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <!-- Property Type (Dropdown) -->
+                <div>
+                  <label for="leadType" class="block text-[11px] font-semibold text-slate-300 uppercase tracking-wider mb-1">
+                    Property Type
+                  </label>
+                  <select id="leadType" class="w-full bg-royal-950 border border-white/20 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-gold-400 cursor-pointer">
+                    <option value="Township Project">Township Project (300 Bigha)</option>
+                    <option value="Residential Plot">Residential Plot</option>
+                    <option value="Commercial Plot">Commercial Plot</option>
+                    <option value="Villa">Luxury Villa</option>
+                    <option value="Residential">Residential Apartment</option>
+                    <option value="Commercial">Commercial Space</option>
+                  </select>
+                </div>
+
+                <!-- Preferred Location -->
+                <div>
+                  <label for="leadLocation" class="block text-[11px] font-semibold text-slate-300 uppercase tracking-wider mb-1">
+                    Preferred Location
+                  </label>
+                  <select id="leadLocation" class="w-full bg-royal-950 border border-white/20 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-gold-400 cursor-pointer">
+                    <option value="Jaipur">Jaipur (Primary)</option>
+                    <option value="Diggi Road Corridor">Diggi Road (Knowledge City)</option>
+                    <option value="Ajmer Road Corridor">Ajmer Highway Corridor</option>
+                    <option value="Tonk Road Corridor">Tonk Road Corridor</option>
+                    <option value="Jagatpura / Mansarovar">Jagatpura / Mansarovar</option>
+                    <option value="Udaipur">Udaipur</option>
+                    <option value="Jodhpur">Jodhpur</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Budget Range Dropdown -->
+              <div>
+                <label for="leadBudget" class="block text-[11px] font-semibold text-slate-300 uppercase tracking-wider mb-1">
+                  Budget Range
+                </label>
+                <select id="leadBudget" class="w-full bg-royal-950 border border-white/20 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-gold-400 cursor-pointer">
+                  <option value="Under 25 Lakh">Under â‚¹25 Lakh</option>
+                  <option value="25 Lakh - 50 Lakh" selected>â‚¹25 Lakh â€“ â‚¹50 Lakh</option>
+                  <option value="50 Lakh - 1 Crore">â‚¹50 Lakh â€“ â‚¹1 Crore</option>
+                  <option value="1 Crore - 2.5 Crore">â‚¹1 Crore â€“ â‚¹2.5 Crore</option>
+                  <option value="2.5 Crore+">â‚¹2.5 Crore+ (Ultra Luxury)</option>
+                </select>
+              </div>
+
+              <!-- Message (Optional) -->
+              <div>
+                <label for="leadMessage" class="block text-[11px] font-semibold text-slate-300 uppercase tracking-wider mb-1">
+                  Message / Special Request (Optional)
+                </label>
+                <input type="text" id="leadMessage" placeholder="e.g. Free site visit, payment plan, loan enquiry..." class="w-full bg-royal-950 border border-white/20 rounded-xl px-3.5 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-gold-400 transition-colors">
+              </div>
+
+              <!-- Hidden Helper Inputs for backward compatibility with handleLeadSubmit -->
+              <input type="hidden" id="leadEmail" value="">
+              <input type="hidden" id="leadPurpose" value="Investment / End-use">
+              <input type="hidden" id="leadProject" value="General Advisory / Jaipur">
+              <input type="hidden" id="leadCallbackTime" value="Immediate / Today">
+
+              <!-- Consent Checkbox -->
+              <div class="flex items-start gap-2 pt-1 text-[11px] text-slate-400">
+                <input type="checkbox" id="leadConsent" checked required class="mt-0.5 rounded border-white/20 text-gold-500 focus:ring-0 cursor-pointer">
+                <label for="leadConsent" class="cursor-pointer">
+                  I agree to be contacted via WhatsApp/Phone by Royal Rajasthan Properties regarding verified properties and site visits.
+                </label>
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" id="leadSubmitBtn" class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:from-gold-200 hover:to-gold-400 text-royal-950 font-bold text-xs uppercase tracking-wider shadow-gold-sm transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-95">
+                <i data-lucide="send" class="w-4 h-4"></i>
+                <span>Submit Enquiry</span>
+              </button>
+
+            </form>
+
+            <!-- Success Banner (Hidden by default, shown by handleLeadSubmit) -->
+            <div id="leadSuccessBanner" class="hidden mt-4 p-4 rounded-2xl bg-emerald-950/90 border border-emerald-500/50 text-emerald-200 text-xs text-center space-y-2">
+              <div class="flex items-center justify-center gap-1.5 text-emerald-400 font-bold">
+                <i data-lucide="check-circle" class="w-4 h-4"></i>
+                <span>Enquiry Submitted Successfully!</span>
+              </div>
+              <p class="text-[11px] text-slate-300">Senior Consultant Navratan Kumawat will connect with you shortly.</p>
+              <div class="pt-2 flex items-center justify-center gap-2">
+                <a id="instantWhatsAppBtn" href="https://wa.me/919461812342" target="_blank" class="px-3 py-1.5 rounded-lg bg-emerald-600 text-white font-bold text-[11px] flex items-center gap-1">
+                  <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                  <span>WhatsApp Chat</span>
+                </a>
+                <a id="thankYouRedirectBtn" href="/thank-you.html" class="px-3 py-1.5 rounded-lg bg-white/10 text-white text-[11px] font-medium hover:bg-white/20">
+                  <span>View Receipt Desk â†’</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 3. PROPERTY SEARCH AND FILTER SECTION ==================== -->
+  <section id="search-filters" class="py-8 bg-royal-900 border-y border-gold-900/60 sticky top-20 z-30 backdrop-blur-md shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-gold-400 flex items-center gap-1">
+            <i data-lucide="filter" class="w-3 h-3 text-gold-400"></i> Quick Discovery Filter
+          </span>
+          <h2 class="font-serif text-lg sm:text-xl font-bold text-white">Find Properties by Exact Criteria</h2>
+        </div>
+        <div class="text-[11px] text-slate-400 hidden sm:block">
+          Lodha & Square Yards Inspired Search Experience
         </div>
       </div>
 
-      <!-- Trust Pillars Under Hero -->
-      <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 text-left border-t border-gold-900/40 pt-8">
-        <div class="flex items-start gap-3">
-          <div class="p-2 rounded-lg bg-royal-800 text-gold-400 shrink-0"><i data-lucide="shield-check" class="w-5 h-5"></i></div>
-          <div>
-            <h4 class="text-xs font-semibold text-white uppercase tracking-wider font-display">100% RERA Verified</h4>
-            <p class="text-[11px] text-slate-400">Strict regulatory due diligence</p>
-          </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        <!-- Keyword Search -->
+        <div class="relative">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+          <input type="text" id="heroSearchInput" placeholder="Project name, corridor or road..." class="w-full bg-royal-950 border border-white/15 rounded-xl pl-10 pr-3.5 py-2.5 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-gold-400">
         </div>
-        <div class="flex items-start gap-3">
-          <div class="p-2 rounded-lg bg-royal-800 text-gold-400 shrink-0"><i data-lucide="gem" class="w-5 h-5"></i></div>
-          <div>
-            <h4 class="text-xs font-semibold text-white uppercase tracking-wider font-display">Curated Luxury</h4>
-            <p class="text-[11px] text-slate-400">Prime Jaipur & Rajasthan assets</p>
-          </div>
+
+        <!-- Location Dropdown -->
+        <div>
+          <select id="heroLocationSelect" class="w-full bg-royal-950 border border-white/15 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-gold-400 cursor-pointer">
+            <option value="all">All Rajasthan Locations</option>
+            <option value="Jaipur" selected>Jaipur (Primary)</option>
+            <option value="Udaipur">Udaipur</option>
+            <option value="Jodhpur">Jodhpur</option>
+            <option value="Kota">Kota</option>
+            <option value="Ajmer">Ajmer</option>
+          </select>
         </div>
-        <div class="flex items-start gap-3">
-          <div class="p-2 rounded-lg bg-royal-800 text-gold-400 shrink-0"><i data-lucide="user-check" class="w-5 h-5"></i></div>
-          <div>
-            <h4 class="text-xs font-semibold text-white uppercase tracking-wider font-display">Advisory Expertise</h4>
-            <p class="text-[11px] text-slate-400">Dedicated relationship managers</p>
-          </div>
+
+        <!-- Property Type Dropdown -->
+        <div>
+          <select id="heroTypeSelect" class="w-full bg-royal-950 border border-white/15 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-gold-400 cursor-pointer">
+            <option value="all">All Property Categories</option>
+            <option value="Plots">Residential & Commercial Plots</option>
+            <option value="Villa">Luxury Villas</option>
+            <option value="Residential">Residential Apartments</option>
+            <option value="Commercial">Commercial Boulevard Spaces</option>
+          </select>
         </div>
-        <div class="flex items-start gap-3">
-          <div class="p-2 rounded-lg bg-royal-800 text-gold-400 shrink-0"><i data-lucide="landmark" class="w-5 h-5"></i></div>
-          <div>
-            <h4 class="text-xs font-semibold text-white uppercase tracking-wider font-display">Investor Support</h4>
-            <p class="text-[11px] text-slate-400">NRI & institutional guidance</p>
-          </div>
+
+        <!-- Budget Dropdown + Search Button -->
+        <div class="flex items-center gap-2">
+          <select id="heroBudgetSelect" class="w-full bg-royal-950 border border-white/15 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-gold-400 cursor-pointer">
+            <option value="all">Any Budget Tier</option>
+            <option value="50L">Under â‚¹50 Lakh</option>
+            <option value="1Cr">â‚¹50 Lakh â€“ â‚¹1 Crore</option>
+            <option value="2Cr">â‚¹1 Crore â€“ â‚¹2 Crore</option>
+            <option value="5Cr">â‚¹2 Crore â€“ â‚¹5 Crore</option>
+            <option value="5Cr+">â‚¹5 Crore+ (Ultra Luxury)</option>
+          </select>
+          <button onclick="applyHeroFilters()" class="py-2.5 px-4 rounded-xl bg-gradient-to-r from-gold-400 to-gold-500 hover:from-gold-300 hover:to-gold-400 text-royal-950 font-bold text-xs uppercase tracking-wider shrink-0 transition-all shadow-gold-sm flex items-center gap-1.5 cursor-pointer">
+            <i data-lucide="search" class="w-3.5 h-3.5"></i>
+            <span>Search</span>
+          </button>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ==================== 2. DIRECT ADVISORY & INQUIRIES FORM (DIRECTLY AFTER INVESTOR SUPPORT) ==================== -->
-  <section id="contact" class="py-14 sm:py-18 bg-gradient-to-b from-royal-950 via-royal-900 to-royal-950 text-white relative overflow-hidden border-t-2 border-b border-gold-subtle">
-    <div id="callback" class="absolute -top-20"></div> <!-- Anchor support for #callback links -->
-    
-    <!-- Background Accents -->
-    <div class="absolute inset-0 bg-jali-pattern opacity-5 pointer-events-none"></div>
-    <div class="absolute top-0 right-1/4 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute bottom-0 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  <!-- ==================== 4. BROWSE BY PROPERTY CATEGORY ==================== -->
+  <section id="categories" class="py-16 md:py-24 bg-[#faf8f5] text-royal-950 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- Section Tag & Clean Heading (Concise, Low Keyword Count) -->
-      <div class="text-center max-w-3xl mx-auto mb-10">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-royal-800/90 border border-gold-500/40 text-gold-300 text-xs font-semibold uppercase tracking-widest mb-3 font-display shadow-sm">
-          <i data-lucide="message-square" class="w-4 h-4 text-gold-400"></i>
-          <span>Direct Advisory & Property Inquiry</span>
-        </div>
-        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-medium text-white tracking-tight">
-          Find Your <span class="text-gold-gradient font-display font-bold">Dream Property</span> in Rajasthan
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs uppercase font-bold text-gold-700 tracking-widest font-display block mb-2">
+          Curated Portfolios
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight">
+          Browse by <span class="text-gold-gradient font-display font-bold">Property Category</span>
         </h2>
-        <p class="mt-2.5 text-sand-200 text-sm sm:text-base font-light">
-          Share your requirement below or connect directly on WhatsApp with Senior Consultant <strong>Navratan Kumawat</strong> for verified properties, floor plans, and genuine pricing.
+        <p class="mt-3 text-slate-600 text-sm sm:text-base font-light">
+          Choose from verified residential plots, commercial avenues, luxury villas, and integrated mega townships across Rajasthan.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         
-        <!-- Left Advisor Card (4 cols) -->
-        <div class="lg:col-span-4 bg-royal-950/85 border border-gold-subtle rounded-3xl p-6 sm:p-7 space-y-5 shadow-xl backdrop-blur-md">
-          
-          <!-- Advisor Profile -->
-          <div class="flex items-center gap-4 pb-4 border-b border-white/10">
-            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-gold-500 to-amber-300 p-0.5 shadow-gold-sm shrink-0">
-              <div class="w-full h-full bg-royal-950 rounded-2xl flex items-center justify-center text-gold-400">
-                <i data-lucide="user-check" class="w-7 h-7"></i>
-              </div>
-            </div>
-            <div>
-              <span class="text-[10px] uppercase font-bold tracking-wider text-gold-400 block font-display">Senior Property Advisor</span>
-              <h3 class="font-serif text-lg font-bold text-white leading-tight">Navratan Kumawat</h3>
-              <p class="text-[11px] text-slate-400 mt-0.5">10+ Yrs Rajasthan Realty Experience</p>
-            </div>
+        <!-- Category 1: Residential Plots -->
+        <a href="/projects/residential-plots.html" class="group relative rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+          <div class="relative h-48 overflow-hidden bg-slate-900">
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80" alt="Residential Plots" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-royal-950/80 via-transparent to-transparent"></div>
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-gold-500 text-royal-950 text-[10px] font-bold uppercase tracking-wider">
+              From â‚¹26,950 / Gaj
+            </span>
           </div>
-
-          <!-- Direct Instant Action Buttons -->
-          <div class="space-y-3">
-            <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20am%20exploring%20properties%20on%20Royal%20Rajasthan%20Properties%20website.%20Please%20guide%20me." target="_blank" rel="noopener" class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-emerald-600 via-emerald-500 to-green-500 hover:brightness-110 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(16,185,129,0.35)] transition-all">
-              <i data-lucide="message-circle" class="w-4 h-4 fill-white stroke-none"></i>
-              <span>Instant WhatsApp Chat</span>
-            </a>
-
-            <a href="tel:+919461812342" class="w-full py-3 px-4 rounded-xl bg-royal-900 hover:bg-royal-855 border border-gold-500/40 text-gold-300 hover:text-white font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-colors">
-              <i data-lucide="phone" class="w-4 h-4 text-gold-400"></i>
-              <span>Direct Call: +91 94618 12342</span>
-            </a>
+          <div class="p-6">
+            <h3 class="font-serif text-xl font-bold group-hover:text-gold-700 transition-colors">Residential Plots</h3>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Government-demarcated gated townships with 30 & 40 ft wide roads, parks, and immediate registry.</p>
+            <span class="mt-4 text-xs font-bold text-gold-700 flex items-center gap-1 group-hover:gap-2 transition-all">
+              <span>Explore Plots</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </span>
           </div>
+        </a>
 
-          <!-- Trust Assurances -->
-          <div class="pt-2 space-y-2.5 text-xs text-slate-300 border-t border-white/10">
-            <div class="flex items-start gap-2.5">
-              <i data-lucide="shield-check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i>
-              <span>100% RERA & JDA Legal Due Diligence</span>
-            </div>
-            <div class="flex items-start gap-2.5">
-              <i data-lucide="badge-percent" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i>
-              <span>Zero Brokerage on Direct Builder Bookings</span>
-            </div>
-            <div class="flex items-start gap-2.5">
-              <i data-lucide="car" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i>
-              <span>Free VIP Site Visit & Cab Facility</span>
-            </div>
-            <div class="flex items-start gap-2.5">
-              <i data-lucide="map-pin" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i>
-              <span class="text-slate-400">Opposite Knowledge City, Diggi Road, Jaipur</span>
-            </div>
+        <!-- Category 2: Commercial Boulevard Plots -->
+        <a href="/projects/commercial.html" class="group relative rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+          <div class="relative h-48 overflow-hidden bg-slate-900">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Commercial Plots" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-royal-950/80 via-transparent to-transparent"></div>
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-gold-500 text-royal-950 text-[10px] font-bold uppercase tracking-wider">
+              From â‚¹46,000 / Gaj
+            </span>
           </div>
-
-        </div>
-
-        <!-- Right: Inquiry / Requirement Form (8 cols) -->
-        <div class="lg:col-span-8 bg-royal-900/90 border border-gold-subtle rounded-3xl p-6 sm:p-9 shadow-2xl backdrop-blur-md">
-          
-          <form id="leadForm" onsubmit="handleLeadSubmit(event)" class="space-y-4">
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <!-- Full Name -->
-              <div>
-                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">
-                  Full Name <span class="text-gold-400">*</span>
-                </label>
-                <input type="text" id="leadName" required placeholder="e.g. Vikramaditya Rathore" class="w-full bg-royal-950 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-gold-400 transition-colors">
-              </div>
-
-              <!-- Phone Number -->
-              <div>
-                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">
-                  Phone / WhatsApp <span class="text-gold-400">*</span>
-                </label>
-                <input type="tel" id="leadPhone" required placeholder="e.g. +91 98765 43210" class="w-full bg-royal-950 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-gold-400 transition-colors">
-              </div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <!-- Email -->
-              <div>
-                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">
-                  Email Address <span class="text-gold-400">*</span>
-                </label>
-                <input type="email" id="leadEmail" required placeholder="e.g. name@example.com" class="w-full bg-royal-950 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-gold-400 transition-colors">
-              </div>
-
-              <!-- Preferred Location -->
-              <div>
-                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">
-                  Preferred Location
-                </label>
-                <select id="leadLocation" class="w-full bg-royal-950 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold-400 transition-colors">
-                  <option value="Jaipur - Diggi Road / Mega Township" selected>Jaipur - Diggi Road / Mega Township (300 Bigha)</option>
-                  <option value="Jaipur - C-Scheme / Civil Lines">Jaipur - C-Scheme / Civil Lines</option>
-                  <option value="Jaipur - Vaishali Nagar">Jaipur - Vaishali Nagar</option>
-                  <option value="Jaipur - Jagatpura / Malviya Nagar">Jaipur - Jagatpura / Malviya Nagar</option>
-                  <option value="Jaipur - Mansarovar / Ajmer Road">Jaipur - Mansarovar / Ajmer Road</option>
-                  <option value="Jodhpur">Jodhpur</option>
-                  <option value="Udaipur">Udaipur</option>
-                  <option value="Kota">Kota</option>
-                  <option value="Ajmer / Pushkar">Ajmer / Pushkar</option>
-                  <option value="Other Rajasthan Location">Other Rajasthan Location</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <!-- Property Type -->
-              <div>
-                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Property Type</label>
-                <select id="leadType" class="w-full bg-royal-950 border border-white/15 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-gold-400">
-                  <option value="Plot / Land" selected>Gated Plot / Land</option>
-                  <option value="Villa">Luxury Villa</option>
-                  <option value="Residential Apartment">Apartment / Flat</option>
-                  <option value="Commercial">Commercial / Retail</option>
-                  <option value="Mixed / Penthouse">Penthouse / Farmhouse</option>
-                </select>
-              </div>
-
-              <!-- Budget Range -->
-              <div>
-                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Approx. Budget</label>
-                <select id="leadBudget" class="w-full bg-royal-950 border border-white/15 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-gold-400">
-                  <option value="Under ₹30 Lakh">Under ₹30 Lakh</option>
-                  <option value="₹30 Lakh – ₹50 Lakh">₹30 Lakh – ₹50 Lakh</option>
-                  <option value="₹50 Lakh – ₹1 Crore" selected>₹50 Lakh – ₹1 Crore</option>
-                  <option value="₹1 Crore – ₹2 Crore">₹1 Crore – ₹2 Crore</option>
-                  <option value="₹2 Crore+">₹2 Crore+</option>
-                </select>
-              </div>
-
-              <!-- Purpose -->
-              <div>
-                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Purpose</label>
-                <select id="leadPurpose" class="w-full bg-royal-950 border border-white/15 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-gold-400">
-                  <option value="Self-Use / Residence" selected>Self-Use / Residence</option>
-                  <option value="High-Return Investment">High-Return Investment</option>
-                  <option value="Rental Income">Rental Income</option>
-                  <option value="Future Development">Future Development</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <!-- Project Interest -->
-              <div>
-                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Specific Project (Optional)</label>
-                <input type="text" id="leadProject" placeholder="e.g. 300 Bigha Mega Township or Diggi Road Plot" class="w-full bg-royal-950 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-gold-400">
-              </div>
-
-              <!-- Preferred Callback Time -->
-              <div>
-                <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Preferred Callback Window</label>
-                <select id="leadCallbackTime" class="w-full bg-royal-950 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold-400">
-                  <option value="Immediate WhatsApp Message" selected>Immediate WhatsApp Message</option>
-                  <option value="Morning (10:00 AM – 1:00 PM)">Morning (10:00 AM – 1:00 PM)</option>
-                  <option value="Afternoon (1:00 PM – 5:00 PM)">Afternoon (1:00 PM – 5:00 PM)</option>
-                  <option value="Evening (5:00 PM – 8:00 PM)">Evening (5:00 PM – 8:00 PM)</option>
-                </select>
-              </div>
-            </div>
-
-            <!-- Message -->
-            <div>
-              <label class="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1">Requirements / Remarks (Optional)</label>
-              <textarea id="leadMessage" rows="2" placeholder="Mention preferred size (in Gaj/sq.ft), road width, or specific questions..." class="w-full bg-royal-950 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-gold-400"></textarea>
-            </div>
-
-            <!-- Action & Submission -->
-            <div class="pt-2 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <p class="text-[11px] text-slate-400">
-                <i data-lucide="lock" class="w-3 h-3 inline text-gold-400 mr-1"></i>
-                100% Confidential. Instant response on WhatsApp.
-              </p>
-              <button type="submit" class="w-full sm:w-auto px-8 py-3.5 rounded-xl text-xs sm:text-sm font-bold uppercase tracking-wider text-royal-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:from-gold-200 hover:to-gold-400 shadow-gold-glow transition-all flex items-center justify-center gap-2">
-                <span>Submit Requirement</span>
-                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-              </button>
-            </div>
-
-          </form>
-
-          <!-- Form Success State Banner -->
-          <div id="leadSuccessBanner" class="hidden mt-6 p-6 rounded-2xl bg-emerald-950/80 border border-emerald-500/40 text-center">
-            <div class="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-3 animate-bounce">
-              <i data-lucide="check-circle-2" class="w-6 h-6"></i>
-            </div>
-            <h4 class="font-serif text-xl font-medium text-white">आपकी इन्क्वायरी सफलतापूर्वक दर्ज हो गई है!</h4>
-            <p class="text-xs text-emerald-200 mt-1 max-w-md mx-auto">
-              वरिष्ठ सलाहकार नवरत्न कुमावत (+91 94618 12342) को आपकी आवश्यकता प्राप्त हो चुकी है। आपको आधिकारिक थैंक यू एवं इन्क्वायरी रसीद पेज पर भेजा जा रहा है...
-            </p>
-            <div class="mt-5 flex flex-wrap items-center justify-center gap-3">
-              <a id="thankYouRedirectBtn" href="thank-you.html" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:from-gold-200 hover:to-gold-400 text-royal-950 text-xs font-bold uppercase tracking-wider flex items-center gap-2 transition-all shadow-gold-sm">
-                <span>View Official Inquiry Receipt</span>
-                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-              </a>
-              <a id="instantWhatsAppBtn" href="#" target="_blank" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold uppercase tracking-wider flex items-center gap-1.5 transition-all">
-                <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp Priority
-              </a>
-              <button onclick="resetLeadForm()" class="px-4 py-2.5 rounded-xl bg-royal-800 text-slate-300 text-xs font-medium hover:text-white">
-                Submit Another Inquiry
-              </button>
-            </div>
+          <div class="p-6">
+            <h3 class="font-serif text-xl font-bold group-hover:text-gold-700 transition-colors">Commercial Plots</h3>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Main sector arterial corridor plots ideal for retail showrooms, corporate complexes, and high ROI yields.</p>
+            <span class="mt-4 text-xs font-bold text-gold-700 flex items-center gap-1 group-hover:gap-2 transition-all">
+              <span>Explore Commercial</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </span>
           </div>
+        </a>
 
-        </div>
+        <!-- Category 3: Township Projects (300 Bigha) -->
+        <a href="/projects/300-bigha-mega-township.html" class="group relative rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+          <div class="relative h-48 overflow-hidden bg-slate-900">
+            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" alt="Township Projects" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-royal-950/80 via-transparent to-transparent"></div>
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-amber-400 text-royal-950 text-[10px] font-bold uppercase tracking-wider">
+              300 Bigha Spotlight
+            </span>
+          </div>
+          <div class="p-6">
+            <h3 class="font-serif text-xl font-bold group-hover:text-gold-700 transition-colors">Township Projects</h3>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Integrated mega destinations with 200 ft main roads, clubhouse, swimming pool, and Knowledge City access.</p>
+            <span class="mt-4 text-xs font-bold text-gold-700 flex items-center gap-1 group-hover:gap-2 transition-all">
+              <span>View 300 Bigha Township</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </span>
+          </div>
+        </a>
+
+        <!-- Category 4: Luxury Villas -->
+        <a href="/projects/villas.html" class="group relative rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+          <div class="relative h-48 overflow-hidden bg-slate-900">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Luxury Villas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-royal-950/80 via-transparent to-transparent"></div>
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-gold-500 text-royal-950 text-[10px] font-bold uppercase tracking-wider">
+              Exclusive Luxury
+            </span>
+          </div>
+          <div class="p-6">
+            <h3 class="font-serif text-xl font-bold group-hover:text-gold-700 transition-colors">Luxury Villas</h3>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Bespoke heritage mansions and lakeside sanctuaries in Jaipur and Udaipur featuring private plunge pools.</p>
+            <span class="mt-4 text-xs font-bold text-gold-700 flex items-center gap-1 group-hover:gap-2 transition-all">
+              <span>Explore Villas</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </span>
+          </div>
+        </a>
+
+        <!-- Category 5: Residential Apartments -->
+        <a href="/projects/residential.html" class="group relative rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+          <div class="relative h-48 overflow-hidden bg-slate-900">
+            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" alt="Residential Apartments" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-royal-950/80 via-transparent to-transparent"></div>
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-gold-500 text-royal-950 text-[10px] font-bold uppercase tracking-wider">
+              From â‚¹85 Lakh*
+            </span>
+          </div>
+          <div class="p-6">
+            <h3 class="font-serif text-xl font-bold group-hover:text-gold-700 transition-colors">Residential Apartments</h3>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Skyward residences and independent luxury floors in prime corridors of Jagatpura and Jodhpur.</p>
+            <span class="mt-4 text-xs font-bold text-gold-700 flex items-center gap-1 group-hover:gap-2 transition-all">
+              <span>Explore Apartments</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </span>
+          </div>
+        </a>
+
+        <!-- Category 6: Commercial Properties -->
+        <a href="/projects/commercial.html" class="group relative rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+          <div class="relative h-48 overflow-hidden bg-slate-900">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Commercial Properties" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-royal-950/80 via-transparent to-transparent"></div>
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-gold-500 text-royal-950 text-[10px] font-bold uppercase tracking-wider">
+              Grade-A Spaces
+            </span>
+          </div>
+          <div class="p-6">
+            <h3 class="font-serif text-xl font-bold group-hover:text-gold-700 transition-colors">Corporate & Commercial</h3>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Pre-leased office suites, retail showrooms, and Grade-A business towers on central business arteries.</p>
+            <span class="mt-4 text-xs font-bold text-gold-700 flex items-center gap-1 group-hover:gap-2 transition-all">
+              <span>Explore Commercial</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </span>
+          </div>
+        </a>
 
       </div>
 
@@ -2860,361 +2878,6 @@
     </div>
   </section>
 
-  <!-- ==================== 6. BUDGET-BASED PROPERTY MATCHING ==================== -->
-  <section id="budget-match" class="py-20 md:py-28 bg-royal-950 text-white relative overflow-hidden">
-    <div class="absolute inset-0 bg-jali-pattern opacity-20 pointer-events-none"></div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      
-      <div class="text-center max-w-3xl mx-auto mb-14">
-        <span class="text-xs uppercase tracking-widest font-bold text-gold-400 bg-gold-900/40 px-3 py-1 rounded-full border border-gold-500/30">
-          Smart Discovery Engine
-        </span>
-        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-medium text-white mt-4">
-          Find Your Property by Budget & Purpose
-        </h2>
-        <p class="mt-3 text-sand-200 text-sm sm:text-base font-light">
-          Our genuine multi-factor matching algorithm evaluates capital allocation, property category, location preference, and purchase purpose to recommend your best fit.
-        </p>
-      </div>
-
-      <!-- Interactive Matcher Controls -->
-      <div class="max-w-4xl mx-auto bg-royal-900/90 border border-gold-subtle rounded-2xl p-6 sm:p-8 shadow-2xl backdrop-blur-md">
-        
-        <!-- Budget Brackets Buttons -->
-        <div class="mb-6">
-          <label class="block text-xs font-semibold text-gold-300 uppercase tracking-wider mb-3">
-            Select Your Target Budget Range
-          </label>
-          <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
-            <button onclick="setBudgetRange('50L', this)" class="budget-pill px-3 py-2.5 rounded-xl border border-gold-500/30 text-xs font-medium text-sand-200 hover:border-gold-400 hover:bg-gold-500/10 transition-all text-center">
-              Under ₹50 Lakh
-            </button>
-            <button onclick="setBudgetRange('1Cr', this)" class="budget-pill px-3 py-2.5 rounded-xl border border-gold-500/30 text-xs font-medium text-sand-200 hover:border-gold-400 hover:bg-gold-500/10 transition-all text-center">
-              ₹50L – ₹1 Crore
-            </button>
-            <button onclick="setBudgetRange('2Cr', this)" class="budget-pill active px-3 py-2.5 rounded-xl border border-gold-400 bg-gold-500/20 text-xs font-semibold text-gold-300 transition-all text-center shadow-gold-sm">
-              ₹1Cr – ₹2 Crore
-            </button>
-            <button onclick="setBudgetRange('5Cr', this)" class="budget-pill px-3 py-2.5 rounded-xl border border-gold-500/30 text-xs font-medium text-sand-200 hover:border-gold-400 hover:bg-gold-500/10 transition-all text-center">
-              ₹2Cr – ₹5 Crore
-            </button>
-            <button onclick="setBudgetRange('5Cr+', this)" class="budget-pill px-3 py-2.5 rounded-xl border border-gold-500/30 text-xs font-medium text-sand-200 hover:border-gold-400 hover:bg-gold-500/10 transition-all text-center">
-              ₹5 Crore+
-            </button>
-          </div>
-        </div>
-
-        <!-- Filter Row: Purpose, Property Type, Location -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-          
-          <div>
-            <label class="block text-[11px] uppercase tracking-wider font-semibold text-slate-300 mb-1.5">Purchase Purpose</label>
-            <select id="matchPurpose" onchange="executeBudgetMatch()" class="w-full bg-royal-950 border border-gold-500/30 rounded-xl px-3 py-2.5 text-xs text-sand-100 focus:outline-none focus:border-gold-400">
-              <option value="any">Any Purpose</option>
-              <option value="Self-Use" selected>Family Home / Self-Use</option>
-              <option value="Investment">High-Yield Investment</option>
-              <option value="Vacation">Vacation / Luxury Second Home</option>
-            </select>
-          </div>
-
-          <div>
-            <label class="block text-[11px] uppercase tracking-wider font-semibold text-slate-300 mb-1.5">Preferred Property Type</label>
-            <select id="matchType" onchange="executeBudgetMatch()" class="w-full bg-royal-950 border border-gold-500/30 rounded-xl px-3 py-2.5 text-xs text-sand-100 focus:outline-none focus:border-gold-400">
-              <option value="any">All Types</option>
-              <option value="Villa">Villas & Independent Houses</option>
-              <option value="Residential" selected>Residential Apartments</option>
-              <option value="Plots">Residential Plots</option>
-              <option value="Commercial">Commercial Assets</option>
-            </select>
-          </div>
-
-          <div>
-            <label class="block text-[11px] uppercase tracking-wider font-semibold text-slate-300 mb-1.5">Rajasthan Location</label>
-            <select id="matchLocation" onchange="executeBudgetMatch()" class="w-full bg-royal-950 border border-gold-500/30 rounded-xl px-3 py-2.5 text-xs text-sand-100 focus:outline-none focus:border-gold-400">
-              <option value="any">Any Rajasthan Location</option>
-              <option value="Jaipur" selected>Jaipur</option>
-              <option value="Jodhpur">Jodhpur</option>
-              <option value="Udaipur">Udaipur</option>
-              <option value="Kota">Kota</option>
-              <option value="Ajmer">Ajmer</option>
-            </select>
-          </div>
-
-        </div>
-
-        <!-- Custom Budget Input -->
-        <div class="pt-4 border-t border-gold-900/50 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div class="flex items-center gap-2 text-xs text-slate-400 w-full sm:w-auto">
-            <span>Or Enter Custom Budget:</span>
-            <div class="relative w-44">
-              <span class="absolute left-2.5 top-2 text-gold-400 font-medium">₹</span>
-              <input type="text" id="customBudgetInput" placeholder="e.g. 1.25 Crore" onkeyup="handleCustomBudget(event)" class="w-full bg-royal-950 border border-gold-500/30 rounded-lg pl-7 pr-3 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-gold-400">
-            </div>
-          </div>
-          <div class="text-xs text-gold-400 flex items-center gap-1.5">
-            <i data-lucide="sparkles" class="w-4 h-4"></i> Real-time multi-factor matching against portfolio
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Match Results Output (Best Match, Good Match, Alternative with Genuine Match %) -->
-      <div id="matchResultsContainer" class="mt-12 max-w-5xl mx-auto space-y-4">
-        <!-- Results dynamically injected via JS -->
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ==================== 10. ABOUT ROYAL RAJASTHAN PROPERTIES & LEADERSHIP ==================== -->
-  <section id="about" class="py-20 md:py-28 bg-[#faf8f5] border-b border-slate-200">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-14">
-        <div class="inline-flex items-center gap-2 text-gold-700 text-xs font-bold uppercase tracking-widest mb-3 font-display bg-gold-500/10 px-3.5 py-1.5 rounded-full border border-gold-400/40">
-          <i data-lucide="award" class="w-4 h-4 text-gold-600"></i>
-          <span>Leadership & Advisory Profile</span>
-        </div>
-        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl text-royal-950 font-medium">
-          Meet Navratan Kumawat
-        </h2>
-        <p class="mt-2 text-gold-700 font-display text-sm sm:text-base font-semibold uppercase tracking-wider">
-          Founder & Principal Real Estate Consultant • Royal Rajasthan Properties
-        </p>
-        <p class="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed">
-          Delivering fiduciary property guidance, verified mega township investments, and transparent title due diligence across Jaipur and Rajasthan.
-        </p>
-      </div>
-
-      <!-- Profile Grid -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        
-        <!-- Left: Consultant Persona Card -->
-        <div class="lg:col-span-5 bg-white rounded-3xl p-6 sm:p-8 border-2 border-gold-400/40 shadow-card-luxury text-center space-y-5">
-          <div class="relative w-36 h-36 mx-auto rounded-3xl overflow-hidden border-4 border-gold-400/80 shadow-gold-md bg-royal-900">
-            <img id="aboutConsultantImg" data-profile="img" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=85" alt="Navratan Kumawat - Real Estate Consultant" class="w-full h-full object-cover">
-            <div class="absolute bottom-1 right-1 bg-emerald-500 text-white p-1 rounded-full border-2 border-white" title="Verified Real Estate Consultant">
-              <i data-lucide="check" class="w-3.5 h-3.5 stroke-[3]"></i>
-            </div>
-          </div>
-
-          <div>
-            <h3 class="font-serif text-2xl font-bold text-royal-950" data-profile="name">Navratan Kumawat</h3>
-            <p class="text-xs font-semibold text-gold-700 uppercase tracking-wider mt-1" data-profile="title">
-              Founder & Senior Property Investment Advisor
-            </p>
-            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-300 text-[11px] font-semibold">
-              <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
-              <span>100% Legal Title Verified Advisory</span>
-            </div>
-          </div>
-
-          <!-- Verified Key Metrics -->
-          <div class="grid grid-cols-2 gap-3 pt-3 border-t border-slate-100 text-left">
-            <div class="p-3 rounded-2xl bg-sand-50 border border-gold-200/60">
-              <span class="text-[10px] uppercase font-bold text-slate-500 block">Experience</span>
-              <strong class="text-base font-serif text-royal-950" data-profile="experience">10+ Years</strong>
-              <span class="text-[10px] text-slate-500 block">Rajasthan Markets</span>
-            </div>
-            <div class="p-3 rounded-2xl bg-sand-50 border border-gold-200/60">
-              <span class="text-[10px] uppercase font-bold text-slate-500 block">Families Advised</span>
-              <strong class="text-base font-serif text-royal-950" data-profile="families">850+ Families</strong>
-              <span class="text-[10px] text-slate-500 block">Settled & Guided</span>
-            </div>
-            <div class="p-3 rounded-2xl bg-sand-50 border border-gold-200/60">
-              <span class="text-[10px] uppercase font-bold text-slate-500 block">Area Transacted</span>
-              <strong class="text-base font-serif text-royal-950" data-profile="area">15+ Lakh Sq.Ft.</strong>
-              <span class="text-[10px] text-slate-500 block">Residential & Com.</span>
-            </div>
-            <div class="p-3 rounded-2xl bg-sand-50 border border-gold-200/60">
-              <span class="text-[10px] uppercase font-bold text-slate-500 block">Loan Assistance</span>
-              <strong class="text-base font-serif text-emerald-700">Up to 80%</strong>
-              <span class="text-[10px] text-slate-500 block">Nationalized Banks</span>
-            </div>
-          </div>
-
-          <!-- Quick Action Buttons -->
-          <div class="space-y-2 pt-2">
-            <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20would%20like%20to%20consult%20with%20you%20regarding%20property%20investment%20in%20Jaipur." target="_blank" data-config="wa-link" class="w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-sm transition-all">
-              <i data-lucide="message-circle" class="w-4 h-4"></i> Chat on WhatsApp with Navratan ji
-            </a>
-            <a href="tel:+919461812342" data-config="phone-link" class="w-full py-2.5 px-4 rounded-xl bg-royal-900 hover:bg-royal-800 text-gold-300 font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 border border-gold-400/30 transition-all">
-              <i data-lucide="phone-call" class="w-4 h-4 text-gold-400"></i> Direct Call: <span data-config="phone">+91 94618 12342</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Right: Story, Vision & Fiduciary Mission -->
-        <div class="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-10 border border-gold-300/40 shadow-card-luxury space-y-6">
-          <div class="flex items-center gap-2 text-gold-700 text-xs font-bold uppercase tracking-widest font-display">
-            <span class="w-6 h-px bg-gold-600"></span> Advisory Vision & Standards
-          </div>
-
-          <h3 class="font-serif text-2xl sm:text-3xl text-royal-950 font-normal">
-            Your Trusted Property Partner in Rajasthan
-          </h3>
-
-          <div class="text-sm sm:text-base text-slate-700 leading-relaxed space-y-4">
-            <p data-profile="bio">
-              With over a decade of hands-on experience in Rajasthan's prime real estate corridors, <strong>Navratan Kumawat</strong> founded <strong>Royal Rajasthan Properties</strong> with a clear purpose: to bring institutional-grade transparency, meticulous title verification, and true client advocacy to every property deal.
-            </p>
-            <p>
-              Whether you are looking for an approved residential plot in a 300 Bigha mega township, a grand highway commercial frontage on 200 Ft. Diggi Road, or high-appreciation investment parcels, our advisory guarantees complete peace of mind.
-            </p>
-          </div>
-
-          <!-- 4 Core Advisory Pillars -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-100">
-            <div class="flex items-start gap-3">
-              <div class="w-8 h-8 rounded-xl bg-gold-500/10 text-gold-700 flex items-center justify-center shrink-0 border border-gold-500/30">
-                <i data-lucide="file-check-2" class="w-4 h-4"></i>
-              </div>
-              <div>
-                <strong class="text-xs uppercase font-bold text-royal-950 block">100% Legal Title Due Diligence</strong>
-                <p class="text-xs text-slate-600 mt-0.5">Every layout, RERA filing, and municipal approval is verified before client presentation.</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-3">
-              <div class="w-8 h-8 rounded-xl bg-gold-500/10 text-gold-700 flex items-center justify-center shrink-0 border border-gold-500/30">
-                <i data-lucide="badge-percent" class="w-4 h-4"></i>
-              </div>
-              <div>
-                <strong class="text-xs uppercase font-bold text-royal-950 block">Direct Best Pricing</strong>
-                <p class="text-xs text-slate-600 mt-0.5">Zero hidden markups. We secure direct developer rates with verified ₹1,000/Gaj buyer discounts.</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-3">
-              <div class="w-8 h-8 rounded-xl bg-gold-500/10 text-gold-700 flex items-center justify-center shrink-0 border border-gold-500/30">
-                <i data-lucide="car" class="w-4 h-4"></i>
-              </div>
-              <div>
-                <strong class="text-xs uppercase font-bold text-royal-950 block">Complimentary Site Visit Cab</strong>
-                <p class="text-xs text-slate-600 mt-0.5">We provide free pick-and-drop site visits for families across Jaipur and nearby districts.</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-3">
-              <div class="w-8 h-8 rounded-xl bg-gold-500/10 text-gold-700 flex items-center justify-center shrink-0 border border-gold-500/30">
-                <i data-lucide="banknote" class="w-4 h-4"></i>
-              </div>
-              <div>
-                <strong class="text-xs uppercase font-bold text-royal-950 block">Hassle-Free Bank Loans</strong>
-                <p class="text-xs text-slate-600 mt-0.5">Complete loan processing support up to 80% from leading nationalized and private banks.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Desk Address -->
-          <div class="mt-6 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-slate-600">
-            <div>
-              <strong class="text-royal-950">Advisory Desk:</strong>
-              <span data-config="address" class="ml-1">Opposite Knowledge City, Diggi Road, Jaipur, Rajasthan</span>
-            </div>
-            <a href="mailto:nav00900@gmail.com" data-config="email-link" class="text-gold-700 hover:text-gold-900 font-semibold underline flex items-center gap-1">
-              <i data-lucide="mail" class="w-3.5 h-3.5"></i> <span data-config="email">nav00900@gmail.com</span>
-            </a>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ==================== 11. WHY CHOOSE US ==================== -->
-  <section id="why-us" class="py-20 md:py-28 bg-royal-900 text-white relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="text-xs uppercase tracking-widest font-bold text-gold-400 bg-gold-900/40 px-3 py-1 rounded-full border border-gold-500/30">
-          The Royal Benchmark
-        </span>
-        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-white mt-4">
-          Why Discriminating Buyers Partner With Us
-        </h2>
-        <p class="mt-3 text-sand-200 text-sm sm:text-base font-light">
-          We combine hyper-local Rajasthan intelligence with an uncompromising standard of transparency and fiduciary care.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        
-        <!-- Pillar 1 -->
-        <div class="p-8 rounded-2xl bg-royal-950/80 border border-gold-subtle hover:border-gold-400/50 transition-all duration-300">
-          <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 mb-6">
-            <i data-lucide="map-pinned" class="w-6 h-6"></i>
-          </div>
-          <h3 class="font-serif text-xl font-medium text-white mb-2">Local Rajasthan Expertise</h3>
-          <p class="text-sm text-slate-300 leading-relaxed">
-            In-depth micro-market mastery of Jaipur's development master plans, upcoming ring-road corridors, and heritage zoning laws.
-          </p>
-        </div>
-
-        <!-- Pillar 2 -->
-        <div class="p-8 rounded-2xl bg-royal-950/80 border border-gold-subtle hover:border-gold-400/50 transition-all duration-300">
-          <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 mb-6">
-            <i data-lucide="shield-check" class="w-6 h-6"></i>
-          </div>
-          <h3 class="font-serif text-xl font-medium text-white mb-2">Curated Property Opportunities</h3>
-          <p class="text-sm text-slate-300 leading-relaxed">
-            We reject questionable inventory. Every showcased property is audited against municipal approvals and title safety.
-          </p>
-        </div>
-
-        <!-- Pillar 3 -->
-        <div class="p-8 rounded-2xl bg-royal-950/80 border border-gold-subtle hover:border-gold-400/50 transition-all duration-300">
-          <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 mb-6">
-            <i data-lucide="compass" class="w-6 h-6"></i>
-          </div>
-          <h3 class="font-serif text-xl font-medium text-white mb-2">Professional Guidance</h3>
-          <p class="text-sm text-slate-300 leading-relaxed">
-            Seasoned property advisors guide every step of site inspections, price benchmarking, contract review, and registry documentation.
-          </p>
-        </div>
-
-        <!-- Pillar 4 -->
-        <div class="p-8 rounded-2xl bg-royal-950/80 border border-gold-subtle hover:border-gold-400/50 transition-all duration-300">
-          <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 mb-6">
-            <i data-lucide="scale" class="w-6 h-6"></i>
-          </div>
-          <h3 class="font-serif text-xl font-medium text-white mb-2">Transparent Communication</h3>
-          <p class="text-sm text-slate-300 leading-relaxed">
-            Zero hidden brokerage surprises, honest pros and cons of every location, and clear payment milestone breakdown.
-          </p>
-        </div>
-
-        <!-- Pillar 5 -->
-        <div class="p-8 rounded-2xl bg-royal-950/80 border border-gold-subtle hover:border-gold-400/50 transition-all duration-300">
-          <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 mb-6">
-            <i data-lucide="heart-handshake" class="w-6 h-6"></i>
-          </div>
-          <h3 class="font-serif text-xl font-medium text-white mb-2">Customer-Focused Service</h3>
-          <p class="text-sm text-slate-300 leading-relaxed">
-            Dedicated private site walkthroughs, responsive WhatsApp sales desk, and chauffeured inspections for distinguished clients.
-          </p>
-        </div>
-
-        <!-- Pillar 6 -->
-        <div class="p-8 rounded-2xl bg-royal-950/80 border border-gold-subtle hover:border-gold-400/50 transition-all duration-300">
-          <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 mb-6">
-            <i data-lucide="trending-up" class="w-6 h-6"></i>
-          </div>
-          <h3 class="font-serif text-xl font-medium text-white mb-2">Investment Assistance</h3>
-          <p class="text-sm text-slate-300 leading-relaxed">
-            Bespoke portfolio services for NRI investors, HNIs, and family offices seeking capital appreciation and steady rental yield in Rajasthan.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
   <!-- ==================== 7. RAJASTHAN LOCATIONS SECTION ==================== -->
   <section id="locations" class="py-20 md:py-28 bg-[#faf8f5]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -3381,6 +3044,369 @@
     </div>
   </section>
 
+  
+
+  <!-- ==================== 11. WHY CHOOSE US ==================== -->
+  <section id="why-us" class="py-20 md:py-28 bg-royal-900 text-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs uppercase tracking-widest font-bold text-gold-400 bg-gold-900/40 px-3 py-1 rounded-full border border-gold-500/30">
+          The Royal Benchmark
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-white mt-4">
+          Why Discriminating Buyers Partner With Us
+        </h2>
+        <p class="mt-3 text-sand-200 text-sm sm:text-base font-light">
+          We combine hyper-local Rajasthan intelligence with an uncompromising standard of transparency and fiduciary care.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Pillar 1 -->
+        <div class="p-8 rounded-2xl bg-royal-950/80 border border-gold-subtle hover:border-gold-400/50 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 mb-6">
+            <i data-lucide="map-pinned" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-serif text-xl font-medium text-white mb-2">Local Rajasthan Expertise</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            In-depth micro-market mastery of Jaipur's development master plans, upcoming ring-road corridors, and heritage zoning laws.
+          </p>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="p-8 rounded-2xl bg-royal-950/80 border border-gold-subtle hover:border-gold-400/50 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 mb-6">
+            <i data-lucide="shield-check" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-serif text-xl font-medium text-white mb-2">Curated Property Opportunities</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            We reject questionable inventory. Every showcased property is audited against municipal approvals and title safety.
+          </p>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="p-8 rounded-2xl bg-royal-950/80 border border-gold-subtle hover:border-gold-400/50 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 mb-6">
+            <i data-lucide="compass" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-serif text-xl font-medium text-white mb-2">Professional Guidance</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Seasoned property advisors guide every step of site inspections, price benchmarking, contract review, and registry documentation.
+          </p>
+        </div>
+
+        <!-- Pillar 4 -->
+        <div class="p-8 rounded-2xl bg-royal-950/80 border border-gold-subtle hover:border-gold-400/50 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 mb-6">
+            <i data-lucide="scale" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-serif text-xl font-medium text-white mb-2">Transparent Communication</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Zero hidden brokerage surprises, honest pros and cons of every location, and clear payment milestone breakdown.
+          </p>
+        </div>
+
+        <!-- Pillar 5 -->
+        <div class="p-8 rounded-2xl bg-royal-950/80 border border-gold-subtle hover:border-gold-400/50 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 mb-6">
+            <i data-lucide="heart-handshake" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-serif text-xl font-medium text-white mb-2">Customer-Focused Service</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Dedicated private site walkthroughs, responsive WhatsApp sales desk, and chauffeured inspections for distinguished clients.
+          </p>
+        </div>
+
+        <!-- Pillar 6 -->
+        <div class="p-8 rounded-2xl bg-royal-950/80 border border-gold-subtle hover:border-gold-400/50 transition-all duration-300">
+          <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 mb-6">
+            <i data-lucide="trending-up" class="w-6 h-6"></i>
+          </div>
+          <h3 class="font-serif text-xl font-medium text-white mb-2">Investment Assistance</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Bespoke portfolio services for NRI investors, HNIs, and family offices seeking capital appreciation and steady rental yield in Rajasthan.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  
+
+  <!-- ==================== 10. ABOUT ROYAL RAJASTHAN PROPERTIES & LEADERSHIP ==================== -->
+  <section id="about" class="py-20 md:py-28 bg-[#faf8f5] border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-2 text-gold-700 text-xs font-bold uppercase tracking-widest mb-3 font-display bg-gold-500/10 px-3.5 py-1.5 rounded-full border border-gold-400/40">
+          <i data-lucide="award" class="w-4 h-4 text-gold-600"></i>
+          <span>Leadership & Advisory Profile</span>
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl text-royal-950 font-medium">
+          Meet Navratan Kumawat
+        </h2>
+        <p class="mt-2 text-gold-700 font-display text-sm sm:text-base font-semibold uppercase tracking-wider">
+          Founder & Principal Real Estate Consultant • Royal Rajasthan Properties
+        </p>
+        <p class="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed">
+          Delivering fiduciary property guidance, verified mega township investments, and transparent title due diligence across Jaipur and Rajasthan.
+        </p>
+      </div>
+
+      <!-- Profile Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left: Consultant Persona Card -->
+        <div class="lg:col-span-5 bg-white rounded-3xl p-6 sm:p-8 border-2 border-gold-400/40 shadow-card-luxury text-center space-y-5">
+          <div class="relative w-36 h-36 mx-auto rounded-3xl overflow-hidden border-4 border-gold-400/80 shadow-gold-md bg-royal-900">
+            <img id="aboutConsultantImg" data-profile="img" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=85" alt="Navratan Kumawat - Real Estate Consultant" class="w-full h-full object-cover">
+            <div class="absolute bottom-1 right-1 bg-emerald-500 text-white p-1 rounded-full border-2 border-white" title="Verified Real Estate Consultant">
+              <i data-lucide="check" class="w-3.5 h-3.5 stroke-[3]"></i>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="font-serif text-2xl font-bold text-royal-950" data-profile="name">Navratan Kumawat</h3>
+            <p class="text-xs font-semibold text-gold-700 uppercase tracking-wider mt-1" data-profile="title">
+              Founder & Senior Property Investment Advisor
+            </p>
+            <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-300 text-[11px] font-semibold">
+              <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>100% Legal Title Verified Advisory</span>
+            </div>
+          </div>
+
+          <!-- Verified Key Metrics -->
+          <div class="grid grid-cols-2 gap-3 pt-3 border-t border-slate-100 text-left">
+            <div class="p-3 rounded-2xl bg-sand-50 border border-gold-200/60">
+              <span class="text-[10px] uppercase font-bold text-slate-500 block">Experience</span>
+              <strong class="text-base font-serif text-royal-950" data-profile="experience">10+ Years</strong>
+              <span class="text-[10px] text-slate-500 block">Rajasthan Markets</span>
+            </div>
+            <div class="p-3 rounded-2xl bg-sand-50 border border-gold-200/60">
+              <span class="text-[10px] uppercase font-bold text-slate-500 block">Families Advised</span>
+              <strong class="text-base font-serif text-royal-950" data-profile="families">850+ Families</strong>
+              <span class="text-[10px] text-slate-500 block">Settled & Guided</span>
+            </div>
+            <div class="p-3 rounded-2xl bg-sand-50 border border-gold-200/60">
+              <span class="text-[10px] uppercase font-bold text-slate-500 block">Area Transacted</span>
+              <strong class="text-base font-serif text-royal-950" data-profile="area">15+ Lakh Sq.Ft.</strong>
+              <span class="text-[10px] text-slate-500 block">Residential & Com.</span>
+            </div>
+            <div class="p-3 rounded-2xl bg-sand-50 border border-gold-200/60">
+              <span class="text-[10px] uppercase font-bold text-slate-500 block">Loan Assistance</span>
+              <strong class="text-base font-serif text-emerald-700">Up to 80%</strong>
+              <span class="text-[10px] text-slate-500 block">Nationalized Banks</span>
+            </div>
+          </div>
+
+          <!-- Quick Action Buttons -->
+          <div class="space-y-2 pt-2">
+            <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20would%20like%20to%20consult%20with%20you%20regarding%20property%20investment%20in%20Jaipur." target="_blank" data-config="wa-link" class="w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-sm transition-all">
+              <i data-lucide="message-circle" class="w-4 h-4"></i> Chat on WhatsApp with Navratan ji
+            </a>
+            <a href="tel:+919461812342" data-config="phone-link" class="w-full py-2.5 px-4 rounded-xl bg-royal-900 hover:bg-royal-800 text-gold-300 font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 border border-gold-400/30 transition-all">
+              <i data-lucide="phone-call" class="w-4 h-4 text-gold-400"></i> Direct Call: <span data-config="phone">+91 94618 12342</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Story, Vision & Fiduciary Mission -->
+        <div class="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-10 border border-gold-300/40 shadow-card-luxury space-y-6">
+          <div class="flex items-center gap-2 text-gold-700 text-xs font-bold uppercase tracking-widest font-display">
+            <span class="w-6 h-px bg-gold-600"></span> Advisory Vision & Standards
+          </div>
+
+          <h3 class="font-serif text-2xl sm:text-3xl text-royal-950 font-normal">
+            Your Trusted Property Partner in Rajasthan
+          </h3>
+
+          <div class="text-sm sm:text-base text-slate-700 leading-relaxed space-y-4">
+            <p data-profile="bio">
+              With over a decade of hands-on experience in Rajasthan's prime real estate corridors, <strong>Navratan Kumawat</strong> founded <strong>Royal Rajasthan Properties</strong> with a clear purpose: to bring institutional-grade transparency, meticulous title verification, and true client advocacy to every property deal.
+            </p>
+            <p>
+              Whether you are looking for an approved residential plot in a 300 Bigha mega township, a grand highway commercial frontage on 200 Ft. Diggi Road, or high-appreciation investment parcels, our advisory guarantees complete peace of mind.
+            </p>
+          </div>
+
+          <!-- 4 Core Advisory Pillars -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-100">
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-xl bg-gold-500/10 text-gold-700 flex items-center justify-center shrink-0 border border-gold-500/30">
+                <i data-lucide="file-check-2" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <strong class="text-xs uppercase font-bold text-royal-950 block">100% Legal Title Due Diligence</strong>
+                <p class="text-xs text-slate-600 mt-0.5">Every layout, RERA filing, and municipal approval is verified before client presentation.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-xl bg-gold-500/10 text-gold-700 flex items-center justify-center shrink-0 border border-gold-500/30">
+                <i data-lucide="badge-percent" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <strong class="text-xs uppercase font-bold text-royal-950 block">Direct Best Pricing</strong>
+                <p class="text-xs text-slate-600 mt-0.5">Zero hidden markups. We secure direct developer rates with verified ₹1,000/Gaj buyer discounts.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-xl bg-gold-500/10 text-gold-700 flex items-center justify-center shrink-0 border border-gold-500/30">
+                <i data-lucide="car" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <strong class="text-xs uppercase font-bold text-royal-950 block">Complimentary Site Visit Cab</strong>
+                <p class="text-xs text-slate-600 mt-0.5">We provide free pick-and-drop site visits for families across Jaipur and nearby districts.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-8 h-8 rounded-xl bg-gold-500/10 text-gold-700 flex items-center justify-center shrink-0 border border-gold-500/30">
+                <i data-lucide="banknote" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <strong class="text-xs uppercase font-bold text-royal-950 block">Hassle-Free Bank Loans</strong>
+                <p class="text-xs text-slate-600 mt-0.5">Complete loan processing support up to 80% from leading nationalized and private banks.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Desk Address -->
+          <div class="mt-6 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-slate-600">
+            <div>
+              <strong class="text-royal-950">Advisory Desk:</strong>
+              <span data-config="address" class="ml-1">Opposite Knowledge City, Diggi Road, Jaipur, Rajasthan</span>
+            </div>
+            <a href="mailto:nav00900@gmail.com" data-config="email-link" class="text-gold-700 hover:text-gold-900 font-semibold underline flex items-center gap-1">
+              <i data-lucide="mail" class="w-3.5 h-3.5"></i> <span data-config="email">nav00900@gmail.com</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  
+
+  <!-- ==================== 6. BUDGET-BASED PROPERTY MATCHING ==================== -->
+  <section id="budget-match" class="py-20 md:py-28 bg-royal-950 text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-jali-pattern opacity-20 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-xs uppercase tracking-widest font-bold text-gold-400 bg-gold-900/40 px-3 py-1 rounded-full border border-gold-500/30">
+          Smart Discovery Engine
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-medium text-white mt-4">
+          Find Your Property by Budget & Purpose
+        </h2>
+        <p class="mt-3 text-sand-200 text-sm sm:text-base font-light">
+          Our genuine multi-factor matching algorithm evaluates capital allocation, property category, location preference, and purchase purpose to recommend your best fit.
+        </p>
+      </div>
+
+      <!-- Interactive Matcher Controls -->
+      <div class="max-w-4xl mx-auto bg-royal-900/90 border border-gold-subtle rounded-2xl p-6 sm:p-8 shadow-2xl backdrop-blur-md">
+        
+        <!-- Budget Brackets Buttons -->
+        <div class="mb-6">
+          <label class="block text-xs font-semibold text-gold-300 uppercase tracking-wider mb-3">
+            Select Your Target Budget Range
+          </label>
+          <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
+            <button onclick="setBudgetRange('50L', this)" class="budget-pill px-3 py-2.5 rounded-xl border border-gold-500/30 text-xs font-medium text-sand-200 hover:border-gold-400 hover:bg-gold-500/10 transition-all text-center">
+              Under ₹50 Lakh
+            </button>
+            <button onclick="setBudgetRange('1Cr', this)" class="budget-pill px-3 py-2.5 rounded-xl border border-gold-500/30 text-xs font-medium text-sand-200 hover:border-gold-400 hover:bg-gold-500/10 transition-all text-center">
+              ₹50L – ₹1 Crore
+            </button>
+            <button onclick="setBudgetRange('2Cr', this)" class="budget-pill active px-3 py-2.5 rounded-xl border border-gold-400 bg-gold-500/20 text-xs font-semibold text-gold-300 transition-all text-center shadow-gold-sm">
+              ₹1Cr – ₹2 Crore
+            </button>
+            <button onclick="setBudgetRange('5Cr', this)" class="budget-pill px-3 py-2.5 rounded-xl border border-gold-500/30 text-xs font-medium text-sand-200 hover:border-gold-400 hover:bg-gold-500/10 transition-all text-center">
+              ₹2Cr – ₹5 Crore
+            </button>
+            <button onclick="setBudgetRange('5Cr+', this)" class="budget-pill px-3 py-2.5 rounded-xl border border-gold-500/30 text-xs font-medium text-sand-200 hover:border-gold-400 hover:bg-gold-500/10 transition-all text-center">
+              ₹5 Crore+
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter Row: Purpose, Property Type, Location -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+          
+          <div>
+            <label class="block text-[11px] uppercase tracking-wider font-semibold text-slate-300 mb-1.5">Purchase Purpose</label>
+            <select id="matchPurpose" onchange="executeBudgetMatch()" class="w-full bg-royal-950 border border-gold-500/30 rounded-xl px-3 py-2.5 text-xs text-sand-100 focus:outline-none focus:border-gold-400">
+              <option value="any">Any Purpose</option>
+              <option value="Self-Use" selected>Family Home / Self-Use</option>
+              <option value="Investment">High-Yield Investment</option>
+              <option value="Vacation">Vacation / Luxury Second Home</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-[11px] uppercase tracking-wider font-semibold text-slate-300 mb-1.5">Preferred Property Type</label>
+            <select id="matchType" onchange="executeBudgetMatch()" class="w-full bg-royal-950 border border-gold-500/30 rounded-xl px-3 py-2.5 text-xs text-sand-100 focus:outline-none focus:border-gold-400">
+              <option value="any">All Types</option>
+              <option value="Villa">Villas & Independent Houses</option>
+              <option value="Residential" selected>Residential Apartments</option>
+              <option value="Plots">Residential Plots</option>
+              <option value="Commercial">Commercial Assets</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-[11px] uppercase tracking-wider font-semibold text-slate-300 mb-1.5">Rajasthan Location</label>
+            <select id="matchLocation" onchange="executeBudgetMatch()" class="w-full bg-royal-950 border border-gold-500/30 rounded-xl px-3 py-2.5 text-xs text-sand-100 focus:outline-none focus:border-gold-400">
+              <option value="any">Any Rajasthan Location</option>
+              <option value="Jaipur" selected>Jaipur</option>
+              <option value="Jodhpur">Jodhpur</option>
+              <option value="Udaipur">Udaipur</option>
+              <option value="Kota">Kota</option>
+              <option value="Ajmer">Ajmer</option>
+            </select>
+          </div>
+
+        </div>
+
+        <!-- Custom Budget Input -->
+        <div class="pt-4 border-t border-gold-900/50 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-2 text-xs text-slate-400 w-full sm:w-auto">
+            <span>Or Enter Custom Budget:</span>
+            <div class="relative w-44">
+              <span class="absolute left-2.5 top-2 text-gold-400 font-medium">₹</span>
+              <input type="text" id="customBudgetInput" placeholder="e.g. 1.25 Crore" onkeyup="handleCustomBudget(event)" class="w-full bg-royal-950 border border-gold-500/30 rounded-lg pl-7 pr-3 py-1.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-gold-400">
+            </div>
+          </div>
+          <div class="text-xs text-gold-400 flex items-center gap-1.5">
+            <i data-lucide="sparkles" class="w-4 h-4"></i> Real-time multi-factor matching against portfolio
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Match Results Output (Best Match, Good Match, Alternative with Genuine Match %) -->
+      <div id="matchResultsContainer" class="mt-12 max-w-5xl mx-auto space-y-4">
+        <!-- Results dynamically injected via JS -->
+      </div>
+
+    </div>
+  </section>
+
+  
+
   <!-- ==================== 11. CLIENT RATINGS & STAR REVIEWS SHOWCASE ==================== -->
   <section id="reviews" class="py-20 md:py-28 bg-[#faf8f5] border-t border-slate-200/80 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -3490,6 +3516,128 @@
             <span>Open WhatsApp Chat →</span>
           </a>
         </div>
+      </div>
+
+    </div>
+  </section>
+
+    <!-- ==================== 11. FREQUENTLY ASKED QUESTIONS ==================== -->
+  <section id="faqs" class="py-20 md:py-28 bg-royal-950 text-white relative overflow-hidden border-t border-gold-900/60">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-xs uppercase font-bold text-gold-400 tracking-widest font-display block mb-2">
+          Clear Answers â€¢ Transparent Real Estate
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight">
+          Frequently Asked <span class="text-gold-gradient font-display font-bold">Questions</span>
+        </h2>
+        <p class="mt-3 text-sand-200 text-sm sm:text-base font-light">
+          Everything you need to know about purchasing verified plots, townships, and villas in Jaipur and Rajasthan.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        
+        <details class="group p-5 rounded-2xl bg-royal-900/80 border border-white/10 open:border-gold-500/40 transition-colors">
+          <summary class="font-serif text-base sm:text-lg font-semibold text-white cursor-pointer list-none flex items-center justify-between">
+            <span>1. Are all plots and township projects approved by JDA and RERA?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-gold-400 transition-transform group-open:rotate-180 shrink-0"></i>
+          </summary>
+          <p class="mt-3 text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+            Yes, all residential townships, commercial boulevards, and plots represented by Royal Rajasthan Properties undergo rigorous legal due diligence. Properties comply with JDA (Jaipur Development Authority) norms and RERA Rajasthan statutory standards. Title deeds are 100% verified and free from encumbrances.
+          </p>
+        </details>
+
+        <details class="group p-5 rounded-2xl bg-royal-900/80 border border-white/10 open:border-gold-500/40 transition-colors">
+          <summary class="font-serif text-base sm:text-lg font-semibold text-white cursor-pointer list-none flex items-center justify-between">
+            <span>2. What is the registry process and timeline for land plots in Jaipur?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-gold-400 transition-transform group-open:rotate-180 shrink-0"></i>
+          </summary>
+          <p class="mt-3 text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+            Registry is executed directly at the sub-registrar office in Jaipur upon completion of booking payments or bank loan clearance. Our senior legal advisory team assists you end-to-end with document preparation, stamp duty calculation, registration token booking, and mutation (namantaran).
+          </p>
+        </details>
+
+        <details class="group p-5 rounded-2xl bg-royal-900/80 border border-white/10 open:border-gold-500/40 transition-colors">
+          <summary class="font-serif text-base sm:text-lg font-semibold text-white cursor-pointer list-none flex items-center justify-between">
+            <span>3. Can I get a bank loan on residential and commercial plots?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-gold-400 transition-transform group-open:rotate-180 shrink-0"></i>
+          </summary>
+          <p class="mt-3 text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+            Yes. Up to 75% to 80% bank loan finance is pre-approved from leading nationalized and private banking institutions (SBI, HDFC Bank, ICICI Bank, Bank of Baroda, etc.) on our verified township projects subject to individual buyer eligibility.
+          </p>
+        </details>
+
+        <details class="group p-5 rounded-2xl bg-royal-900/80 border border-white/10 open:border-gold-500/40 transition-colors">
+          <summary class="font-serif text-base sm:text-lg font-semibold text-white cursor-pointer list-none flex items-center justify-between">
+            <span>4. How do I book a physical site visit with free transport?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-gold-400 transition-transform group-open:rotate-180 shrink-0"></i>
+          </summary>
+          <p class="mt-3 text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+            You can simply submit your details in the Customer Enquiry Form at the top of this page or contact Senior Advisor Navratan Kumawat directly on +91 94618 12342. We provide complimentary VIP inspection cab pick-and-drop service from anywhere in Jaipur for prospective buyers and families.
+          </p>
+        </details>
+
+        <details class="group p-5 rounded-2xl bg-royal-900/80 border border-white/10 open:border-gold-500/40 transition-colors">
+          <summary class="font-serif text-base sm:text-lg font-semibold text-white cursor-pointer list-none flex items-center justify-between">
+            <span>5. What are the key appreciation corridors in Jaipur right now?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-gold-400 transition-transform group-open:rotate-180 shrink-0"></i>
+          </summary>
+          <p class="mt-3 text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+            Diggi Road (near Knowledge City), Ajmer Express Highway, and Tonk Road Central Business Corridor are currently witnessing the steepest capital growth and infrastructure investments. High-capacity wide boulevards and educational/institutional master plans make them premier long-term wealth assets.
+          </p>
+        </details>
+
+        <details class="group p-5 rounded-2xl bg-royal-900/80 border border-white/10 open:border-gold-500/40 transition-colors">
+          <summary class="font-serif text-base sm:text-lg font-semibold text-white cursor-pointer list-none flex items-center justify-between">
+            <span>6. Does Royal Rajasthan Properties charge any brokerage on direct developer projects?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-gold-400 transition-transform group-open:rotate-180 shrink-0"></i>
+          </summary>
+          <p class="mt-3 text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+            No. We offer 100% Zero Brokerage on direct builder and mega township bookings. Buyers get direct developer wholesale pricing along with our flat â‚¹1,000/Gaj early registration discounts and full legal assurance.
+          </p>
+        </details>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 12. FINAL ENQUIRY CTA ==================== -->
+  <section id="final-cta" class="py-18 md:py-24 bg-gradient-to-b from-royal-900 via-royal-950 to-royal-900 text-white relative overflow-hidden border-t border-b border-gold-subtle">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 py-12">
+      
+      <div class="w-16 h-16 rounded-full bg-gold-500/20 text-gold-400 border border-gold-500/40 mx-auto flex items-center justify-center mb-6 shadow-gold-sm">
+        <i data-lucide="award" class="w-8 h-8"></i>
+      </div>
+
+      <span class="text-xs uppercase font-bold text-gold-400 tracking-widest font-display block mb-3">
+        Start Your Real Estate Journey Today
+      </span>
+
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight">
+        Ready to Secure Your Piece of <br>
+        <span class="text-gold-gradient font-display font-bold">Royal Rajasthan?</span>
+      </h2>
+
+      <p class="mt-4 text-sand-200 text-sm sm:text-base font-light max-w-2xl mx-auto leading-relaxed">
+        Speak directly with Founder & Senior Property Consultant <strong>Navratan Kumawat</strong>. Receive verified property brochures, current plot pricing, and schedule a complimentary VIP site visit.
+      </p>
+
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#hero-enquiry" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:from-gold-200 hover:to-gold-400 text-royal-950 font-bold text-xs sm:text-sm uppercase tracking-wider shadow-gold-sm transition-all flex items-center justify-center gap-2">
+          <i data-lucide="send" class="w-4 h-4"></i>
+          <span>Submit Property Enquiry</span>
+        </a>
+        <a href="tel:+919461812342" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-royal-800 hover:bg-royal-750 text-gold-300 border border-gold-500/40 font-bold text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 transition-all">
+          <i data-lucide="phone-call" class="w-4 h-4 text-gold-400"></i>
+          <span>Direct Call: +91 94618 12342</span>
+        </a>
+        <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20am%20ready%20to%20explore%20verified%20properties." target="_blank" rel="noopener" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 shadow transition-all">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>WhatsApp Sales Desk</span>
+        </a>
       </div>
 
     </div>
@@ -5797,6 +5945,7 @@
     const propertiesData = [
       {
         id: 'prop-diggi-300-bigha',
+        slug: '300-bigha-mega-township',
         title: '🏡 300 Bigha Mega Township — Diggi Road',
         category: 'Plots',
         city: 'Jaipur',
@@ -5843,6 +5992,7 @@
       },
       {
         id: 'prop-plot-res-26950',
+        slug: 'residential-gated-plots',
         title: '🏡 Residential Gated Township Plots',
         category: 'Plots',
         city: 'Jaipur',
@@ -5872,6 +6022,7 @@
       },
       {
         id: 'prop-plot-com-46000',
+        slug: 'commercial-boulevard-plots',
         title: '🏢 Prime Commercial Boulevard Plots',
         category: 'Commercial',
         city: 'Jaipur',
@@ -5901,6 +6052,7 @@
       },
       {
         id: 'prop-1',
+        slug: 'the-royal-haveli-enclave',
         title: 'The Royal Haveli Enclave',
         category: 'Villa',
         city: 'Jaipur',
@@ -5930,6 +6082,7 @@
       },
       {
         id: 'prop-2',
+        slug: 'jaipur-skyward-residences',
         title: 'Jaipur Skyward Residences',
         category: 'Residential',
         city: 'Jaipur',
@@ -5959,6 +6112,7 @@
       },
       {
         id: 'prop-3',
+        slug: 'aravalli-greens-township',
         title: 'Aravalli Greens Township',
         category: 'Plots',
         city: 'Jaipur',
@@ -5987,6 +6141,7 @@
       },
       {
         id: 'prop-4',
+        slug: 'meridian-corporate-tower',
         title: 'The Meridian Corporate Tower',
         category: 'Commercial',
         city: 'Jaipur',
@@ -6015,6 +6170,7 @@
       },
       {
         id: 'prop-5',
+        slug: 'udaipur-lakeside-sanctuary',
         title: 'Udaipur Lakeside Sanctuary',
         category: 'Villa',
         city: 'Udaipur',
@@ -6043,6 +6199,7 @@
       },
       {
         id: 'prop-6',
+        slug: 'mehrangarh-view-floors',
         title: 'Mehrangarh View Floors',
         category: 'Residential',
         city: 'Jodhpur',
@@ -6174,9 +6331,9 @@
           <!-- Card Actions (View Details, WhatsApp, Request Callback, Download Brochure) -->
           <div class="p-6 pt-0 border-t border-slate-100 mt-4 space-y-2.5">
             <div class="flex items-center justify-between gap-2">
-              <button onclick="openPropertyModal('${p.id}')" class="flex-1 py-2.5 px-3 rounded-xl bg-royal-900 hover:bg-royal-800 text-gold-300 text-xs font-semibold uppercase tracking-wider text-center transition-colors">
+              <a href="/projects/${p.slug ? p.slug + '.html' : 'index.html'}" class="flex-1 py-2.5 px-3 rounded-xl bg-gradient-to-r from-gold-400 to-gold-500 hover:from-gold-300 hover:to-gold-400 text-royal-950 font-bold text-xs uppercase tracking-wider text-center transition-all shadow-gold-sm">
                 View Details
-              </button>
+              </a>
               <a href="https://wa.me/919461812342?text=Hello%20Royal%20Rajasthan%20Properties,%20I%20am%20interested%20in%20${encodeURIComponent(p.title)}%20in%20${encodeURIComponent(p.city)}." target="_blank" rel="noopener" class="p-2.5 rounded-xl border border-emerald-500/40 text-emerald-600 hover:bg-emerald-50 transition-colors" title="Chat on WhatsApp">
                 <i data-lucide="message-circle" class="w-4 h-4"></i>
               </a>
