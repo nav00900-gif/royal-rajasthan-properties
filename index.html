@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
@@ -238,159 +238,115 @@
 <body class="bg-[#faf8f5] text-slate-800 font-sans antialiased selection:bg-gold-500 selection:text-white pb-16 lg:pb-0">
 
   <!-- ==================== TOP CONSULTANT CONTACT BAR ==================== -->
-  <div class="bg-royal-950 text-sand-100 text-xs py-1.5 sm:py-2 px-3 sm:px-4 border-b border-gold-900/40">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-1.5 sm:gap-2">
-      <div class="flex items-center justify-between sm:justify-start w-full sm:w-auto gap-2 sm:gap-4 text-[11px] sm:text-xs">
-        <span class="flex items-center gap-1.5 text-gold-400 truncate">
-          <i data-lucide="map-pin" class="w-3.5 h-3.5 text-gold-500 shrink-0"></i>
-          <span><strong>Jaipur, Rajasthan</strong> <span class="hidden sm:inline">| Statewide Opportunities</span></span>
+  <div class="bg-royal-950 text-sand-100 text-xs py-2 px-3 sm:px-6 border-b border-gold-900/40 relative z-50">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-1.5 sm:gap-4">
+      <div class="flex items-center justify-between sm:justify-start w-full sm:w-auto gap-2.5 sm:gap-4 text-[11px] sm:text-xs">
+        <span class="flex items-center gap-1.5 text-gold-400 font-medium truncate">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5 text-gold-400 shrink-0"></i>
+          <span><strong class="text-white font-semibold">Jaipur, Rajasthan</strong> <span class="text-sand-300 font-normal">| Statewide Verified Inventory</span></span>
         </span>
-        <span class="hidden md:inline text-slate-600">•</span>
-        <span class="inline-flex items-center gap-1.5 text-gold-300 font-mono text-[10px] sm:text-[11px] bg-royal-900/90 px-2 sm:px-2.5 py-0.5 rounded-full border border-gold-500/30 shrink-0">
+        <span class="hidden md:inline text-gold-700">•</span>
+        <span class="inline-flex items-center gap-1.5 text-gold-300 font-mono text-[10px] sm:text-[11px] bg-royal-900 px-2.5 py-0.5 rounded-full border border-gold-500/30 shrink-0 shadow-inner">
           <i data-lucide="clock" class="w-3 h-3 text-gold-400"></i>
           <span id="topBarClock">--:--:-- IST</span>
         </span>
       </div>
-      <div class="flex items-center justify-center sm:justify-end gap-2.5 sm:gap-4 text-[11px] sm:text-xs overflow-x-auto no-scrollbar w-full sm:w-auto py-0.5">
-        <button onclick="openFeedbackModal()" class="text-amber-400 hover:text-amber-300 font-medium flex items-center gap-1 transition-colors whitespace-nowrap shrink-0" title="Rate Website & Give Feedback">
-          <i data-lucide="star" class="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-amber-400"></i>
-          <span>Rate (★ 4.9)</span>
+      <div class="flex items-center justify-center sm:justify-end gap-3 sm:gap-4 text-[11px] sm:text-xs overflow-x-auto no-scrollbar w-full sm:w-auto">
+        <button onclick="openFeedbackModal()" class="text-amber-400 hover:text-amber-300 font-semibold flex items-center gap-1 transition-colors whitespace-nowrap shrink-0" title="Rate Website & Give Feedback">
+          <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400 text-amber-400"></i>
+          <span>Verified Rating ★ 4.9</span>
         </button>
         <span class="text-slate-700">|</span>
-        <a href="https://wa.me/919461812342?text=Hello%20Royal%20Rajasthan%20Properties,%20I%20would%20like%20to%20inquire%20about%20properties%20in%20Jaipur." target="_blank" rel="noopener" class="text-emerald-400 hover:text-emerald-300 font-medium flex items-center gap-1 transition-colors whitespace-nowrap shrink-0">
-          <i data-lucide="message-circle" class="w-3 h-3 sm:w-3.5 sm:h-3.5"></i> WhatsApp
+        <a href="https://wa.me/919461812342?text=Hello%20Royal%20Rajasthan%20Properties,%20I%20would%20like%20to%20inquire%20about%20properties%20in%20Jaipur." target="_blank" rel="noopener" class="text-emerald-400 hover:text-emerald-300 font-semibold flex items-center gap-1 transition-colors whitespace-nowrap shrink-0">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5"></i> WhatsApp
         </a>
         <span class="text-slate-700">|</span>
-        <a href="#contact" class="text-gold-300 hover:text-white flex items-center gap-1 transition-colors whitespace-nowrap shrink-0">
-          <i data-lucide="phone-call" class="w-3 h-3 sm:w-3.5 sm:h-3.5"></i> Callback
+        <a href="tel:+919461812342" class="text-gold-300 hover:text-white font-semibold flex items-center gap-1 transition-colors whitespace-nowrap shrink-0">
+          <i data-lucide="phone-call" class="w-3.5 h-3.5 text-gold-400"></i> +91 94618 12342
         </a>
       </div>
     </div>
   </div>
 
-  <!-- ==================== 1. STICKY HEADER ==================== -->
-  <header class="sticky top-0 z-40 backdrop-blur-md bg-royal-900/95 border-b border-gold-subtle shadow-lg">
-    <div class="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8 h-16 sm:h-24 flex items-center justify-between gap-1.5 sm:gap-4">
+  <!-- ==================== 1. LUXURY STICKY HEADER ==================== -->
+  <header class="sticky top-0 z-40 backdrop-blur-xl bg-royal-950/90 border-b border-gold-500/30 shadow-[0_4px_30px_rgba(0,0,0,0.5)] transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
       
-      <!-- LEFT SIDE: MENU BUTTON + BRAND LOGO -->
-      <div class="flex items-center gap-1.5 sm:gap-3.5 shrink-0 min-w-0">
-        <!-- Prominent Left Menu Button (Accessible on ALL screens) -->
-        <button id="leftDrawerMenuToggle" onclick="toggleLeftDrawer(true)" class="px-2.5 py-1.5 sm:px-4 sm:py-2.5 rounded-xl bg-gradient-to-r from-royal-800 to-royal-750 hover:from-gold-500/20 hover:to-gold-500/30 border border-gold-400/60 hover:border-gold-300 text-gold-300 hover:text-white flex items-center gap-1.5 sm:gap-2 transition-all shadow-gold-sm group shrink-0" aria-label="Open Navigation & Tools Menu" title="Open Menu, About, Profile & Tools">
+      <!-- LEFT SIDE: MENU TRIGGER + BRAND CREST -->
+      <div class="flex items-center gap-2 sm:gap-3.5 shrink-0 min-w-0">
+        <!-- Luxury Menu Trigger -->
+        <button id="leftDrawerMenuToggle" onclick="toggleLeftDrawer(true)" class="px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-royal-900/90 hover:bg-gold-500/15 border border-gold-500/40 hover:border-gold-400 text-gold-300 hover:text-white flex items-center gap-2 transition-all shadow-sm group shrink-0" aria-label="Open Navigation & Tools Menu" title="Open Navigation Menu">
           <i data-lucide="menu" class="w-4 h-4 sm:w-5 sm:h-5 text-gold-400 group-hover:scale-110 transition-transform"></i>
-          <span class="text-[11px] sm:text-xs font-bold uppercase tracking-wider font-sans">MENU</span>
+          <span class="text-[11px] sm:text-xs font-bold uppercase tracking-widest font-sans hidden sm:inline">MENU</span>
         </button>
 
-        <!-- Brand Logo (Large & Clear, Clickable for Enlarged View) -->
-        <div class="flex items-center gap-1.5 sm:gap-3 group py-1 min-w-0">
-          <div onclick="openLogoModal();" class="cursor-pointer relative h-10 w-10 sm:h-16 sm:w-16 md:h-18 md:w-18 rounded-xl sm:rounded-2xl bg-white p-1 border-2 border-gold-400/80 shadow-gold-md flex items-center justify-center group-hover:scale-105 hover:border-gold-300 transition-all duration-300 overflow-hidden shrink-0" title="Click to view large logo">
-            <img src="logo.png" alt="Royal Rajasthan Properties Logo" class="h-full w-full object-contain">
+        <!-- Brand Crest & Monogram -->
+        <div class="flex items-center gap-2 sm:gap-3 group py-1 min-w-0">
+          <div onclick="openLogoModal();" class="cursor-pointer relative h-11 w-11 sm:h-13 sm:w-13 rounded-xl bg-white p-1 border-2 border-gold-400 shadow-[0_0_15px_rgba(197,160,89,0.3)] flex items-center justify-center group-hover:scale-105 hover:border-gold-300 transition-all duration-300 overflow-hidden shrink-0" title="Click to view large logo">
+            <img src="logo.png" alt="Royal Rajasthan Properties Crest" class="h-full w-full object-contain">
             <div class="absolute bottom-0.5 right-0.5 bg-royal-950/80 text-gold-400 p-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-              <i data-lucide="zoom-in" class="w-2.5 h-2.5 sm:w-3 sm:h-3"></i>
+              <i data-lucide="zoom-in" class="w-2.5 h-2.5"></i>
             </div>
           </div>
           <a href="#hero" class="flex flex-col cursor-pointer min-w-0" title="Royal Rajasthan Properties">
-            <span class="font-display font-bold text-xs sm:text-xl lg:text-2xl tracking-wider text-white group-hover:text-gold-300 transition-colors leading-tight truncate">
+            <span class="font-display font-bold text-sm sm:text-lg lg:text-xl tracking-wider text-white group-hover:text-gold-300 transition-colors leading-tight truncate">
               ROYAL RAJASTHAN
             </span>
-            <span class="text-[8px] sm:text-xs tracking-[0.2em] sm:tracking-[0.25em] text-gold-400 uppercase font-semibold">
+            <span class="text-[9px] sm:text-[10px] tracking-[0.25em] text-gold-400 uppercase font-semibold">
               PROPERTIES
             </span>
-            <span class="hidden md:inline text-[9px] sm:text-[10px] tracking-wider text-sand-300 font-serif italic opacity-90 mt-0.5">
-              Your Dream • Our Priority
+            <span class="hidden md:inline text-[9px] tracking-wider text-sand-300/80 font-serif italic mt-0.5">
+              Luxury Real Estate • Jaipur & Statewide
             </span>
           </a>
         </div>
       </div>
 
-      <!-- CENTER: Streamlined Desktop Highlights (Prevents horizontal scrollbar) -->
-      <nav class="hidden xl:flex items-center gap-4 2xl:gap-5 text-xs font-medium uppercase tracking-wider text-sand-200">
-        <a href="#mega-township-diggi" class="text-amber-300 hover:text-amber-200 transition-colors flex items-center gap-1 font-bold bg-amber-500/10 px-2.5 py-1 rounded-lg border border-amber-500/30">
-          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-gold-400"></i> 300 Bigha
+      <!-- CENTER: DESKTOP EDITORIAL NAVIGATION -->
+      <nav class="hidden lg:flex items-center gap-3.5 xl:gap-5 text-xs font-medium uppercase tracking-wider text-sand-200">
+        <a href="#mega-township-diggi" class="text-amber-300 hover:text-amber-200 transition-all flex items-center gap-1.5 font-bold bg-amber-500/10 hover:bg-amber-500/20 px-3 py-1.5 rounded-full border border-amber-500/30">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-gold-400 animate-pulse"></i> 300 Bigha
         </a>
         <a href="#plot-gallery" class="text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-1 font-semibold">
           <i data-lucide="badge-percent" class="w-3.5 h-3.5"></i> Plot Rates
         </a>
-        <a href="#projects" class="hover:text-gold-400 transition-colors">Projects</a>
-        <button onclick="openProfileModal()" class="hover:text-gold-400 transition-colors flex items-center gap-1">
-          <i data-lucide="user-check" class="w-3.5 h-3.5 text-emerald-400"></i> Profile
-        </button>
-        <button onclick="openAboutModal()" class="hover:text-gold-400 transition-colors flex items-center gap-1">
-          <i data-lucide="info" class="w-3.5 h-3.5 text-gold-400"></i> About
-        </button>
+        <a href="#projects" class="hover:text-gold-400 transition-colors font-semibold">Projects</a>
+        <a href="/projects/index.html" class="hover:text-gold-400 transition-colors text-slate-300">Catalog</a>
         <button onclick="openToolsModal('all')" class="text-gold-300 hover:text-gold-200 transition-colors flex items-center gap-1 font-semibold">
-          <i data-lucide="calculator" class="w-3.5 h-3.5"></i> Tools
+          <i data-lucide="calculator" class="w-3.5 h-3.5 text-gold-400"></i> Tools
+        </button>
+        <button onclick="openProfileModal()" class="hover:text-gold-400 transition-colors flex items-center gap-1 text-slate-300">
+          <i data-lucide="user-check" class="w-3.5 h-3.5 text-emerald-400"></i> Advisor
         </button>
       </nav>
 
-      <!-- RIGHT SIDE: INQUIRY DESK (2ND PAGE) + ADMIN PORTAL + CALL/BOOK ACTION -->
-      <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
-        <a href="admin.html" class="px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl text-[10px] sm:text-xs font-bold uppercase tracking-wider text-royal-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:from-gold-200 hover:to-gold-400 border border-gold-400 shadow-gold-sm flex items-center gap-1 sm:gap-1.5 transition-all shrink-0 cursor-pointer" title="Go to Admin & Projects Portal">
-          <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+      <!-- RIGHT SIDE: ADMIN PORTAL + INQUIRY DESK + SCHEDULE VISIT CTA -->
+      <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+        <!-- Direct Admin Portal Button -->
+        <a href="admin.html" class="px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl text-[10px] sm:text-xs font-bold uppercase tracking-wider text-royal-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:from-gold-200 hover:to-gold-400 border border-gold-300 shadow-[0_0_15px_rgba(197,160,89,0.3)] flex items-center gap-1 sm:gap-1.5 transition-all shrink-0 cursor-pointer active:scale-95" title="Go to Admin & Projects Portal">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5 text-royal-950"></i>
           <span>Admin Portal</span>
         </a>
-        <a href="thank-you.html" class="px-2 sm:px-3 py-1.5 sm:py-2 rounded-xl text-[10px] sm:text-xs font-bold uppercase tracking-wider text-emerald-300 bg-emerald-950/80 hover:bg-emerald-900/80 border border-emerald-500/50 flex items-center gap-1 sm:gap-1.5 transition-all shadow-sm shrink-0" title="Go to Official Inquiry & Receipt Desk (2nd Page)">
+
+        <!-- Official Inquiry Desk Link -->
+        <a href="thank-you.html" class="hidden sm:inline-flex px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl text-[10px] sm:text-xs font-bold uppercase tracking-wider text-emerald-300 bg-emerald-950/80 hover:bg-emerald-900/90 border border-emerald-500/50 items-center gap-1 sm:gap-1.5 transition-all shadow-sm shrink-0" title="Go to Official Inquiry Desk">
           <i data-lucide="file-check-2" class="w-3.5 h-3.5 text-emerald-400"></i>
-          <span class="hidden sm:inline">Inquiry Desk</span>
-          <span class="px-1 py-0.2 rounded bg-emerald-500/30 text-[8px] sm:text-[9px] text-white">2nd Page</span>
+          <span>Inquiry Desk</span>
         </a>
-        <a href="#contact" class="hidden md:inline-flex px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider text-royal-950 bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:from-gold-200 hover:to-gold-400 shadow-gold-sm transition-all font-sans">
-          Callback / Visit
+
+        <!-- Schedule Site Visit Action -->
+        <a href="#schedule-visit" class="hidden md:inline-flex px-3.5 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-royal-850 hover:bg-royal-800 border border-gold-500/40 hover:border-gold-400 transition-all font-sans">
+          Schedule Visit
         </a>
-        <a href="tel:+919461812342" class="p-1.5 sm:p-2.5 rounded-xl bg-royal-800 hover:bg-royal-750 text-gold-400 border border-gold-500/40 transition-colors shrink-0" title="Call Senior Consultant Direct: 9461812342">
+
+        <!-- Direct Call Icon Action -->
+        <a href="tel:+919461812342" class="p-2 sm:p-2.5 rounded-xl bg-royal-900 hover:bg-royal-800 text-gold-400 border border-gold-500/40 transition-colors shrink-0" title="Call Senior Consultant Direct: 9461812342">
           <i data-lucide="phone-call" class="w-4 h-4"></i>
         </a>
       </div>
 
     </div>
   </header>
-
-  <!-- ==================== TOP SUB-BAR: INQUIRY DESK & QUICK ACCESS (JUST BELOW TOP HEADER) ==================== -->
-  <div id="topInquiryQuickBar" class="bg-gradient-to-r from-royal-950 via-royal-900 to-royal-950 text-white border-b border-gold-500/30 py-2 sm:py-2.5 px-3 sm:px-6 shadow-md text-xs relative z-30">
-    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-      
-      <!-- Left: Menu trigger & Inquiry page notice -->
-      <div class="flex items-center gap-2 sm:gap-3 flex-wrap">
-        <button onclick="toggleLeftDrawer(true)" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-royal-800 hover:bg-gold-500/20 text-gold-300 border border-gold-500/40 text-[11px] font-bold uppercase tracking-wider transition-all">
-          <i data-lucide="menu" class="w-3.5 h-3.5 text-gold-400"></i>
-          <span>Left Menu</span>
-        </button>
-
-        <a href="admin.html" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-500/20 hover:bg-gold-500/30 text-gold-300 border border-gold-500/40 text-[11px] font-bold transition-all" title="Go to Admin & Projects Portal">
-          <i data-lucide="shield-check" class="w-3.5 h-3.5 text-gold-400"></i>
-          <span>Admin Portal (Projects & CRM)</span>
-        </a>
-
-        <a href="thank-you.html" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950/90 border border-emerald-500/50 text-emerald-300 text-[11px] font-semibold hover:bg-emerald-900/80 transition-all shadow-sm">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span class="font-bold">📄 Official Inquiry Desk:</span>
-          <span class="text-white underline">View Receipt →</span>
-        </a>
-      </div>
-
-      <!-- Right: Quick Navigation Chips -->
-      <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto py-0.5 no-scrollbar text-[11px]">
-        <a href="admin.html" class="px-2.5 py-1 rounded-lg bg-gold-500/20 hover:bg-gold-500/30 text-gold-300 border border-gold-500/40 transition-colors flex items-center gap-1 shrink-0 font-bold" title="Go to Admin & Projects Portal">
-          <i data-lucide="shield-check" class="w-3 h-3 text-gold-400"></i> Admin Portal
-        </a>
-        <button onclick="openAboutModal()" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-gold-500/20 text-sand-200 hover:text-gold-300 border border-white/10 transition-colors flex items-center gap-1 shrink-0 font-medium">
-          <i data-lucide="info" class="w-3 h-3 text-gold-400"></i> About Us
-        </button>
-        <button onclick="openProfileModal()" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-gold-500/20 text-sand-200 hover:text-gold-300 border border-white/10 transition-colors flex items-center gap-1 shrink-0 font-medium">
-          <i data-lucide="user-check" class="w-3 h-3 text-emerald-400"></i> Advisor Profile
-        </button>
-        <a href="#mega-township-diggi" class="px-2.5 py-1 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 transition-colors flex items-center gap-1 shrink-0 font-semibold">
-          <i data-lucide="sparkles" class="w-3 h-3 text-gold-400"></i> 300 Bigha
-        </a>
-        <button onclick="openToolsModal('all')" class="px-2.5 py-1 rounded-lg bg-gold-500/15 hover:bg-gold-500/25 text-gold-300 border border-gold-500/40 transition-colors flex items-center gap-1 shrink-0 font-semibold">
-          <i data-lucide="calculator" class="w-3 h-3 text-gold-400"></i> Property Tools
-        </button>
-        <button onclick="openAddMenuItemModal()" class="px-2.5 py-1 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/50 transition-colors flex items-center gap-1 shrink-0 font-bold" title="Add custom menu link">
-          <i data-lucide="plus-circle" class="w-3.5 h-3.5 text-emerald-400"></i> + Add Link
-        </button>
-      </div>
-
-    </div>
-  </div>
 
   <!-- ==================== LUXURY LEFT SIDEBAR DRAWER MENU ==================== -->
   <div id="leftDrawerBackdrop" onclick="toggleLeftDrawer(false)" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[70] transition-opacity opacity-0 pointer-events-none duration-300"></div>
@@ -594,67 +550,68 @@
     </div>
 
   </aside>
-  </header>
 
-    <!-- ==================== 2. HERO SECTION WITH VISIBLE ENQUIRY FORM (ABOVE THE FOLD) ==================== -->
-  <section id="hero" class="relative min-h-[92vh] flex items-center justify-center bg-royal-gradient text-white overflow-hidden py-10 lg:py-16">
+  <!-- ==================== 2. HERO SECTION WITH PROMINENT ENQUIRY FORM (ABOVE THE FOLD) ==================== -->
+  <section id="hero" class="relative min-h-[90vh] flex items-center justify-center bg-royal-gradient text-white overflow-hidden py-10 lg:py-16">
     <!-- Cinematic Luxury Hero Background -->
     <div class="absolute inset-0 z-0">
-      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80" alt="Rajasthan Luxury Real Estate Architecture" class="w-full h-full object-cover object-center opacity-25 scale-105 transition-transform duration-1000 ease-out">
-      <div class="absolute inset-0 bg-gradient-to-t from-royal-950 via-royal-900/80 to-royal-950/90"></div>
-      <div class="absolute inset-0 bg-jali-pattern opacity-35 pointer-events-none"></div>
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=85" alt="Rajasthan Luxury Real Estate Architecture" class="w-full h-full object-cover object-center opacity-30 scale-105 transition-transform duration-1000 ease-out">
+      <div class="absolute inset-0 bg-gradient-to-t from-royal-950 via-royal-950/85 to-royal-950/95"></div>
+      <div class="absolute inset-0 bg-jali-pattern opacity-25 pointer-events-none"></div>
     </div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         
-        <!-- LEFT COLUMN: HEADLINE, DESCRIPTION, TRUST BADGES & ACTIONS (7 cols) -->
+        <!-- LEFT COLUMN: HEADLINE, HIGHLIGHTS, TRUST CREDENTIALS & DIRECT CTAs (7 cols) -->
         <div class="lg:col-span-7 text-left space-y-6">
           
           <!-- Official Brand Badge -->
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-royal-800/90 border border-gold-500/40 text-gold-300 text-xs font-semibold uppercase tracking-wider backdrop-blur-sm shadow-gold-sm">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-royal-900/90 border border-gold-500/40 text-gold-300 text-xs font-semibold uppercase tracking-widest backdrop-blur-md shadow-[0_2px_12px_rgba(197,160,89,0.2)]">
             <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse shrink-0"></span>
-            <span class="tracking-widest uppercase font-display">Premier Luxury Realty Advisory</span>
-            <span class="text-gold-600 hidden sm:inline">|</span>
-            <span class="text-sand-300 text-[11px] hidden sm:inline">Jaipur â€¢ Udaipur â€¢ Jodhpur</span>
+            <span class="tracking-widest uppercase font-display text-[11px]">Royal Rajasthan Properties</span>
+            <span class="text-gold-600 hidden sm:inline">•</span>
+            <span class="text-sand-300 text-[10px] hidden sm:inline font-sans">Jaipur • Udaipur • Jodhpur</span>
           </div>
 
-          <!-- Main Headline -->
-          <h1 class="font-serif font-medium text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.12]">
-            Find Your Dream Property in <br>
-            <span class="font-display text-gold-gradient font-bold">Jaipur & Rajasthan</span>
-          </h1>
+          <!-- Main Headline (Lodha Luxury Editorial Style) -->
+          <div class="space-y-2">
+            <h1 class="font-serif font-normal text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.12]">
+              Find Your Dream Property in <br>
+              <span class="font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold-200 via-gold-400 to-gold-500">
+                Jaipur & Rajasthan
+              </span>
+            </h1>
+            <p class="text-sand-200 text-sm sm:text-base lg:text-lg font-light leading-relaxed max-w-2xl pt-1">
+              Explore residential properties, commercial spaces, premium plots, villas, and township projects with Royal Rajasthan Properties. Verified legal titles, direct developer pricing, and dedicated senior advisory.
+            </p>
+          </div>
 
-          <!-- Supporting Text -->
-          <p class="text-sand-200 text-base sm:text-lg font-light leading-relaxed max-w-2xl">
-            Explore residential properties, commercial spaces, premium plots, villas, and township projects with Royal Rajasthan Properties. Verified legal titles, direct developer pricing, and dedicated senior advisory.
-          </p>
-
-          <!-- Key Trust Indicators -->
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-xs text-sand-300">
-            <div class="flex items-center gap-2 p-2.5 rounded-xl bg-royal-900/70 border border-white/10">
+          <!-- Key Trust Indicators Grid -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-1 text-xs">
+            <div class="flex items-center gap-2.5 p-3 rounded-2xl bg-royal-900/80 border border-gold-500/20 backdrop-blur-sm">
               <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400 shrink-0"></i>
-              <span>100% RERA / JDA Verified</span>
+              <span class="text-slate-200 font-medium">100% RERA / JDA Approved</span>
             </div>
-            <div class="flex items-center gap-2 p-2.5 rounded-xl bg-royal-900/70 border border-white/10">
+            <div class="flex items-center gap-2.5 p-3 rounded-2xl bg-royal-900/80 border border-gold-500/20 backdrop-blur-sm">
               <i data-lucide="badge-percent" class="w-4 h-4 text-gold-400 shrink-0"></i>
-              <span>Zero Brokerage Direct</span>
+              <span class="text-slate-200 font-medium">₹1,000/Gaj Early Discount</span>
             </div>
-            <div class="flex items-center gap-2 p-2.5 rounded-xl bg-royal-900/70 border border-white/10 col-span-2 sm:col-span-1">
+            <div class="flex items-center gap-2.5 p-3 rounded-2xl bg-royal-900/80 border border-gold-500/20 backdrop-blur-sm col-span-2 sm:col-span-1">
               <i data-lucide="car" class="w-4 h-4 text-amber-400 shrink-0"></i>
-              <span>Free VIP Cab Visit</span>
+              <span class="text-slate-200 font-medium">Free VIP Cab Site Visit</span>
             </div>
           </div>
 
-          <!-- Contact / Instant Action CTAs -->
+          <!-- Quick Action CTAs -->
           <div class="pt-2 flex flex-wrap items-center gap-3">
-            <a href="tel:+919461812342" class="px-5 py-3 rounded-xl bg-royal-900 hover:bg-royal-850 border border-gold-500/50 text-gold-300 font-bold text-xs uppercase tracking-wider flex items-center gap-2 transition-all">
-              <i data-lucide="phone-call" class="w-4 h-4 text-gold-400"></i>
-              <span>Call: +91 94618 12342</span>
-            </a>
-            <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20am%20exploring%20properties%20on%20Royal%20Rajasthan%20Properties." target="_blank" rel="noopener" class="px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-lg transition-all">
+            <a href="https://wa.me/919461812342?text=Hello%20Navratan%20ji,%20I%20am%20exploring%20properties%20on%20Royal%20Rajasthan%20Properties." target="_blank" rel="noopener" class="px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2 shadow-[0_4px_20px_rgba(16,185,129,0.3)] transition-all">
               <i data-lucide="message-circle" class="w-4 h-4"></i>
               <span>WhatsApp Consultation</span>
+            </a>
+            <a href="tel:+919461812342" class="px-5 py-3 rounded-xl bg-royal-900 hover:bg-royal-850 border border-gold-500/40 text-gold-300 hover:text-white font-bold text-xs uppercase tracking-wider flex items-center gap-2 transition-all">
+              <i data-lucide="phone-call" class="w-4 h-4 text-gold-400"></i>
+              <span>Call: +91 94618 12342</span>
             </a>
             <a href="/projects/index.html" class="px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs uppercase tracking-wider flex items-center gap-1.5 transition-colors">
               <span>View All Projects</span>
@@ -664,19 +621,20 @@
 
         </div>
 
-        <!-- RIGHT COLUMN: PROMINENT ENQUIRY FORM (ABOVE THE FOLD) (5 cols) -->
+        <!-- RIGHT COLUMN: PROMINENT CUSTOMER ENQUIRY FORM (ABOVE THE FOLD) (5 cols) -->
         <div id="hero-enquiry" class="lg:col-span-5 w-full">
-          <div class="bg-royal-900/95 border-2 border-gold-400 rounded-3xl p-6 sm:p-7 shadow-[0_0_50px_rgba(197,160,89,0.25)] backdrop-blur-md relative">
+          <div class="bg-royal-950/95 border-2 border-gold-400/80 rounded-3xl p-6 sm:p-7 shadow-[0_0_50px_rgba(197,160,89,0.25)] backdrop-blur-xl relative">
             
-            <div class="mb-4 pb-3 border-b border-white/10">
-              <span class="text-[10px] uppercase font-bold text-gold-400 tracking-wider flex items-center gap-1">
-                <i data-lucide="sparkles" class="w-3 h-3 text-gold-400"></i> Direct Senior Advisory Desk
+            <!-- Card Header -->
+            <div class="mb-4 pb-3 border-b border-gold-500/20">
+              <span class="text-[10px] uppercase font-bold text-gold-400 tracking-widest flex items-center gap-1 font-display">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-gold-400"></i> Direct Senior Advisory Desk
               </span>
               <h2 class="font-serif text-xl sm:text-2xl font-bold text-white mt-1">
                 Enquire About Verified Properties
               </h2>
-              <p class="text-xs text-sand-300 mt-0.5">
-                Immediate callback & official price brochures
+              <p class="text-xs text-sand-300 mt-0.5 font-light">
+                Immediate callback & official pricing brochures from Navratan Kumawat
               </p>
             </div>
 
@@ -688,7 +646,7 @@
                 <label for="leadName" class="block text-[11px] font-semibold text-slate-300 uppercase tracking-wider mb-1">
                   Full Name <span class="text-gold-400">*</span>
                 </label>
-                <input type="text" id="leadName" required placeholder="Aapka Poora Naam..." class="w-full bg-royal-950 border border-white/20 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-gold-400 transition-colors">
+                <input type="text" id="leadName" required placeholder="Aapka Poora Naam..." class="w-full bg-royal-900 border border-white/20 focus:border-gold-400 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none transition-colors">
               </div>
 
               <!-- Mobile Number (Required) -->
@@ -697,8 +655,8 @@
                   Mobile / WhatsApp Number <span class="text-gold-400">*</span>
                 </label>
                 <div class="relative">
-                  <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-xs text-gold-400 font-mono">+91</span>
-                  <input type="tel" id="leadPhone" required maxlength="10" pattern="[0-9]{10}" placeholder="10-digit Mobile Number" class="w-full bg-royal-950 border border-white/20 rounded-xl pl-12 pr-3.5 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-gold-400 font-mono transition-colors">
+                  <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-xs text-gold-400 font-mono font-bold">+91</span>
+                  <input type="tel" id="leadPhone" required maxlength="10" pattern="[0-9]{10}" placeholder="10-digit Mobile Number" class="w-full bg-royal-900 border border-white/20 focus:border-gold-400 rounded-xl pl-12 pr-3.5 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none font-mono transition-colors">
                 </div>
               </div>
 
@@ -709,9 +667,9 @@
                   <label for="leadType" class="block text-[11px] font-semibold text-slate-300 uppercase tracking-wider mb-1">
                     Property Type
                   </label>
-                  <select id="leadType" class="w-full bg-royal-950 border border-white/20 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-gold-400 cursor-pointer">
+                  <select id="leadType" class="w-full bg-royal-900 border border-white/20 focus:border-gold-400 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none cursor-pointer">
                     <option value="Township Project">Township Project (300 Bigha)</option>
-                    <option value="Residential Plot">Residential Plot</option>
+                    <option value="Residential Plot" selected>Residential Plot</option>
                     <option value="Commercial Plot">Commercial Plot</option>
                     <option value="Villa">Luxury Villa</option>
                     <option value="Residential">Residential Apartment</option>
@@ -724,7 +682,7 @@
                   <label for="leadLocation" class="block text-[11px] font-semibold text-slate-300 uppercase tracking-wider mb-1">
                     Preferred Location
                   </label>
-                  <select id="leadLocation" class="w-full bg-royal-950 border border-white/20 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-gold-400 cursor-pointer">
+                  <select id="leadLocation" class="w-full bg-royal-900 border border-white/20 focus:border-gold-400 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none cursor-pointer">
                     <option value="Jaipur">Jaipur (Primary)</option>
                     <option value="Diggi Road Corridor">Diggi Road (Knowledge City)</option>
                     <option value="Ajmer Road Corridor">Ajmer Highway Corridor</option>
@@ -741,12 +699,12 @@
                 <label for="leadBudget" class="block text-[11px] font-semibold text-slate-300 uppercase tracking-wider mb-1">
                   Budget Range
                 </label>
-                <select id="leadBudget" class="w-full bg-royal-950 border border-white/20 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-gold-400 cursor-pointer">
-                  <option value="Under 25 Lakh">Under â‚¹25 Lakh</option>
-                  <option value="25 Lakh - 50 Lakh" selected>â‚¹25 Lakh â€“ â‚¹50 Lakh</option>
-                  <option value="50 Lakh - 1 Crore">â‚¹50 Lakh â€“ â‚¹1 Crore</option>
-                  <option value="1 Crore - 2.5 Crore">â‚¹1 Crore â€“ â‚¹2.5 Crore</option>
-                  <option value="2.5 Crore+">â‚¹2.5 Crore+ (Ultra Luxury)</option>
+                <select id="leadBudget" class="w-full bg-royal-900 border border-white/20 focus:border-gold-400 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none cursor-pointer">
+                  <option value="Under 25 Lakh">Under ₹25 Lakh</option>
+                  <option value="25 Lakh - 50 Lakh" selected>₹25 Lakh – ₹50 Lakh</option>
+                  <option value="50 Lakh - 1 Crore">₹50 Lakh – ₹1 Crore</option>
+                  <option value="1 Crore - 2.5 Crore">₹1 Crore – ₹2.5 Crore</option>
+                  <option value="2.5 Crore+">₹2.5 Crore+ (Ultra Luxury)</option>
                 </select>
               </div>
 
@@ -755,7 +713,7 @@
                 <label for="leadMessage" class="block text-[11px] font-semibold text-slate-300 uppercase tracking-wider mb-1">
                   Message / Special Request (Optional)
                 </label>
-                <input type="text" id="leadMessage" placeholder="e.g. Free site visit, payment plan, loan enquiry..." class="w-full bg-royal-950 border border-white/20 rounded-xl px-3.5 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-gold-400 transition-colors">
+                <input type="text" id="leadMessage" placeholder="e.g. Free site visit, payment plan, loan enquiry..." class="w-full bg-royal-900 border border-white/20 focus:border-gold-400 rounded-xl px-3.5 py-2 text-xs text-white placeholder-slate-500 focus:outline-none transition-colors">
               </div>
 
               <!-- Hidden Helper Inputs for backward compatibility with handleLeadSubmit -->
@@ -773,7 +731,7 @@
               </div>
 
               <!-- Submit Button -->
-              <button type="submit" id="leadSubmitBtn" class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:from-gold-200 hover:to-gold-400 text-royal-950 font-bold text-xs uppercase tracking-wider shadow-gold-sm transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-95">
+              <button type="submit" id="leadSubmitBtn" class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 hover:from-gold-200 hover:to-gold-400 text-royal-950 font-bold text-xs uppercase tracking-widest shadow-[0_4px_20px_rgba(197,160,89,0.3)] transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-95">
                 <i data-lucide="send" class="w-4 h-4"></i>
                 <span>Submit Enquiry</span>
               </button>
@@ -782,18 +740,18 @@
 
             <!-- Success Banner (Hidden by default, shown by handleLeadSubmit) -->
             <div id="leadSuccessBanner" class="hidden mt-4 p-4 rounded-2xl bg-emerald-950/90 border border-emerald-500/50 text-emerald-200 text-xs text-center space-y-2">
-              <div class="flex items-center justify-center gap-1.5 text-emerald-400 font-bold">
-                <i data-lucide="check-circle" class="w-4 h-4"></i>
+              <div class="flex items-center justify-center gap-1.5 text-emerald-400 font-bold text-sm">
+                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
                 <span>Enquiry Submitted Successfully!</span>
               </div>
               <p class="text-[11px] text-slate-300">Senior Consultant Navratan Kumawat will connect with you shortly.</p>
               <div class="pt-2 flex items-center justify-center gap-2">
-                <a id="instantWhatsAppBtn" href="https://wa.me/919461812342" target="_blank" class="px-3 py-1.5 rounded-lg bg-emerald-600 text-white font-bold text-[11px] flex items-center gap-1">
+                <a id="instantWhatsAppBtn" href="https://wa.me/919461812342" target="_blank" class="px-3.5 py-1.5 rounded-lg bg-emerald-600 text-white font-bold text-[11px] flex items-center gap-1.5 shadow-sm">
                   <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
                   <span>WhatsApp Chat</span>
                 </a>
-                <a id="thankYouRedirectBtn" href="/thank-you.html" class="px-3 py-1.5 rounded-lg bg-white/10 text-white text-[11px] font-medium hover:bg-white/20">
-                  <span>View Receipt Desk â†’</span>
+                <a id="thankYouRedirectBtn" href="/thank-you.html" class="px-3.5 py-1.5 rounded-lg bg-white/10 text-white text-[11px] font-medium hover:bg-white/20">
+                  <span>View Receipt Desk →</span>
                 </a>
               </div>
             </div>
@@ -805,32 +763,52 @@
     </div>
   </section>
 
-  <!-- ==================== 3. PROPERTY SEARCH AND FILTER SECTION ==================== -->
-  <section id="search-filters" class="py-8 bg-royal-900 border-y border-gold-900/60 sticky top-20 z-30 backdrop-blur-md shadow-md">
+  <!-- ==================== 3. PROPERTY SEARCH AND FILTER SECTION (SQUARE YARDS STYLE) ==================== -->
+  <section id="search-filters" class="py-6 bg-royal-950/95 border-y border-gold-500/30 sticky top-18 sm:top-20 z-30 backdrop-blur-xl shadow-lg transition-all">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
+      <!-- Top Row: Filter Heading + Active Category Pills -->
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-4">
         <div>
-          <span class="text-[10px] font-bold uppercase tracking-wider text-gold-400 flex items-center gap-1">
-            <i data-lucide="filter" class="w-3 h-3 text-gold-400"></i> Quick Discovery Filter
+          <span class="text-[10px] font-bold uppercase tracking-widest text-gold-400 flex items-center gap-1.5 font-display">
+            <i data-lucide="sliders-horizontal" class="w-3.5 h-3.5 text-gold-400"></i> Discovery & Filter Engine
           </span>
-          <h2 class="font-serif text-lg sm:text-xl font-bold text-white">Find Properties by Exact Criteria</h2>
+          <h2 class="font-serif text-lg sm:text-xl font-bold text-white tracking-wide">
+            Find Properties Across Jaipur & Rajasthan
+          </h2>
         </div>
-        <div class="text-[11px] text-slate-400 hidden sm:block">
-          Lodha & Square Yards Inspired Search Experience
+
+        <!-- Real-Time Category Pills -->
+        <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1">
+          <button onclick="document.getElementById('heroTypeSelect').value='all'; applyHeroFilters();" class="px-3 py-1 rounded-full text-xs font-semibold bg-gold-500 text-royal-950 hover:bg-gold-400 transition-all shrink-0 cursor-pointer">
+            All (9)
+          </button>
+          <button onclick="document.getElementById('heroTypeSelect').value='Plots'; applyHeroFilters();" class="px-3 py-1 rounded-full text-xs font-semibold bg-royal-900 text-sand-200 border border-gold-500/30 hover:border-gold-400 hover:text-white transition-all shrink-0 cursor-pointer">
+            Plots & Land
+          </button>
+          <button onclick="document.getElementById('heroTypeSelect').value='Villa'; applyHeroFilters();" class="px-3 py-1 rounded-full text-xs font-semibold bg-royal-900 text-sand-200 border border-gold-500/30 hover:border-gold-400 hover:text-white transition-all shrink-0 cursor-pointer">
+            Villas
+          </button>
+          <button onclick="document.getElementById('heroTypeSelect').value='Residential'; applyHeroFilters();" class="px-3 py-1 rounded-full text-xs font-semibold bg-royal-900 text-sand-200 border border-gold-500/30 hover:border-gold-400 hover:text-white transition-all shrink-0 cursor-pointer">
+            Apartments
+          </button>
+          <button onclick="document.getElementById('heroTypeSelect').value='Commercial'; applyHeroFilters();" class="px-3 py-1 rounded-full text-xs font-semibold bg-royal-900 text-sand-200 border border-gold-500/30 hover:border-gold-400 hover:text-white transition-all shrink-0 cursor-pointer">
+            Commercial
+          </button>
         </div>
       </div>
 
+      <!-- Filter Controls Bar -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
         <!-- Keyword Search -->
         <div class="relative">
-          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
-          <input type="text" id="heroSearchInput" placeholder="Project name, corridor or road..." class="w-full bg-royal-950 border border-white/15 rounded-xl pl-10 pr-3.5 py-2.5 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-gold-400">
+          <i data-lucide="search" class="w-4 h-4 text-gold-400/80 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+          <input type="text" id="heroSearchInput" placeholder="Project name, corridor or locality..." onkeydown="if(event.key==='Enter') applyHeroFilters();" class="w-full bg-royal-900 border border-white/20 focus:border-gold-400 rounded-xl pl-10 pr-3.5 py-2.5 text-xs text-white placeholder-slate-400 focus:outline-none transition-colors">
         </div>
 
         <!-- Location Dropdown -->
         <div>
-          <select id="heroLocationSelect" class="w-full bg-royal-950 border border-white/15 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-gold-400 cursor-pointer">
+          <select id="heroLocationSelect" onchange="applyHeroFilters()" class="w-full bg-royal-900 border border-white/20 focus:border-gold-400 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none cursor-pointer">
             <option value="all">All Rajasthan Locations</option>
             <option value="Jaipur" selected>Jaipur (Primary)</option>
             <option value="Udaipur">Udaipur</option>
@@ -842,7 +820,7 @@
 
         <!-- Property Type Dropdown -->
         <div>
-          <select id="heroTypeSelect" class="w-full bg-royal-950 border border-white/15 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-gold-400 cursor-pointer">
+          <select id="heroTypeSelect" onchange="applyHeroFilters()" class="w-full bg-royal-900 border border-white/20 focus:border-gold-400 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none cursor-pointer">
             <option value="all">All Property Categories</option>
             <option value="Plots">Residential & Commercial Plots</option>
             <option value="Villa">Luxury Villas</option>
@@ -853,15 +831,15 @@
 
         <!-- Budget Dropdown + Search Button -->
         <div class="flex items-center gap-2">
-          <select id="heroBudgetSelect" class="w-full bg-royal-950 border border-white/15 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-gold-400 cursor-pointer">
+          <select id="heroBudgetSelect" onchange="applyHeroFilters()" class="w-full bg-royal-900 border border-white/20 focus:border-gold-400 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none cursor-pointer">
             <option value="all">Any Budget Tier</option>
-            <option value="50L">Under â‚¹50 Lakh</option>
-            <option value="1Cr">â‚¹50 Lakh â€“ â‚¹1 Crore</option>
-            <option value="2Cr">â‚¹1 Crore â€“ â‚¹2 Crore</option>
-            <option value="5Cr">â‚¹2 Crore â€“ â‚¹5 Crore</option>
-            <option value="5Cr+">â‚¹5 Crore+ (Ultra Luxury)</option>
+            <option value="50L">Under ₹50 Lakh</option>
+            <option value="1Cr">₹50 Lakh – ₹1 Crore</option>
+            <option value="2Cr">₹1 Crore – ₹2 Crore</option>
+            <option value="5Cr">₹2 Crore – ₹5 Crore</option>
+            <option value="5Cr+">₹5 Crore+ (Ultra Luxury)</option>
           </select>
-          <button onclick="applyHeroFilters()" class="py-2.5 px-4 rounded-xl bg-gradient-to-r from-gold-400 to-gold-500 hover:from-gold-300 hover:to-gold-400 text-royal-950 font-bold text-xs uppercase tracking-wider shrink-0 transition-all shadow-gold-sm flex items-center gap-1.5 cursor-pointer">
+          <button onclick="applyHeroFilters()" class="py-2.5 px-4 rounded-xl bg-gradient-to-r from-gold-400 to-gold-500 hover:from-gold-300 hover:to-gold-400 text-royal-950 font-bold text-xs uppercase tracking-wider shrink-0 transition-all shadow-[0_2px_12px_rgba(197,160,89,0.3)] flex items-center gap-1.5 cursor-pointer active:scale-95">
             <i data-lucide="search" class="w-3.5 h-3.5"></i>
             <span>Search</span>
           </button>
@@ -890,17 +868,17 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         
         <!-- Category 1: Residential Plots -->
-        <a href="/projects/residential-plots.html" class="group relative rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+        <a href="/projects/residential-plots.html" class="group relative rounded-3xl overflow-hidden bg-white border border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_30px_rgba(197,160,89,0.18)] transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
           <div class="relative h-48 overflow-hidden bg-slate-900">
             <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80" alt="Residential Plots" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-            <div class="absolute inset-0 bg-gradient-to-t from-royal-950/80 via-transparent to-transparent"></div>
-            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-gold-500 text-royal-950 text-[10px] font-bold uppercase tracking-wider">
-              From â‚¹26,950 / Gaj
+            <div class="absolute inset-0 bg-gradient-to-t from-royal-950/85 via-transparent to-transparent"></div>
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-gold-500 text-royal-950 text-[10px] font-bold uppercase tracking-wider shadow-sm">
+              From ₹26,950 / Gaj
             </span>
           </div>
           <div class="p-6">
             <h3 class="font-serif text-xl font-bold group-hover:text-gold-700 transition-colors">Residential Plots</h3>
-            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Government-demarcated gated townships with 30 & 40 ft wide roads, parks, and immediate registry.</p>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Government-demarcated gated townships with 30 & 40 ft wide roads, landscaped parks, and immediate registry.</p>
             <span class="mt-4 text-xs font-bold text-gold-700 flex items-center gap-1 group-hover:gap-2 transition-all">
               <span>Explore Plots</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
             </span>
@@ -908,12 +886,12 @@
         </a>
 
         <!-- Category 2: Commercial Boulevard Plots -->
-        <a href="/projects/commercial.html" class="group relative rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+        <a href="/projects/commercial.html" class="group relative rounded-3xl overflow-hidden bg-white border border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_30px_rgba(197,160,89,0.18)] transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
           <div class="relative h-48 overflow-hidden bg-slate-900">
             <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Commercial Plots" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-            <div class="absolute inset-0 bg-gradient-to-t from-royal-950/80 via-transparent to-transparent"></div>
-            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-gold-500 text-royal-950 text-[10px] font-bold uppercase tracking-wider">
-              From â‚¹46,000 / Gaj
+            <div class="absolute inset-0 bg-gradient-to-t from-royal-950/85 via-transparent to-transparent"></div>
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-gold-500 text-royal-950 text-[10px] font-bold uppercase tracking-wider shadow-sm">
+              From ₹46,000 / Gaj
             </span>
           </div>
           <div class="p-6">
@@ -926,17 +904,17 @@
         </a>
 
         <!-- Category 3: Township Projects (300 Bigha) -->
-        <a href="/projects/300-bigha-mega-township.html" class="group relative rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+        <a href="/projects/300-bigha-mega-township.html" class="group relative rounded-3xl overflow-hidden bg-white border border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_30px_rgba(197,160,89,0.18)] transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
           <div class="relative h-48 overflow-hidden bg-slate-900">
             <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" alt="Township Projects" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-            <div class="absolute inset-0 bg-gradient-to-t from-royal-950/80 via-transparent to-transparent"></div>
-            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-amber-400 text-royal-950 text-[10px] font-bold uppercase tracking-wider">
+            <div class="absolute inset-0 bg-gradient-to-t from-royal-950/85 via-transparent to-transparent"></div>
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-amber-400 text-royal-950 text-[10px] font-bold uppercase tracking-wider shadow-sm">
               300 Bigha Spotlight
             </span>
           </div>
           <div class="p-6">
             <h3 class="font-serif text-xl font-bold group-hover:text-gold-700 transition-colors">Township Projects</h3>
-            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Integrated mega destinations with 200 ft main roads, clubhouse, swimming pool, and Knowledge City access.</p>
+            <p class="text-xs text-slate-500 mt-1 leading-relaxed">Integrated mega destinations with 200 ft main roads, grand clubhouse, swimming pool, and Knowledge City access.</p>
             <span class="mt-4 text-xs font-bold text-gold-700 flex items-center gap-1 group-hover:gap-2 transition-all">
               <span>View 300 Bigha Township</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
             </span>
@@ -944,11 +922,11 @@
         </a>
 
         <!-- Category 4: Luxury Villas -->
-        <a href="/projects/villas.html" class="group relative rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+        <a href="/projects/villas.html" class="group relative rounded-3xl overflow-hidden bg-white border border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_30px_rgba(197,160,89,0.18)] transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
           <div class="relative h-48 overflow-hidden bg-slate-900">
             <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Luxury Villas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-            <div class="absolute inset-0 bg-gradient-to-t from-royal-950/80 via-transparent to-transparent"></div>
-            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-gold-500 text-royal-950 text-[10px] font-bold uppercase tracking-wider">
+            <div class="absolute inset-0 bg-gradient-to-t from-royal-950/85 via-transparent to-transparent"></div>
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-gold-500 text-royal-950 text-[10px] font-bold uppercase tracking-wider shadow-sm">
               Exclusive Luxury
             </span>
           </div>
@@ -962,12 +940,12 @@
         </a>
 
         <!-- Category 5: Residential Apartments -->
-        <a href="/projects/residential.html" class="group relative rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+        <a href="/projects/residential.html" class="group relative rounded-3xl overflow-hidden bg-white border border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_30px_rgba(197,160,89,0.18)] transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
           <div class="relative h-48 overflow-hidden bg-slate-900">
             <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" alt="Residential Apartments" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-            <div class="absolute inset-0 bg-gradient-to-t from-royal-950/80 via-transparent to-transparent"></div>
-            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-gold-500 text-royal-950 text-[10px] font-bold uppercase tracking-wider">
-              From â‚¹85 Lakh*
+            <div class="absolute inset-0 bg-gradient-to-t from-royal-950/85 via-transparent to-transparent"></div>
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-gold-500 text-royal-950 text-[10px] font-bold uppercase tracking-wider shadow-sm">
+              From ₹85 Lakh*
             </span>
           </div>
           <div class="p-6">
@@ -980,11 +958,11 @@
         </a>
 
         <!-- Category 6: Commercial Properties -->
-        <a href="/projects/commercial.html" class="group relative rounded-3xl overflow-hidden bg-white border border-slate-200 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+        <a href="/projects/commercial.html" class="group relative rounded-3xl overflow-hidden bg-white border border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_30px_rgba(197,160,89,0.18)] transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
           <div class="relative h-48 overflow-hidden bg-slate-900">
             <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Commercial Properties" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-            <div class="absolute inset-0 bg-gradient-to-t from-royal-950/80 via-transparent to-transparent"></div>
-            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-gold-500 text-royal-950 text-[10px] font-bold uppercase tracking-wider">
+            <div class="absolute inset-0 bg-gradient-to-t from-royal-950/85 via-transparent to-transparent"></div>
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-gold-500 text-royal-950 text-[10px] font-bold uppercase tracking-wider shadow-sm">
               Grade-A Spaces
             </span>
           </div>
@@ -6246,7 +6224,7 @@
       }
     }
 
-    function renderProjects(filter = 'all', locationFilter = 'all') {
+    function renderProjects(filter = 'all', locationFilter = 'all', budgetFilter = 'all', searchQuery = '') {
       const container = document.getElementById('projectCardsContainer');
       const emptyNotice = document.getElementById('noProjectsNotice');
       if (!container) return;
@@ -6254,10 +6232,13 @@
       container.innerHTML = '';
 
       const allProjects = getCombinedProperties();
+      const q = (searchQuery || '').toLowerCase().trim();
       const filtered = allProjects.filter(p => {
-        const matchesCategory = (filter === 'all' || p.category === filter);
-        const matchesLocation = (locationFilter === 'all' || p.city.toLowerCase() === locationFilter.toLowerCase());
-        return matchesCategory && matchesLocation;
+        const matchesCategory = (filter === 'all' || p.category === filter || (filter === 'Plots' && p.categorySlug === 'residential-plots'));
+        const matchesLocation = (locationFilter === 'all' || p.city.toLowerCase() === locationFilter.toLowerCase() || (p.locality && p.locality.toLowerCase().includes(locationFilter.toLowerCase())));
+        const matchesBudget = (budgetFilter === 'all' || !p.budgetTier || p.budgetTier === budgetFilter);
+        const matchesQuery = (!q || p.title.toLowerCase().includes(q) || (p.locality && p.locality.toLowerCase().includes(q)) || (p.city && p.city.toLowerCase().includes(q)) || (p.config && p.config.toLowerCase().includes(q)));
+        return matchesCategory && matchesLocation && matchesBudget && matchesQuery;
       });
 
       if (filtered.length === 0) {
@@ -6269,61 +6250,71 @@
 
       filtered.forEach(p => {
         const card = document.createElement('div');
-        card.className = 'group rounded-3xl bg-white border border-slate-200 shadow-card-luxury overflow-hidden flex flex-col justify-between hover:-translate-y-1 transition-all duration-300';
+        card.className = 'group rounded-3xl bg-white border border-slate-200/90 shadow-[0_4px_25px_rgba(0,0,0,0.05)] hover:shadow-[0_15px_35px_rgba(197,160,89,0.2)] overflow-hidden flex flex-col justify-between hover:-translate-y-1.5 transition-all duration-300';
         
         card.innerHTML = `
           <div>
-            <!-- Card Image -->
-            <div class="relative h-60 overflow-hidden bg-royal-950">
+            <!-- Card Image Container -->
+            <div class="relative h-64 overflow-hidden bg-royal-950">
               <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-              <div class="absolute inset-0 bg-gradient-to-t from-royal-950/80 via-transparent to-transparent"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-royal-950/85 via-transparent to-transparent"></div>
               
               <!-- Badges -->
               <div class="absolute top-4 left-4 flex flex-wrap gap-2">
-                <span class="px-3 py-1 rounded-full bg-royal-950/80 text-gold-300 border border-gold-500/40 text-[10px] font-bold uppercase tracking-wider backdrop-blur-sm">
+                <span class="px-3 py-1 rounded-full bg-royal-950/90 text-gold-300 border border-gold-500/40 text-[10px] font-bold uppercase tracking-wider backdrop-blur-md shadow-sm">
                   ${p.category}
                 </span>
-                <span class="px-2.5 py-1 rounded-full bg-emerald-950/80 text-emerald-300 border border-emerald-500/30 text-[10px] font-medium backdrop-blur-sm">
+                <span class="px-2.5 py-1 rounded-full bg-emerald-950/90 text-emerald-300 border border-emerald-500/40 text-[10px] font-semibold backdrop-blur-md shadow-sm">
                   ${p.city}
                 </span>
               </div>
 
+              ${p.status ? `
+              <div class="absolute top-4 right-4">
+                <span class="px-2.5 py-1 rounded-full bg-amber-500/90 text-royal-950 text-[10px] font-bold uppercase tracking-wider backdrop-blur-md shadow-sm">
+                  ${p.status}
+                </span>
+              </div>
+              ` : ''}
+
               <div class="absolute bottom-3 left-4 right-4">
-                <span class="text-[11px] text-slate-300 flex items-center gap-1">
-                  <i data-lucide="map-pin" class="w-3 h-3 text-gold-400"></i> ${p.locality}
+                <span class="text-xs text-slate-200 font-medium flex items-center gap-1.5 drop-shadow-sm">
+                  <i data-lucide="map-pin" class="w-3.5 h-3.5 text-gold-400 shrink-0"></i> ${p.locality}
                 </span>
               </div>
             </div>
 
             <!-- Card Content -->
             <div class="p-6">
-              <h3 class="font-serif text-2xl font-medium text-royal-950 group-hover:text-gold-700 transition-colors">
+              <h3 class="font-serif text-2xl font-bold text-royal-950 group-hover:text-gold-700 transition-colors leading-tight">
                 ${p.title}
               </h3>
               
-              <div class="mt-2.5 flex items-center justify-between text-xs text-slate-600 pb-3 border-b border-slate-100">
-                <span class="font-medium">${p.config}</span>
-                <span class="text-slate-400 font-mono text-[11px]">${p.area}</span>
+              <div class="mt-3 flex items-center justify-between text-xs text-slate-600 pb-3 border-b border-slate-100">
+                <span class="font-medium text-slate-700">${p.config}</span>
+                <span class="text-slate-500 font-mono text-[11px] bg-slate-100 px-2 py-0.5 rounded-md">${p.area}</span>
               </div>
 
-              <div class="mt-3 flex items-baseline justify-between">
+              <div class="mt-3.5 flex items-baseline justify-between">
                 <div>
-                  <span class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold block">Starting Price</span>
-                  <strong class="font-serif text-lg text-royal-950 font-bold">${p.priceLabel}</strong>
+                  <span class="text-[10px] uppercase tracking-widest text-slate-400 font-bold block">Verified Pricing</span>
+                  <strong class="font-serif text-xl text-royal-950 font-bold tracking-tight">${p.priceLabel}</strong>
                 </div>
-                <a href="${p.pricingPlaceholder}" class="text-[11px] text-gold-700 font-semibold underline hover:text-gold-900" title="Official Pricing Schedule">
-                  Pricing Link
-                </a>
+                ${p.reraStatus ? `
+                  <span class="text-[10px] text-emerald-700 font-semibold flex items-center gap-1 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200" title="${p.reraStatus}">
+                    <i data-lucide="shield-check" class="w-3 h-3 text-emerald-600"></i> Approved
+                  </span>
+                ` : ''}
               </div>
 
               <!-- Amenities Pills -->
               <div class="mt-4 flex flex-wrap gap-1.5">
                 ${p.amenities.slice(0, 3).map(a => `
-                  <span class="px-2.5 py-1 rounded-md bg-sand-100 text-slate-700 text-[10px] font-medium">
+                  <span class="px-2.5 py-1 rounded-md bg-sand-100 text-slate-700 text-[10px] font-medium border border-sand-200/60">
                     ${a}
                   </span>
                 `).join('')}
-                ${p.amenities.length > 3 ? `<span class="px-2 py-1 text-[10px] text-slate-400 font-medium">+${p.amenities.length - 3} more</span>` : ''}
+                ${p.amenities.length > 3 ? `<span class="px-2 py-1 text-[10px] text-slate-500 font-semibold">+${p.amenities.length - 3} more</span>` : ''}
               </div>
             </div>
           </div>
@@ -6331,7 +6322,7 @@
           <!-- Card Actions (View Details, WhatsApp, Request Callback, Download Brochure) -->
           <div class="p-6 pt-0 border-t border-slate-100 mt-4 space-y-2.5">
             <div class="flex items-center justify-between gap-2">
-              <a href="/projects/${p.slug ? p.slug + '.html' : 'index.html'}" class="flex-1 py-2.5 px-3 rounded-xl bg-gradient-to-r from-gold-400 to-gold-500 hover:from-gold-300 hover:to-gold-400 text-royal-950 font-bold text-xs uppercase tracking-wider text-center transition-all shadow-gold-sm">
+              <a href="/projects/${p.slug ? p.slug + '.html' : 'index.html'}" class="flex-1 py-2.5 px-3 rounded-xl bg-gradient-to-r from-gold-400 to-gold-500 hover:from-gold-300 hover:to-gold-400 text-royal-950 font-bold text-xs uppercase tracking-wider text-center transition-all shadow-sm">
                 View Details
               </a>
               <a href="https://wa.me/919461812342?text=Hello%20Royal%20Rajasthan%20Properties,%20I%20am%20interested%20in%20${encodeURIComponent(p.title)}%20in%20${encodeURIComponent(p.city)}." target="_blank" rel="noopener" class="p-2.5 rounded-xl border border-emerald-500/40 text-emerald-600 hover:bg-emerald-50 transition-colors" title="Chat on WhatsApp">
@@ -6360,8 +6351,10 @@
         btn.classList.remove('active', 'bg-royal-900', 'text-gold-300');
         btn.classList.add('bg-white', 'text-slate-700');
       });
-      event.target.classList.add('active', 'bg-royal-900', 'text-gold-300');
-      event.target.classList.remove('bg-white', 'text-slate-700');
+      if (window.event && window.event.target) {
+        window.event.target.classList.add('active', 'bg-royal-900', 'text-gold-300');
+        window.event.target.classList.remove('bg-white', 'text-slate-700');
+      }
       renderProjects(category);
     }
 
@@ -6371,12 +6364,13 @@
     }
 
     function applyHeroFilters() {
-      const loc = document.getElementById('heroLocationSelect').value;
-      const type = document.getElementById('heroTypeSelect').value;
-      const budget = document.getElementById('heroBudgetSelect').value;
+      const loc = document.getElementById('heroLocationSelect')?.value || 'all';
+      const type = document.getElementById('heroTypeSelect')?.value || 'all';
+      const budget = document.getElementById('heroBudgetSelect')?.value || 'all';
+      const q = document.getElementById('heroSearchInput')?.value || '';
 
       window.location.hash = '#projects';
-      renderProjects(type, loc);
+      renderProjects(type, loc, budget, q);
     }
 
     // ==========================================
