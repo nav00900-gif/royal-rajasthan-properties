@@ -20,6 +20,14 @@ $urls = @(
   'http://localhost:8080/admin/',
   'http://localhost:8080/admin/index.html',
   'http://localhost:8080/admin.html',
+  'http://localhost:8080/catalog/',
+  'http://localhost:8080/catalog/index.html',
+  'http://localhost:8080/advisor/',
+  'http://localhost:8080/advisor/index.html',
+  'http://localhost:8080/inquiry/',
+  'http://localhost:8080/inquiry/index.html',
+  'http://localhost:8080/schedule-visit/',
+  'http://localhost:8080/schedule-visit/index.html',
   'http://localhost:8080/thank-you.html'
 )
 
