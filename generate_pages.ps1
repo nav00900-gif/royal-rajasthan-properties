@@ -439,9 +439,6 @@ function Generate-ProjectPage($p) {
           <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
           <span class="hidden sm:inline">WhatsApp Sales Desk</span>
         </a>
-        <a href="/admin.html" class="px-2.5 py-0.5 rounded-full bg-gold-500/20 text-gold-300 border border-gold-500/40 text-[11px] font-bold hover:bg-gold-500/30 transition-all">
-          Admin Portal
-        </a>
       </div>
     </div>
   </div>
@@ -909,7 +906,6 @@ function Generate-ProjectPage($p) {
         <a href="/index.html" class="hover:text-gold-300">Home</a>
         <a href="/projects/index.html" class="hover:text-gold-300">Projects</a>
         <a href="/index.html#contact" class="hover:text-gold-300">Contact</a>
-        <a href="/admin.html" class="hover:text-gold-300 text-gold-400">Admin Portal</a>
       </div>
     </div>
     <div class="max-w-7xl mx-auto mt-6 pt-6 border-t border-white/5 text-center text-[11px] text-slate-500">
