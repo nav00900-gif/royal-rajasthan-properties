@@ -315,23 +315,23 @@
 
       <!-- CENTER: DESKTOP EDITORIAL NAVIGATION -->
       <nav class="hidden lg:flex items-center gap-5 xl:gap-7 text-xs font-medium uppercase tracking-wider text-sand-200">
-        <a href="#projects" class="hover:text-gold-400 transition-colors font-semibold">Projects</a>
-        <a href="/projects/index.html" class="hover:text-gold-400 transition-colors text-slate-300">Catalog</a>
-        <button onclick="openProfileModal()" class="hover:text-gold-400 transition-colors flex items-center gap-1 text-slate-300">
+        <a href="/projects/" class="hover:text-gold-400 transition-colors font-semibold">Projects</a>
+        <a href="/catalog/" class="hover:text-gold-400 transition-colors text-slate-300">Catalog</a>
+        <a href="/advisor/" class="hover:text-gold-400 transition-colors flex items-center gap-1 text-slate-300">
           <i data-lucide="user-check" class="w-3.5 h-3.5 text-emerald-400"></i> Advisor
-        </button>
+        </a>
       </nav>
 
       <!-- RIGHT SIDE: INQUIRY DESK + SCHEDULE VISIT CTA + CALL -->
       <div class="flex items-center gap-2 sm:gap-3 shrink-0">
         <!-- Official Inquiry Desk Link -->
-        <a href="thank-you.html" class="inline-flex px-3 py-1.5 sm:py-2 rounded-xl text-[10px] sm:text-xs font-bold uppercase tracking-wider text-emerald-300 bg-emerald-950/80 hover:bg-emerald-900/90 border border-emerald-500/50 items-center gap-1.5 transition-all shadow-sm shrink-0" title="Go to Official Inquiry Desk">
+        <a href="/inquiry/" class="inline-flex px-3 py-1.5 sm:py-2 rounded-xl text-[10px] sm:text-xs font-bold uppercase tracking-wider text-emerald-300 bg-emerald-950/80 hover:bg-emerald-900/90 border border-emerald-500/50 items-center gap-1.5 transition-all shadow-sm shrink-0" title="Go to Official Inquiry Desk">
           <i data-lucide="file-check-2" class="w-3.5 h-3.5 text-emerald-400"></i>
           <span>Inquiry Desk</span>
         </a>
 
         <!-- Schedule Site Visit Action -->
-        <a href="#schedule-visit" class="hidden md:inline-flex px-3.5 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-royal-850 hover:bg-royal-800 border border-gold-500/40 hover:border-gold-400 transition-all font-sans">
+        <a href="/schedule-visit/" class="hidden md:inline-flex px-3.5 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-royal-850 hover:bg-royal-800 border border-gold-500/40 hover:border-gold-400 transition-all font-sans">
           Schedule Visit
         </a>
 
@@ -394,33 +394,37 @@
           <span class="text-[9px] text-slate-500 lowercase">explore</span>
         </div>
         <nav class="space-y-1">
-          <a href="#hero" onclick="toggleLeftDrawer(false)" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-royal-800 text-sand-100 hover:text-gold-300 transition-colors font-medium">
+          <a href="/" onclick="toggleLeftDrawer(false)" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-royal-800 text-sand-100 hover:text-gold-300 transition-colors font-medium">
             <i data-lucide="home" class="w-4 h-4 text-gold-400"></i>
             <span>Home Experience</span>
           </a>
-          <a href="#projects" onclick="toggleLeftDrawer(false)" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-royal-800 text-sand-100 hover:text-gold-300 transition-colors font-medium">
+          <a href="/projects/" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-royal-800 text-sand-100 hover:text-gold-300 transition-colors font-medium">
             <i data-lucide="building-2" class="w-4 h-4 text-gold-400"></i>
             <span>All Projects & Villa Enclaves</span>
           </a>
-          <a href="thank-you.html" class="flex items-center justify-between px-3 py-2.5 rounded-xl bg-emerald-950/50 hover:bg-emerald-900/60 border border-emerald-500/30 text-emerald-300 font-semibold transition-colors">
+          <a href="/catalog/" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-royal-800 text-sand-100 hover:text-gold-300 transition-colors font-medium">
+            <i data-lucide="layers" class="w-4 h-4 text-amber-400"></i>
+            <span>Property Catalog</span>
+          </a>
+          <a href="/inquiry/" class="flex items-center justify-between px-3 py-2.5 rounded-xl bg-emerald-950/50 hover:bg-emerald-900/60 border border-emerald-500/30 text-emerald-300 font-semibold transition-colors">
             <div class="flex items-center gap-3">
               <i data-lucide="file-check-2" class="w-4 h-4 text-emerald-400"></i>
-              <span>Inquiry Desk & Receipt</span>
+              <span>Inquiry Desk</span>
             </div>
-            <span class="text-[9px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold uppercase">Status</span>
+            <span class="text-[9px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold uppercase">Desk</span>
+          </a>
+          <a href="/advisor/" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-royal-800 text-sand-100 hover:text-gold-300 transition-colors font-medium">
+            <i data-lucide="user-check" class="w-4 h-4 text-emerald-400"></i>
+            <span>Advisor Profile (Navratan Kumawat)</span>
+          </a>
+          <a href="/schedule-visit/" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-royal-800 text-sand-100 hover:text-gold-300 transition-colors font-medium">
+            <i data-lucide="calendar" class="w-4 h-4 text-gold-400"></i>
+            <span>Site Visit Scheduler & Clock</span>
           </a>
           <button onclick="openAboutModal(); toggleLeftDrawer(false);" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-royal-800 text-sand-100 hover:text-gold-300 transition-colors font-medium text-left">
             <i data-lucide="info" class="w-4 h-4 text-gold-400"></i>
             <span>About Royal Rajasthan Properties</span>
           </button>
-          <button onclick="openProfileModal(); toggleLeftDrawer(false);" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-royal-800 text-sand-100 hover:text-gold-300 transition-colors font-medium text-left">
-            <i data-lucide="user-check" class="w-4 h-4 text-emerald-400"></i>
-            <span>Advisor Profile (Navratan Kumawat)</span>
-          </button>
-          <a href="#schedule-visit" onclick="toggleLeftDrawer(false)" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-royal-800 text-sand-100 hover:text-gold-300 transition-colors font-medium">
-            <i data-lucide="calendar" class="w-4 h-4 text-gold-400"></i>
-            <span>Site Visit Scheduler & Clock</span>
-          </a>
           <a href="#reviews" onclick="toggleLeftDrawer(false)" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-royal-800 text-sand-100 hover:text-gold-300 transition-colors font-medium">
             <i data-lucide="star" class="w-4 h-4 text-amber-400"></i>
             <span>Client Reviews & Ratings</span>
@@ -5797,7 +5801,7 @@
       <span class="text-[10px] font-medium">Call</span>
     </a>
     <!-- 3. Center Highlight: Projects -->
-    <a href="#projects" class="flex flex-col items-center gap-0.5 -mt-4 px-3 py-1.5 rounded-2xl bg-gradient-to-tr from-gold-500 via-amber-400 to-gold-300 text-royal-950 font-bold shadow-[0_0_20px_rgba(212,175,55,0.6)] border-2 border-royal-950 scale-105 transition-transform active:scale-95">
+    <a href="/projects/" class="flex flex-col items-center gap-0.5 -mt-4 px-3 py-1.5 rounded-2xl bg-gradient-to-tr from-gold-500 via-amber-400 to-gold-300 text-royal-950 font-bold shadow-[0_0_20px_rgba(212,175,55,0.6)] border-2 border-royal-950 scale-105 transition-transform active:scale-95">
       <i data-lucide="building-2" class="w-5 h-5"></i>
       <span class="text-[9px] uppercase tracking-wider font-extrabold leading-none">Projects</span>
     </a>
@@ -5810,7 +5814,7 @@
       <span class="text-[10px] font-semibold">WhatsApp</span>
     </a>
     <!-- 5. Advisory / Inquiry Form -->
-    <a href="#contact" class="flex flex-col items-center gap-0.5 text-sand-200 hover:text-gold-400 active:scale-95 transition-transform">
+    <a href="/inquiry/" class="flex flex-col items-center gap-0.5 text-sand-200 hover:text-gold-400 active:scale-95 transition-transform">
       <i data-lucide="file-text" class="w-5 h-5 text-gold-400"></i>
       <span class="text-[10px] font-medium">Inquiry</span>
     </a>
