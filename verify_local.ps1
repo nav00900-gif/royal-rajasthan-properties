@@ -17,6 +17,8 @@ $urls = @(
   'http://localhost:8080/projects/udaipur-lakeside-sanctuary.html',
   'http://localhost:8080/projects/mehrangarh-view-floors.html',
   'http://localhost:8080/sitemap.xml',
+  'http://localhost:8080/admin/',
+  'http://localhost:8080/admin/index.html',
   'http://localhost:8080/admin.html',
   'http://localhost:8080/thank-you.html'
 )
