@@ -28,7 +28,11 @@ $urls = @(
   'http://localhost:8080/inquiry/index.html',
   'http://localhost:8080/schedule-visit/',
   'http://localhost:8080/schedule-visit/index.html',
-  'http://localhost:8080/thank-you.html'
+  'http://localhost:8080/thank-you.html',
+  'http://localhost:8080/privacy-policy',
+  'http://localhost:8080/privacy-policy/',
+  'http://localhost:8080/privacy-policy/index.html',
+  'http://localhost:8080/privacy-policy.html'
 )
 
 $passed = 0
