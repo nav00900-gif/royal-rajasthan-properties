@@ -1,6 +1,8 @@
 User-agent: *
 Disallow: /admin/
 Disallow: /admin.html
+Disallow: /admin/page-backgrounds/
+Disallow: /admin/page-backgrounds
 Allow: /
 
 Sitemap: https://www.royalrajasthanproperties.com/sitemap.xml
