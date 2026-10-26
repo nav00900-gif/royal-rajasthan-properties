@@ -240,6 +240,41 @@
       border: 2px solid #ffffff;
       box-shadow: 0 0 10px rgba(197, 160, 89, 0.6);
     }
+    /* Luxury Rotating Hero Background Slideshow & Advanced Responsive Display Controls */
+    #heroSlideshowContainer {
+      --hero-blur: 2.5px;
+      --hero-brightness: 1;
+      --hero-scale: 1;
+      --hero-fit: cover;
+      --hero-pos: center center;
+      --hero-overlay-opacity: 0.65;
+      --hero-gold-tint: 0.1;
+      --hero-trans-duration: 1.5s;
+    }
+    .hero-slide-layer {
+      transform: scale(var(--hero-scale, 1));
+      filter: brightness(var(--hero-brightness, 1));
+      background-size: var(--hero-fit, cover);
+      background-position: var(--hero-pos, center center);
+      background-repeat: no-repeat;
+      transition: opacity var(--hero-trans-duration, 1.5s) ease-in-out, transform 6.5s cubic-bezier(0.25, 1, 0.5, 1);
+      will-change: opacity, transform, filter;
+    }
+    .hero-slide-layer.is-zoomed {
+      transform: scale(calc(var(--hero-scale, 1) * 1.06));
+    }
+    .hero-slide-layer.no-zoom {
+      transform: scale(var(--hero-scale, 1)) !important;
+    }
+    .hero-slide-layer.no-crossfade {
+      transition: none !important;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-slide-layer {
+        transition: opacity var(--hero-trans-duration, 1.5s) ease-in-out !important;
+        transform: scale(var(--hero-scale, 1)) !important;
+      }
+    }
   </style>
 </head>
 <body class="bg-[#faf8f5] text-slate-800 font-sans antialiased selection:bg-gold-500 selection:text-white pb-16 lg:pb-0">
@@ -467,11 +502,40 @@
 
   <!-- ==================== 2. HERO SECTION WITH PROMINENT ENQUIRY FORM (ABOVE THE FOLD) ==================== -->
   <section id="hero" class="relative min-h-[90vh] flex items-center justify-center bg-royal-gradient text-white overflow-hidden py-10 lg:py-16">
-    <!-- Cinematic Luxury Hero Background -->
-    <div class="absolute inset-0 z-0">
-      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=85" alt="Rajasthan Luxury Real Estate Architecture" class="w-full h-full object-cover object-center opacity-30 scale-105 transition-transform duration-1000 ease-out">
-      <div class="absolute inset-0 bg-gradient-to-t from-royal-950 via-royal-950/85 to-royal-950/95"></div>
-      <div class="absolute inset-0 bg-jali-pattern opacity-25 pointer-events-none"></div>
+    <!-- Cinematic Luxury Hero Background Rotating Slideshow (Advanced Responsive Hero Suite) -->
+    <div id="heroSlideshowContainer" class="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+      <!-- Active & Next Crossfading Image Layers with Ken Burns Cinematic Zoom -->
+      <div id="heroSlideA" class="hero-slide-layer absolute inset-0 opacity-100 will-change-transform will-change-opacity" style="background-image: url('https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=2000&q=85');"></div>
+      <div id="heroSlideB" class="hero-slide-layer absolute inset-0 opacity-0 will-change-transform will-change-opacity"></div>
+      
+      <!-- Blur Filter Isolated Strictly to Background Layer (0 to 20px) -->
+      <div id="heroBlurLayer" class="absolute inset-0 pointer-events-none" style="backdrop-filter: blur(var(--hero-blur, 2.5px)); -webkit-backdrop-filter: blur(var(--hero-blur, 2.5px));"></div>
+
+      <!-- Luxury Charcoal/Black Gradient Overlays (Independently Controlled via --hero-overlay-opacity) -->
+      <div id="heroOverlayLayer" class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to top, rgba(7, 10, 16, var(--hero-overlay-opacity, 0.65)), rgba(7, 10, 16, calc(var(--hero-overlay-opacity, 0.65) * 0.85)), rgba(7, 10, 16, calc(var(--hero-overlay-opacity, 0.65) * 0.65)));"></div>
+      <div id="heroOverlaySideLayer" class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to right, rgba(7, 10, 16, calc(var(--hero-overlay-opacity, 0.65) * 1.15)), rgba(7, 10, 16, calc(var(--hero-overlay-opacity, 0.65) * 0.75)), rgba(7, 10, 16, calc(var(--hero-overlay-opacity, 0.65) * 0.45)));"></div>
+      
+      <!-- Regal Gold Tint Intensity Overlay (Independently Controlled via --hero-gold-tint) -->
+      <div id="heroGoldTintLayer" class="absolute inset-0 pointer-events-none" style="background: radial-gradient(circle at 35% 50%, rgba(197, 160, 89, var(--hero-gold-tint, 0.1)), transparent 75%);"></div>
+
+      <!-- Tasteful, Subtle Rajasthan State Map Silhouette (approx 6-8% opacity) -->
+      <div class="absolute inset-0 flex items-center justify-center opacity-[0.06] pointer-events-none">
+        <svg class="w-full max-w-4xl h-auto text-gold-400" viewBox="0 0 800 700" fill="currentColor">
+          <path d="M 370 70 L 450 90 L 520 120 L 580 180 L 630 220 L 670 290 L 640 360 L 610 430 L 570 480 L 530 530 L 490 590 L 440 620 L 390 600 L 340 560 L 300 520 L 250 490 L 210 450 L 170 390 L 150 330 L 160 270 L 190 220 L 230 170 L 280 130 L 330 90 Z" />
+        </svg>
+      </div>
+
+      <!-- Subtle Jali Pattern & Golden Edge Vignette -->
+      <div class="absolute inset-0 bg-jali-pattern opacity-15 pointer-events-none"></div>
+      <div class="absolute inset-0 shadow-[inset_0_0_120px_rgba(7,10,16,0.9)] pointer-events-none"></div>
+
+      <!-- Discreet Slideshow Status Indicator (Bottom Left of Hero) -->
+      <div id="heroSlideIndicator" class="absolute bottom-4 left-6 z-10 flex items-center gap-2 text-[10px] text-gold-400/80 font-mono tracking-wider pointer-events-auto bg-royal-950/80 px-2.5 py-1 rounded-full border border-gold-500/20 backdrop-blur-md">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span id="heroSlideCaption">Jaipur Royal Palace</span>
+        <span class="text-white/30">•</span>
+        <span id="heroSlideCounter">1 / 20</span>
+      </div>
     </div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -9665,6 +9729,343 @@
     }
     window.addEventListener('hashchange', checkAdminHash);
     setTimeout(checkAdminHash, 250);
+
+    // =========================================================================
+    // ADVANCED LUXURY RAJASTHAN HERO BACKGROUND SLIDESHOW ENGINE
+    // =========================================================================
+    const DEFAULT_HERO_DISPLAY_SETTINGS = {
+      global: {
+        blur: 2.5,
+        brightness: 100,
+        overlayOpacity: 65,
+        goldTint: 10,
+        scale: 100,
+        fit: 'cover',
+        position: 'center center',
+        focalX: 50,
+        focalY: 50
+      },
+      devices: {
+        desktop: { enabled: false, blur: 2.5, brightness: 100, overlayOpacity: 65, scale: 100, fit: 'cover', position: 'center center', focalX: 50, focalY: 50 },
+        laptop:  { enabled: false, blur: 2.5, brightness: 100, overlayOpacity: 65, scale: 100, fit: 'cover', position: 'center center', focalX: 50, focalY: 50 },
+        tablet:  { enabled: false, blur: 3.0, brightness: 100, overlayOpacity: 70, scale: 100, fit: 'cover', position: 'center center', focalX: 50, focalY: 50 },
+        mobile:  { enabled: false, blur: 3.5, brightness: 100, overlayOpacity: 75, scale: 100, fit: 'cover', position: 'center center', focalX: 50, focalY: 50 }
+      },
+      slideshow: {
+        autoPlay: true,
+        duration: 6,
+        transitionDuration: 1.5,
+        crossfade: true,
+        kenBurns: true,
+        fallbackUrl: 'https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=2000&q=85'
+      }
+    };
+
+    const DEFAULT_HERO_BACKGROUNDS = [
+      { id: 'hero-bg-01', title: 'Jaipur Royal Palace', category: 'Royal Heritage', url: 'https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=2000&q=85', isEnabled: true },
+      { id: 'hero-bg-02', title: 'Rajasthan Royal Heritage', category: 'Heritage Architecture', url: 'https://images.unsplash.com/photo-1609137144813-7d9921338f24?auto=format&fit=crop&w=2000&q=85', isEnabled: true },
+      { id: 'hero-bg-03', title: 'Luxury Villa with Private Pool', category: 'Luxury Villa', url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=85', isEnabled: true },
+      { id: 'hero-bg-04', title: 'Residential Township Aerial View', category: 'Township Aerial', url: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2000&q=85', isEnabled: true },
+      { id: 'hero-bg-05', title: 'Rajasthani Sandstone Haveli', category: 'Heritage Haveli', url: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=2000&q=85', isEnabled: true },
+      { id: 'hero-bg-06', title: 'Modern Luxury Mansion Entrance', category: 'Modern Mansion', url: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=85', isEnabled: true },
+      { id: 'hero-bg-07', title: 'Jaipur Heritage & City Horizon', category: 'Heritage Architecture', url: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=2000&q=85', isEnabled: true },
+      { id: 'hero-bg-08', title: 'Premium Villa Exterior at Dusk', category: 'Evening Architecture', url: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=2000&q=85', isEnabled: true },
+      { id: 'hero-bg-09', title: 'Green Township Boulevard', category: 'Township Aerial', url: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=2000&q=85', isEnabled: true },
+      { id: 'hero-bg-10', title: 'Bespoke Royal Courtyard Villa', category: 'Luxury Villa', url: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=85', isEnabled: true },
+      { id: 'hero-bg-11', title: 'Royal Palace Sandstone Arches', category: 'Royal Heritage', url: 'https://images.unsplash.com/photo-1598890777032-bde835ba27c2?auto=format&fit=crop&w=2000&q=85', isEnabled: true },
+      { id: 'hero-bg-12', title: 'Contemporary Glass & Stone Villa', category: 'Modern Mansion', url: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=2000&q=85', isEnabled: true },
+      { id: 'hero-bg-13', title: 'Aerial View of Gated Plots', category: 'Plotted Development', url: 'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2000&q=85', isEnabled: true },
+      { id: 'hero-bg-14', title: 'Heritage Mansion with Domes', category: 'Heritage Haveli', url: 'https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=2000&q=85', isEnabled: true },
+      { id: 'hero-bg-15', title: 'Private Forest & Garden Estate', category: 'Luxury Villa', url: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=2000&q=85', isEnabled: true },
+      { id: 'hero-bg-16', title: 'Residential Community Clubhouse', category: 'Modern Mansion', url: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=85', isEnabled: true },
+      { id: 'hero-bg-17', title: 'Sunset over Royal Architecture', category: 'Evening Architecture', url: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=2000&q=85', isEnabled: true },
+      { id: 'hero-bg-18', title: 'Illuminated Pool Villa at Blue Hour', category: 'Luxury Villa', url: 'https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=2000&q=85', isEnabled: true },
+      { id: 'hero-bg-19', title: 'Grand Heritage Monumental Estate', category: 'Royal Heritage', url: 'https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=2000&q=85', isEnabled: true },
+      { id: 'hero-bg-20', title: 'Cinematic Panoramic Royal Estate', category: 'Cinematic Panorama', url: 'https://images.unsplash.com/photo-160058515526-990dced4db0d?auto=format&fit=crop&w=2000&q=85', isEnabled: true }
+    ];
+
+    // Client-side IndexedDB Media Storage Loader
+    const RRP_MediaStorage = {
+      dbName: 'RRP_HeroMediaDB',
+      storeName: 'hero_images',
+      open() {
+        return new Promise((resolve) => {
+          if (!window.indexedDB) return resolve(null);
+          try {
+            const req = indexedDB.open(this.dbName, 1);
+            req.onupgradeneeded = (e) => {
+              const db = e.target.result;
+              if (!db.objectStoreNames.contains(this.storeName)) {
+                db.createObjectStore(this.storeName, { keyPath: 'id' });
+              }
+            };
+            req.onsuccess = (e) => resolve(e.target.result);
+            req.onerror = () => resolve(null);
+          } catch (e) {
+            resolve(null);
+          }
+        });
+      },
+      async getImage(id) {
+        const db = await this.open();
+        if (!db) return null;
+        return new Promise((resolve) => {
+          try {
+            const tx = db.transaction([this.storeName], 'readonly');
+            const store = tx.objectStore(this.storeName);
+            const req = store.get(id);
+            req.onsuccess = () => resolve(req.result ? req.result.dataUrl : null);
+            req.onerror = () => resolve(null);
+          } catch (e) {
+            resolve(null);
+          }
+        });
+      }
+    };
+
+    let heroSlideshowIndex = 0;
+    let heroActiveLayer = 'A';
+    let heroSlideshowTimer = null;
+    let currentHeroSettings = DEFAULT_HERO_DISPLAY_SETTINGS;
+
+    function getHeroDisplaySettings() {
+      try {
+        const raw = localStorage.getItem('rrp_hero_display_settings');
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          return {
+            global: { ...DEFAULT_HERO_DISPLAY_SETTINGS.global, ...(parsed.global || {}) },
+            devices: {
+              desktop: { ...DEFAULT_HERO_DISPLAY_SETTINGS.devices.desktop, ...(parsed.devices?.desktop || {}) },
+              laptop:  { ...DEFAULT_HERO_DISPLAY_SETTINGS.devices.laptop,  ...(parsed.devices?.laptop || {}) },
+              tablet:  { ...DEFAULT_HERO_DISPLAY_SETTINGS.devices.tablet,  ...(parsed.devices?.tablet || {}) },
+              mobile:  { ...DEFAULT_HERO_DISPLAY_SETTINGS.devices.mobile,  ...(parsed.devices?.mobile || {}) }
+            },
+            slideshow: { ...DEFAULT_HERO_DISPLAY_SETTINGS.slideshow, ...(parsed.slideshow || {}) }
+          };
+        }
+      } catch (err) {}
+      return JSON.parse(JSON.stringify(DEFAULT_HERO_DISPLAY_SETTINGS));
+    }
+
+    function getCurrentDeviceMode() {
+      const w = window.innerWidth;
+      if (w >= 1280) return 'desktop';
+      if (w >= 1024) return 'laptop';
+      if (w >= 768) return 'tablet';
+      return 'mobile';
+    }
+
+    function applyHeroDisplaySettings() {
+      currentHeroSettings = getHeroDisplaySettings();
+      const dev = getCurrentDeviceMode();
+      const devSettings = currentHeroSettings.devices[dev];
+      const active = (devSettings && devSettings.enabled) ? devSettings : currentHeroSettings.global;
+
+      const container = document.getElementById('heroSlideshowContainer');
+      if (!container) return;
+
+      const blurVal = active.blur !== undefined ? active.blur : 2.5;
+      const brightnessVal = (active.brightness !== undefined ? active.brightness : 100) / 100;
+      const overlayVal = (active.overlayOpacity !== undefined ? active.overlayOpacity : 65) / 100;
+      const goldVal = (currentHeroSettings.global.goldTint !== undefined ? currentHeroSettings.global.goldTint : 10) / 100;
+      const scaleVal = (active.scale !== undefined ? active.scale : 100) / 100;
+      const fitVal = active.fit || 'cover';
+      const posVal = active.position === 'custom'
+        ? `${active.focalX || 50}% ${active.focalY || 50}%`
+        : (active.position || 'center center');
+      const transDur = currentHeroSettings.slideshow.transitionDuration || 1.5;
+
+      container.style.setProperty('--hero-blur', `${blurVal}px`);
+      container.style.setProperty('--hero-brightness', brightnessVal);
+      container.style.setProperty('--hero-overlay-opacity', overlayVal);
+      container.style.setProperty('--hero-gold-tint', goldVal);
+      container.style.setProperty('--hero-scale', scaleVal);
+      container.style.setProperty('--hero-fit', fitVal);
+      container.style.setProperty('--hero-pos', posVal);
+      container.style.setProperty('--hero-trans-duration', `${transDur}s`);
+    }
+
+    function getEnabledHeroBackgrounds() {
+      try {
+        const stored = localStorage.getItem('rrp_admin_hero_backgrounds');
+        if (stored) {
+          const parsed = JSON.parse(stored);
+          const enabledOnly = parsed.filter(item => item.isEnabled !== false && item.url);
+          if (enabledOnly.length > 0) return enabledOnly;
+        }
+      } catch (err) {}
+      return DEFAULT_HERO_BACKGROUNDS;
+    }
+
+    async function resolveHeroImageUrl(item) {
+      if (!item || !item.url) {
+        return currentHeroSettings.slideshow.fallbackUrl || DEFAULT_HERO_DISPLAY_SETTINGS.slideshow.fallbackUrl;
+      }
+      if (item.url.startsWith('indexeddb:')) {
+        const id = item.url.replace('indexeddb:', '');
+        const dataUrl = await RRP_MediaStorage.getImage(id);
+        if (dataUrl) return dataUrl;
+        return currentHeroSettings.slideshow.fallbackUrl || DEFAULT_HERO_DISPLAY_SETTINGS.slideshow.fallbackUrl;
+      }
+      return item.url;
+    }
+
+    function preloadHeroImage(url) {
+      if (!url || url.startsWith('data:') || url.startsWith('indexeddb:')) return;
+      const img = new Image();
+      img.src = url;
+    }
+
+    async function updateHeroSlide(index, customList = null) {
+      const list = customList || getEnabledHeroBackgrounds();
+      const fallback = currentHeroSettings.slideshow.fallbackUrl || DEFAULT_HERO_DISPLAY_SETTINGS.slideshow.fallbackUrl;
+
+      if (!list || list.length === 0) {
+        const layerA = document.getElementById('heroSlideA');
+        if (layerA) layerA.style.backgroundImage = `url('${fallback}')`;
+        return;
+      }
+
+      const current = list[index % list.length];
+      const next = list[(index + 1) % list.length];
+      if (next) {
+        resolveHeroImageUrl(next).then(url => preloadHeroImage(url));
+      }
+
+      const layerA = document.getElementById('heroSlideA');
+      const layerB = document.getElementById('heroSlideB');
+      const captionEl = document.getElementById('heroSlideCaption');
+      const counterEl = document.getElementById('heroSlideCounter');
+
+      if (!layerA || !layerB) return;
+
+      const resolvedUrl = await resolveHeroImageUrl(current);
+
+      // Verify image loads safely with fallback on error
+      const imgTester = new Image();
+      imgTester.onload = () => {
+        applySlideToLayers(resolvedUrl, current.title, index, list.length);
+      };
+      imgTester.onerror = () => {
+        console.warn('Hero background failed to load:', resolvedUrl, 'using fallback');
+        applySlideToLayers(fallback, current.title || 'Luxury Rajasthan Estate', index, list.length);
+      };
+      imgTester.src = resolvedUrl;
+    }
+
+    function applySlideToLayers(url, title, index, total) {
+      const layerA = document.getElementById('heroSlideA');
+      const layerB = document.getElementById('heroSlideB');
+      const captionEl = document.getElementById('heroSlideCaption');
+      const counterEl = document.getElementById('heroSlideCounter');
+      const kenBurns = currentHeroSettings.slideshow.kenBurns !== false;
+      const crossfade = currentHeroSettings.slideshow.crossfade !== false;
+
+      const activeLayer = heroActiveLayer === 'A' ? layerB : layerA;
+      const inactiveLayer = heroActiveLayer === 'A' ? layerA : layerB;
+
+      activeLayer.style.backgroundImage = `url('${url}')`;
+
+      if (crossfade) {
+        activeLayer.classList.remove('no-crossfade');
+        inactiveLayer.classList.remove('no-crossfade');
+      } else {
+        activeLayer.classList.add('no-crossfade');
+        inactiveLayer.classList.add('no-crossfade');
+      }
+
+      if (kenBurns) {
+        activeLayer.classList.remove('no-zoom');
+        activeLayer.classList.remove('is-zoomed');
+        void activeLayer.offsetWidth; // Force reflow
+        activeLayer.classList.add('is-zoomed');
+      } else {
+        activeLayer.classList.add('no-zoom');
+        activeLayer.classList.remove('is-zoomed');
+      }
+
+      activeLayer.style.opacity = '1';
+      inactiveLayer.style.opacity = '0';
+      heroActiveLayer = heroActiveLayer === 'A' ? 'B' : 'A';
+
+      if (captionEl) captionEl.textContent = title || 'Luxury Rajasthan Estate';
+      if (counterEl) counterEl.textContent = `${(index % total) + 1} / ${total}`;
+    }
+
+    function startHeroSlideshow() {
+      if (heroSlideshowTimer) clearInterval(heroSlideshowTimer);
+      applyHeroDisplaySettings();
+
+      let list = getEnabledHeroBackgrounds();
+
+      // Check Page Background Settings for Homepage ('/')
+      try {
+        const rawPageSettings = localStorage.getItem('rrp_page_background_settings');
+        if (rawPageSettings) {
+          const parsed = JSON.parse(rawPageSettings);
+          const homeCfg = (parsed.pages && parsed.pages['/']) ? parsed.pages['/'] : null;
+          if (homeCfg) {
+            if (homeCfg.enabled === false || homeCfg.mode === 'disabled') {
+              const cont = document.getElementById('heroSlideshowContainer');
+              if (cont) cont.style.display = 'none';
+              return;
+            }
+            const cont = document.getElementById('heroSlideshowContainer');
+            if (cont) cont.style.display = '';
+
+            if (homeCfg.mode === 'single' && homeCfg.singleImageId) {
+              const matched = list.find(b => b.id === homeCfg.singleImageId);
+              if (matched) list = [matched];
+            } else if (homeCfg.mode === 'custom' && Array.isArray(homeCfg.selectedImageIds) && homeCfg.selectedImageIds.length > 0) {
+              const customList = homeCfg.selectedImageIds.map(id => list.find(b => b.id === id)).filter(Boolean);
+              if (customList.length > 0) list = customList;
+            }
+          }
+        }
+      } catch (e) {}
+
+      if (!list || list.length === 0) return;
+
+      updateHeroSlide(heroSlideshowIndex, list);
+
+      if (currentHeroSettings.slideshow.autoPlay === false || list.length <= 1) return;
+
+      const durationMs = Math.max(3000, (currentHeroSettings.slideshow.duration || 6) * 1000);
+      heroSlideshowTimer = setInterval(() => {
+        if (document.hidden) return;
+        heroSlideshowIndex++;
+        updateHeroSlide(heroSlideshowIndex, list);
+      }, durationMs);
+    }
+
+    // Responsive window resize listener
+    let resizeTimer = null;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        applyHeroDisplaySettings();
+      }, 150);
+    });
+
+    // Handle tab visibility change
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden && currentHeroSettings.slideshow.autoPlay !== false) {
+        startHeroSlideshow();
+      }
+    });
+
+    // Start slideshow on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      startHeroSlideshow();
+    });
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      startHeroSlideshow();
+    }
+
+    if (window.lucide) {
+      lucide.createIcons();
+    }
 
     if (window.lucide) {
       lucide.createIcons();
