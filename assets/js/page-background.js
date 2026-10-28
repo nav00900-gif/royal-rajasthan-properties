@@ -592,11 +592,6 @@
       <div id="heroOverlayLayer" class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to top, rgba(7, 10, 16, var(--hero-overlay-opacity, 0.65)), rgba(7, 10, 16, calc(var(--hero-overlay-opacity, 0.65) * 0.85)), rgba(7, 10, 16, calc(var(--hero-overlay-opacity, 0.65) * 0.65)));"></div>
       <div id="heroOverlaySideLayer" class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to right, rgba(7, 10, 16, calc(var(--hero-overlay-opacity, 0.65) * 1.15)), rgba(7, 10, 16, calc(var(--hero-overlay-opacity, 0.65) * 0.75)), rgba(7, 10, 16, calc(var(--hero-overlay-opacity, 0.65) * 0.45)));"></div>
       <div id="heroGoldTintLayer" class="absolute inset-0 pointer-events-none" style="background: radial-gradient(circle at 35% 50%, rgba(197, 160, 89, var(--hero-gold-tint, 0.1)), transparent 75%);"></div>
-      <div class="absolute inset-0 flex items-center justify-center opacity-[0.06] pointer-events-none">
-        <svg class="w-full max-w-4xl h-auto text-gold-400" viewBox="0 0 800 700" fill="currentColor">
-          <path d="M 370 70 L 450 90 L 520 120 L 580 180 L 630 220 L 670 290 L 640 360 L 610 430 L 570 480 L 530 530 L 490 590 L 440 620 L 390 600 L 340 560 L 300 520 L 250 490 L 210 450 L 170 390 L 150 330 L 160 270 L 190 220 L 230 170 L 280 130 L 330 90 Z" />
-        </svg>
-      </div>
       <div class="absolute inset-0 bg-jali-pattern opacity-15 pointer-events-none"></div>
       <div class="absolute inset-0 shadow-[inset_0_0_120px_rgba(7,10,16,0.9)] pointer-events-none"></div>
       <div id="heroSlideIndicator" class="absolute bottom-4 left-6 z-10 flex items-center gap-2 text-[10px] text-gold-400/80 font-mono tracking-wider pointer-events-auto bg-royal-950/80 px-2.5 py-1 rounded-full border border-gold-500/20 backdrop-blur-md">
