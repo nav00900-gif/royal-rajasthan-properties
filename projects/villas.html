@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
   <!-- Google Tag Manager -->
@@ -297,6 +297,9 @@
     </div>
   </footer>
 
+  <!-- Real Estate Live Catalog Sync Engine -->
+  <script src="/assets/js/projects-sync.js"></script>
+
   <!-- Catalog Javascript Logic -->
   <script>
     const allProperties = [
@@ -448,55 +451,58 @@
       list.forEach(p => {
         const card = document.createElement('div');
         card.className = 'group rounded-3xl bg-royal-900/80 border border-white/10 hover:border-gold-400/50 shadow-xl overflow-hidden transition-all duration-300 flex flex-col justify-between';
+        
+        const detailLink = (p.id && p.id.startsWith('prop-custom-')) ? ('/project.html?id=' + p.id) : ('/projects/' + (p.slug || p.id) + '.html');
+        const enquireLink = (p.id && p.id.startsWith('prop-custom-')) ? ('/project.html?id=' + p.id + '#enquiry-section') : ('/projects/' + (p.slug || p.id) + '.html#enquiry-section');
+
         card.innerHTML = 
-          <div>
-            <div class="relative h-56 sm:h-64 overflow-hidden bg-royal-950">
-              <img src=" + p.image + " alt=" + p.title + " class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-              <div class="absolute inset-0 bg-gradient-to-t from-royal-950 via-transparent to-transparent"></div>
-              <div class="absolute top-4 left-4 flex items-center gap-1.5 flex-wrap">
-                <span class="px-2.5 py-1 rounded-full bg-gold-500/90 text-royal-950 font-bold text-[10px] uppercase tracking-wider shadow">
-                   + p.category + 
-                </span>
-                <span class="px-2.5 py-1 rounded-full bg-royal-950/80 text-emerald-400 font-semibold text-[10px] border border-white/10 backdrop-blur-sm">
-                   + p.status + 
-                </span>
-              </div>
-            </div>
+          '<div>' +
+            '<div class="relative h-56 sm:h-64 overflow-hidden bg-royal-950">' +
+              '<img src="' + p.image + '" alt="' + p.title + '" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">' +
+              '<div class="absolute inset-0 bg-gradient-to-t from-royal-950 via-transparent to-transparent"></div>' +
+              '<div class="absolute top-4 left-4 flex items-center gap-1.5 flex-wrap">' +
+                '<span class="px-2.5 py-1 rounded-full bg-gold-500/90 text-royal-950 font-bold text-[10px] uppercase tracking-wider shadow">' +
+                  p.category + 
+                '</span>' +
+                '<span class="px-2.5 py-1 rounded-full bg-royal-950/80 text-emerald-400 font-semibold text-[10px] border border-white/10 backdrop-blur-sm">' +
+                  (p.status || 'Active') + 
+                '</span>' +
+              '</div>' +
+            '</div>' +
 
-            <div class="p-6">
-              <div class="text-xs text-gold-400 font-medium flex items-center gap-1 mb-1">
-                <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
-                <span> + p.locality + ,  + p.city + </span>
-              </div>
-              <h3 class="font-serif text-xl font-bold text-white leading-snug group-hover:text-gold-300 transition-colors">
-                <a href="/projects/ + p.slug + .html"> + p.title + </a>
-              </h3>
-              <p class="text-xs text-slate-300 mt-1 font-mono"> + p.config + </p>
+            '<div class="p-6">' +
+              '<div class="text-xs text-gold-400 font-medium flex items-center gap-1 mb-1">' +
+                '<i data-lucide="map-pin" class="w-3.5 h-3.5"></i>' +
+                '<span>' + p.locality + ', ' + p.city + '</span>' +
+              '</div>' +
+              '<h3 class="font-serif text-xl font-bold text-white leading-snug group-hover:text-gold-300 transition-colors">' +
+                '<a href="' + detailLink + '">' + p.title + '</a>' +
+              '</h3>' +
+              '<p class="text-xs text-slate-300 mt-1 font-mono">' + (p.config || p.area || '') + '</p>' +
 
-              <div class="flex flex-wrap gap-1.5 mt-4">
-                 + (p.highlights || []).slice(0, 3).map(h => <span class="px-2 py-0.5 rounded-lg bg-royal-950 text-sand-300 text-[10px] border border-white/5">âœ“  + h + </span>).join('') + 
-              </div>
-            </div>
-          </div>
+              '<div class="flex flex-wrap gap-1.5 mt-4">' +
+                (p.highlights || []).slice(0, 3).map(h => '<span class="px-2 py-0.5 rounded-lg bg-royal-950 text-sand-300 text-[10px] border border-white/5">✓ ' + h + '</span>').join('') + 
+              '</div>' +
+            '</div>' +
+          '</div>' +
 
-          <div class="p-6 pt-0 mt-4">
-            <div class="pt-4 border-t border-white/10 flex items-center justify-between mb-4">
-              <div>
-                <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider block">Price / Investment</span>
-                <strong class="text-sm sm:text-base font-bold text-gold-400 block"> + p.priceLabel + </strong>
-              </div>
-            </div>
+          '<div class="p-6 pt-0 mt-4">' +
+            '<div class="pt-4 border-t border-white/10 flex items-center justify-between mb-4">' +
+              '<div>' +
+                '<span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider block">Price / Investment</span>' +
+                '<strong class="text-sm sm:text-base font-bold text-gold-400 block">' + p.priceLabel + '</strong>' +
+              '</div>' +
+            '</div>' +
             
-            <div class="grid grid-cols-2 gap-2">
-              <a href="/projects/ + p.slug + .html" class="py-2.5 px-3 rounded-xl bg-gradient-to-r from-gold-400 to-gold-500 hover:from-gold-300 hover:to-gold-400 text-royal-950 font-bold text-xs uppercase tracking-wider text-center transition-all shadow-gold-sm">
-                View Details
-              </a>
-              <a href="/projects/ + p.slug + .html#enquiry-section" class="py-2.5 px-3 rounded-xl bg-royal-800 hover:bg-royal-750 text-gold-300 border border-gold-500/40 font-bold text-xs uppercase tracking-wider text-center transition-all">
-                Enquire Now
-              </a>
-            </div>
-          </div>
-        ;
+            '<div class="grid grid-cols-2 gap-2">' +
+              '<a href="' + detailLink + '" class="py-2.5 px-3 rounded-xl bg-gradient-to-r from-gold-400 to-gold-500 hover:from-gold-300 hover:to-gold-400 text-royal-950 font-bold text-xs uppercase tracking-wider text-center transition-all shadow-gold-sm">' +
+                'View Details' +
+              '</a>' +
+              '<a href="' + enquireLink + '" class="py-2.5 px-3 rounded-xl bg-royal-800 hover:bg-royal-750 text-gold-300 border border-gold-500/40 font-bold text-xs uppercase tracking-wider text-center transition-all">' +
+                'Enquire Now' +
+              '</a>' +
+            '</div>' +
+          '</div>';
         container.appendChild(card);
       });
 
@@ -507,7 +513,7 @@
       const q = (document.getElementById('catalogSearch')?.value || '').toLowerCase();
       const city = document.getElementById('catalogCity')?.value || 'all';
 
-      let list = allProperties;
+      let list = (typeof getMergedProperties === 'function') ? getMergedProperties(allProperties) : allProperties;
 
       if (activeCategory !== 'all') {
         list = list.filter(p => p.category.toLowerCase() === activeCategory.toLowerCase());
