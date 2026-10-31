@@ -141,16 +141,6 @@
         selectedImageIds: [],
         visualOverrides: null
       },
-      '/schedule-visit/': {
-        name: 'Schedule Site Visit',
-        route: '/schedule-visit/',
-        category: 'core',
-        enabled: true,
-        mode: 'global',
-        singleImageId: 'hero-bg-09',
-        selectedImageIds: [],
-        visualOverrides: null
-      },
       '/privacy-policy/': {
         name: 'Privacy Policy',
         route: '/privacy-policy/',
