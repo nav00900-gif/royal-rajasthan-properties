@@ -5890,8 +5890,20 @@
         const customProjects = JSON.parse(localStorage.getItem('rrp_custom_projects') || '[]');
         const overrides = JSON.parse(localStorage.getItem('rrp_project_overrides') || '{}');
         const overriddenBase = propertiesData.map(p => overrides[p.id] ? { ...p, ...overrides[p.id] } : p);
-        const combined = [...customProjects, ...overriddenBase];
-        const res = combined.filter(p => !deletedIds.includes(p.id));
+        const activeCustom = customProjects.filter(p => {
+          if (p.isPublished === false) return false;
+          if (p.showOnHome === false) return false;
+          const st = (p.status || '').toLowerCase();
+          return !st.includes('draft') && !st.includes('unpublish');
+        });
+        const combined = [...activeCustom, ...overriddenBase];
+        const res = combined.filter(p => {
+          if (deletedIds.includes(p.id)) return false;
+          if (p.isPublished === false) return false;
+          if (p.showOnHome === false) return false;
+          const st = (p.status || '').toLowerCase();
+          return !st.includes('draft') && !st.includes('unpublish');
+        });
         return (res && res.length > 0) ? res : propertiesData;
       } catch (e) {
         return propertiesData;
@@ -5983,12 +5995,12 @@
 
               <!-- Amenities Pills -->
               <div class="mt-4 flex flex-wrap gap-1.5">
-                ${p.amenities.slice(0, 3).map(a => `
+                ${(p.amenities || ['Government Approved', 'Immediate Registry', 'Clear Title']).slice(0, 3).map(a => `
                   <span class="px-2.5 py-1 rounded-md bg-sand-100 text-slate-700 text-[10px] font-medium border border-sand-200/60">
                     ${a}
                   </span>
                 `).join('')}
-                ${p.amenities.length > 3 ? `<span class="px-2 py-1 text-[10px] text-slate-500 font-semibold">+${p.amenities.length - 3} more</span>` : ''}
+                ${(p.amenities && p.amenities.length > 3) ? `<span class="px-2 py-1 text-[10px] text-slate-500 font-semibold">+${p.amenities.length - 3} more</span>` : ''}
               </div>
             </div>
           </div>
@@ -5996,7 +6008,7 @@
           <!-- Card Actions (View Details, WhatsApp, Request Callback, Download Brochure) -->
           <div class="p-6 pt-0 border-t border-slate-100 mt-4 space-y-2.5">
             <div class="flex items-center justify-between gap-2">
-              <a href="/projects/${p.slug ? p.slug + '.html' : 'index.html'}" class="flex-1 py-2.5 px-3 rounded-xl bg-gradient-to-r from-gold-400 to-gold-500 hover:from-gold-300 hover:to-gold-400 text-royal-950 font-bold text-xs uppercase tracking-wider text-center transition-all shadow-sm">
+              <a href="${(p.id && p.id.startsWith('prop-custom-')) ? ('/project.html?id=' + p.id) : ('/projects/' + (p.slug ? p.slug + '.html' : 'index.html'))}" class="flex-1 py-2.5 px-3 rounded-xl bg-gradient-to-r from-gold-400 to-gold-500 hover:from-gold-300 hover:to-gold-400 text-royal-950 font-bold text-xs uppercase tracking-wider text-center transition-all shadow-sm">
                 View Details
               </a>
               <a href="https://wa.me/919461812342?text=Hello%20Royal%20Rajasthan%20Properties,%20I%20am%20interested%20in%20${encodeURIComponent(p.title)}%20in%20${encodeURIComponent(p.city)}." target="_blank" rel="noopener" class="p-2.5 rounded-xl border border-emerald-500/40 text-emerald-600 hover:bg-emerald-50 transition-colors" title="Chat on WhatsApp">
