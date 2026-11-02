@@ -735,11 +735,13 @@
       }
     }
 
-    function handleProjectEnquirySubmit(e) {
+    async function handleProjectEnquirySubmit(e) {
       e.preventDefault();
       const submitBtn = document.getElementById('projectSubmitBtn');
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '<span>Submitting Inquiry...</span>';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Submitting Inquiry...</span>';
+      }
 
       const name = document.getElementById('formClientName').value.trim();
       const phone = document.getElementById('formClientPhone').value.trim();
@@ -750,96 +752,55 @@
       const message = document.getElementById('formMessage').value.trim();
 
       const leadObj = {
-        id: 'lead-' + Date.now(),
         name: name,
         phone: phone,
-        email: '',
+        email: 'Direct Project Enquiry',
         locationPreference: currentProject.locality + ', ' + currentProject.city,
         propertyType: unitType,
         budget: budget,
         purpose: 'Investment / End-use',
         projectInterest: projectName,
-        preferredCallbackTime: visitDate ? Site Visit Date:  : 'Immediate',
-        message: message ? ${message} (Preferred Unit: ) : Inquired about ,
-        leadSource: Project Landing Page (),
+        preferredCallbackTime: visitDate ? ('Site Visit Date: ' + visitDate) : 'Immediate Callback',
+        message: message ? (message + ' (Preferred Unit: ' + unitType + ')') : ('Inquired about ' + projectName),
+        leadSource: 'Project Landing Page (' + projectName + ')',
         pageUrl: window.location.href,
         callbackRequested: true,
         whatsappInquiry: true,
-        leadStatus: 'New',
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
+        leadStatus: 'New'
       };
 
-      try {
-        const CRM_KEY_1 = 'royal_rajasthan_leads_v1';
-        const CRM_KEY_2 = 'rrp_crm_leads';
-        
-        const leads1 = JSON.parse(localStorage.getItem(CRM_KEY_1) || '[]');
-        leads1.unshift(leadObj);
-        localStorage.setItem(CRM_KEY_1, JSON.stringify(leads1));
-
-        const leads2 = JSON.parse(localStorage.getItem(CRM_KEY_2) || '[]');
-        leads2.unshift(leadObj);
-        localStorage.setItem(CRM_KEY_2, JSON.stringify(leads2));
-
-        sessionStorage.setItem('rrp_latest_inquiry', JSON.stringify(leadObj));
-        localStorage.setItem('rrp_latest_inquiry', JSON.stringify(leadObj));
-      } catch (err) {
-        console.error('Storage error:', err);
-      }
-
-      // Meta Pixel Lead tracking
-      if (typeof fbq === 'function') {
+      if (window.RRP_Leads && typeof window.RRP_Leads.submitLead === 'function') {
+        await window.RRP_Leads.submitLead(leadObj);
+      } else {
         try {
-          fbq('track', 'Lead', {
-            content_name: projectName,
-            content_category: currentProject.category,
-            currency: 'INR'
-          });
+          const CRM_KEY_1 = 'royal_rajasthan_leads_v1';
+          const CRM_KEY_2 = 'rrp_crm_leads';
+          const leads1 = JSON.parse(localStorage.getItem(CRM_KEY_1) || '[]');
+          leads1.unshift(leadObj);
+          localStorage.setItem(CRM_KEY_1, JSON.stringify(leads1));
+          const leads2 = JSON.parse(localStorage.getItem(CRM_KEY_2) || '[]');
+          leads2.unshift(leadObj);
+          localStorage.setItem(CRM_KEY_2, JSON.stringify(leads2));
+          sessionStorage.setItem('rrp_latest_inquiry', JSON.stringify(leadObj));
+          localStorage.setItem('rrp_latest_inquiry', JSON.stringify(leadObj));
         } catch (err) {}
       }
 
-      // FormSubmit Email dispatch to nav00900@gmail.com
-      fetch('https://formsubmit.co/ajax/nav00900@gmail.com', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-          _subject: New Project Lead:  () - ,
-          Client_Name: name,
-          Phone_WhatsApp: phone,
-          Project_Name: projectName,
-          Unit_Type: unitType,
-          Budget: budget,
-          Site_Visit_Date: visitDate || 'Not specified',
-          Message: message,
-          Page_URL: window.location.href
-        })
-      }).catch(() => null);
-
-      // Google Sheets Webhook Dispatch if configured
-      try {
-        const webhookUrl = localStorage.getItem('royal_rajasthan_sheets_webhook_v1') || localStorage.getItem('rrp_google_sheets_webhook');
-        if (webhookUrl && webhookUrl.startsWith('http')) {
-          fetch(webhookUrl, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(leadObj)
-          }).catch(() => null);
-        }
-      } catch (err) {}
-
-      // Redirect to thank-you.html with query parameters
-      setTimeout(() => {
-        const targetUrl = /thank-you.html?ref=&name=&phone=&project=&budget=&wa=1;
-        window.location.href = targetUrl;
-      }, 700);
+      const targetUrl = '/thank-you.html?ref=' + encodeURIComponent(leadObj.id || Date.now()) +
+                        '&name=' + encodeURIComponent(name) +
+                        '&phone=' + encodeURIComponent(phone) +
+                        '&project=' + encodeURIComponent(projectName) +
+                        '&budget=' + encodeURIComponent(budget) +
+                        '&wa=1';
+      window.location.href = targetUrl;
     }
 
     document.addEventListener('DOMContentLoaded', () => {
       if (window.lucide) lucide.createIcons();
     });
   </script>
+  <!-- Real Estate Leads & Google Sheets Auto-Sync Engine -->
+  <script src="/assets/js/leads-sync.js"></script>
   <!-- Global Page Background Engine -->
   <script src="/assets/js/page-background.js"></script>
 </body>
