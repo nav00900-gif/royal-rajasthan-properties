@@ -4222,7 +4222,7 @@
           <label class="block text-xs uppercase tracking-wider font-semibold text-slate-300 mb-1">
             Current Password:
           </label>
-          <input type="password" id="currentPassInput" required placeholder="Purana password dalein (Default: 1234)" class="w-full bg-royal-900 border border-white/20 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-gold-400">
+          <input type="password" id="currentPassInput" required placeholder="Apna purana admin password dalein..." class="w-full bg-royal-900 border border-white/20 rounded-xl px-3.5 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-gold-400">
         </div>
 
         <div>
@@ -6515,7 +6515,7 @@
     const ADMIN_PASS_STORAGE_KEY = 'rrp_admin_secret_password';
 
     function getAdminPassword() {
-      return localStorage.getItem(ADMIN_PASS_STORAGE_KEY) || '1234';
+      return localStorage.getItem(ADMIN_PASS_STORAGE_KEY) || 'Nav@784991';
     }
 
     function openAdminModal() {
@@ -6556,8 +6556,8 @@
       const entered = (input ? input.value : '').trim();
       const currentPass = getAdminPassword();
 
-      // Accept configured password OR universal default '1234'
-      if (entered === currentPass || entered === '1234') {
+      // Strict password verification against configured password or master password
+      if (entered === currentPass || entered === 'Nav@784991') {
         sessionStorage.setItem('rrp_admin_logged_in', 'true');
         closeAdminLoginModal();
         showAdminDashboard();
