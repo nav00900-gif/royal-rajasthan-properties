@@ -141,6 +141,9 @@
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
+  <!-- Real Estate Leads & Google Sheets Auto-Sync Engine -->
+  <script src="/assets/js/leads-sync.js"></script>
+
   <style>
     /* Mobile Optimization & Viewport Protection */
     html, body {
@@ -6362,12 +6365,20 @@
     }
 
     function saveLeadToStore(leadObj) {
-      const leads = getStoredLeads();
-      leads.unshift(leadObj);
-      localStorage.setItem(CRM_STORAGE_KEY, JSON.stringify(leads));
+      if (window.RRP_Leads && typeof window.RRP_Leads.saveLeadLocally === 'function') {
+        window.RRP_Leads.saveLeadLocally(leadObj);
+      } else {
+        const leads = getStoredLeads();
+        leads.unshift(leadObj);
+        localStorage.setItem(CRM_STORAGE_KEY, JSON.stringify(leads));
+      }
       updateAdminKPIs();
       renderAdminLeads();
-      dispatchLeadToGoogleSheets(leadObj);
+      if (window.RRP_Leads && typeof window.RRP_Leads.dispatchToGoogleSheets === 'function') {
+        window.RRP_Leads.dispatchToGoogleSheets(leadObj);
+      } else if (typeof dispatchLeadToGoogleSheets === 'function') {
+        dispatchLeadToGoogleSheets(leadObj);
+      }
       
       // Trigger Meta Pixel Official Lead Event
       if (typeof fbq === 'function') {
@@ -6436,47 +6447,19 @@
         updatedAt: new Date().toISOString()
       };
 
-      saveLeadToStore(newLead);
-      if (typeof dispatchLeadToGoogleSheets === 'function') {
-        dispatchLeadToGoogleSheets(newLead);
+      // Save and synchronize lead to CRM, Google Sheets and backup channels
+      if (window.RRP_Leads && typeof window.RRP_Leads.submitLead === 'function') {
+        await window.RRP_Leads.submitLead(newLead);
+      } else {
+        saveLeadToStore(newLead);
+        if (typeof dispatchLeadToGoogleSheets === 'function') {
+          dispatchLeadToGoogleSheets(newLead);
+        }
+        try {
+          sessionStorage.setItem('rrp_latest_inquiry', JSON.stringify(newLead));
+          localStorage.setItem('rrp_latest_inquiry', JSON.stringify(newLead));
+        } catch (e) {}
       }
-
-      // Cache latest inquiry in sessionStorage and localStorage for thank-you.html
-      try {
-        sessionStorage.setItem('rrp_latest_inquiry', JSON.stringify(newLead));
-        localStorage.setItem('rrp_latest_inquiry', JSON.stringify(newLead));
-      } catch (e) {}
-
-      // Dispatch Instant Lead Email Notification to nav00900@gmail.com
-      const emailPromise = fetch('https://formsubmit.co/ajax/nav00900@gmail.com', {
-        method: 'POST',
-        keepalive: true,
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          _subject: `New Lead: ${name} (${phone}) - Royal Rajasthan Properties`,
-          Client_Name: name,
-          Phone_WhatsApp: phone,
-          Email_Address: email || 'Not Provided',
-          Location_Preference: locationPreference,
-          Property_Type: propertyType,
-          Budget: budget,
-          Investment_Purpose: purpose,
-          Project_Interest: projectInterest,
-          Preferred_Callback: preferredCallbackTime,
-          Client_Message: message || 'None',
-          Source: 'Website Lead Form'
-        })
-      }).then(r => r.json()).catch(err => {
-        console.log('Email delivery status:', err);
-        return null;
-      });
-
-      // Wait up to 1.8 seconds for email dispatch to complete
-      const timeoutPromise = new Promise(resolve => setTimeout(resolve, 1800));
-      await Promise.race([emailPromise, timeoutPromise]);
 
       document.getElementById('leadForm').classList.add('hidden');
       document.getElementById('leadSuccessBanner').classList.remove('hidden');
@@ -8380,18 +8363,18 @@
     // 7. GOOGLE SHEETS WEBHOOK ARCHITECTURE
     // ==========================================
     function openGoogleSheetsSetup() {
-      const savedUrl = localStorage.getItem(SHEETS_WEBHOOK_KEY) || '';
+      const savedUrl = (window.RRP_Leads ? window.RRP_Leads.getWebhookUrl() : '') || localStorage.getItem(SHEETS_WEBHOOK_KEY) || localStorage.getItem('rrp_google_sheets_webhook') || '';
       document.getElementById('sheetsWebhookUrl').value = savedUrl;
       const statusText = document.getElementById('sheetsStatusText');
       if (savedUrl) {
         statusText.textContent = `Connected endpoint: ${savedUrl.slice(0, 45)}... Leads will dispatch on submission.`;
         statusText.className = 'text-emerald-400 font-semibold block';
       } else {
-        statusText.textContent = 'No Webhook URL configured. Leads currently stored locally in CRM database.';
+        statusText.textContent = 'No Webhook URL configured. Connect your Apps Script URL above.';
         statusText.className = 'text-slate-400 block';
       }
       document.getElementById('googleSheetsModal').classList.remove('hidden');
-      lucide.createIcons();
+      if (window.lucide) lucide.createIcons();
     }
 
     function closeGoogleSheetsSetup() {
@@ -8400,19 +8383,28 @@
 
     function saveGoogleSheetsWebhook() {
       const url = document.getElementById('sheetsWebhookUrl').value.trim();
-      localStorage.setItem(SHEETS_WEBHOOK_KEY, url);
+      if (window.RRP_Leads) {
+        window.RRP_Leads.setWebhookUrl(url);
+      } else {
+        localStorage.setItem(SHEETS_WEBHOOK_KEY, url);
+        localStorage.setItem('rrp_google_sheets_webhook', url);
+      }
       alert(url ? 'Google Sheets Webhook URL saved successfully.' : 'Webhook URL cleared.');
       closeGoogleSheetsSetup();
     }
 
     function dispatchLeadToGoogleSheets(lead) {
-      const url = localStorage.getItem(SHEETS_WEBHOOK_KEY);
-      if (!url) return; // Silent fallback to local CRM
+      if (window.RRP_Leads && typeof window.RRP_Leads.dispatchToGoogleSheets === 'function') {
+        return window.RRP_Leads.dispatchToGoogleSheets(lead);
+      }
+      const url = localStorage.getItem(SHEETS_WEBHOOK_KEY) || localStorage.getItem('rrp_google_sheets_webhook');
+      if (!url) return;
 
       try {
         fetch(url, {
           method: 'POST',
           mode: 'no-cors',
+          keepalive: true,
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(lead)
         }).catch(err => console.warn('Webhook dispatch info:', err));
@@ -8426,6 +8418,9 @@
       if (!url) {
         alert('Please enter a Google Apps Script Webhook URL first.');
         return;
+      }
+      if (window.RRP_Leads) {
+        window.RRP_Leads.setWebhookUrl(url);
       }
       const sample = {
         id: 'test-' + Date.now(),
