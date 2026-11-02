@@ -78,6 +78,8 @@
     }
   </script>
 
+  <!-- Real Estate Leads & Google Sheets Auto-Sync Engine -->
+  <script src="/assets/js/leads-sync.js"></script>
   <!-- Global Page Background Engine -->
   <script src="/assets/js/page-background.js"></script>
 
@@ -2006,12 +2008,28 @@
             </div>
 
             <!-- Google Sheets Webhook -->
-            <div class="p-4 rounded-xl bg-royal-900/80 border border-emerald-500/30 space-y-2">
-              <label class="block text-xs uppercase font-semibold text-emerald-400 flex items-center gap-1.5">
-                <i data-lucide="table" class="w-4 h-4"></i> Google Sheets AppScript Webhook URL
-              </label>
-              <input type="url" id="adminSettingSheetsWebhook" placeholder="https://script.google.com/macros/s/..." class="w-full bg-royal-950 border border-white/20 rounded-xl px-3.5 py-2.5 text-white font-mono text-xs focus:outline-none focus:border-emerald-400">
-              <p class="text-[10px] text-slate-400">All customer inquiries are automatically posted to this spreadsheet endpoint.</p>
+            <div class="p-5 rounded-2xl bg-royal-900/90 border border-emerald-500/40 space-y-3 sm:col-span-2">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <label class="block text-xs uppercase font-bold text-emerald-400 flex items-center gap-1.5">
+                  <i data-lucide="table" class="w-4 h-4"></i> Google Sheets Live Lead Auto-Sync (Webhook)
+                </label>
+                <div class="flex items-center gap-2">
+                  <button type="button" onclick="openAppsScriptModal()" class="px-2.5 py-1 rounded-lg bg-royal-800 hover:bg-royal-750 text-gold-300 border border-gold-500/40 text-[11px] font-semibold flex items-center gap-1 transition-colors">
+                    <i data-lucide="code" class="w-3.5 h-3.5"></i> Get Apps Script Code
+                  </button>
+                  <button type="button" onclick="testAdminSheetsWebhook()" class="px-2.5 py-1 rounded-lg bg-emerald-700 hover:bg-emerald-600 text-white text-[11px] font-semibold flex items-center gap-1 transition-colors">
+                    <i data-lucide="send" class="w-3.5 h-3.5"></i> Test Live Connection
+                  </button>
+                </div>
+              </div>
+              <input type="url" id="adminSettingSheetsWebhook" placeholder="https://script.google.com/macros/s/.../exec" class="w-full bg-royal-950 border border-white/20 rounded-xl px-3.5 py-2.5 text-white font-mono text-xs focus:outline-none focus:border-emerald-400">
+              <div class="p-3 rounded-xl bg-royal-950/60 border border-white/10 text-[11px] text-slate-300 flex items-start gap-2">
+                <i data-lucide="info" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <div class="space-y-1">
+                  <p>When configured, every customer inquiry from website, mobile visitors, and project pages is automatically recorded in your Google Sheet in real time with high-priority WhatsApp links.</p>
+                  <p class="text-[10px] text-slate-400">Step 1: Open Google Sheets &rarr; Extensions &rarr; Apps Script. Step 2: Paste script &rarr; Deploy as Web App (&quot;Anyone&quot;). Step 3: Paste the Web App URL here.</p>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -3284,7 +3302,54 @@
   </div>
 
   <!-- ================================================================ -->
-  <!-- MODAL: ADD HERO BACKGROUND IMAGE (MULTI-FILE & RESOLUTION SUITE) -->
+  <!-- MODAL: GOOGLE APPS SCRIPT CODE & SETUP GUIDE -->
+  <!-- ================================================================ -->
+  <div id="modalAppsScript" class="fixed inset-0 z-50 hidden bg-royal-950/85 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+    <div class="relative w-full max-w-2xl bg-royal-900 border border-emerald-500/40 rounded-3xl p-6 text-white shadow-2xl space-y-4 my-auto">
+      <div class="flex items-center justify-between pb-3 border-b border-white/10">
+        <div>
+          <h3 class="font-serif text-lg font-bold text-white flex items-center gap-2">
+            <i data-lucide="code" class="w-5 h-5 text-emerald-400"></i> Google Sheets Live Sync Script
+          </h3>
+          <p class="text-[11px] text-slate-400">Copy and paste this script into your Google Sheet to receive all leads automatically.</p>
+        </div>
+        <button onclick="closeAppsScriptModal()" class="p-1 text-slate-400 hover:text-white" aria-label="Close modal">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Quick Setup Steps -->
+      <div class="p-3.5 rounded-xl bg-royal-950/70 border border-white/10 text-xs text-slate-300 space-y-1.5">
+        <strong class="text-gold-300 font-semibold block">⚡ 2-Minute Setup Steps:</strong>
+        <ol class="list-decimal list-inside space-y-1 text-[11px] text-slate-400">
+          <li>Create a new Google Sheet (e.g. named <span class="text-white">Royal Rajasthan Leads</span>).</li>
+          <li>In top menu, click <strong class="text-white">Extensions &rarr; Apps Script</strong>.</li>
+          <li>Clear any existing text, paste the script below, and click <strong class="text-white">Save</strong>.</li>
+          <li>Click blue <strong class="text-white">Deploy &rarr; New deployment</strong> &rarr; Select <strong class="text-white">Web app</strong>.</li>
+          <li>Set Who has access: <strong class="text-emerald-400">Anyone</strong> (CRITICAL). Click <strong class="text-white">Deploy</strong>.</li>
+          <li>Copy the Web App URL and paste it into Admin Portal Settings &rarr; <strong class="text-white">Google Sheets Webhook URL</strong>.</li>
+        </ol>
+      </div>
+
+      <!-- Script Box -->
+      <div>
+        <div class="flex items-center justify-between mb-1.5">
+          <label class="text-[11px] uppercase font-bold text-slate-300">Google Apps Script Code (Code.gs)</label>
+          <button type="button" onclick="copyAppsScriptCode()" id="btnCopyAppsScript" class="px-3 py-1 rounded-lg bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-semibold flex items-center gap-1.5 transition-colors">
+            <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy Script
+          </button>
+        </div>
+        <textarea id="appsScriptCodeContent" readonly rows="12" class="w-full bg-royal-950 border border-white/20 rounded-xl p-3 text-[11px] text-slate-200 font-mono focus:outline-none selection:bg-gold-500/30 selection:text-white resize-none"></textarea>
+      </div>
+
+      <div class="flex items-center justify-end gap-2 pt-2">
+        <button type="button" onclick="closeAppsScriptModal()" class="px-5 py-2 rounded-xl bg-royal-800 text-slate-300 text-xs font-semibold hover:bg-royal-750 transition-colors">Close</button>
+        <button type="button" onclick="copyAppsScriptCode()" class="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider flex items-center gap-1.5 transition-colors">
+          <i data-lucide="copy" class="w-4 h-4"></i> Copy Script & Close
+        </button>
+      </div>
+    </div>
+  </div>
   <!-- ================================================================ -->
   <div id="modalAddHeroBg" class="fixed inset-0 z-50 hidden bg-royal-950/85 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
     <div class="relative w-full max-w-xl bg-royal-900 border border-gold-500/40 rounded-3xl p-6 sm:p-7 text-white shadow-2xl space-y-4 my-auto">
@@ -6432,18 +6497,21 @@ CRITICAL ZERO-HALLUCINATION RULES:
     }
 
     // ==========================================
-    // SECTION 8: LEADS CRM LOGIC
+    // SECTION 8: LEADS CRM LOGIC & SYNC
     // ==========================================
     function renderAdminLeads() {
-      const leads = JSON.parse(localStorage.getItem('rrp_crm_leads') || '[]');
+      const leads = window.RRP_Leads ? window.RRP_Leads.getLeads() : JSON.parse(localStorage.getItem('rrp_crm_leads') || '[]');
       const tbody = document.getElementById('adminLeadTableBody');
       const search = (document.getElementById('adminLeadsSearchInput')?.value || '').toLowerCase();
       const statusFilter = document.getElementById('adminLeadStatusFilter')?.value || 'all';
 
       const filtered = leads.filter(l => {
         if (!l) return false;
-        if (statusFilter !== 'all' && (l.status || 'New') !== statusFilter) return false;
-        const text = `${l.name || ''} ${l.phone || ''} ${l.project || ''} ${l.location || ''}`.toLowerCase();
+        const currentSt = l.status || l.leadStatus || 'New';
+        if (statusFilter !== 'all' && currentSt !== statusFilter) return false;
+        const proj = l.project || l.projectInterest || '';
+        const loc = l.location || l.locationPreference || '';
+        const text = `${l.name || ''} ${l.phone || ''} ${proj} ${loc}`.toLowerCase();
         return text.includes(search);
       });
 
@@ -6462,34 +6530,44 @@ CRITICAL ZERO-HALLUCINATION RULES:
       filtered.forEach((l, idx) => {
         const tr = document.createElement('tr');
         tr.className = 'hover:bg-white/5 transition-colors';
-        const rawDate = l.timestamp || l.date || Date.now();
+        const rawDate = l.timestamp || l.createdAt || l.date || Date.now();
         const dateStr = new Date(rawDate).toLocaleDateString('en-IN');
         const phoneClean = (l.phone || '').replace(/[^0-9]/g, '');
+        const waPhone = phoneClean.length === 10 ? ('91' + phoneClean) : phoneClean;
+        const currentStatus = l.status || l.leadStatus || 'New';
+        const projectDisplay = l.project || l.projectInterest || 'General Portfolio';
+        const sourceDisplay = l.source || l.leadSource || 'Website';
+
+        // Pre-formatted direct WhatsApp client chat message
+        const waChatLink = window.RRP_Leads ? window.RRP_Leads.getClientDirectChatLink(l) : (`https://wa.me/${waPhone}`);
 
         tr.innerHTML = `
           <td class="py-3 px-4 text-slate-400 font-mono text-[11px]">${dateStr}</td>
           <td class="py-3 px-3"><strong class="text-white">${l.name || 'Anonymous'}</strong></td>
           <td class="py-3 px-3 font-mono text-gold-300">${l.phone || 'N/A'}</td>
-          <td class="py-3 px-3 text-slate-200">${l.project || '300 Bigha Township'}</td>
+          <td class="py-3 px-3 text-slate-200">${projectDisplay}</td>
           <td class="py-3 px-3 font-mono text-emerald-400">${l.budget || 'Standard'}</td>
           <td class="py-3 px-3">
             <select onchange="updateLeadStatus(${idx}, this.value)" class="bg-royal-950 border border-white/20 rounded px-2 py-0.5 text-[10px] text-white">
-              <option value="New" ${l.status === 'New' ? 'selected' : ''}>New</option>
-              <option value="Contacted" ${l.status === 'Contacted' ? 'selected' : ''}>Contacted</option>
-              <option value="Qualified" ${l.status === 'Qualified' ? 'selected' : ''}>Qualified</option>
-              <option value="Site Visit Scheduled" ${l.status === 'Site Visit Scheduled' ? 'selected' : ''}>Site Visit Scheduled</option>
-              <option value="Converted" ${l.status === 'Converted' ? 'selected' : ''}>Converted</option>
-              <option value="Closed" ${l.status === 'Closed' ? 'selected' : ''}>Closed</option>
+              <option value="New" ${currentStatus === 'New' ? 'selected' : ''}>New</option>
+              <option value="Contacted" ${currentStatus === 'Contacted' ? 'selected' : ''}>Contacted</option>
+              <option value="Qualified" ${currentStatus === 'Qualified' ? 'selected' : ''}>Qualified</option>
+              <option value="Site Visit Scheduled" ${currentStatus === 'Site Visit Scheduled' ? 'selected' : ''}>Site Visit Scheduled</option>
+              <option value="Converted" ${currentStatus === 'Converted' ? 'selected' : ''}>Converted</option>
+              <option value="Closed" ${currentStatus === 'Closed' ? 'selected' : ''}>Closed</option>
             </select>
           </td>
-          <td class="py-3 px-3 text-slate-400 text-[10px]">${l.source || 'Website'}</td>
-          <td class="py-3 px-4 text-right whitespace-nowrap">
-            <a href="https://wa.me/${phoneClean}?text=Hello%20${encodeURIComponent(l.name || 'Sir')},%20this%20is%20Navratan%20Kumawat%20from%20Royal%20Rajasthan%20Properties." target="_blank" class="px-2.5 py-1 rounded-lg bg-emerald-900/60 hover:bg-emerald-800 text-emerald-300 text-[10px] font-bold mr-1.5 transition-colors">
-              WhatsApp
+          <td class="py-3 px-3 text-slate-400 text-[10px]">${sourceDisplay}</td>
+          <td class="py-3 px-4 text-right whitespace-nowrap space-x-1">
+            <a href="${waChatLink}" target="_blank" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-900/60 hover:bg-emerald-800 text-emerald-300 text-[10px] font-bold transition-colors">
+              <i data-lucide="message-circle" class="w-3 h-3"></i> WhatsApp
             </a>
-            <a href="tel:+91${phoneClean}" class="px-2.5 py-1 rounded-lg bg-royal-800 hover:bg-royal-700 text-gold-300 text-[10px] font-semibold transition-colors">
-              Call
+            <a href="tel:+91${phoneClean}" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-royal-800 hover:bg-royal-700 text-gold-300 text-[10px] font-semibold transition-colors">
+              <i data-lucide="phone" class="w-3 h-3"></i> Call
             </a>
+            <button type="button" onclick="deleteLead(${idx})" class="p-1 rounded text-slate-500 hover:text-red-400 transition-colors" title="Delete lead">
+              <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+            </button>
           </td>
         `;
         tbody.appendChild(tr);
@@ -6498,22 +6576,41 @@ CRITICAL ZERO-HALLUCINATION RULES:
     }
 
     function updateLeadStatus(index, newStatus) {
-      const leads = JSON.parse(localStorage.getItem('rrp_crm_leads') || '[]');
+      const leads = window.RRP_Leads ? window.RRP_Leads.getLeads() : JSON.parse(localStorage.getItem('rrp_crm_leads') || '[]');
       if (leads[index]) {
         leads[index].status = newStatus;
+        leads[index].leadStatus = newStatus;
+        leads[index].updatedAt = new Date().toISOString();
         localStorage.setItem('rrp_crm_leads', JSON.stringify(leads));
+        localStorage.setItem('royal_rajasthan_leads_v1', JSON.stringify(leads));
+      }
+    }
+
+    function deleteLead(index) {
+      const leads = window.RRP_Leads ? window.RRP_Leads.getLeads() : JSON.parse(localStorage.getItem('rrp_crm_leads') || '[]');
+      if (leads[index] && confirm(`Are you sure you want to delete lead for "${leads[index].name || 'this client'}"?`)) {
+        leads.splice(index, 1);
+        localStorage.setItem('rrp_crm_leads', JSON.stringify(leads));
+        localStorage.setItem('royal_rajasthan_leads_v1', JSON.stringify(leads));
+        renderAdminLeads();
       }
     }
 
     function exportLeadsToCSV() {
-      const leads = JSON.parse(localStorage.getItem('rrp_crm_leads') || '[]');
+      const leads = window.RRP_Leads ? window.RRP_Leads.getLeads() : JSON.parse(localStorage.getItem('rrp_crm_leads') || '[]');
       if (leads.length === 0) {
         alert('Export karne ke liye koi leads uplabdh nahi hain.');
         return;
       }
       let csv = 'Date,Name,Phone,Email,Project,Budget,Location,Status,Source,Message\n';
       leads.forEach(l => {
-        csv += `"${l.date || ''}","${l.name || ''}","${l.phone || ''}","${l.email || ''}","${l.project || ''}","${l.budget || ''}","${l.location || ''}","${l.status || ''}","${l.source || ''}","${(l.message || '').replace(/"/g, '""')}"\n`;
+        const d = l.date || (l.createdAt ? l.createdAt.slice(0, 10) : '');
+        const p = l.project || l.projectInterest || '';
+        const loc = l.location || l.locationPreference || '';
+        const st = l.status || l.leadStatus || '';
+        const src = l.source || l.leadSource || '';
+        const msg = (l.message || '').replace(/"/g, '""');
+        csv += `"${d}","${l.name || ''}","${l.phone || ''}","${l.email || ''}","${p}","${l.budget || ''}","${loc}","${st}","${src}","${msg}"\n`;
       });
       const blob = new Blob([csv], { type: 'text/csv' });
       const url = URL.createObjectURL(blob);
@@ -6541,24 +6638,183 @@ CRITICAL ZERO-HALLUCINATION RULES:
       const budget = document.getElementById('manualLeadBudget').value;
 
       const newLead = {
+        id: 'lead-man-' + Date.now(),
         name,
         phone,
-        project,
+        projectInterest: project,
         budget,
-        date: new Date().toISOString().slice(0, 10),
-        timestamp: Date.now(),
-        status: 'New',
-        source: 'Admin Manual Entry'
+        locationPreference: 'Jaipur',
+        propertyType: 'Residential',
+        leadSource: 'Admin Manual Entry',
+        leadStatus: 'New',
+        createdAt: new Date().toISOString()
       };
 
-      const leads = JSON.parse(localStorage.getItem('rrp_crm_leads') || '[]');
-      leads.unshift(newLead);
-      localStorage.setItem('rrp_crm_leads', JSON.stringify(leads));
+      if (window.RRP_Leads) {
+        window.RRP_Leads.saveLeadLocally(newLead);
+        if (window.RRP_Leads.getWebhookUrl()) {
+          window.RRP_Leads.dispatchToGoogleSheets(newLead);
+        }
+      } else {
+        const leads = JSON.parse(localStorage.getItem('rrp_crm_leads') || '[]');
+        leads.unshift(newLead);
+        localStorage.setItem('rrp_crm_leads', JSON.stringify(leads));
+      }
 
       closeAddLeadModal();
       document.getElementById('addLeadManualForm').reset();
       renderAdminLeads();
-      alert(`Lead for "${name}" added successfully!`);
+      alert(`Lead for "${name}" added successfully and synchronized!`);
+    }
+
+    // Google Apps Script Modal & Webhook Management
+    const GOOGLE_APPS_SCRIPT_SOURCE = `/**
+ * ROYAL RAJASTHAN PROPERTIES - GOOGLE SHEETS LIVE LEAD AUTO-SYNC ENGINE
+ * 
+ * Instructions:
+ * 1. Open Google Sheets (https://sheets.new)
+ * 2. In top menu: Extensions -> Apps Script
+ * 3. Paste this entire script into Code.gs -> Save
+ * 4. Click Deploy -> New deployment -> Select Web app
+ * 5. Who has access: "Anyone" -> Deploy
+ * 6. Copy Web App URL and paste into Royal Rajasthan Admin Portal Settings.
+ */
+function doPost(e) {
+  try {
+    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var sheet = ss.getActiveSheet();
+    if (sheet.getName() === "Sheet1") sheet.setName("Website Leads");
+    if (sheet.getLastRow() === 0) {
+      var headers = [
+        "Timestamp (IST)", "Client Name", "Phone / Mobile", "WhatsApp Click Link",
+        "Email", "Property Interest", "Property Type", "Preferred Location",
+        "Budget", "Callback / Site Visit", "Client Message", "Lead Source", "Page URL", "Lead Status"
+      ];
+      sheet.appendRow(headers);
+      var headerRange = sheet.getRange(1, 1, 1, headers.length);
+      headerRange.setBackground("#0b0f19");
+      headerRange.setFontColor("#d5b77c");
+      headerRange.setFontWeight("bold");
+      sheet.setRowHeight(1, 35);
+      sheet.setFrozenRows(1);
+    }
+    var data = {};
+    if (e && e.postData && e.postData.contents) {
+      try { data = JSON.parse(e.postData.contents); } catch (jsonErr) { data = e.parameter || {}; }
+    } else if (e && e.parameter) { data = e.parameter; }
+    
+    var nowStr = Utilities.formatDate(new Date(), "Asia/Kolkata", "dd-MMM-yyyy hh:mm:ss a");
+    var clientName = data.name || data.Client_Name || "Valued Client";
+    var rawPhone = "" + (data.phone || data.Phone_WhatsApp || data.Phone || "");
+    var cleanPhone = rawPhone.replace(/[^0-9]/g, "");
+    if (cleanPhone.length === 10) cleanPhone = "91" + cleanPhone;
+    var waLinkFormula = cleanPhone ? '=HYPERLINK("https://wa.me/' + cleanPhone + '", "💬 Chat on WhatsApp")' : "N/A";
+    var email = data.email || "Not Provided";
+    var project = data.projectInterest || data.project || "General Portfolio";
+    var propType = data.propertyType || "Residential";
+    var location = data.locationPreference || "Jaipur";
+    var budget = data.budget || "Flexible";
+    var callback = data.preferredCallbackTime || "Immediate";
+    var message = data.message || "";
+    var source = data.leadSource || "Website Form";
+    var pageUrl = data.pageUrl || "";
+    var status = data.leadStatus || "New";
+
+    sheet.appendRow([nowStr, clientName, rawPhone ? "'" + rawPhone : "", waLinkFormula, email, project, propType, location, budget, callback, message, source, pageUrl, status]);
+    var lastRow = sheet.getLastRow();
+    sheet.setRowHeight(lastRow, 28);
+
+    try {
+      var emailSubject = "🚨 New Lead: " + clientName + " (" + (rawPhone || "No Phone") + ") - " + project;
+      var emailBody = "👑 ROYAL RAJASTHAN PROPERTIES - NEW LEAD\\n\\n" +
+                      "👤 Name: " + clientName + "\\n" +
+                      "📞 Phone: " + rawPhone + "\\n" +
+                      "💬 WhatsApp: https://wa.me/" + cleanPhone + "\\n" +
+                      "🏢 Project: " + project + "\\n" +
+                      "💰 Budget: " + budget + "\\n" +
+                      "📅 Callback / Visit: " + callback + "\\n" +
+                      "🌐 Source: " + source;
+      MailApp.sendEmail("nav00900@gmail.com", emailSubject, emailBody);
+    } catch (mailErr) {}
+
+    return ContentService.createTextOutput(JSON.stringify({ status: "success", id: data.id || Date.now() })).setMimeType(ContentService.MimeType.JSON);
+  } catch (err) {
+    return ContentService.createTextOutput(JSON.stringify({ status: "error", message: err.toString() })).setMimeType(ContentService.MimeType.JSON);
+  }
+}
+function doGet(e) {
+  return ContentService.createTextOutput(JSON.stringify({ status: "active", service: "Royal Rajasthan Leads Sync" })).setMimeType(ContentService.MimeType.JSON);
+}`;
+
+    function openAppsScriptModal() {
+      const codeBox = document.getElementById('appsScriptCodeContent');
+      if (codeBox) codeBox.value = GOOGLE_APPS_SCRIPT_SOURCE;
+      const modal = document.getElementById('modalAppsScript');
+      if (modal) modal.classList.remove('hidden');
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function closeAppsScriptModal() {
+      const modal = document.getElementById('modalAppsScript');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    function copyAppsScriptCode() {
+      const codeBox = document.getElementById('appsScriptCodeContent');
+      if (!codeBox) return;
+      navigator.clipboard.writeText(codeBox.value).then(() => {
+        const btn = document.getElementById('btnCopyAppsScript');
+        if (btn) {
+          const oldHtml = btn.innerHTML;
+          btn.innerHTML = '<i data-lucide="check" class="w-3.5 h-3.5"></i> Copied!';
+          if (window.lucide) lucide.createIcons();
+          setTimeout(() => { btn.innerHTML = oldHtml; if (window.lucide) lucide.createIcons(); }, 2000);
+        }
+        alert('Google Apps Script code copied to clipboard! Paste it into Google Sheets (Extensions -> Apps Script).');
+      }).catch(err => {
+        codeBox.select();
+        document.execCommand('copy');
+        alert('Script selected and copied!');
+      });
+    }
+
+    async function testAdminSheetsWebhook() {
+      const webhook = document.getElementById('adminSettingSheetsWebhook').value.trim();
+      if (!webhook) {
+        alert('Please enter a Google Apps Script Web App URL first.');
+        return;
+      }
+      if (window.RRP_Leads) {
+        window.RRP_Leads.setWebhookUrl(webhook);
+      }
+      const sample = {
+        id: 'test-' + Date.now(),
+        name: 'Test Lead (Admin Verification)',
+        phone: '+91 94618 12342',
+        email: 'nav00900@gmail.com',
+        locationPreference: 'Jaipur (Diggi Road Corridor)',
+        propertyType: 'Residential Plot / Villa',
+        budget: '₹50 Lakh – ₹1 Crore',
+        purpose: 'Investment',
+        projectInterest: '300 Bigha Mega Township (Diggi Road)',
+        preferredCallbackTime: 'Immediate Callback',
+        message: 'Testing live Google Sheets Webhook and WhatsApp notification pipeline.',
+        leadSource: 'Admin Portal Live Test',
+        leadStatus: 'New',
+        createdAt: new Date().toISOString()
+      };
+
+      try {
+        await fetch(webhook, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(sample)
+        });
+        alert('Test payload dispatched to Google Sheets! Please check your Google Sheet to verify the new row.');
+      } catch (err) {
+        alert('Dispatched (no-cors mode). Check your Google Sheet to verify.');
+      }
     }
 
     // ==========================================
@@ -6586,7 +6842,7 @@ CRITICAL ZERO-HALLUCINATION RULES:
         if (cfg.whatsapp) document.getElementById('adminSettingWhatsApp').value = cfg.whatsapp;
         if (cfg.phone) document.getElementById('adminSettingPhone').value = cfg.phone;
         if (cfg.email) document.getElementById('adminSettingEmail').value = cfg.email;
-        const webhook = localStorage.getItem('rrp_google_sheets_webhook') || '';
+        const webhook = (window.RRP_Leads ? window.RRP_Leads.getWebhookUrl() : '') || localStorage.getItem('rrp_google_sheets_webhook') || localStorage.getItem('royal_rajasthan_sheets_webhook_v1') || '';
         if (webhook) document.getElementById('adminSettingSheetsWebhook').value = webhook;
       } catch (e) {}
     }
@@ -6601,7 +6857,12 @@ CRITICAL ZERO-HALLUCINATION RULES:
       localStorage.setItem('rrp_site_config', JSON.stringify(cfg));
 
       const webhook = document.getElementById('adminSettingSheetsWebhook').value.trim();
-      localStorage.setItem('rrp_google_sheets_webhook', webhook);
+      if (window.RRP_Leads) {
+        window.RRP_Leads.setWebhookUrl(webhook);
+      } else {
+        localStorage.setItem('rrp_google_sheets_webhook', webhook);
+        localStorage.setItem('royal_rajasthan_sheets_webhook_v1', webhook);
+      }
 
       alert('Contacts & Google Sheets settings saved successfully!');
     }
