@@ -488,12 +488,12 @@
         if (badgeEl) badgeEl.textContent = 'Enquiry Successfully Submitted';
       }
 
-      // Populate Receipt Details (Safely from session/local storage, never from URL query)
-      const clientName = (leadData && leadData.name) || 'Valued Client';
-      const clientPhone = (leadData && leadData.phone) || '+91 94618 12342';
-      const clientProject = (leadData && leadData.projectInterest) || '300 Bigha Mega Township (Diggi Road)';
-      const clientLocation = (leadData && leadData.locationPreference) || 'Jaipur, Rajasthan';
-      const clientBudget = (leadData && leadData.budget) || 'Standard Portfolio';
+      // Populate Receipt Details (from session/local storage or URL parameters)
+      const clientName = (leadData && leadData.name) || urlParams.get('name') || 'Valued Client';
+      const clientPhone = (leadData && leadData.phone) || urlParams.get('phone') || '+91 94618 12342';
+      const clientProject = (leadData && leadData.projectInterest) || urlParams.get('project') || '300 Bigha Mega Township (Diggi Road)';
+      const clientLocation = (leadData && leadData.locationPreference) || urlParams.get('location') || 'Jaipur, Rajasthan';
+      const clientBudget = (leadData && leadData.budget) || urlParams.get('budget') || 'Standard Portfolio';
       const clientRef = (leadData && leadData.id) ? leadData.id.toUpperCase() : refParam.toUpperCase();
 
       document.getElementById('refIdDisplay').textContent = '#' + clientRef;
@@ -511,6 +511,8 @@
       }
     });
   </script>
+  <!-- Real Estate Leads & Google Sheets Auto-Sync Engine -->
+  <script src="/assets/js/leads-sync.js"></script>
   <!-- Global Page Background Engine -->
   <script src="/assets/js/page-background.js"></script>
 </body>
