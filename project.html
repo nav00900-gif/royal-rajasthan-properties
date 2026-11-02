@@ -1079,65 +1079,23 @@
         updatedAt: new Date().toISOString()
       };
 
-      // Save to existing storage keys
-      try {
-        const CRM_KEY_1 = 'royal_rajasthan_leads_v1';
-        const CRM_KEY_2 = 'rrp_crm_leads';
-        
-        const leads1 = JSON.parse(localStorage.getItem(CRM_KEY_1) || '[]');
-        leads1.unshift(leadObj);
-        localStorage.setItem(CRM_KEY_1, JSON.stringify(leads1));
-
-        const leads2 = JSON.parse(localStorage.getItem(CRM_KEY_2) || '[]');
-        leads2.unshift(leadObj);
-        localStorage.setItem(CRM_KEY_2, JSON.stringify(leads2));
-
-        sessionStorage.setItem('rrp_latest_inquiry', JSON.stringify(leadObj));
-        localStorage.setItem('rrp_latest_inquiry', JSON.stringify(leadObj));
-      } catch (err) {
-        console.error('Storage error:', err);
-      }
-
-      // Meta Pixel Lead tracking
-      if (typeof fbq === 'function') {
+      // Save & Synchronize lead across CRM & Google Sheets
+      if (window.RRP_Leads && typeof window.RRP_Leads.submitLead === 'function') {
+        await window.RRP_Leads.submitLead(leadObj);
+      } else {
         try {
-          fbq('track', 'Lead', {
-            content_name: projectName,
-            content_category: currentProject?.category || 'Real Estate',
-            currency: 'INR'
-          });
+          const CRM_KEY_1 = 'royal_rajasthan_leads_v1';
+          const CRM_KEY_2 = 'rrp_crm_leads';
+          const leads1 = JSON.parse(localStorage.getItem(CRM_KEY_1) || '[]');
+          leads1.unshift(leadObj);
+          localStorage.setItem(CRM_KEY_1, JSON.stringify(leads1));
+          const leads2 = JSON.parse(localStorage.getItem(CRM_KEY_2) || '[]');
+          leads2.unshift(leadObj);
+          localStorage.setItem(CRM_KEY_2, JSON.stringify(leads2));
+          sessionStorage.setItem('rrp_latest_inquiry', JSON.stringify(leadObj));
+          localStorage.setItem('rrp_latest_inquiry', JSON.stringify(leadObj));
         } catch (err) {}
       }
-
-      // FormSubmit Email dispatch to nav00900@gmail.com
-      fetch('https://formsubmit.co/ajax/nav00900@gmail.com', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-          _subject: `New Project Lead: ${name} (${phone}) - ${projectName}`,
-          Client_Name: name,
-          Phone_WhatsApp: phone,
-          Project_Name: projectName,
-          Unit_Type: unitType,
-          Budget: budget,
-          Site_Visit_Date: visitDate || 'Not specified',
-          Message: message,
-          Page_URL: window.location.href
-        })
-      }).catch(() => null);
-
-      // Google Sheets Webhook Dispatch if configured
-      try {
-        const webhookUrl = localStorage.getItem('royal_rajasthan_sheets_webhook_v1') || localStorage.getItem('rrp_google_sheets_webhook');
-        if (webhookUrl && webhookUrl.startsWith('http')) {
-          fetch(webhookUrl, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(leadObj)
-          }).catch(() => null);
-        }
-      } catch (err) {}
 
       // Redirect to thank-you.html with query parameters
       setTimeout(() => {
@@ -1148,5 +1106,9 @@
 
     window.addEventListener('DOMContentLoaded', initProjectPage);
   </script>
+  <!-- Real Estate Leads & Google Sheets Auto-Sync Engine -->
+  <script src="/assets/js/leads-sync.js"></script>
+  <!-- Global Page Background Engine -->
+  <script src="/assets/js/page-background.js"></script>
 </body>
 </html>
