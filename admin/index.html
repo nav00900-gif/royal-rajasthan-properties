@@ -4016,8 +4016,8 @@
   <script>
     // Security & Auth Keys
     const AUTH_SALT = 'RRP_ROYAL_RAJASTHAN_2026_SECURE_SALT_v1';
-    // Precomputed SHA-256 for AUTH_SALT + ":1234"
-    const DEFAULT_PASS_HASH = 'f2574cfa6beaa98de37e263865f7e3c4db7e1cfd4ef112e6a5d263e7731a9565';
+    // Precomputed Salted SHA-256 for authorized Admin Password
+    const DEFAULT_PASS_HASH = '08815fa2a35ddae0e0ffb1591b33b9842d52f376c8e6f881f85ac7e80e4ab146';
     const PASS_HASH_KEY = 'rrp_admin_pass_hash';
     const SESSION_TOKEN_KEY = 'rrp_admin_session_token';
     const SESSION_TIMEOUT_MS = 2 * 60 * 60 * 1000; // 2 hours
@@ -4202,8 +4202,8 @@
       const hashedInput = await computeSha256(input);
       const targetHash = getTargetPassHash();
 
-      // Backwards compatible check for legacy plaintext fallback or salted hash
-      const isMatch = (hashedInput === targetHash) || (input === localStorage.getItem('rrp_admin_password')) || (input === '1234');
+      // Strict cryptographic hash verification (No plaintext backdoors)
+      const isMatch = (hashedInput === targetHash);
 
       if (isMatch) {
         failedAttempts = 0;
@@ -6618,7 +6618,7 @@ CRITICAL ZERO-HALLUCINATION RULES:
       const hashedCurrent = await computeSha256(current);
       const targetHash = getTargetPassHash();
 
-      const isCurrentValid = (hashedCurrent === targetHash) || (current === localStorage.getItem('rrp_admin_password')) || (current === '1234');
+      const isCurrentValid = (hashedCurrent === targetHash);
       if (!isCurrentValid) {
         showPinError('Current PIN is incorrect!');
         return;
