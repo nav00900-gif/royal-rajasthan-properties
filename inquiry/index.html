@@ -398,56 +398,28 @@
         date: new Date().toISOString().slice(0, 10)
       };
 
-      // 1. Save in CRM LocalStorage
-      try {
-        const leads = JSON.parse(localStorage.getItem('rrp_crm_leads') || '[]');
-        leads.unshift(newLead);
-        localStorage.setItem('rrp_crm_leads', JSON.stringify(leads));
-      } catch (err) {}
+      // Save & Synchronize lead across CRM & Google Sheets
+      if (window.RRP_Leads && typeof window.RRP_Leads.submitLead === 'function') {
+        await window.RRP_Leads.submitLead(newLead);
+      } else {
+        try {
+          const leads = JSON.parse(localStorage.getItem('rrp_crm_leads') || '[]');
+          leads.unshift(newLead);
+          localStorage.setItem('rrp_crm_leads', JSON.stringify(leads));
+          localStorage.setItem('royal_rajasthan_leads_v1', JSON.stringify(leads));
+          sessionStorage.setItem('rrp_latest_inquiry', JSON.stringify(newLead));
+          localStorage.setItem('rrp_latest_inquiry', JSON.stringify(newLead));
+        } catch (err) {}
+      }
 
-      // 2. Cache in sessionStorage (Safe, no PII exposed in URL)
-      try {
-        sessionStorage.setItem('rrp_latest_inquiry', JSON.stringify(newLead));
-      } catch (err) {}
-
-      // 3. Dispatch to Google Sheets Webhook if configured
-      try {
-        const webhook = localStorage.getItem('rrp_google_sheets_webhook');
-        if (webhook) {
-          fetch(webhook, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(newLead)
-          }).catch(() => {});
-        }
-      } catch (err) {}
-
-      // 4. Send Email via FormSubmit
-      try {
-        fetch('https://formsubmit.co/ajax/nav00900@gmail.com', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({
-            _subject: `Inquiry Desk Lead: ${name} (${phone})`,
-            Client_Name: name,
-            Phone: phone,
-            Email: email || 'None',
-            Property_Type: type,
-            Location: location,
-            Project: project,
-            Budget: budget,
-            Message: message || 'Inquiry Desk Submission'
-          })
-        }).catch(() => {});
-      } catch (err) {}
-
-      // 5. Redirect cleanly to thank-you.html (No personal info in query params!)
+      // Redirect cleanly to thank-you.html
       setTimeout(() => {
-        window.location.href = `/thank-you.html?type=inquiry&ref=${encodeURIComponent(newLead.id)}`;
+        window.location.href = `/thank-you.html?type=inquiry&ref=${encodeURIComponent(newLead.id)}&name=${encodeURIComponent(name)}&phone=${encodeURIComponent(phone)}&project=${encodeURIComponent(project)}&budget=${encodeURIComponent(budget)}&wa=1`;
       }, 500);
     }
   </script>
+  <!-- Real Estate Leads & Google Sheets Auto-Sync Engine -->
+  <script src="/assets/js/leads-sync.js"></script>
   <!-- Global Page Background Engine -->
   <script src="/assets/js/page-background.js"></script>
 </body>
